@@ -5511,5 +5511,12 @@
     "pattern": "vercel-screenshot",
     "addition_date": "2024/08/30",
     "instances": []
+  },
+  {
+    "id": "coda-server-fetcher",
+    "pattern": "Coda-Server-Fetcher",
+    "addition_date": "2024/09/10",
+    "instances": [],
+    "url": "https://coda.io/product/packs"
   }
 ]
