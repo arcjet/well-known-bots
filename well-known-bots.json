@@ -3604,6 +3604,9 @@
   },
   {
     "id": "java-asynchttpclient",
+    "categories": [
+      "programmatic"
+    ],
     "pattern": "AHC\\/",
     "addition_date": "2017/11/02",
     "url": "https://github.com/AsyncHttpClient/async-http-client",
