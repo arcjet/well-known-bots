@@ -2131,7 +2131,7 @@
       "meta",
       "social"
     ],
-    "pattern": "Face(book){0,1}Bot",
+    "pattern": "Face(book){0,1}[Bb]ot",
     "url": "https://developers.facebook.com/docs/sharing/bot",
     "addition_date": "2014/12/30",
     "instances": [
