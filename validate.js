@@ -40,6 +40,14 @@ if (process.argv[2] === "--check") {
             console.error("Item is missing required `pattern` string field:", item);
             process.exit(1);
         }
+        if (!Array.isArray(item.categories)) {
+            console.error("Item is missing required `categories` array field:", item);
+            process.exit(1);
+        }
+        if (item.categories.length < 1) {
+            console.error("The `categories` field must contain at least one:", item);
+            process.exit(1);
+        }
         // TODO: Validate urls are still accessible
         if (typeof item.url !== "undefined" && typeof item.url !== "string") {
             console.error("Item has wrong type specified for `url` string field:", item);
