@@ -173,7 +173,6 @@
   {
     "id": "google-crawler-other",
     "categories": [
-      "ai",
       "google",
       "search-engine"
     ],
@@ -2290,7 +2289,6 @@
   {
     "id": "apple-crawler",
     "categories": [
-      "ai",
       "search-engine"
     ],
     "pattern": "Applebot",
@@ -5632,7 +5630,6 @@
   {
     "id": "amazon-crawler",
     "categories": [
-      "ai",
       "amazon"
     ],
     "pattern": "Amazonbot",
