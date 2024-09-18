@@ -1425,8 +1425,9 @@
   {
     "id": "commoncrawl-crawler",
     "categories": [
-      "archive",
-      "academic"
+      "academic",
+      "ai",
+      "archive"
     ],
     "pattern": "CCBot",
     "addition_date": "2012/02/05",
@@ -2452,6 +2453,7 @@
   {
     "id": "python-scrapy",
     "categories": [
+      "ai",
       "programmatic"
     ],
     "pattern": "Scrapy",
@@ -3522,11 +3524,11 @@
   {
     "id": "omgili-crawler",
     "categories": [
-      "unknown"
+      "ai"
     ],
     "pattern": "omgili",
     "addition_date": "2017/11/02",
-    "url": "http://omgili.com",
+    "url": "https://webz.io/blog/company/from-omgilibot-to-the-webzbot-duo-a-powerful-leap-for-ethical-and-comprehensive-data-collection/",
     "instances": [
       "omgili/0.5 +http://omgili.com"
     ]
@@ -4824,7 +4826,7 @@
   {
     "id": "velen-crawler",
     "categories": [
-      "unknown"
+      "ai"
     ],
     "pattern": "VelenPublicWebCrawler",
     "addition_date": "2018/10/09",
@@ -5635,7 +5637,7 @@
     "instances": [
       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5 (Amazonbot/0.1; +https://developer.amazon.com/support/amazonbot)"
     ],
-    "url": "https://developer.amazon.com/support/amazonbot"
+    "url": "https://developer.amazon.com/amazonbot"
   },
   {
     "id": "serendeputy-crawler",
@@ -6259,6 +6261,7 @@
   {
     "id": "petalsearch-crawler",
     "categories": [
+      "ai",
       "search-engine"
     ],
     "pattern": "PetalBot",
@@ -7163,7 +7166,7 @@
   {
     "id": "imagesift-crawler",
     "categories": [
-      "unknown"
+      "ai"
     ],
     "pattern": "ImagesiftBot",
     "addition_date": "2024/01/06",
@@ -7253,11 +7256,13 @@
     "categories": [
       "ai"
     ],
-    "pattern": "[cC]laude[bB]ot",
+    "pattern": "[cC]laude(?:[bB]ot|-[Ww]eb)",
     "addition_date": "2024/04/19",
     "instances": [
       "claudebot",
-      "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +claudebot@anthropic.com)"
+      "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +claudebot@anthropic.com)",
+      "Claude-Web",
+      "claude-web"
     ],
     "url": "https://www.anthropic.com/"
   },
@@ -7317,5 +7322,165 @@
     "addition_date": "2024/09/10",
     "instances": [],
     "url": "https://coda.io/product/packs"
+  },
+  {
+    "id": "ai2-crawler",
+    "categories": [
+      "ai"
+    ],
+    "pattern": "AI2Bot\\s",
+    "addition_date": "2024/09/16",
+    "instances": [
+      "Mozilla/5.0 (compatible) AI2Bot (+https://www.allenai.org/crawler)"
+    ],
+    "url": "https://allenai.org/crawler"
+  },
+  {
+    "id": "ai2-crawler-dolma",
+    "categories": [
+      "ai"
+    ],
+    "pattern": "Ai2Bot-Dolma",
+    "addition_date": "2024/09/16",
+    "instances": [
+      "Mozilla/5.0 (compatible) Ai2Bot-Dolma (+https://www.allenai.org/crawler)"
+    ],
+    "url": "https://wok.oblomov.eu/tecnologia/preparing-end-open-web/"
+  },
+  {
+    "id": "friendlycrawler",
+    "categories": [
+      "ai"
+    ],
+    "pattern": "FriendlyCrawler",
+    "addition_date": "2024/09/16",
+    "instances": [
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/605.1.15 (KHTML, like Gecko; compatible; FriendlyCrawler/1.0) Chrome/120.0.6099.216 Safari/605.1.15"
+    ],
+    "url": "https://community.cloudflare.com/t/excessive-crawling-from-friendlycrawler/601127"
+  },
+  {
+    "id": "google-crawler-cloudvertex",
+    "categories": [
+      "ai",
+      "google"
+    ],
+    "pattern": "Google-CloudVertexBot",
+    "addition_date": "2024/09/16",
+    "instances": [
+      "Google-CloudVertexBot"
+    ],
+    "url": "https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers#google-cloudvertexbot"
+  },
+  {
+    "id": "meta-crawler",
+    "categories": [
+      "ai",
+      "meta"
+    ],
+    "pattern": "[Mm]eta-[Ee]xternal[Aa]gent",
+    "addition_date": "2024/09/16",
+    "instances": [
+      "meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)",
+      "meta-externalagent/1.1"
+    ],
+    "url": "https://developers.facebook.com/docs/sharing/webmasters/web-crawlers/#identify-2"
+  },
+  {
+    "id": "meta-crawler-user",
+    "categories": [
+      "ai",
+      "meta",
+      "preview"
+    ],
+    "pattern": "meta-externalfetcher",
+    "addition_date": "2024/09/16",
+    "instances": [
+      "meta-externalfetcher/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)",
+      "meta-externalfetcher/1.1"
+    ],
+    "url": "https://developers.facebook.com/docs/sharing/webmasters/web-crawlers/#identify-3"
+  },
+  {
+    "id": "openai-crawler-search",
+    "categories": [
+      "ai",
+      "search-engine"
+    ],
+    "pattern": "OAI-SearchBot",
+    "addition_date": "2024/09/16",
+    "instances": [
+      "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot"
+    ],
+    "url": "https://platform.openai.com/docs/bots"
+  },
+  {
+    "id": "timpi-crawler",
+    "categories": [
+      "ai"
+    ],
+    "pattern": "Timpibot",
+    "addition_date": "2024/09/16",
+    "instances": [
+      "Timpibot/0.8 (+http://www.timpi.io)"
+    ],
+    "url": "https://herrbischoff.com/2022/07/timpibot-is-yet-another-badly-behaved-crawler/"
+  },
+  {
+    "id": "webzio-crawler",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": "webzio\\s",
+    "addition_date": "2024/09/16",
+    "instances": [
+      "webzio (+https://webz.io/bot.html)"
+    ],
+    "url": "https://webz.io/bot.html"
+  },
+  {
+    "id": "webzio-crawler-ai",
+    "categories": [
+      "ai"
+    ],
+    "pattern": "webzio-extended",
+    "addition_date": "2024/09/16",
+    "instances": [
+      "webzio-extended (+https://webz.io/bot.html)"
+    ],
+    "url": "https://webz.io/bot.html"
+  },
+  {
+    "id": "cohere-crawler",
+    "categories": [
+      "ai"
+    ],
+    "pattern": "cohere-ai",
+    "addition_date": "2024/09/16",
+    "instances": []
+  },
+  {
+    "id": "iask-crawler",
+    "categories": [
+      "ai",
+      "search-engine"
+    ],
+    "pattern": "iaskspider",
+    "addition_date": "2024/09/16",
+    "instances": [],
+    "url": "https://neil-clarke.com/block-the-bots-that-feed-ai-models-by-scraping-your-website/"
+  },
+  {
+    "id": "img2dataset",
+    "categories": [
+      "ai",
+      "tool"
+    ],
+    "pattern": "img2dataset",
+    "addition_date": "2024/09/16",
+    "instances": [
+      "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0 (compatible; img2downloader; +https://github.com/rom1504/img2dataset)"
+    ],
+    "url": "https://github.com/rom1504/img2dataset"
   }
 ]
