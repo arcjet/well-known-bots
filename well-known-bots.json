@@ -7482,5 +7482,18 @@
       "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0 (compatible; img2downloader; +https://github.com/rom1504/img2dataset)"
     ],
     "url": "https://github.com/rom1504/img2dataset"
+  },
+  {
+    "id": "datadog-monitor-synthetics",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": "Datadog\\/{0,1}Synthetics",
+    "addition_date": "2024/09/19",
+    "instances": [
+      "Datadog/Synthetics",
+      "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0 DatadogSynthetics"
+    ],
+    "url": "https://docs.datadoghq.com/synthetics/guide/identify_synthetics_bots/?tab=singleandmultistepapitests#user-agent"
   }
 ]
