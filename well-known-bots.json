@@ -2303,6 +2303,19 @@
     ]
   },
   {
+    "id": "apple-feedfetcher",
+    "categories": [
+      "feedfetcher"
+    ],
+    "pattern": "i[Tt][Mm][Ss]",
+    "addition_date": "2024/09/19",
+    "instances": [
+      "iTMS",
+      "itms"
+    ],
+    "url": "https://support.apple.com/en-us/119829"
+  },
+  {
     "id": "tweetmemebot",
     "categories": [
       "unknown"
