@@ -53,6 +53,10 @@ if (process.argv[2] === "--check") {
             console.error("Item has wrong type specified for `url` string field:", item);
             process.exit(1);
         }
+        if (!Array.isArray(item.verification)) {
+            console.error("Item is missing required `validation` array field:", item);
+            process.exit(1);
+        }
         // TODO: Check `addition_date` is defined properly
         // TODO: Check or remove `depends_on` field
         if (typeof item.instances !== "undefined") {

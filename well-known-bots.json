@@ -9,10 +9,10 @@
     "url": "http://www.google.com/bot.html",
     "verification": [
       {
-	"type": "dns",
-	"masks": [
-	  "crawl-***-***-***-***.googlebot.com",
-	  "geo-crawl-***-***-***-***.geo.googlebot.com"
+        "type": "dns",
+        "masks": [
+          "crawl-***-***-***-***.googlebot.com",
+          "geo-crawl-***-***-***-***.geo.googlebot.com"
         ]
       }
     ],
@@ -52,10 +52,10 @@
     "pattern": "Googlebot-Image",
     "verification": [
       {
-	"type": "dns",
-	"masks": [
-	  "crawl-***-***-***-***.googlebot.com",
-	  "geo-crawl-***-***-***-***.geo.googlebot.com"
+        "type": "dns",
+        "masks": [
+          "crawl-***-***-***-***.googlebot.com",
+          "geo-crawl-***-***-***-***.geo.googlebot.com"
         ]
       }
     ],
@@ -72,10 +72,10 @@
     "pattern": "Googlebot-News",
     "verification": [
       {
-	"type": "dns",
-	"masks": [
-	  "crawl-***-***-***-***.googlebot.com",
-	  "geo-crawl-***-***-***-***.geo.googlebot.com"
+        "type": "dns",
+        "masks": [
+          "crawl-***-***-***-***.googlebot.com",
+          "geo-crawl-***-***-***-***.geo.googlebot.com"
         ]
       }
     ],
@@ -92,10 +92,10 @@
     "pattern": "Googlebot-Video",
     "verification": [
       {
-	"type": "dns",
-	"masks": [
-	  "crawl-***-***-***-***.googlebot.com",
-	  "geo-crawl-***-***-***-***.geo.googlebot.com"
+        "type": "dns",
+        "masks": [
+          "crawl-***-***-***-***.googlebot.com",
+          "geo-crawl-***-***-***-***.geo.googlebot.com"
         ]
       }
     ],
@@ -113,9 +113,9 @@
     "url": "https://support.google.com/webmasters/answer/1061943?hl=en",
     "verification": [
       {
-	"type": "dns",
-	"masks": [
-	  "rate-limited-proxy-***-***-***-***.google.com"
+        "type": "dns",
+        "masks": [
+          "rate-limited-proxy-***-***-***-***.google.com"
         ]
       }
     ],
@@ -134,9 +134,9 @@
     "url": "https://support.google.com/adwords/answer/2404197",
     "verification": [
       {
-	"type": "dns",
-	"masks": [
-	  "rate-limited-proxy-***-***-***-***.google.com"
+        "type": "dns",
+        "masks": [
+          "rate-limited-proxy-***-***-***-***.google.com"
         ]
       }
     ],
@@ -157,10 +157,10 @@
     "url": "https://support.google.com/webmasters/answer/178852",
     "verification": [
       {
-	"type": "dns",
-	"masks": [
-	  "***-***-***-***.gae.googleusercontent.com",
-	  "google-proxy-***-***-***-***.google.com"
+        "type": "dns",
+        "masks": [
+          "***-***-***-***.gae.googleusercontent.com",
+          "google-proxy-***-***-***-***.google.com"
         ]
       }
     ],
@@ -178,9 +178,9 @@
     "url": "https://support.google.com/webmasters/answer/1061943?hl=en",
     "verification": [
       {
-	"type": "dns",
-	"masks": [
-	  "rate-limited-proxy-***-***-***-***.google.com"
+        "type": "dns",
+        "masks": [
+          "rate-limited-proxy-***-***-***-***.google.com"
         ]
       }
     ],
@@ -213,9 +213,9 @@
     "url": "https://support.google.com/webmasters/answer/1061943?hl=en",
     "verification": [
       {
-	"type": "dns",
-	"masks": [
-	  "rate-limited-proxy-***-***-***-***.google.com"
+        "type": "dns",
+        "masks": [
+          "rate-limited-proxy-***-***-***-***.google.com"
         ]
       }
     ],
@@ -233,10 +233,10 @@
     "url": "https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers",
     "verification": [
       {
-	"type": "dns",
-	"masks": [
-	  "crawl-***-***-***-***.googlebot.com",
-	  "geo-crawl-***-***-***-***.geo.googlebot.com"
+        "type": "dns",
+        "masks": [
+          "crawl-***-***-***-***.googlebot.com",
+          "geo-crawl-***-***-***-***.geo.googlebot.com"
         ]
       }
     ],
@@ -255,10 +255,10 @@
     "url": "https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers",
     "verification": [
       {
-	"type": "dns",
-	"masks": [
-	  "crawl-***-***-***-***.googlebot.com",
-	  "geo-crawl-***-***-***-***.geo.googlebot.com"
+        "type": "dns",
+        "masks": [
+          "crawl-***-***-***-***.googlebot.com",
+          "geo-crawl-***-***-***-***.geo.googlebot.com"
         ]
       }
     ],
@@ -277,10 +277,10 @@
     "url": "https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers",
     "verification": [
       {
-	"type": "dns",
-	"masks": [
-	  "crawl-***-***-***-***.googlebot.com",
-	  "geo-crawl-***-***-***-***.geo.googlebot.com"
+        "type": "dns",
+        "masks": [
+          "crawl-***-***-***-***.googlebot.com",
+          "geo-crawl-***-***-***-***.geo.googlebot.com"
         ]
       }
     ],
@@ -298,9 +298,9 @@
     "url": "http://www.bing.com/bingbot.htm",
     "verification": [
       {
-	"type": "dns",
-	"masks": [
-	  "@.search.msn.com"
+        "type": "dns",
+        "masks": [
+          "@.search.msn.com"
         ]
       }
     ],
@@ -987,11 +987,11 @@
     "url": "https://yandex.ru/support/webmaster/robot-workings/check-yandex-robots.html#robot-in-logs",
     "verification": [
       {
-	"type": "dns",
-	"masks": [
-	  "yandex.ru",
-	  "yandex.com",
-	  "yandex.net"
+        "type": "dns",
+        "masks": [
+          "yandex.ru",
+          "yandex.com",
+          "yandex.net"
         ]
       }
     ],
@@ -1100,10 +1100,10 @@
     "url": "http://www.baidu.jp/spider/",
     "verification": [
       {
-	"type": "dns",
-	"masks": [
-	  "@.baidu.jp",
-	  "@.baidu.com"
+        "type": "dns",
+        "masks": [
+          "@.baidu.jp",
+          "@.baidu.com"
         ]
       }
     ],
