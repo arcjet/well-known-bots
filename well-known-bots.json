@@ -989,9 +989,9 @@
       {
         "type": "dns",
         "masks": [
-          "yandex.ru",
-          "yandex.com",
-          "yandex.net"
+          "@.yandex.ru",
+          "@.yandex.com",
+          "@.yandex.net"
         ]
       }
     ],
