@@ -6069,7 +6069,15 @@
     ],
     "pattern": "Google-Site-Verification",
     "addition_date": "2019/12/11",
-    "verification": [],
+    "verification": [
+      {
+        "type": "dns",
+        "masks": [
+          "***-***-***-***.gae.googleusercontent.com",
+          "google-proxy-***-***-***-***.google.com"
+        ]
+      }
+    ],
     "instances": [
       "Mozilla/5.0 (compatible; Google-Site-Verification/1.0)"
     ],
@@ -7231,7 +7239,14 @@
     ],
     "pattern": "Google-Safety",
     "addition_date": "2023/08/17",
-    "verification": [],
+    "verification": [
+      {
+        "type": "dns",
+        "masks": [
+          "rate-limited-proxy-***-***-***-***.google.com"
+        ]
+      }
+    ],
     "instances": [
       "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.179 Mobile Safari/537.36 (compatible; Google-Safety; +http://www.google.com/bot.html)",
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.179 Safari/537.36 (compatible; Google-Safety; +http://www.google.com/bot.html)",
@@ -8075,7 +8090,15 @@
     ],
     "pattern": "Google-CloudVertexBot",
     "addition_date": "2024/09/16",
-    "verification": [],
+    "verification": [
+      {
+        "type": "dns",
+        "masks": [
+          "crawl-***-***-***-***.googlebot.com",
+          "geo-crawl-***-***-***-***.geo.googlebot.com"
+        ]
+      }
+    ],
     "instances": [
       "Google-CloudVertexBot"
     ],
