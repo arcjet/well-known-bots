@@ -7174,7 +7174,16 @@
     ],
     "pattern": "YandexRenderResourcesBot\\/",
     "addition_date": "2023/08/16",
-    "verification": [],
+    "verification": [
+      {
+        "type": "dns",
+        "masks": [
+          "@.yandex.ru",
+          "@.yandex.com",
+          "@.yandex.net"
+        ]
+      }
+    ],
     "instances": [
       "Mozilla/5.0 (compatible; YandexRenderResourcesBot/1.0; +http://yandex.com/bots) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0"
     ],
