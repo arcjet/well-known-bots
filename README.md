@@ -30,7 +30,7 @@ Each entry in the JSON represents a specific bot or crawler and includes the fol
 - categories: An array of categories the bot belongs to (e.g., "search-engine", "advertising")
 - pattern: A regular expression pattern used to identify the bot in user agent strings
 - url: (optional) A URL with more information about the bot
-- verification: A list of supported methods of verifying the bot's identity (if the bot is not verifiable it should be empty).
+- verification: A list of supported methods for verifying the bot's identity (if the bot is not verifiable it should be empty).
 - instances: An array of example user agent strings for the bot
 
 ### Verification
