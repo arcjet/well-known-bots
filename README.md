@@ -40,7 +40,7 @@ Each verification entry contains the following fields:
 - type: The method of verification (currently only `dns` is supported)
 - masks: An array of mask patterns used for verification
 
-### Verification mask petterns
+### Verification mask patterns
 
 The mask patterns use the following special characters:
 
