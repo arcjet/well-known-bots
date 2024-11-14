@@ -22,6 +22,33 @@ to evade detection.
 For more details, see [Non-Technical Notes in the
 browser-fingerprinting][non-tech-notes-url] project.
 
+## Structure
+
+Each entry in the JSON represents a specific bot or crawler and includes the following fields:
+
+- id: A unique identifier for the bot
+- categories: An array of categories the bot belongs to (e.g., "search-engine", "advertising")
+- pattern: A regular expression pattern used to identify the bot in user agent strings
+- url: (optional) A URL with more information about the bot
+- verification: A list of supported methods of verifying the bot's identity (if the bot is not verifiable it should be empty).
+- instances: An array of example user agent strings for the bot
+
+### Verification
+
+Each verification entry contains the following fields:
+
+- type: The method of verification (currently only `dns` is supported)
+- masks: An array of mask patterns used for verification
+
+### Verification mask petterns
+
+The mask patterns use the following special characters:
+
+- *: Represents 0 or 1 of any character
+- @: Acts as a wildcard, matching any number of characters
+
+All other characters in the mask require an exact match.
+
 ## License
 
 The project is a hard-fork of [crawler-user-agents][forked-repo-url] at commit
