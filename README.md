@@ -56,7 +56,7 @@ The mask patterns use the following special characters:
 
 All other characters in the mask require an exact match.
 
-### Cidr verification sources
+### Cidr verification sources
 
 Each cidr source requires the following fields:
 
