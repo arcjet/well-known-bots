@@ -14,7 +14,7 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       },
@@ -67,7 +67,7 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       },
@@ -97,7 +97,7 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       },
@@ -127,7 +127,7 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       },
@@ -158,7 +158,7 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/search/apis/ipranges/special-crawlers.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       },
@@ -189,7 +189,7 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/search/apis/ipranges/special-crawlers.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       },
@@ -222,12 +222,12 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           },
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers-google.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       },
@@ -258,7 +258,7 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/search/apis/ipranges/special-crawlers.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       },
@@ -303,7 +303,7 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/search/apis/ipranges/special-crawlers.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       },
@@ -333,7 +333,7 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       },
@@ -365,7 +365,7 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       },
@@ -397,7 +397,7 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       },
@@ -428,7 +428,7 @@
           {
             "type": "http-json",
             "url": "https://www.bing.com/toolbox/bingbot.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       },
@@ -6211,12 +6211,12 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           },
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers-google.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       },
@@ -7305,7 +7305,7 @@
           {
             "type": "http-json",
             "url": "https://openai.com/gptbot.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       }
@@ -7329,7 +7329,7 @@
           {
             "type": "http-json",
             "url": "https://openai.com/chatgpt-user.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       }
@@ -7427,7 +7427,7 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/search/apis/ipranges/special-crawlers.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       },
@@ -8288,7 +8288,7 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       },
@@ -8351,7 +8351,7 @@
           {
             "type": "http-json",
             "url": "https://openai.com/searchbot.json",
-            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
       }
@@ -8450,7 +8450,7 @@
           {
             "type": "http-json",
             "url": "https://ip-ranges.datadoghq.com/synthetics.json",
-            "selector": "$.synthetics[\"prefixes_ipv4\",\"prefixes_ipv6\"][*]"
+            "selector": "$.synthetics[\\\"prefixes_ipv4\\\",\\\"prefixes_ipv6\\\"][*]"
           }
         ]
       }
