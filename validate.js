@@ -57,6 +57,44 @@ if (process.argv[2] === "--check") {
             console.error("Item is missing required `validation` array field:", item);
             process.exit(1);
         }
+        for (const verify of item.verification) {
+            if (verify.type === "cidr") {
+                if (!Array.isArray(verify.sources)) {
+                    console.error("Item cidr validation entry is missing required `sources` array field:", item, verify);
+                    process.exit(1);
+                }
+                for (const source of verify.sources) {
+                    if (source.type !== "http-json") {
+                        console.error("Cidr source `type` must be a valid type (currently only `http-json` is supported)", item, verify, source);
+                        process.exit(1);
+                    }
+
+                    if (typeof source.url !== "string") {
+                        console.error("Cidr source `url` must be a string", item, verify, source);
+                        process.exit(1);
+                    }
+
+                    if (typeof source.selector !== "string") {
+                        console.error("Cidr source `selector` must be a string", item, verify, source);
+                        process.exit(1);
+                    }
+                }
+            } else if (verify.type === "dns") {
+                if (!Array.isArray(verify.masks)) {
+                    console.error("Item dns validation entry is missing required `masks` array field:", item, verify);
+                    process.exit(1);
+                }
+                for (const mask of verify.masks) {
+                    if (typeof mask !== "string") {
+                        console.error("Mask was not a string:", item, verify, mask);
+                        process.exit(1);
+                    }
+                }
+            } else {
+                console.error("Item validation entry is incorrect, only `dns` and `cidr` are supported:", item, verify);
+                process.exit(1);
+            }
+        }
         // TODO: Check `addition_date` is defined properly
         // TODO: Check or remove `depends_on` field
         if (typeof item.instances !== "undefined") {
