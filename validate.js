@@ -54,7 +54,7 @@ if (process.argv[2] === "--check") {
             process.exit(1);
         }
         if (!Array.isArray(item.verification)) {
-            console.error("Item is missing required `validation` array field:", item);
+            console.error("Item is missing required `verification` array field:", item);
             process.exit(1);
         }
         for (const verify of item.verification) {
