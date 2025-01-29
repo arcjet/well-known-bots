@@ -37,15 +37,8 @@ Each entry in the JSON represents a specific bot or crawler and includes the fol
 
 Each verification entry contains the following fields:
 
-- type: The method of verification (`dns` and `cidr` are supported)
-
-If you specify `dns` verification then these fields are expected:
-
+- type: The method of verification (currently only `dns` is supported)
 - masks: An array of mask patterns used for verification
-
-If you specify `cidr` verification then these fields are expected:
-
-- sources: An array of sources to pull cidr range data from (at least one is required)
 
 ### Verification mask patterns
 
@@ -55,14 +48,6 @@ The mask patterns use the following special characters:
 - @: Acts as a wildcard, matching any number of characters
 
 All other characters in the mask require an exact match.
-
-### Cidr verification sources
-
-Each cidr source requires the following fields:
-
-- type: The type of source (Currently only `http-json`) is supported
-- url: The url that hosts the ip ranges
-- selector: A JsonPath selector that selects all of the IP ranges in the source 
 
 ## License
 

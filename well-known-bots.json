@@ -9,16 +9,6 @@
     "url": "http://www.google.com/bot.html",
     "verification": [
       {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      },
-      {
         "type": "dns",
         "masks": [
           "crawl-***-***-***-***.googlebot.com",
@@ -62,16 +52,6 @@
     "pattern": "Googlebot-Image",
     "verification": [
       {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      },
-      {
         "type": "dns",
         "masks": [
           "crawl-***-***-***-***.googlebot.com",
@@ -92,16 +72,6 @@
     "pattern": "Googlebot-News",
     "verification": [
       {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      },
-      {
         "type": "dns",
         "masks": [
           "crawl-***-***-***-***.googlebot.com",
@@ -121,16 +91,6 @@
     ],
     "pattern": "Googlebot-Video",
     "verification": [
-      {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      },
       {
         "type": "dns",
         "masks": [
@@ -153,16 +113,6 @@
     "url": "https://support.google.com/webmasters/answer/1061943?hl=en",
     "verification": [
       {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/special-crawlers.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      },
-      {
         "type": "dns",
         "masks": [
           "rate-limited-proxy-***-***-***-***.google.com"
@@ -183,16 +133,6 @@
     "addition_date": "2017/08/21",
     "url": "https://support.google.com/adwords/answer/2404197",
     "verification": [
-      {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/special-crawlers.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      },
       {
         "type": "dns",
         "masks": [
@@ -217,21 +157,6 @@
     "url": "https://support.google.com/webmasters/answer/178852",
     "verification": [
       {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          },
-          {
-            "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers-google.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      },
-      {
         "type": "dns",
         "masks": [
           "***-***-***-***.gae.googleusercontent.com",
@@ -252,16 +177,6 @@
     "pattern": "Mediapartners-Google",
     "url": "https://support.google.com/webmasters/answer/1061943?hl=en",
     "verification": [
-      {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/special-crawlers.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      },
       {
         "type": "dns",
         "masks": [
@@ -298,16 +213,6 @@
     "url": "https://support.google.com/webmasters/answer/1061943?hl=en",
     "verification": [
       {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/special-crawlers.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      },
-      {
         "type": "dns",
         "masks": [
           "rate-limited-proxy-***-***-***-***.google.com"
@@ -327,16 +232,6 @@
     "pattern": "Google-InspectionTool",
     "url": "https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers",
     "verification": [
-      {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      },
       {
         "type": "dns",
         "masks": [
@@ -360,16 +255,6 @@
     "url": "https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers",
     "verification": [
       {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      },
-      {
         "type": "dns",
         "masks": [
           "crawl-***-***-***-***.googlebot.com",
@@ -392,16 +277,6 @@
     "url": "https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers",
     "verification": [
       {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      },
-      {
         "type": "dns",
         "masks": [
           "crawl-***-***-***-***.googlebot.com",
@@ -422,16 +297,6 @@
     "pattern": "bingbot",
     "url": "http://www.bing.com/bingbot.htm",
     "verification": [
-      {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://www.bing.com/toolbox/bingbot.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      },
       {
         "type": "dns",
         "masks": [
@@ -6213,21 +6078,6 @@
     "addition_date": "2019/12/11",
     "verification": [
       {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          },
-          {
-            "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers-google.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      },
-      {
         "type": "dns",
         "masks": [
           "***-***-***-***.gae.googleusercontent.com",
@@ -7305,18 +7155,7 @@
     ],
     "pattern": "GPTBot",
     "addition_date": "2023/08/09",
-    "verification": [
-      {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://openai.com/gptbot.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      }
-    ],
+    "verification": [],
     "instances": [
       "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.0; +https://openai.com/gptbot)"
     ],
@@ -7329,18 +7168,7 @@
     ],
     "pattern": "ChatGPT-User",
     "addition_date": "2024/04/19",
-    "verification": [
-      {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://openai.com/chatgpt-user.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      }
-    ],
+    "verification": [],
     "instances": [
       "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ChatGPT-User/1.0; +https://openai.com/bot"
     ],
@@ -7428,16 +7256,6 @@
     "pattern": "Google-Safety",
     "addition_date": "2023/08/17",
     "verification": [
-      {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/special-crawlers.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      },
       {
         "type": "dns",
         "masks": [
@@ -8290,16 +8108,6 @@
     "addition_date": "2024/09/16",
     "verification": [
       {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      },
-      {
         "type": "dns",
         "masks": [
           "crawl-***-***-***-***.googlebot.com",
@@ -8351,18 +8159,7 @@
     ],
     "pattern": "OAI-SearchBot",
     "addition_date": "2024/09/16",
-    "verification": [
-      {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://openai.com/searchbot.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
-          }
-        ]
-      }
-    ],
+    "verification": [],
     "instances": [
       "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot"
     ],
@@ -8450,18 +8247,7 @@
     ],
     "pattern": "Datadog\\/{0,1}Synthetics",
     "addition_date": "2024/09/19",
-    "verification": [
-      {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://ip-ranges.datadoghq.com/synthetics.json",
-            "selector": "$.synthetics[\\\"prefixes_ipv4\\\",\\\"prefixes_ipv6\\\"][*]"
-          }
-        ]
-      }
-    ],
+    "verification": [],
     "instances": [
       "Datadog/Synthetics",
       "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0 DatadogSynthetics"
