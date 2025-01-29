@@ -2718,14 +2718,7 @@
     "pattern": "Applebot",
     "url": "http://www.apple.com/go/applebot",
     "addition_date": "2015/04/15",
-    "verification": [
-      {
-        "type": "dns",
-        "masks": [
-          "@.applebot.apple.com"
-        ]
-      }
-    ],
+    "verification": [],
     "instances": [
       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5 (Applebot/0.1)",
       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5 (Applebot/0.1; +http://www.apple.com/go/applebot)",
