@@ -8467,5 +8467,29 @@
       "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0 DatadogSynthetics"
     ],
     "url": "https://docs.datadoghq.com/synthetics/guide/identify_synthetics_bots/?tab=singleandmultistepapitests#user-agent"
-  }
+  },
+  {
+    "id": "Hydrozen.io-user-agent",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": "Hydrozen",
+    "addition_date": "2025/02/02",
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://hydrozen.io/config/iplist.json",
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+          }
+        ]
+      }
+    ],
+    "instances": [
+      "Hydrozen.io/1.0"
+    ],
+    "url": "https://docs.hydrozen.io/overview/misc/user-agent-and-ip-list"
+  },
 ]
