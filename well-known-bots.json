@@ -8469,7 +8469,7 @@
     "url": "https://docs.datadoghq.com/synthetics/guide/identify_synthetics_bots/?tab=singleandmultistepapitests#user-agent"
   },
   {
-    "id": "Hydrozen.io-user-agent",
+    "id": "hydrozen-monitor",
     "categories": [
       "monitor"
     ],
