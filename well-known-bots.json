@@ -8473,7 +8473,7 @@
     "categories": [
       "monitor"
     ],
-    "pattern": "^Hydrozen\\.io/\\d{0,4}\\.\\d{0,4}$",
+    "pattern": "^Hydrozen\\.io\\/\\d{0,4}\\.\\d{0,4}$",
     "addition_date": "2025/02/02",
     "verification": [
       {
