@@ -95,6 +95,18 @@ if (process.argv[2] === "--check") {
                 process.exit(1);
             }
         }
+        if (typeof item.aliases !== "undefined") {
+            if (!Array.isArray(item.aliases)) {
+                console.error("Item has wrong type specified for `aliases` array field:", item);
+                process.exit(1);
+            }
+            for (const alias of item.aliases) {
+                if (typeof alias !== "string") {
+                    console.error("Alias was not a string:", item, alias);
+                    process.exit(1);
+                }
+            }
+        }
         // TODO: Check `addition_date` is defined properly
         // TODO: Check or remove `depends_on` field
         if (typeof item.instances !== "undefined") {

@@ -32,6 +32,7 @@ Each entry in the JSON represents a specific bot or crawler and includes the fol
 - url: (optional) A URL with more information about the bot
 - verification: A list of supported methods for verifying the bot's identity (if the bot is not verifiable it should be empty).
 - instances: An array of example user agent strings for the bot
+- aliases: Extra unique identifiers for the bot that can be used to identify it across other data sources
 
 ### Verification
 
