@@ -22,9 +22,7 @@ const updated = JSON.stringify(JSON.parse(original), null, 2) + '\n';
 if (process.argv[2] === "--generate") {
     fs.writeFileSync(jsonFilePath, updated);
     process.exit(0);
-}
-
-if (process.argv[2] === "--check") {
+} else if (process.argv[2] === "--check") {
     if (updated !== original) {
         console.error("JSON file format is wrong. Run `node format.js --generate` to update.");
         console.error("Format must be 2 spaces, with newlines for objects and arrays, and separating commas on the line with the previous closing character.");
@@ -229,4 +227,7 @@ if (process.argv[2] === "--check") {
             }
         }
     }
+} else {
+    console.error("Valid subcommands are `--generate` or `--check`")
+    process.exit(1);
 }
