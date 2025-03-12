@@ -4182,6 +4182,7 @@
   {
     "id": "apple-crawler",
     "categories": [
+      "apple",
       "search-engine"
     ],
     "pattern": {
