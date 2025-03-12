@@ -2803,7 +2803,9 @@
       "accepted": [
         "facebookexternalhit"
       ],
-      "forbidden": []
+      "forbidden": [
+        "Twitterbot"
+      ]
     },
     "addition_date": "2012/05/07",
     "verification": [],
@@ -2813,7 +2815,9 @@
         "facebookexternalhit/1.1",
         "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)"
       ],
-      "rejected": []
+      "rejected": [
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0"
+      ]
     },
     "url": "https://developers.facebook.com/docs/sharing/webmasters/crawler/",
     "aliases": [
@@ -3760,7 +3764,9 @@
       "accepted": [
         "Twitterbot"
       ],
-      "forbidden": []
+      "forbidden": [
+        "facebookexternalhit"
+      ]
     },
     "addition_date": "2014/09/12",
     "url": "https://dev.twitter.com/cards/getting-started",
@@ -3770,7 +3776,9 @@
         "Twitterbot/0.1",
         "Twitterbot/1.0"
       ],
-      "rejected": []
+      "rejected": [
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0"
+      ]
     },
     "aliases": [
       "TwitterBot"
@@ -13351,6 +13359,30 @@
     "instances": {
       "accepted": [
         "Hydrozen.io/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.hydrozen.io/overview/misc/user-agent-and-ip-list"
+  },
+  {
+    "id": "imessage-preview",
+    "categories": [
+      "apple",
+      "preview",
+      "social"
+    ],
+    "pattern": {
+      "accepted": [
+        "facebookexternalhit",
+        "Twitterbot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/03/12",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0"
       ],
       "rejected": []
     },
