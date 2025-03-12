@@ -2804,7 +2804,8 @@
         "facebookexternalhit"
       ],
       "forbidden": [
-        "Twitterbot"
+        "Twitterbot",
+        "Facebot"
       ]
     },
     "addition_date": "2012/05/07",
@@ -3765,7 +3766,8 @@
         "Twitterbot"
       ],
       "forbidden": [
-        "facebookexternalhit"
+        "facebookexternalhit",
+        "Facebot"
       ]
     },
     "addition_date": "2014/09/12",
@@ -3905,7 +3907,10 @@
       "accepted": [
         "Face(book){0,1}[Bb]ot"
       ],
-      "forbidden": []
+      "forbidden": [
+        "facebookexternalhit",
+        "Twitterbot"
+      ]
     },
     "url": "https://developers.facebook.com/docs/sharing/bot",
     "addition_date": "2014/12/30",
@@ -3915,7 +3920,9 @@
         "Facebot/1.0",
         "Mozilla/5.0 (compatible; FacebookBot/1.0; +https://developers.facebook.com/docs/sharing/webmasters/facebookbot/)"
       ],
-      "rejected": []
+      "rejected": [
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0"
+      ]
     },
     "aliases": [
       "FacebookBot"
@@ -13374,7 +13381,8 @@
     "pattern": {
       "accepted": [
         "facebookexternalhit",
-        "Twitterbot"
+        "Twitterbot",
+        "Facebot"
       ],
       "forbidden": []
     },
