@@ -13396,5 +13396,58 @@
       "rejected": []
     },
     "url": "https://docs.hydrozen.io/overview/misc/user-agent-and-ip-list"
+  },
+  {
+    "id": "stripe-webhook",
+    "categories": [
+      "webhook"
+    ],
+    "pattern": {
+      "accepted": [
+        "Stripe\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/03/13",
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://stripe.com/files/ips/ips_webhooks.json",
+            "selector": "$.WEBHOOKS[*]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Stripe/1.0 (+https://stripe.com/docs/webhooks)"
+      ],
+      "rejected": []
+    },
+    "url": "https://github.com/fnando/browser/issues/258"
+  },
+  {
+    "id": "postman",
+    "categories": [
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "PostmanRuntime\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/03/13",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "PostmanRuntime/7.28.4"
+      ],
+      "rejected": []
+    },
+    "url": "https://user-agents.net/string/postmanruntime-7-28-4"
   }
 ]
