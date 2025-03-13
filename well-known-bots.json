@@ -2803,7 +2803,10 @@
       "accepted": [
         "facebookexternalhit"
       ],
-      "forbidden": []
+      "forbidden": [
+        "Twitterbot",
+        "Facebot"
+      ]
     },
     "addition_date": "2012/05/07",
     "verification": [],
@@ -2813,7 +2816,9 @@
         "facebookexternalhit/1.1",
         "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)"
       ],
-      "rejected": []
+      "rejected": [
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0"
+      ]
     },
     "url": "https://developers.facebook.com/docs/sharing/webmasters/crawler/",
     "aliases": [
@@ -3760,7 +3765,10 @@
       "accepted": [
         "Twitterbot"
       ],
-      "forbidden": []
+      "forbidden": [
+        "facebookexternalhit",
+        "Facebot"
+      ]
     },
     "addition_date": "2014/09/12",
     "url": "https://dev.twitter.com/cards/getting-started",
@@ -3770,7 +3778,9 @@
         "Twitterbot/0.1",
         "Twitterbot/1.0"
       ],
-      "rejected": []
+      "rejected": [
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0"
+      ]
     },
     "aliases": [
       "TwitterBot"
@@ -3897,7 +3907,10 @@
       "accepted": [
         "Face(book){0,1}[Bb]ot"
       ],
-      "forbidden": []
+      "forbidden": [
+        "facebookexternalhit",
+        "Twitterbot"
+      ]
     },
     "url": "https://developers.facebook.com/docs/sharing/bot",
     "addition_date": "2014/12/30",
@@ -3907,7 +3920,9 @@
         "Facebot/1.0",
         "Mozilla/5.0 (compatible; FacebookBot/1.0; +https://developers.facebook.com/docs/sharing/webmasters/facebookbot/)"
       ],
-      "rejected": []
+      "rejected": [
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0"
+      ]
     },
     "aliases": [
       "FacebookBot"
@@ -4167,6 +4182,7 @@
   {
     "id": "apple-crawler",
     "categories": [
+      "apple",
       "search-engine"
     ],
     "pattern": {
@@ -13355,5 +13371,83 @@
       "rejected": []
     },
     "url": "https://docs.hydrozen.io/overview/misc/user-agent-and-ip-list"
+  },
+  {
+    "id": "imessage-preview",
+    "categories": [
+      "apple",
+      "preview",
+      "social"
+    ],
+    "pattern": {
+      "accepted": [
+        "facebookexternalhit",
+        "Twitterbot",
+        "Facebot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/03/12",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://deviceandbrowserinfo.com/learning_zone/articles/facebookexternalhit"
+  },
+  {
+    "id": "stripe-webhook",
+    "categories": [
+      "webhook"
+    ],
+    "pattern": {
+      "accepted": [
+        "Stripe\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/03/13",
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://stripe.com/files/ips/ips_webhooks.json",
+            "selector": "$.WEBHOOKS[*]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Stripe/1.0 (+https://stripe.com/docs/webhooks)"
+      ],
+      "rejected": []
+    },
+    "url": "https://github.com/fnando/browser/issues/258"
+  },
+  {
+    "id": "postman",
+    "categories": [
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "PostmanRuntime\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/03/13",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "PostmanRuntime/7.28.4"
+      ],
+      "rejected": []
+    },
+    "url": "https://user-agents.net/string/postmanruntime-7-28-4"
   }
 ]
