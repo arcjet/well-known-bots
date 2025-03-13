@@ -6,7 +6,7 @@
  *
  * The formatting logic uses `JSON.stringify` with 2 spaces, which will keep
  * separating commas on the same line as any closing character. This technique
- * was chosen for simplicty and to align with common default JSON formatters,
+ * was chosen for simplicity and to align with common default JSON formatters,
  * such as VSCode.
  */
 
@@ -22,9 +22,7 @@ const updated = JSON.stringify(JSON.parse(original), null, 2) + '\n';
 if (process.argv[2] === "--generate") {
     fs.writeFileSync(jsonFilePath, updated);
     process.exit(0);
-}
-
-if (process.argv[2] === "--check") {
+} else if (process.argv[2] === "--check") {
     if (updated !== original) {
         console.error("JSON file format is wrong. Run `node format.js --generate` to update.");
         console.error("Format must be 2 spaces, with newlines for objects and arrays, and separating commas on the line with the previous closing character.");
@@ -36,9 +34,29 @@ if (process.argv[2] === "--check") {
             console.error("Item is missing required `id` string field:", item);
             process.exit(1);
         }
-        if (typeof item.pattern !== "string") {
-            console.error("Item is missing required `pattern` string field:", item);
+        if (typeof item.pattern !== "object" || item.pattern === null || Array.isArray(item.pattern)) {
+            console.error("Item is missing required pattern object with accepted and forbidden arrays:", item);
             process.exit(1);
+        }
+        if (!Array.isArray(item.pattern.accepted)) {
+            console.error("Item pattern.accepted is missing or is not an array:", item);
+            process.exit(1);
+        }
+        for (const pat of item.pattern.accepted) {
+            if (typeof pat !== "string") {
+                console.error("Pattern (accepted) entry was not a string:", item, pat);
+                process.exit(1);
+            }
+        }
+        if (!Array.isArray(item.pattern.forbidden)) {
+            console.error("Item pattern.forbidden is missing or is not an array:", item);
+            process.exit(1);
+        }
+        for (const pat of item.pattern.forbidden) {
+            if (typeof pat !== "string") {
+                console.error("Pattern (forbidden) entry was not a string:", item, pat);
+                process.exit(1);
+            }
         }
         if (!Array.isArray(item.categories)) {
             console.error("Item is missing required `categories` array field:", item);
@@ -110,24 +128,106 @@ if (process.argv[2] === "--check") {
         // TODO: Check `addition_date` is defined properly
         // TODO: Check or remove `depends_on` field
         if (typeof item.instances !== "undefined") {
-            if (!Array.isArray(item.instances)) {
-                console.error("Item has wrong type specified for `instances` array field:", item);
+            if (typeof item.instances !== "object" || item.instances === null || Array.isArray(item.instances)) {
+                console.error(
+                    "Item has wrong type specified for instances, it must be an object with accepted and rejected arrays:",
+                    item
+                );
                 process.exit(1);
             }
-            for (const instance of item.instances) {
+            if (!Array.isArray(item.instances.accepted)) {
+                console.error("Item instances.accepted is missing or is not an array:", item);
+                process.exit(1);
+            }
+            if (!Array.isArray(item.instances.rejected)) {
+                console.error("Item instances.rejected is missing or is not an array:", item);
+                process.exit(1);
+            }
+            for (const instance of item.instances.accepted) {
                 if (typeof instance !== "string") {
                     console.error("Instance was not a string:", item, instance);
                     process.exit(1);
                 }
-                const re = new RegExp(item.pattern);
-                if (!re.test(instance)) {
-                    console.error("Invalid instance for pattern:")
-                    console.error("  pattern: ", item.pattern);
-                    console.error("  instance: ", instance);
+                for (const pat of item.pattern.accepted) {
+                    let re;
+                    try {
+                        re = new RegExp(pat);
+                    } catch (e) {
+                        console.error("Invalid regex pattern in pattern.accepted:", pat, item);
+                        process.exit(1);
+                    }
+                    if (!re.test(instance)) {
+                        console.error("Instance in instances.accepted does not match the required accepted pattern:");
+                        console.error(" pattern.accepted: ", pat);
+                        console.error(" instance: ", instance);
+                        process.exit(1);
+                    }
+                }
+                for (const pat of item.pattern.forbidden) {
+                    let re;
+                    try {
+                        re = new RegExp(pat);
+                    } catch (e) {
+                        console.error("Invalid regex pattern in pattern.forbidden:", pat, item);
+                        process.exit(1);
+                    }
+                    if (re.test(instance)) {
+                        console.error("Instance in instances.accepted should not match the forbidden pattern:");
+                        console.error(" pattern.forbidden: ", pat);
+                        console.error(" instance: ", instance);
+                        process.exit(1);
+                    }
+                }
+            }
+            // We are testing that the instances would be accepted if not for the `forbidden` array.
+            // This ensures that the forbidden regex works correctly and its not just failing
+            // because it doesn't match the patterns in the `accepted` array.
+            for (const instance of item.instances.rejected) {
+                if (typeof instance !== "string") {
+                    console.error("Rejected instance was not a string:", item, instance);
+                    process.exit(1);
+                }
+                let matchesAllAccepted = true;
+                for (const pat of item.pattern.accepted) {
+                    let re;
+                    try {
+                        re = new RegExp(pat);
+                    } catch (e) {
+                        console.error("Invalid regex pattern in pattern.accepted:", pat, item);
+                        process.exit(1);
+                    }
+                    if (!re.test(instance)) {
+                        matchesAllAccepted = false;
+                        break;
+                    }
+                }
+                let matchesAnyForbidden = false;
+                for (const pat of item.pattern.forbidden) {
+                    let re;
+                    try {
+                        re = new RegExp(pat);
+                    } catch (e) {
+                        console.error("Invalid regex pattern in pattern.forbidden:", pat, item);
+                        process.exit(1);
+                    }
+                    if (re.test(instance)) {
+                        matchesAnyForbidden = true;
+                        break;
+                    }
+                }
+                // If the instance matches all accepted regexes and none of the forbidden,
+                // then it qualifies as a match. This is not allowed for a rejected instance.
+                if (matchesAllAccepted && !matchesAnyForbidden) {
+                    console.error("Rejected instance in instances.rejected unexpectedly matches all accepted patterns and none of the forbidden patterns:");
+                    console.error(" pattern.accepted: ", item.pattern.accepted);
+                    console.error(" pattern.forbidden: ", item.pattern.forbidden);
+                    console.error(" instance: ", instance);
                     process.exit(1);
                 }
             }
         }
     }
+} else {
+    console.error("Valid subcommands are `--generate` or `--check`")
+    process.exit(1);
 }
-
