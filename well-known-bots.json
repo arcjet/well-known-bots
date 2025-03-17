@@ -13411,7 +13411,7 @@
     "addition_date": "2025/03/13",
     "verification": [
       {
-        "type": "cidr",
+        "type": "ip",
         "sources": [
           {
             "type": "http-json",
