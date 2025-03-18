@@ -108,8 +108,29 @@ if (process.argv[2] === "--generate") {
                         process.exit(1);
                     }
                 }
+            } else if (verify.type === "ip") {
+                if (!Array.isArray(verify.sources)) {
+                    console.error("Item IP validation entry is missing required `sources` array field:", item, verify);
+                    process.exit(1);
+                }
+                for (const source of verify.sources) {
+                    if (source.type !== "http-json") {
+                        console.error("IP source `type` must be a valid type (currently only `http-json` is supported)", item, verify, source);
+                        process.exit(1);
+                    }
+
+                    if (typeof source.url !== "string") {
+                        console.error("IP source `url` must be a string", item, verify, source);
+                        process.exit(1);
+                    }
+
+                    if (typeof source.selector !== "string") {
+                        console.error("IP source `selector` must be a string", item, verify, source);
+                        process.exit(1);
+                    }
+                }
             } else {
-                console.error("Item validation entry is incorrect, only `dns` and `cidr` are supported:", item, verify);
+                console.error("Item validation entry is incorrect, only `ip`, `dns`, and `cidr` are supported:", item, verify);
                 process.exit(1);
             }
         }
