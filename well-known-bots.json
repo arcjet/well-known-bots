@@ -2051,7 +2051,24 @@
       "forbidden": []
     },
     "url": "https://www.bing.com/webmasters/help/which-crawlers-does-bing-use-8c184ec0",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://www.bing.com/toolbox/bingbot.json",
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+          }
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "@.search.msn.com"
+        ]
+      }
+    ],
     "instances": {
       "accepted": [],
       "rejected": []
@@ -5280,7 +5297,24 @@
     },
     "addition_date": "2017/04/23",
     "url": "https://www.bing.com/webmaster/help/which-crawlers-does-bing-use-8c184ec0",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://www.bing.com/toolbox/bingbot.json",
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+          }
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "@.search.msn.com"
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534+ (KHTML, like Gecko) BingPreview/1.0b",
@@ -12474,7 +12508,7 @@
     ],
     "pattern": {
       "accepted": [
-        "lkxscan"
+        "l9explore"
       ],
       "forbidden": []
     },
@@ -12482,6 +12516,7 @@
     "verification": [],
     "instances": {
       "accepted": [
+        "l9explore/1.2.2",
         "lkxscan/v0.1.0 (+https://leakix.net) l9explore/v1.0.0 (+https://github.com/LeakIX/l9explore)"
       ],
       "rejected": []
@@ -13449,5 +13484,168 @@
       "rejected": []
     },
     "url": "https://user-agents.net/string/postmanruntime-7-28-4"
+  },
+  {
+    "id": "tiktok-crawler",
+    "categories": [
+      "social",
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "TikTokSpider"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/03/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; TikTokSpider; ttspider-feedback@tiktok.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.webmasterworld.com/search_engine_spiders/5118606.htm"
+  },
+  {
+    "id": "geedo-crawler-products",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "GeedoProductSearch"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/03/18",
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://geedo.com/product-search/product-search-ip.json",
+            "selector": "$.prefixes[*][\\\"ipv4Prefix\\\"]"
+          }
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "@.geedo.com"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GeedoProductSearch; +http://www.geedo.com/product-search.html) Chrome/79.0.3945.88 Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "url": "https://geedo.com/product-search/"
+  },
+  {
+    "id": "microsoft-preview",
+    "categories": [
+      "microsoft",
+      "preview"
+    ],
+    "pattern": {
+      "accepted": [
+        "MicrosoftPreview\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/03/18",
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://www.bing.com/toolbox/bingbot.json",
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+          }
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "@.search.msn.com"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; MicrosoftPreview/2.0; +https://aka.ms/MicrosoftPreview) Chrome/W.X.Y.Z Safari/537.36",
+        "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/W.X.Y.Z Mobile Safari/537.36  (compatible; MicrosoftPreview/2.0; +https://aka.ms/MicrosoftPreview)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.bing.com/webmasters/help/which-crawlers-does-bing-use-8c184ec0"
+  },
+  {
+    "id": "summaly-crawler",
+    "categories": [
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "SummalyBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/03/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "SummalyBot/5.1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://github.com/misskey-dev/summaly"
+  },
+  {
+    "id": "lemmy-crawler",
+    "categories": [
+      "social"
+    ],
+    "pattern": {
+      "accepted": [
+        "Lemmy"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/03/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Lemmy/0.19.8; +https://leminal.space"
+      ],
+      "rejected": []
+    },
+    "url": "https://leminal.space"
+  },
+  {
+    "id": "ipip-crawler",
+    "categories": [
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "HTTP Banner Detection"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/03/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "HTTP Banner Detection (https://security.ipip.net)"
+      ],
+      "rejected": []
+    },
+    "url": "https://security.ipip.net"
   }
 ]
