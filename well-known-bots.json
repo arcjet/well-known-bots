@@ -7322,7 +7322,10 @@
       ],
       "rejected": []
     },
-    "url": "http://www.uptimerobot.com/"
+    "url": "http://www.uptimerobot.com/",
+    "aliases": [
+      "UptimeRobot"
+    ]
   },
   {
     "id": "outclicks-crawler",
