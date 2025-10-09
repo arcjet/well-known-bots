@@ -24,7 +24,7 @@ browser-fingerprinting][non-tech-notes-url] project.
 
 ## Custom bots
 
-To block a particular bot that is not on our list,
+To block a particular bot that is not on this list,
 you can use an Arcjet filter.
 See the [Malicious traffic][arcjet-blueprint-malicious-traffic] blueprint for how to
 block custom bots.
