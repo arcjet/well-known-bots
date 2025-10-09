@@ -22,6 +22,13 @@ to evade detection.
 For more details, see [Non-Technical Notes in the
 browser-fingerprinting][non-tech-notes-url] project.
 
+## Custom bots
+
+To block a particular bot that is not on our list,
+you can use an Arcjet filter.
+See the [Malicious traffic][arcjet-blueprint-malicious-traffic] blueprint for how to
+block custom bots.
+
 ## Structure
 
 Each entry in the JSON represents a specific bot or crawler and includes the following fields:
@@ -71,6 +78,7 @@ The project is a hard-fork of [crawler-user-agents][forked-repo-url] at commit
 `46831767324e10c69c9ac6e538c9847853a0feb9`, which is distributed under the [MIT
 License][mit-license].
 
+[arcjet-blueprint-malicious-traffic]: https://docs.arcjet.com/blueprints/malicious-traffic
 [raw-json-url]: https://raw.githubusercontent.com/arcjet/well-known-bots/main/well-known-bots.json
 [forked-repo-url]: https://github.com/monperrus/crawler-user-agents/commit/46831767324e10c69c9ac6e538c9847853a0feb9
 [non-tech-notes-url]: https://github.com/niespodd/browser-fingerprinting/blob/baecc60821cefd06eb89a54d18be39d87dd16f2e/README.md#non-technical-notes
