@@ -2847,7 +2847,17 @@
       ]
     },
     "addition_date": "2012/05/07",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-csv",
+            "url": "http://www.facebook.com/peering/geofeed"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "facebookexternalhit/1.0 (+http://www.facebook.com/externalhit_uatext.php)",
@@ -3951,7 +3961,17 @@
     },
     "url": "https://developers.facebook.com/docs/sharing/bot",
     "addition_date": "2014/12/30",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-csv",
+            "url": "http://www.facebook.com/peering/geofeed"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "Facebot/1.0",
@@ -13222,7 +13242,17 @@
       "forbidden": []
     },
     "addition_date": "2024/09/16",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-csv",
+            "url": "http://www.facebook.com/peering/geofeed"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "meta-externalfetcher/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)",
