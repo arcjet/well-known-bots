@@ -275,6 +275,27 @@
     ]
   },
   {
+    "id": "google-ads-conversions",
+    "categories": [
+      "google",
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "Google-Ads-Conversions"
+      ],
+      "forbidden": []
+    },
+    "url": "https://developers.google.com/google-ads/api/docs/conversions/upload-online",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 Chrome/139.0.7258.127 Safari/537.36 Google-Ads-Conversions"
+      ],
+      "rejected": []
+    }
+  },
+  {
     "id": "google-feedfetcher",
     "categories": [
       "google",
