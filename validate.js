@@ -111,9 +111,15 @@ if (process.argv[2] === "--generate") {
                 }
 
                 if (hasRanges) {
+                    // Basic CIDR format validation (IPv4 and IPv6)
+                    const cidrPattern = /^(([0-9]{1,3}\.){3}[0-9]{1,3}\/[0-9]{1,2}|([0-9a-fA-F:]+):([0-9a-fA-F:]+)\/[0-9]{1,3})$/;
                     for (const range of verify.ranges) {
                         if (typeof range !== "string") {
                             console.error("Range was not a string:", item, verify, range);
+                            process.exit(1);
+                        }
+                        if (!cidrPattern.test(range)) {
+                            console.error("Range is not in valid CIDR notation:", item, verify, range);
                             process.exit(1);
                         }
                     }
