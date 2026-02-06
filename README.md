@@ -68,9 +68,11 @@ All other characters in the mask require an exact match.
 
 Each cidr source requires the following fields:
 
-- type: The type of source (Currently only `http-json`) is supported
+- type: The type of source (`http-json` or `http-csv`) is supported
 - url: The url that hosts the ip ranges
-- selector: A JsonPath selector that selects all of the IP ranges in the source 
+- selector: (`http-json` only) A JsonPath selector that selects all of the IP ranges in the source
+
+For `http-csv` the `url` should point to a file with a format where the IP CIDRs are in the first column.
 
 ## License
 
