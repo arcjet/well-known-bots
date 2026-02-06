@@ -82,8 +82,8 @@ if (process.argv[2] === "--generate") {
                     process.exit(1);
                 }
                 for (const source of verify.sources) {
-                    if (source.type !== "http-json") {
-                        console.error("Cidr source `type` must be a valid type (currently only `http-json` is supported)", item, verify, source);
+                    if (source.type !== "http-json" && source.type !== "http-csv") {
+                        console.error("Cidr source `type` must be a valid type (currently `http-json` and `http-csv` are supported)", item, verify, source);
                         process.exit(1);
                     }
 
@@ -92,9 +92,11 @@ if (process.argv[2] === "--generate") {
                         process.exit(1);
                     }
 
-                    if (typeof source.selector !== "string") {
-                        console.error("Cidr source `selector` must be a string", item, verify, source);
-                        process.exit(1);
+                    if (source.type === "http-json") {
+                        if (typeof source.selector !== "string") {
+                            console.error("Cidr source `selector` must be a string for http-json type", item, verify, source);
+                            process.exit(1);
+                        }
                     }
                 }
             } else if (verify.type === "dns") {
