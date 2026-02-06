@@ -51,9 +51,10 @@ If you specify `dns` verification then these fields are expected:
 
 - masks: An array of mask patterns used for verification
 
-If you specify `cidr` verification then these fields are expected:
+If you specify `cidr` verification then one of these fields is expected:
 
-- sources: An array of sources to pull cidr range data from (at least one is required)
+- sources: An array of sources to pull cidr range data from (for dynamic IP ranges)
+- ranges: An array of static CIDR ranges (for known static IP ranges)
 
 ### Verification mask patterns
 
@@ -71,6 +72,10 @@ Each cidr source requires the following fields:
 - type: The type of source (Currently only `http-json`) is supported
 - url: The url that hosts the ip ranges
 - selector: A JsonPath selector that selects all of the IP ranges in the source 
+
+### Cidr verification ranges
+
+If using static ranges instead of sources, the `ranges` array should contain CIDR notation strings (e.g., "47.128.0.0/16").
 
 ## License
 

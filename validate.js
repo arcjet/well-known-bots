@@ -77,24 +77,45 @@ if (process.argv[2] === "--generate") {
         }
         for (const verify of item.verification) {
             if (verify.type === "cidr") {
-                if (!Array.isArray(verify.sources)) {
-                    console.error("Item cidr validation entry is missing required `sources` array field:", item, verify);
+                // CIDR verification can have either 'sources' (http-json) or 'ranges' (static CIDR)
+                const hasSources = Array.isArray(verify.sources);
+                const hasRanges = Array.isArray(verify.ranges);
+
+                if (!hasSources && !hasRanges) {
+                    console.error("Item cidr validation entry must have either `sources` or `ranges` array field:", item, verify);
                     process.exit(1);
                 }
-                for (const source of verify.sources) {
-                    if (source.type !== "http-json") {
-                        console.error("Cidr source `type` must be a valid type (currently only `http-json` is supported)", item, verify, source);
-                        process.exit(1);
-                    }
 
-                    if (typeof source.url !== "string") {
-                        console.error("Cidr source `url` must be a string", item, verify, source);
-                        process.exit(1);
-                    }
+                if (hasSources && hasRanges) {
+                    console.error("Item cidr validation entry cannot have both `sources` and `ranges`:", item, verify);
+                    process.exit(1);
+                }
 
-                    if (typeof source.selector !== "string") {
-                        console.error("Cidr source `selector` must be a string", item, verify, source);
-                        process.exit(1);
+                if (hasSources) {
+                    for (const source of verify.sources) {
+                        if (source.type !== "http-json") {
+                            console.error("Cidr source `type` must be a valid type (currently only `http-json` is supported)", item, verify, source);
+                            process.exit(1);
+                        }
+
+                        if (typeof source.url !== "string") {
+                            console.error("Cidr source `url` must be a string", item, verify, source);
+                            process.exit(1);
+                        }
+
+                        if (typeof source.selector !== "string") {
+                            console.error("Cidr source `selector` must be a string", item, verify, source);
+                            process.exit(1);
+                        }
+                    }
+                }
+
+                if (hasRanges) {
+                    for (const range of verify.ranges) {
+                        if (typeof range !== "string") {
+                            console.error("Range was not a string:", item, verify, range);
+                            process.exit(1);
+                        }
                     }
                 }
             } else if (verify.type === "dns") {
