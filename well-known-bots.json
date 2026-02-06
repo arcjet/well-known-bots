@@ -13693,5 +13693,27 @@
       "rejected": []
     },
     "url": "https://security.ipip.net"
+  },
+  {
+    "id": "yext-bot",
+    "categories": [
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "YextBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/06",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 10_0 like Mac OS X) AppleWebKit/602.1.38 (KHTML, like Gecko) Version/10.0 Mobile/14A5297c YextBot/Java Safari/602.1",
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/87.0.4280.88 YextBot/Java Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.yext.com/platform/crawl"
   }
 ]
