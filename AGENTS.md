@@ -163,7 +163,7 @@ node validate.js --check
 3. **Verification Data**:
    - Only add verification if the bot provider offers a reliable verification method
    - Most bots (570/600) have no verification - this is normal
-   - Verify URLs are accessible before adding them
+   - Verify URLs are accessible before adding them. If you cannot load the URL then flag it for human verification in the pull request.
 
 ## Testing Your Changes
 
