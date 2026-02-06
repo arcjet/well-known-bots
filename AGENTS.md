@@ -185,6 +185,8 @@ node validate.js --check
 - **Bots with IP verification**: 1
 - **Bots with no verification**: 570
 
+*Note: Some bots have multiple verification methods (e.g., both DNS and CIDR), so the sum of verification counts exceeds the total number of bots.*
+
 ## Tips for Agents
 
 1. **Always validate** before committing changes
