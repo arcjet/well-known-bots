@@ -177,16 +177,6 @@ node validate.js --check
 # If there are errors, they will be printed to stderr
 ```
 
-## Repository Statistics
-
-- **Total bots**: 600
-- **Bots with DNS verification**: 24
-- **Bots with CIDR verification**: 25
-- **Bots with IP verification**: 1
-- **Bots with no verification**: 570
-
-*Note: Some bots have multiple verification methods (e.g., both DNS and CIDR), so the sum of verification counts exceeds the total number of bots.*
-
 ## Tips for Agents
 
 1. **Always validate** before committing changes
