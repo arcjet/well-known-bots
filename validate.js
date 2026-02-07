@@ -111,25 +111,52 @@ if (process.argv[2] === "--generate") {
                     }
                 }
             } else if (verify.type === "ip") {
-                if (!Array.isArray(verify.sources)) {
-                    console.error("Item IP validation entry is missing required `sources` array field:", item, verify);
+                // IP verification can have either static IPs or sources
+                if (verify.ips && verify.sources) {
+                    console.error("Item IP validation cannot have both `ips` and `sources` fields:", item, verify);
                     process.exit(1);
                 }
-                for (const source of verify.sources) {
-                    if (source.type !== "http-json") {
-                        console.error("IP source `type` must be a valid type (currently only `http-json` is supported)", item, verify, source);
+                
+                if (verify.ips) {
+                    // Static IP list
+                    if (!Array.isArray(verify.ips)) {
+                        console.error("Item IP validation `ips` field must be an array:", item, verify);
                         process.exit(1);
                     }
+                    for (const ip of verify.ips) {
+                        if (typeof ip !== "string") {
+                            console.error("IP entry in `ips` must be a string:", item, verify, ip);
+                            process.exit(1);
+                        }
+                    }
+                } else if (verify.sources) {
+                    // Remote IP sources
+                    if (!Array.isArray(verify.sources)) {
+                        console.error("Item IP validation entry is missing required `sources` array field:", item, verify);
+                        process.exit(1);
+                    }
+                    for (const source of verify.sources) {
+                        if (source.type !== "http-json" && source.type !== "http-text") {
+                            console.error("IP source `type` must be a valid type (`http-json` or `http-text` are supported)", item, verify, source);
+                            process.exit(1);
+                        }
 
-                    if (typeof source.url !== "string") {
-                        console.error("IP source `url` must be a string", item, verify, source);
-                        process.exit(1);
-                    }
+                        if (typeof source.url !== "string") {
+                            console.error("IP source `url` must be a string", item, verify, source);
+                            process.exit(1);
+                        }
 
-                    if (typeof source.selector !== "string") {
-                        console.error("IP source `selector` must be a string", item, verify, source);
-                        process.exit(1);
+                        if (source.type === "http-json") {
+                            if (typeof source.selector !== "string") {
+                                console.error("IP source `selector` must be a string for http-json type", item, verify, source);
+                                process.exit(1);
+                            }
+                        }
+                        // http-text sources don't need a selector
                     }
+                } else {
+                    console.error("Item IP validation entry must have either `ips` or `sources` field:", item, verify);
+                    process.exit(1);
                 }
             } else {
                 console.error("Item validation entry is incorrect, only `ip`, `dns`, and `cidr` are supported:", item, verify);
