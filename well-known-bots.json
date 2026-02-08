@@ -14701,5 +14701,224 @@
       "rejected": []
     },
     "url": "https://sitebulb.com/"
+  },
+  {
+    "id": "ahrefs-bot",
+    "categories": [
+      "tool",
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "Ahrefs(Bot|SiteAudit)"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2011/08/28",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; AhrefsBot/6.1; +http://ahrefs.com/robot/)",
+        "Mozilla/5.0 (compatible; AhrefsSiteAudit/6.1; +http://ahrefs.com/robot/)",
+        "Mozilla/5.0 (compatible; AhrefsBot/5.2; News; +http://ahrefs.com/robot/)",
+        "Mozilla/5.0 (compatible; AhrefsBot/5.2; +http://ahrefs.com/robot/)",
+        "Mozilla/5.0 (compatible; AhrefsSiteAudit/5.2; +http://ahrefs.com/robot/)",
+        "Mozilla/5.0 (compatible; AhrefsBot/6.1; News; +http://ahrefs.com/robot/)",
+        "Mozilla/5.0 (compatible; AhrefsBot/7.0; +http://ahrefs.com/robot/)"
+      ],
+      "rejected": []
+    },
+    "url": "http://ahrefs.com/robot/"
+  },
+  {
+    "id": "amazon-product-discovery",
+    "categories": [
+      "amazon"
+    ],
+    "pattern": {
+      "accepted": [
+        "AmazonProductDiscovery"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/12/22",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 (compatible; AmazonProductDiscovery/1.0; https://vendorcentral.amazon.com/support/amazonproductbot)",
+        "Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0 (compatible; AmazonProductDiscovery/1.0; https://vendorcentral.amazon.com/support/amazonproductbot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://vendorcentral.amazon.com/support/amazonproductbot"
+  },
+  {
+    "id": "amazon-seller-initiated-listing",
+    "categories": [
+      "amazon"
+    ],
+    "pattern": {
+      "accepted": [
+        "AmazonSellerInitiatedListing"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/12/22",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 (compatible; AmazonSellerInitiatedListing/1.0; https://vendorcentral.amazon.com/support/amazonproductbot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://vendorcentral.amazon.com/support/amazonproductbot"
+  },
+  {
+    "id": "claude-bot",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "[cC]laude[bB]ot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2024/04/19",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "claudebot",
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +claudebot@anthropic.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.anthropic.com/"
+  },
+  {
+    "id": "meta-external-agent",
+    "categories": [
+      "meta"
+    ],
+    "pattern": {
+      "accepted": [
+        "meta-externalagent\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2024/10/03",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)",
+        "meta-externalagent/1.1"
+      ],
+      "rejected": []
+    },
+    "url": "https://developers.facebook.com/docs/sharing/webmasters/web-crawlers"
+  },
+  {
+    "id": "meta-external-fetcher",
+    "categories": [
+      "meta"
+    ],
+    "pattern": {
+      "accepted": [
+        "meta-externalfetcher\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2024/10/03",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "meta-externalfetcher/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)",
+        "meta-externalfetcher/1.1"
+      ],
+      "rejected": []
+    },
+    "url": "https://developers.facebook.com/docs/sharing/webmasters/web-crawlers"
+  },
+  {
+    "id": "hydrozen-io",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "Hydrozen\\.io"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/02/02",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Hydrozen.io/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.hydrozen.io/overview/misc/user-agent-and-ip-list"
+  },
+  {
+    "id": "yext-bot",
+    "categories": [
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "YextBot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/08/08",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/87.0.4280.88 YextBot/Java Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "url": "https://hitchhikers.yext.com/modules/kg140-yext-site-crawler/01-create-a-crawler/"
+  },
+  {
+    "id": "datadog-synthetics",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "DatadogSynthetics"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/08/19",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.7204.168 Safari/537.36 DatadogSynthetics"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.datadoghq.com/synthetics/"
+  },
+  {
+    "id": "observe-point",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "ObservePoint"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2025/12/23",
+    "verification": [],
+    "instances": {
+      "accepted": [],
+      "rejected": []
+    },
+    "url": "https://help.observepoint.com/en/articles/9101465-allow-exclude-observepoint-traffic#h_2a8176c9b9"
   }
 ]
