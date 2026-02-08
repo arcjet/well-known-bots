@@ -93,7 +93,7 @@ DNS verification uses reverse DNS lookups to verify a bot's identity. The bot's 
 ```
 
 **Mask pattern syntax:**
-- `*` - Matches zero or one character
+- `*` - Matches zero or one occurrence of any character
 - `@` - Matches any number of characters (wildcard)
 - All other characters require an exact match
 
