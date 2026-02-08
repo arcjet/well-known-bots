@@ -5641,7 +5641,7 @@
     ],
     "pattern": {
       "accepted": [
-        "Pingdom\\.com_bot"
+        "[pP]ingdom"
       ],
       "forbidden": []
     },
@@ -5663,7 +5663,15 @@
     ],
     "instances": {
       "accepted": [
-        "Pingdom.com_bot_version_1.4_(http://www.pingdom.com/)"
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/59.0.3071.109 Chrome/59.0.3071.109 Safari/537.36 PingdomPageSpeed/1.0 (pingbot/2.0; +http://www.pingdom.com/)",
+        "Mozilla/5.0 (compatible; pingbot/2.0; +http://www.pingdom.com/)",
+        "Pingdom.com_bot_version_1.4_(http://www.pingdom.com/)",
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/61.0.3163.100 Chrome/61.0.3163.100 Safari/537.36 PingdomPageSpeed/1.0 (pingbot/2.0; +http://www.pingdom.com/)",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) browser/2020.2.1 Chrome/78.0.3904.130 Electron/7.3.2 Safari/537.36 PingdomTMS/2020.2",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) browser/2020.2.5 Chrome/78.0.3904.130 Electron/7.3.15 Safari/537.36 PingdomTMS/2020.2",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) browser/2020.2.0 Chrome/78.0.3904.130 Electron/7.1.7 Safari/537.36 PingdomTMS/2020.2",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) renderer/2020.2.0 Chrome/78.0.3904.130 Electron/7.1.7 Safari/537.36 PingdomTMS/2020.2",
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/61.0.3163.100 Chrome/61.0.3163.100 Safari/537.36 PingdomPageSpeed/1.0 (pingbot/2.0; http://www.pingdom.com/)"
       ],
       "rejected": []
     },
@@ -11507,13 +11515,40 @@
     ],
     "pattern": {
       "accepted": [
-        "(Better (Stack )?((Better )?Uptime )?Bot|BetterUptimeBot)"
+        "Better Uptime Bot"
       ],
       "forbidden": []
     },
     "addition_date": "2022/11/13",
     "url": "https://betteruptime.com/",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Better Uptime Bot Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+      ],
+      "rejected": []
+    }
+  },
+  {
+    "id": "betterstack-monitor",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "Better Stack"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/08",
+    "url": "https://betterstack.com/",
     "verification": [
+      {
+        "type": "dns",
+        "masks": [
+          "*.betteruptime.com"
+        ]
+      },
       {
         "type": "ip",
         "sources": [
@@ -11527,10 +11562,7 @@
     ],
     "instances": {
       "accepted": [
-        "Better Uptime Bot Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36",
-        "Better Stack Bot",
-        "Better Better Uptime Bot",
-        "BetterUptimeBot"
+        "Better Stack Better Uptime Bot Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
       ],
       "rejected": []
     }
