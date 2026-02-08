@@ -14405,7 +14405,21 @@
       "forbidden": []
     },
     "addition_date": "2024/12/17",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-csv",
+            "url": "https://www.cloudflare.com/ips-v4/"
+          },
+          {
+            "type": "http-csv",
+            "url": "https://www.cloudflare.com/ips-v6/"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "Mozilla/5.0 (compatible; Cloudflare-Healthchecks/1.0; +https://www.cloudflare.com/; healthcheck-id: AAAAAAAAAAAAAAAA)"
@@ -14426,7 +14440,21 @@
       "forbidden": []
     },
     "addition_date": "2024/12/17",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-csv",
+            "url": "https://www.cloudflare.com/ips-v4/"
+          },
+          {
+            "type": "http-csv",
+            "url": "https://www.cloudflare.com/ips-v6/"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "Mozilla/5.0 (compatible; Cloudflare-Traffic-Manager/1.0; +https://www.cloudflare.com/traffic-manager/; pool-id: AAAAAAAAAAAAAAAA)"
@@ -14447,7 +14475,21 @@
       "forbidden": []
     },
     "addition_date": "2024/12/17",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-csv",
+            "url": "https://www.cloudflare.com/ips-v4/"
+          },
+          {
+            "type": "http-csv",
+            "url": "https://www.cloudflare.com/ips-v6/"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "Mozilla/5.0 (compatible; CloudFlare-Prefetch/0.1; +http://www.cloudflare.com/)"
@@ -14468,7 +14510,21 @@
       "forbidden": []
     },
     "addition_date": "2024/12/17",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-csv",
+            "url": "https://www.cloudflare.com/ips-v4/"
+          },
+          {
+            "type": "http-csv",
+            "url": "https://www.cloudflare.com/ips-v6/"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "Cloudflare-SSLDetector"
@@ -14489,7 +14545,21 @@
       "forbidden": []
     },
     "addition_date": "2024/12/17",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-csv",
+            "url": "https://www.cloudflare.com/ips-v4/"
+          },
+          {
+            "type": "http-csv",
+            "url": "https://www.cloudflare.com/ips-v6/"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36 (compatible; +https://developers.cloudflare.com/security-center/)"
