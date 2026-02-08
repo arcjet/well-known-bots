@@ -29,88 +29,254 @@ you can use an Arcjet filter.
 See the [Malicious traffic][arcjet-blueprint-malicious-traffic] blueprint for how to
 block custom bots.
 
-## Structure
+## Adding a New Bot
+
+To add a new bot to the list, you need to edit the `well-known-bots.json` file and add a new entry. Follow these steps:
+
+1. **Create a new bot entry** with the required fields (see structure below)
+2. **Add User-Agent pattern(s)** that identify the bot
+3. **Add verification method(s)** if the bot provider supports verification
+4. **Add example instances** to validate your patterns work correctly
+5. **Run validation** to ensure your entry is correct: `node validate.js --check`
+6. **Submit a pull request** with your changes
+
+### Bot Entry Structure
 
 Each entry in the JSON represents a specific bot or crawler and includes the following fields:
 
-- id: A unique identifier for the bot
-- categories: An array of categories the bot belongs to (e.g., "search-engine", "advertising")
-- pattern: A regular expression pattern used to identify the bot in user agent strings
-- url: (optional) A URL with more information about the bot
-- verification: A list of supported methods for verifying the bot's identity (if the bot is not verifiable it should be empty).
-- instances: An array of example user agent strings for the bot
-- aliases: Extra unique identifiers for the bot that can be used to identify it across other data sources
+#### Required Fields
 
-### Verification
+- **`id`** (string): A unique identifier for the bot in kebab-case (e.g., `"google-crawler"`)
+- **`categories`** (array): One or more categories the bot belongs to (see [available categories](#available-categories))
+- **`pattern`** (object): Regular expression patterns to match the bot's User-Agent
+  - **`accepted`** (array): Regex patterns that must match for bot identification
+  - **`forbidden`** (array): Regex patterns that, if matched, disqualify the User-Agent
+- **`verification`** (array): Methods for verifying the bot's authenticity (can be empty `[]` if not supported)
 
-Each verification entry contains the following fields:
+#### Optional Fields
 
-- type: The method of verification (`dns`, `cidr`, and `ip` are supported)
+- **`url`** (string): Documentation URL for the bot
+- **`instances`** (object): Example User-Agent strings for testing
+  - **`accepted`** (array): User-Agent strings that should match the pattern
+  - **`rejected`** (array): User-Agent strings that should not match
+- **`aliases`** (array): Alternative identifiers for the bot used in other data sources
+- **`addition_date`** (string): Date the bot was added in YYYY/MM/DD format
 
-If you specify `dns` verification then these fields are expected:
+### Available Categories
 
-- masks: An array of mask patterns used for verification
+```
+academic, advertising, ai, amazon, apple, archive, feedfetcher, google,
+meta, microsoft, monitor, optimizer, preview, programmatic, search-engine,
+slack, social, tool, unknown, vercel, webhook, yahoo
+```
 
-If you specify `cidr` verification then these fields are expected:
+## Verification Methods
 
-- sources: An array of sources to pull CIDR range data from (at least one is required)
+Bot verification allows you to confirm that a request claiming to be from a specific bot actually originates from that bot's infrastructure. Three verification methods are supported: DNS, CIDR, and IP.
 
-If you specify `ip` verification then one of these fields is expected:
+### DNS Verification
 
-- ips: An array of static IP addresses (for a small, fixed list of IPs)
-- sources: An array of sources to pull IP addresses from (for dynamic or large lists)
+DNS verification uses reverse DNS lookups to verify a bot's identity. The bot's IP address is resolved to a hostname, which is then checked against known patterns.
 
-### Verification mask patterns
+**When to use:** When the bot provider publishes DNS patterns for their crawlers (e.g., Google, Bing).
 
-The mask patterns use the following special characters:
+**Example:**
 
-- *: Represents 0 or 1 of any character
-- @: Acts as a wildcard, matching any number of characters
+```json
+{
+  "type": "dns",
+  "masks": [
+    "crawl-***-***-***-***.googlebot.com",
+    "geo-crawl-***-***-***-***.geo.googlebot.com"
+  ]
+}
+```
 
-All other characters in the mask require an exact match.
+**Mask pattern syntax:**
+- `*` - Matches zero or one occurrence of any character
+- `@` - Matches any number of characters (wildcard)
+- All other characters require an exact match
 
-### Cidr verification sources
+**Full example in context:**
 
-Each CIDR source requires the following fields:
+```json
+{
+  "id": "example-search-bot",
+  "categories": ["search-engine"],
+  "pattern": {
+    "accepted": ["ExampleBot\\/"],
+    "forbidden": []
+  },
+  "verification": [
+    {
+      "type": "dns",
+      "masks": [
+        "crawler-***.example.com"
+      ]
+    }
+  ]
+}
+```
 
-- type: The type of source (`http-json` or `http-csv` is supported)
-- url: The URL that hosts the IP ranges
-- selector: (`http-json` only) A JSONPath selector that selects all of the IP ranges in the source
+### CIDR Verification
 
-For `http-csv` the `url` should point to a file with a format where the IP CIDRs are in the first column.
+CIDR verification checks if the request originates from IP address ranges (CIDR blocks) published by the bot provider.
 
-### IP verification sources
+**When to use:** When the bot provider publishes IP ranges in CIDR notation (e.g., Google, Stripe).
 
-IP verification can use either static IPs or remote sources:
+**Supported source types:**
+- `http-json` - JSON file with CIDR ranges (or a mix of individual IPs and CIDR ranges)
+- `http-csv` - CSV file with CIDR ranges in the first column (or a mix of individual IPs and CIDR ranges)
+- `http-text` - Plain text file with one CIDR range per line (or a mix of individual IPs and CIDR ranges)
 
-#### Static IPs
+**Example with JSON source:**
 
-For a small, fixed list of IP addresses, use the `ips` field:
+```json
+{
+  "type": "cidr",
+  "sources": [
+    {
+      "type": "http-json",
+      "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
+      "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+    }
+  ]
+}
+```
+
+**Example with CSV source:**
+
+```json
+{
+  "type": "cidr",
+  "sources": [
+    {
+      "type": "http-csv",
+      "url": "https://example.com/ip-ranges.csv"
+    }
+  ]
+}
+```
+
+**JSONPath selector examples:**
+- `$.prefixes[*].cidr` - Array of objects with a `cidr` field
+- `$[*]` - Simple array of CIDR strings
+- `$.ranges[*]` - Nested array under `ranges` key
+
+### IP Verification
+
+IP verification checks if the request originates from specific IP addresses. This method supports both static IP lists and remote sources.
+
+**When to use:** 
+- Static IPs: When the bot uses a small, fixed set of IP addresses
+- Remote sources: When the bot provider publishes a dynamic list of IPs
+
+#### Static IP Addresses
+
+For a small, fixed list of IP addresses:
 
 ```json
 {
   "type": "ip",
   "ips": [
-    "1.2.3.4",
-    "5.6.7.8"
+    "35.204.201.174",
+    "34.125.202.46"
   ]
 }
 ```
 
-#### Remote IP sources
+**Full example in context:**
 
-For dynamic or large lists, use the `sources` field. Each IP source requires the following fields:
+```json
+{
+  "id": "small-monitoring-bot",
+  "categories": ["monitor"],
+  "pattern": {
+    "accepted": ["MonitorBot"],
+    "forbidden": []
+  },
+  "verification": [
+    {
+      "type": "ip",
+      "ips": [
+        "1.2.3.4",
+        "5.6.7.8"
+      ]
+    }
+  ]
+}
+```
 
-- type: The type of source (`http-json` or `http-text` is supported)
-- url: The URL that hosts the IP addresses
-- selector: (`http-json` only) A JSONPath selector that selects all of the IP addresses in the source
+#### Remote IP Sources
 
-For `http-json`, the `selector` uses JSONPath to extract IP addresses from JSON responses. Common patterns:
-- `$[*]` - for a simple array of IPs
-- `$[*].ip` - for an array of objects with an `ip` field
-- `$.*[*]` - for an object with arrays of IPs as values
+For dynamic or large lists, use remote sources:
 
-For `http-text`, the `url` should point to a plain text file with one IP address per line.
+**Supported source types:**
+- `http-json` - JSON file with IP addresses (or a mix of individual IPs and CIDR ranges)
+- `http-text` - Plain text file with one IP per line (or a mix of individual IPs and CIDR ranges)
+
+**Example with JSON source:**
+
+```json
+{
+  "type": "ip",
+  "sources": [
+    {
+      "type": "http-json",
+      "url": "https://stripe.com/files/ips/ips_webhooks.json",
+      "selector": "$.WEBHOOKS[*]"
+    }
+  ]
+}
+```
+
+**Example with text source:**
+
+```json
+{
+  "type": "ip",
+  "sources": [
+    {
+      "type": "http-text",
+      "url": "https://my.pingdom.com/probes/ipv4"
+    }
+  ]
+}
+```
+
+**JSONPath selector examples:**
+- `$[*]` - Simple array of IP strings
+- `$[*].ip` - Array of objects with an `ip` field
+- `$.WEBHOOKS[*]` - Array of IPs under `WEBHOOKS` key
+- `$.*[*]` - Object with arrays of IPs as values
+
+### Multiple Verification Methods
+
+You can specify multiple verification methods for a single bot. All methods should be valid for verifying the bot's identity:
+
+```json
+{
+  "id": "google-crawler",
+  "verification": [
+    {
+      "type": "cidr",
+      "sources": [
+        {
+          "type": "http-json",
+          "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
+          "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+        }
+      ]
+    },
+    {
+      "type": "dns",
+      "masks": [
+        "crawl-***-***-***-***.googlebot.com"
+      ]
+    }
+  ]
+}
+```
 
 ## License
 
