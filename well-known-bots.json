@@ -14581,7 +14581,19 @@
       "forbidden": []
     },
     "addition_date": "2025/03/27",
-    "verification": [],
+    "verification": [
+      {
+        "type": "ip",
+        "ips": [
+          "35.187.15.33",
+          "35.187.69.66",
+          "104.199.98.197",
+          "35.199.9.128",
+          "35.230.188.244",
+          "35.245.139.31"
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "Mozilla/5.0 (compatible; OnCrawl/1.0; +http://www.oncrawl.com)",
@@ -14589,7 +14601,7 @@
       ],
       "rejected": []
     },
-    "url": "http://www.oncrawl.com"
+    "url": "https://help.oncrawl.com/en/articles/2288662-what-ips-does-oncrawl-use-to-crawl-a-website"
   },
   {
     "id": "got",
@@ -14624,14 +14636,34 @@
       "forbidden": []
     },
     "addition_date": "2025/04/22",
-    "verification": [],
+    "verification": [
+      {
+        "type": "ip",
+        "ips": [
+          "66.132.159.0/24",
+          "162.142.125.0/24",
+          "167.94.138.0/24",
+          "167.94.145.0/24",
+          "167.94.146.0/24",
+          "167.248.133.0/24",
+          "199.45.154.0/24",
+          "199.45.155.0/24",
+          "206.168.34.0/24",
+          "206.168.35.0/24",
+          "2602:80d:1000:b0cc:e::/80",
+          "2620:96:e000:b0cc:e::/80",
+          "2602:80d:1003::/112",
+          "2602:80d:1004::/112"
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)"
       ],
       "rejected": []
     },
-    "url": "https://about.censys.io"
+    "url": "https://docs.censys.com/docs/opt-out-of-data-collection"
   },
   {
     "id": "sbintuitions-bot",
