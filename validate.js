@@ -82,8 +82,8 @@ if (process.argv[2] === "--generate") {
                     process.exit(1);
                 }
                 for (const source of verify.sources) {
-                    if (source.type !== "http-json" && source.type !== "http-csv") {
-                        console.error("Cidr source `type` must be a valid type (currently `http-json` and `http-csv` are supported)", item, verify, source);
+                    if (source.type !== "http-json" && source.type !== "http-csv" && source.type !== "http-text") {
+                        console.error("Cidr source `type` must be a valid type (currently `http-json`, `http-csv`, and `http-text` are supported)", item, verify, source);
                         process.exit(1);
                     }
 

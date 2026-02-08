@@ -14410,11 +14410,11 @@
         "type": "cidr",
         "sources": [
           {
-            "type": "http-csv",
+            "type": "http-text",
             "url": "https://www.cloudflare.com/ips-v4/"
           },
           {
-            "type": "http-csv",
+            "type": "http-text",
             "url": "https://www.cloudflare.com/ips-v6/"
           }
         ]
@@ -14445,11 +14445,11 @@
         "type": "cidr",
         "sources": [
           {
-            "type": "http-csv",
+            "type": "http-text",
             "url": "https://www.cloudflare.com/ips-v4/"
           },
           {
-            "type": "http-csv",
+            "type": "http-text",
             "url": "https://www.cloudflare.com/ips-v6/"
           }
         ]
@@ -14480,11 +14480,11 @@
         "type": "cidr",
         "sources": [
           {
-            "type": "http-csv",
+            "type": "http-text",
             "url": "https://www.cloudflare.com/ips-v4/"
           },
           {
-            "type": "http-csv",
+            "type": "http-text",
             "url": "https://www.cloudflare.com/ips-v6/"
           }
         ]
@@ -14515,11 +14515,11 @@
         "type": "cidr",
         "sources": [
           {
-            "type": "http-csv",
+            "type": "http-text",
             "url": "https://www.cloudflare.com/ips-v4/"
           },
           {
-            "type": "http-csv",
+            "type": "http-text",
             "url": "https://www.cloudflare.com/ips-v6/"
           }
         ]
@@ -14550,11 +14550,11 @@
         "type": "cidr",
         "sources": [
           {
-            "type": "http-csv",
+            "type": "http-text",
             "url": "https://www.cloudflare.com/ips-v4/"
           },
           {
-            "type": "http-csv",
+            "type": "http-text",
             "url": "https://www.cloudflare.com/ips-v6/"
           }
         ]
