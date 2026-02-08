@@ -40,66 +40,38 @@ The `validate.js` script is your primary tool. It has TWO modes:
 
 ### Making Changes to well-known-bots.json
 
-When adding or modifying bot entries:
+When adding or modifying bot entries, refer to the [README.md](README.md) for:
+- Complete field descriptions and structure
+- Available categories
+- Verification methods and examples
+- How to add a new bot
 
-1. **Required fields** for every bot entry:
-   - `id`: string - Unique identifier (kebab-case)
-   - `categories`: array - At least one category (see available categories below)
-   - `pattern`: object with `accepted` and `forbidden` arrays of regex strings
-   - `verification`: array - Can be empty `[]` or contain verification methods
+**Quick reference** - Required fields for every bot entry:
+- `id`: string - Unique identifier (kebab-case)
+- `categories`: array - At least one category
+- `pattern`: object with `accepted` and `forbidden` arrays of regex strings
+- `verification`: array - Can be empty `[]` or contain verification methods
 
-2. **Optional fields**:
-   - `url`: string - Documentation URL for the bot
-   - `instances`: object with `accepted` and `rejected` arrays of example user-agent strings
-   - `aliases`: array of strings - Alternative identifiers
-   - `addition_date`: string - Date in YYYY/MM/DD format
-
-3. **Verification types** (if providing verification):
-   - `dns`: Requires `masks` array with DNS patterns
-     - Special characters: `*` (0 or 1 char), `@` (wildcard any chars)
-   - `cidr`: Requires `sources` array with IP range sources
-     - Each source needs: `type` (currently only `"http-json"`), `url`, `selector` (JSONPath)
-   - `ip`: Requires `sources` array with IP sources
-     - Each source needs: `type` (currently only `"http-json"`), `url`, `selector` (JSONPath)
-
-4. **Pattern validation**:
-   - All regex patterns in `pattern.accepted` must be valid
-   - All regex patterns in `pattern.forbidden` must be valid
-   - If `instances.accepted` is provided, all strings must match ALL accepted patterns and NONE of the forbidden patterns
-   - If `instances.rejected` is provided, strings must either not match all accepted patterns OR match at least one forbidden pattern
-
-### Available Categories
-
-```
-academic, advertising, ai, amazon, apple, archive, feedfetcher, google,
-meta, microsoft, monitor, optimizer, preview, programmatic, search-engine,
-slack, social, tool, unknown, vercel, webhook, yahoo
-```
+**Pattern validation rules**:
+- All regex patterns in `pattern.accepted` must be valid
+- All regex patterns in `pattern.forbidden` must be valid
+- If `instances.accepted` is provided, all strings must match ALL accepted patterns and NONE of the forbidden patterns
+- If `instances.rejected` is provided, strings must either not match all accepted patterns OR match at least one forbidden pattern
 
 ### Common Workflows
 
 #### Adding a New Bot
 
-```bash
-# 1. Edit well-known-bots.json manually
-# 2. Validate your changes
-node validate.js --check
-
-# 3. If formatting is wrong, auto-fix it
-node validate.js --generate
-
-# 4. Validate again to ensure correctness
-node validate.js --check
-```
+1. Edit `well-known-bots.json` to add your bot entry (see README.md for structure)
+2. Validate your changes: `node validate.js --check`
+3. If formatting is wrong, auto-fix it: `node validate.js --generate`
+4. Validate again to ensure correctness: `node validate.js --check`
 
 #### Modifying an Existing Bot
 
-```bash
-# 1. Find the bot entry in well-known-bots.json
-# 2. Make your changes
-# 3. Always validate
-node validate.js --check
-```
+1. Find the bot entry in `well-known-bots.json`
+2. Make your changes
+3. Always validate: `node validate.js --check`
 
 ### CI/CD Pipeline
 
@@ -188,32 +160,21 @@ node validate.js --check
 
 ## Example Bot Entry
 
+A minimal valid bot entry:
+
 ```json
 {
-  "id": "google-crawler",
-  "categories": ["google", "search-engine"],
+  "id": "example-bot",
+  "categories": ["search-engine"],
   "pattern": {
-    "accepted": ["Googlebot\\/"],
+    "accepted": ["ExampleBot\\/"],
     "forbidden": []
   },
-  "url": "http://www.google.com/bot.html",
-  "verification": [
-    {
-      "type": "dns",
-      "masks": [
-        "crawl-***-***-***-***.googlebot.com"
-      ]
-    }
-  ],
-  "instances": {
-    "accepted": [
-      "Googlebot/2.1 (+http://www.google.com/bot.html)"
-    ],
-    "rejected": []
-  },
-  "aliases": ["GoogleBot"]
+  "verification": []
 }
 ```
+
+For detailed examples with verification methods, see the [Verification Methods](README.md#verification-methods) section in the README.
 
 ## Need Help?
 
