@@ -7393,7 +7393,7 @@
       ],
       "rejected": []
     },
-    "url": "http://www.uptimerobot.com/",
+    "url": "https://uptimerobot.com/help/locations/",
     "aliases": [
       "UptimeRobot"
     ]
@@ -11544,12 +11544,6 @@
     "url": "https://betterstack.com/",
     "verification": [
       {
-        "type": "dns",
-        "masks": [
-          "*.betteruptime.com"
-        ]
-      },
-      {
         "type": "ip",
         "sources": [
           {
@@ -13635,7 +13629,7 @@
       {
         "type": "dns",
         "masks": [
-          "crawl.stripe.com"
+          "@.crawl.stripe.com"
         ]
       }
     ],
@@ -13990,7 +13984,7 @@
       {
         "type": "dns",
         "masks": [
-          "amazonadbot.com"
+          "@.amazonadbot.com"
         ]
       }
     ],
@@ -14018,7 +14012,7 @@
       {
         "type": "dns",
         "masks": [
-          "crawl.commoncrawl.org"
+          "@.crawl.commoncrawl.org"
         ]
       }
     ],
@@ -14046,8 +14040,8 @@
       {
         "type": "dns",
         "masks": [
-          "pinterest.com",
-          "pinterestcrawler.com"
+          "@.pinterest.com",
+          "@.pinterestcrawler.com"
         ]
       }
     ],
@@ -14262,7 +14256,7 @@
     ],
     "pattern": {
       "accepted": [
-        "Sentry\\/1\\.0"
+        "SentryUptimeBot\\/1\\.0"
       ],
       "forbidden": []
     },
@@ -14280,7 +14274,7 @@
     ],
     "instances": {
       "accepted": [
-        "Sentry/1.0 (Uptime-Robot/2.0; http://www.uptimerobot.com)"
+        "SentryUptimeBot/1.0 (+http://docs.sentry.io/product/uptime-monitoring/)"
       ],
       "rejected": []
     },
