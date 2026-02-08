@@ -13590,7 +13590,7 @@
   {
     "id": "stripe-webhook",
     "categories": [
-      "webhook"
+      "programmatic"
     ],
     "pattern": {
       "accepted": [
@@ -13622,7 +13622,7 @@
   {
     "id": "stripe-crawler",
     "categories": [
-      "webhook"
+      "programmatic"
     ],
     "pattern": {
       "accepted": [
@@ -13948,7 +13948,7 @@
   {
     "id": "adyen-webhook",
     "categories": [
-      "webhook"
+      "programmatic"
     ],
     "pattern": {
       "accepted": [
@@ -14064,7 +14064,7 @@
   {
     "id": "ahrefs-site-audit",
     "categories": [
-      "tool"
+      "advertising"
     ],
     "pattern": {
       "accepted": [
