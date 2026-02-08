@@ -13562,11 +13562,43 @@
     ],
     "pattern": {
       "accepted": [
-        "Stripebot\\/"
+        "Stripe\\/"
       ],
       "forbidden": []
     },
     "addition_date": "2025/03/13",
+    "verification": [
+      {
+        "type": "ip",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://stripe.com/files/ips/ips_webhooks.json",
+            "selector": "$.WEBHOOKS[*]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Stripe/1.0 (+https://stripe.com/docs/webhooks)"
+      ],
+      "rejected": []
+    },
+    "url": "https://github.com/fnando/browser/issues/258"
+  },
+  {
+    "id": "stripe-crawler",
+    "categories": [
+      "webhook"
+    ],
+    "pattern": {
+      "accepted": [
+        "Stripebot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/08",
     "verification": [
       {
         "type": "dns",
