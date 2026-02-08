@@ -13590,7 +13590,7 @@
   {
     "id": "stripe-webhook",
     "categories": [
-      "programmatic"
+      "webhook"
     ],
     "pattern": {
       "accepted": [
@@ -13948,7 +13948,7 @@
   {
     "id": "adyen-webhook",
     "categories": [
-      "programmatic"
+      "webhook"
     ],
     "pattern": {
       "accepted": [
