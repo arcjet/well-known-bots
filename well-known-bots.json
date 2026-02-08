@@ -2318,19 +2318,28 @@
     ],
     "pattern": {
       "accepted": [
-        "Ahrefs(Bot|SiteAudit)"
+        "AhrefsBot\\/"
       ],
       "forbidden": []
     },
     "addition_date": "2011/08/28",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://api.ahrefs.com/v3/public/crawler-ip-ranges",
+            "selector": "$.prefixes[*].ipv4Prefix"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "Mozilla/5.0 (compatible; AhrefsBot/6.1; +http://ahrefs.com/robot/)",
-        "Mozilla/5.0 (compatible; AhrefsSiteAudit/6.1; +http://ahrefs.com/robot/)",
         "Mozilla/5.0 (compatible; AhrefsBot/5.2; News; +http://ahrefs.com/robot/)",
         "Mozilla/5.0 (compatible; AhrefsBot/5.2; +http://ahrefs.com/robot/)",
-        "Mozilla/5.0 (compatible; AhrefsSiteAudit/5.2; +http://ahrefs.com/robot/)",
         "Mozilla/5.0 (compatible; AhrefsBot/6.1; News; +http://ahrefs.com/robot/)",
         "Mozilla/5.0 (compatible; AhrefsBot/7.0; +http://ahrefs.com/robot/)"
       ],
@@ -5637,7 +5646,21 @@
       "forbidden": []
     },
     "addition_date": "2017/09/16",
-    "verification": [],
+    "verification": [
+      {
+        "type": "ip",
+        "sources": [
+          {
+            "type": "http-text",
+            "url": "https://my.pingdom.com/probes/ipv4"
+          },
+          {
+            "type": "http-text",
+            "url": "https://my.pingdom.com/probes/ipv6"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/59.0.3071.109 Chrome/59.0.3071.109 Safari/537.36 PingdomPageSpeed/1.0 (pingbot/2.0; +http://www.pingdom.com/)",
@@ -7356,7 +7379,14 @@
       "forbidden": []
     },
     "addition_date": "2018/03/27",
-    "verification": [],
+    "verification": [
+      {
+        "type": "dns",
+        "masks": [
+          "ip.uptimerobot.com"
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "Mozilla/5.0+(compatible; UptimeRobot/2.0; http://www.uptimerobot.com/)"
@@ -11500,6 +11530,44 @@
     }
   },
   {
+    "id": "betterstack-monitor",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "Better Stack"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/08",
+    "url": "https://betterstack.com/",
+    "verification": [
+      {
+        "type": "dns",
+        "masks": [
+          "*.betteruptime.com"
+        ]
+      },
+      {
+        "type": "ip",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://uptime.betterstack.com/ips-by-cluster.json",
+            "selector": "$.*[*]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Better Stack Better Uptime Bot Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+      ],
+      "rejected": []
+    }
+  },
+  {
     "id": "dynatrace-monitor",
     "categories": [
       "monitor"
@@ -12944,7 +13012,18 @@
       "forbidden": []
     },
     "addition_date": "2024/03/14",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://www.perplexity.ai/perplexitybot.json",
+            "selector": "$.prefixes[*].ipv4Prefix"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)"
@@ -13541,6 +13620,34 @@
     "url": "https://github.com/fnando/browser/issues/258"
   },
   {
+    "id": "stripe-crawler",
+    "categories": [
+      "programmatic"
+    ],
+    "pattern": {
+      "accepted": [
+        "Stripebot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/08",
+    "verification": [
+      {
+        "type": "dns",
+        "masks": [
+          "crawl.stripe.com"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 (Stripebot/1.0; +https://docs.stripe.com/stripebot-crawler)"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.stripe.com/stripebot-crawler"
+  },
+  {
     "id": "postman",
     "categories": [
       "tool"
@@ -13745,5 +13852,438 @@
       "rejected": []
     },
     "url": "https://www.yext.com/platform/crawl"
+  },
+  {
+    "id": "adagio-crawler",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "Adagiobot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/07",
+    "verification": [
+      {
+        "type": "ip",
+        "ips": [
+          "35.204.201.174",
+          "34.125.202.46"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Adagiobot/1.0) Chrome/112.0.5615.137 Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "url": "https://adagio-io.gitbook.io/adagio-documentation/general-configuration/update-your-app-ads.txt-file"
+  },
+  {
+    "id": "algolia-crawler",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "Algolia Crawler\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/07",
+    "verification": [
+      {
+        "type": "ip",
+        "ips": [
+          "34.66.202.43"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Algolia Crawler/1.0.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://support.algolia.com/hc/en/us/articles/17223698862993-Which-IP-address-of-the-Crawler-can-I-add-to-my-allowlist"
+  },
+  {
+    "id": "quantcast-crawler",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "Quantcastbot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/07",
+    "verification": [
+      {
+        "type": "ip",
+        "ips": [
+          "52.34.88.131",
+          "54.71.154.151",
+          "192.184.74.253",
+          "192.184.75.253",
+          "192.184.76.253",
+          "192.184.77.253",
+          "103.229.11.253"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Quantcastbot/1.0 (+https://www.quantcast.com/bot)",
+        "Quantcastbot/2.0 (+https://www.quantcast.com/bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.quantcast.com/bot"
+  },
+  {
+    "id": "adyen-webhook",
+    "categories": [
+      "webhook"
+    ],
+    "pattern": {
+      "accepted": [
+        "Adyen HttpClient"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/07",
+    "verification": [
+      {
+        "type": "dns",
+        "masks": [
+          "out.adyen.com"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Adyen HttpClient 1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.adyen.com/development-resources/webhooks/secure-webhooks#domain-and-ip-addresses"
+  },
+  {
+    "id": "amazon-adbot",
+    "categories": [
+      "amazon",
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "AmazonAdBot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/07",
+    "verification": [
+      {
+        "type": "dns",
+        "masks": [
+          "amazonadbot.com"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; AmazonAdBot/1.0; +https://adbot.amazon.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://adbot.amazon.com/"
+  },
+  {
+    "id": "ccbot-crawler",
+    "categories": [
+      "archive"
+    ],
+    "pattern": {
+      "accepted": [
+        "CCBot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/07",
+    "verification": [
+      {
+        "type": "dns",
+        "masks": [
+          "crawl.commoncrawl.org"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "CCBot/2.0 (https://commoncrawl.org/faq/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://commoncrawl.org/faq/"
+  },
+  {
+    "id": "pinterest-crawler",
+    "categories": [
+      "social"
+    ],
+    "pattern": {
+      "accepted": [
+        "Pinterest(bot)?\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/07",
+    "verification": [
+      {
+        "type": "dns",
+        "masks": [
+          "pinterest.com",
+          "pinterestcrawler.com"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Pinterest/0.2 (+https://www.pinterest.com/bot.html)",
+        "Mozilla/5.0 (compatible; Pinterestbot/1.0; +https://www.pinterest.com/bot.html)",
+        "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible; Pinterestbot/1.0; +https://www.pinterest.com/bot.html)"
+      ],
+      "rejected": []
+    },
+    "url": "https://help.pinterest.com/en/business/article/pinterestbot"
+  },
+  {
+    "id": "ahrefs-site-audit",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "AhrefsSiteAudit\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/07",
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://api.ahrefs.com/v3/public/crawler-ip-ranges",
+            "selector": "$.prefixes[*].ipv4Prefix"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; AhrefsSiteAudit/6.1; +http://ahrefs.com/robot/site-audit)",
+        "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.5359.128 Mobile Safari/537.36 (compatible; AhrefsSiteAudit/6.1; +http://ahrefs.com/robot/site-audit)"
+      ],
+      "rejected": []
+    },
+    "url": "http://ahrefs.com/robot/site-audit"
+  },
+  {
+    "id": "perplexity-user",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "Perplexity-User\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/07",
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://www.perplexity.ai/perplexity-user.json",
+            "selector": "$.prefixes[*].ipv4Prefix"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Perplexity-User/1.0; +https://perplexity.ai/perplexity-user)"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.perplexity.ai/docs/resources/perplexity-crawlers"
+  },
+  {
+    "id": "newrelic-monitor",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "NewRelicbot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/07",
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://s3.amazonaws.com/nr-synthetics-assets/nat-ip-dnsname/production/ip-ranges.json",
+            "selector": "$.*[*]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; NewRelicbot/2.1; +http://www.newrelic.com)"
+      ],
+      "rejected": []
+    },
+    "url": "http://www.newrelic.com"
+  },
+  {
+    "id": "amazon-route53-health-check",
+    "categories": [
+      "amazon",
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "Amazon Route 53 Health Check Service"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/07",
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+            "selector": "$.prefixes[?(@.service==\"ROUTE53_HEALTHCHECKS\")].ip_prefix"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Amazon Route 53 Health Check Service; ref:47d9bc51-39d6-4cd9-9a7f-4c981c5db165; report http://amzn.to/1vsZADi"
+      ],
+      "rejected": []
+    },
+    "url": "http://amzn.to/1vsZADi"
+  },
+  {
+    "id": "checkly-monitor",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "Checkly\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/07",
+    "verification": [
+      {
+        "type": "ip",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://api.checklyhq.com/v1/static-ips",
+            "selector": "$[*]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Checkly/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.checklyhq.com/docs/platform/allowlisting-traffic/"
+  },
+  {
+    "id": "statuscake-monitor",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "StatusCake"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/07",
+    "verification": [
+      {
+        "type": "ip",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://app.statuscake.com/Workfloor/Locations.php?format=json",
+            "selector": "$[*].ip"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "StatusCake/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.statuscake.com/kb/knowledge-base/what-are-your-ips/"
+  },
+  {
+    "id": "sentry-uptime-monitor",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "Sentry\\/1\\.0"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/02/07",
+    "verification": [
+      {
+        "type": "ip",
+        "sources": [
+          {
+            "type": "http-text",
+            "url": "https://sentry.io/api/0/uptime-ips/"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Sentry/1.0 (Uptime-Robot/2.0; http://www.uptimerobot.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.sentry.io/security-legal-pii/security/ip-ranges/#uptime-monitoring"
   }
 ]

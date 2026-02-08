@@ -45,7 +45,7 @@ Each entry in the JSON represents a specific bot or crawler and includes the fol
 
 Each verification entry contains the following fields:
 
-- type: The method of verification (`dns` and `cidr` are supported)
+- type: The method of verification (`dns`, `cidr`, and `ip` are supported)
 
 If you specify `dns` verification then these fields are expected:
 
@@ -53,7 +53,12 @@ If you specify `dns` verification then these fields are expected:
 
 If you specify `cidr` verification then these fields are expected:
 
-- sources: An array of sources to pull cidr range data from (at least one is required)
+- sources: An array of sources to pull CIDR range data from (at least one is required)
+
+If you specify `ip` verification then one of these fields is expected:
+
+- ips: An array of static IP addresses (for a small, fixed list of IPs)
+- sources: An array of sources to pull IP addresses from (for dynamic or large lists)
 
 ### Verification mask patterns
 
@@ -66,13 +71,46 @@ All other characters in the mask require an exact match.
 
 ### Cidr verification sources
 
-Each cidr source requires the following fields:
+Each CIDR source requires the following fields:
 
-- type: The type of source (`http-json` or `http-csv`) is supported
-- url: The url that hosts the ip ranges
-- selector: (`http-json` only) A JsonPath selector that selects all of the IP ranges in the source
+- type: The type of source (`http-json` or `http-csv` is supported)
+- url: The URL that hosts the IP ranges
+- selector: (`http-json` only) A JSONPath selector that selects all of the IP ranges in the source
 
 For `http-csv` the `url` should point to a file with a format where the IP CIDRs are in the first column.
+
+### IP verification sources
+
+IP verification can use either static IPs or remote sources:
+
+#### Static IPs
+
+For a small, fixed list of IP addresses, use the `ips` field:
+
+```json
+{
+  "type": "ip",
+  "ips": [
+    "1.2.3.4",
+    "5.6.7.8"
+  ]
+}
+```
+
+#### Remote IP sources
+
+For dynamic or large lists, use the `sources` field. Each IP source requires the following fields:
+
+- type: The type of source (`http-json` or `http-text` is supported)
+- url: The URL that hosts the IP addresses
+- selector: (`http-json` only) A JSONPath selector that selects all of the IP addresses in the source
+
+For `http-json`, the `selector` uses JSONPath to extract IP addresses from JSON responses. Common patterns:
+- `$[*]` - for a simple array of IPs
+- `$[*].ip` - for an array of objects with an `ip` field
+- `$.*[*]` - for an object with arrays of IPs as values
+
+For `http-text`, the `url` should point to a plain text file with one IP address per line.
 
 ## License
 
