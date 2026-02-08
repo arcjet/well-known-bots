@@ -125,9 +125,9 @@ CIDR verification checks if the request originates from IP address ranges (CIDR 
 **When to use:** When the bot provider publishes IP ranges in CIDR notation (e.g., Google, Stripe).
 
 **Supported source types:**
-- `http-json` - JSON file with CIDR ranges
-- `http-csv` - CSV file with CIDR ranges in the first column
-- `http-text` - Plain text file with one CIDR range per line
+- `http-json` - JSON file with CIDR ranges (or a mix of individual IPs and CIDR ranges)
+- `http-csv` - CSV file with CIDR ranges in the first column (or a mix of individual IPs and CIDR ranges)
+- `http-text` - Plain text file with one CIDR range per line (or a mix of individual IPs and CIDR ranges)
 
 **Example with JSON source:**
 
@@ -212,8 +212,8 @@ For a small, fixed list of IP addresses:
 For dynamic or large lists, use remote sources:
 
 **Supported source types:**
-- `http-json` - JSON file with IP addresses
-- `http-text` - Plain text file with one IP per line
+- `http-json` - JSON file with IP addresses (or a mix of individual IPs and CIDR ranges)
+- `http-text` - Plain text file with one IP per line (or a mix of individual IPs and CIDR ranges)
 
 **Example with JSON source:**
 
