@@ -13366,7 +13366,10 @@
       ],
       "rejected": []
     },
-    "url": "https://platform.openai.com/docs/bots"
+    "url": "https://platform.openai.com/docs/bots",
+    "aliases": [
+      "OAISearchBot"
+    ]
   },
   {
     "id": "timpi-crawler",
