@@ -187,7 +187,10 @@
         "Googlebot-Video/1.0"
       ],
       "rejected": []
-    }
+    },
+    "aliases": [
+      "AdsBotGoogle"
+    ]
   },
   {
     "id": "google-adsbot",
@@ -268,7 +271,7 @@
       "rejected": []
     },
     "aliases": [
-      "AdsBotGoogle"
+      "GoogleAdsBot"
     ]
   },
   {
