@@ -11712,7 +11712,10 @@
       ],
       "rejected": []
     },
-    "url": "https://openai.com/bot"
+    "url": "https://openai.com/bot",
+    "aliases": [
+      "ChatGPTUser"
+    ]
   },
   {
     "id": "yandex-crawler-javascript",
