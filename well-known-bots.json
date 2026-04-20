@@ -13041,7 +13041,18 @@
       "forbidden": []
     },
     "addition_date": "2024/04/19",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://claude.com/crawling/bots.json",
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "claudebot",
@@ -13051,7 +13062,81 @@
       ],
       "rejected": []
     },
-    "url": "https://www.anthropic.com/"
+    "url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+    "aliases": [
+      "ClaudeBot",
+      "anthropic-ai"
+    ]
+  },
+  {
+    "id": "anthropic-crawler-user",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "Claude-User"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/04/20",
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://claude.com/crawling/bots.json",
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Claude-User/1.0; +Claude-User@anthropic.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+    "aliases": [
+      "ClaudeUser"
+    ]
+  },
+  {
+    "id": "anthropic-crawler-search",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "Claude-SearchBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/04/20",
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://claude.com/crawling/bots.json",
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Claude-SearchBot/1.0; +Claude-SearchBot@anthropic.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+    "aliases": [
+      "ClaudeSearchBot"
+    ]
   },
   {
     "id": "monsido-crawler",
