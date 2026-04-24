@@ -315,12 +315,12 @@
         "sources": [
           {
             "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers.json",
+            "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
             "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           },
           {
             "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers-google.json",
+            "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
             "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
@@ -9885,12 +9885,12 @@
         "sources": [
           {
             "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers.json",
+            "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
             "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           },
           {
             "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers-google.json",
+            "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
             "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
