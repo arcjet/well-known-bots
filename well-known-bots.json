@@ -208,7 +208,7 @@
         "sources": [
           {
             "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/special-crawlers.json",
+            "url": "https://developers.google.com/static/crawling/ipranges/special-crawlers.json",
             "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
@@ -250,7 +250,7 @@
         "sources": [
           {
             "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/special-crawlers.json",
+            "url": "https://developers.google.com/static/crawling/ipranges/special-crawlers.json",
             "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
@@ -359,7 +359,7 @@
         "sources": [
           {
             "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/special-crawlers.json",
+            "url": "https://developers.google.com/static/crawling/ipranges/special-crawlers.json",
             "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
@@ -423,7 +423,7 @@
         "sources": [
           {
             "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/special-crawlers.json",
+            "url": "https://developers.google.com/static/crawling/ipranges/special-crawlers.json",
             "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
@@ -11849,7 +11849,7 @@
         "sources": [
           {
             "type": "http-json",
-            "url": "https://developers.google.com/static/search/apis/ipranges/special-crawlers.json",
+            "url": "https://developers.google.com/static/crawling/ipranges/special-crawlers.json",
             "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
           }
         ]
