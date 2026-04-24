@@ -137,7 +137,7 @@ CIDR verification checks if the request originates from IP address ranges (CIDR 
   "sources": [
     {
       "type": "http-json",
-      "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
+      "url": "https://developers.google.com/static/crawling/ipranges/common-crawlers.json",
       "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
     }
   ]
@@ -263,7 +263,7 @@ You can specify multiple verification methods for a single bot. All methods shou
       "sources": [
         {
           "type": "http-json",
-          "url": "https://developers.google.com/static/search/apis/ipranges/googlebot.json",
+          "url": "https://developers.google.com/static/crawling/ipranges/common-crawlers.json",
           "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
         }
       ]
