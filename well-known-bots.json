@@ -60,7 +60,25 @@
       ],
       "forbidden": []
     },
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://developers.google.com/static/crawling/ipranges/common-crawlers.json",
+            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+          }
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "crawl-***-***-***-***.googlebot.com",
+          "geo-crawl-***-***-***-***.geo.googlebot.com"
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "DoCoMo/2.0 N905i(c100;TB;W24H16) (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)",
@@ -2707,7 +2725,24 @@
     },
     "addition_date": "2012/02/05",
     "url": "http://www.commoncrawl.org/bot.html",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://index.commoncrawl.org/ccbot.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "@.crawl.commoncrawl.org"
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "CCBot/2.0 (http://commoncrawl.org/faq/)",
@@ -2862,7 +2897,7 @@
         "sources": [
           {
             "type": "http-csv",
-            "url": "http://www.facebook.com/peering/geofeed"
+            "url": "https://www.facebook.com/peering/geofeed"
           }
         ]
       }
@@ -3091,7 +3126,18 @@
     },
     "addition_date": "2012/09/19",
     "url": "http://duckduckgo.com/duckduckbot.html",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://duckduckgo.com/duckduckbot.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "DuckDuckBot/1.0; (+http://duckduckgo.com/duckduckbot.html)",
@@ -3976,7 +4022,7 @@
         "sources": [
           {
             "type": "http-csv",
-            "url": "http://www.facebook.com/peering/geofeed"
+            "url": "https://www.facebook.com/peering/geofeed"
           }
         ]
       }
@@ -4266,6 +4312,16 @@
         "type": "dns",
         "masks": [
           "@.applebot.apple.com"
+        ]
+      },
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://search.developer.apple.com/applebot.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
         ]
       }
     ],
@@ -4761,7 +4817,24 @@
     },
     "addition_date": "2016/01/23",
     "url": "https://www.mojeek.com/bot.html",
-    "verification": [],
+    "verification": [
+      {
+        "type": "dns",
+        "masks": [
+          "@.mojeek.com"
+        ]
+      },
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://www.mojeek.com/mojeekbot.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "MojeekBot/0.2 (archi; http://www.mojeek.com/bot.html)",
@@ -5806,7 +5879,17 @@
       "forbidden": []
     },
     "addition_date": "2017/10/01",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-text",
+            "url": "https://core.telegram.org/resources/cidr.txt"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "TelegramBot (like TwitterBot)"
@@ -7386,6 +7469,19 @@
         "type": "dns",
         "masks": [
           "ip.uptimerobot.com"
+        ]
+      },
+      {
+        "type": "ip",
+        "sources": [
+          {
+            "type": "http-text",
+            "url": "https://uptimerobot.com/inc/files/ips/IPv4.txt"
+          },
+          {
+            "type": "http-text",
+            "url": "https://uptimerobot.com/inc/files/ips/IPv6.txt"
+          }
         ]
       }
     ],
@@ -11438,7 +11534,24 @@
     },
     "addition_date": "2022/10/17",
     "url": "https://www.freshworks.com/website-monitoring/",
-    "verification": [],
+    "verification": [
+      {
+        "type": "ip",
+        "ips": [
+          "35.173.69.86",
+          "50.17.185.102",
+          "18.179.133.14",
+          "34.246.131.0",
+          "13.251.205.206",
+          "52.60.140.174",
+          "13.55.57.184",
+          "52.42.49.200",
+          "13.232.175.73",
+          "18.228.60.182",
+          "18.130.156.195"
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "FreshpingBot/1.0 (+https://freshping.io/)"
@@ -11523,7 +11636,18 @@
     },
     "addition_date": "2022/11/13",
     "url": "https://betteruptime.com/",
-    "verification": [],
+    "verification": [
+      {
+        "type": "ip",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://uptime.betterstack.com/ips-by-cluster.json",
+            "selector": "$.*[*]"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "Better Uptime Bot Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
@@ -13410,7 +13534,7 @@
         "sources": [
           {
             "type": "http-csv",
-            "url": "http://www.facebook.com/peering/geofeed"
+            "url": "https://www.facebook.com/peering/geofeed"
           }
         ]
       }
@@ -13952,22 +14076,14 @@
       "forbidden": []
     },
     "addition_date": "2026/02/07",
-    "verification": [
-      {
-        "type": "ip",
-        "ips": [
-          "35.204.201.174",
-          "34.125.202.46"
-        ]
-      }
-    ],
+    "verification": [],
     "instances": {
       "accepted": [
         "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Adagiobot/1.0) Chrome/112.0.5615.137 Safari/537.36"
       ],
       "rejected": []
     },
-    "url": "https://adagio-io.gitbook.io/adagio-documentation/general-configuration/update-your-app-ads.txt-file"
+    "url": "https://adagio.io/"
   },
   {
     "id": "algolia-crawler",
@@ -14107,6 +14223,16 @@
         "type": "dns",
         "masks": [
           "@.crawl.commoncrawl.org"
+        ]
+      },
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://index.commoncrawl.org/ccbot.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
         ]
       }
     ],
@@ -14396,7 +14522,7 @@
         "sources": [
           {
             "type": "http-csv",
-            "url": "http://www.facebook.com/peering/geofeed"
+            "url": "https://www.facebook.com/peering/geofeed"
           }
         ]
       }
@@ -14732,6 +14858,12 @@
         "type": "ip",
         "ips": [
           "66.132.159.0/24",
+          "66.132.148.0/24",
+          "66.132.153.0/24",
+          "66.132.224.0/24",
+          "66.132.186.0/24",
+          "66.132.195.0/24",
+          "66.132.172.0/24",
           "162.142.125.0/24",
           "167.94.138.0/24",
           "167.94.145.0/24",
@@ -15193,7 +15325,7 @@
         "sources": [
           {
             "type": "http-csv",
-            "url": "http://www.facebook.com/peering/geofeed"
+            "url": "https://www.facebook.com/peering/geofeed"
           }
         ]
       }
@@ -15226,7 +15358,7 @@
         "sources": [
           {
             "type": "http-csv",
-            "url": "http://www.facebook.com/peering/geofeed"
+            "url": "https://www.facebook.com/peering/geofeed"
           }
         ]
       }
@@ -15360,7 +15492,18 @@
       "DuckAssistBot"
     ],
     "addition_date": "2026/08/18",
-    "verification": []
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://duckduckgo.com/duckassistbot.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "deepseek-crawler",
