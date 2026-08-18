@@ -60,7 +60,25 @@
       ],
       "forbidden": []
     },
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://developers.google.com/static/crawling/ipranges/common-crawlers.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "crawl-***-***-***-***.googlebot.com",
+          "geo-crawl-***-***-***-***.geo.googlebot.com"
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "DoCoMo/2.0 N905i(c100;TB;W24H16) (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)",
@@ -2707,7 +2725,24 @@
     },
     "addition_date": "2012/02/05",
     "url": "http://www.commoncrawl.org/bot.html",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://index.commoncrawl.org/ccbot.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "@.crawl.commoncrawl.org"
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "CCBot/2.0 (http://commoncrawl.org/faq/)",
@@ -2862,7 +2897,7 @@
         "sources": [
           {
             "type": "http-csv",
-            "url": "http://www.facebook.com/peering/geofeed"
+            "url": "https://www.facebook.com/peering/geofeed"
           }
         ]
       }
@@ -3091,7 +3126,18 @@
     },
     "addition_date": "2012/09/19",
     "url": "http://duckduckgo.com/duckduckbot.html",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://duckduckgo.com/duckduckbot.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "DuckDuckBot/1.0; (+http://duckduckgo.com/duckduckbot.html)",
@@ -3976,7 +4022,7 @@
         "sources": [
           {
             "type": "http-csv",
-            "url": "http://www.facebook.com/peering/geofeed"
+            "url": "https://www.facebook.com/peering/geofeed"
           }
         ]
       }
@@ -4196,18 +4242,20 @@
     ],
     "pattern": {
       "accepted": [
-        "Qwantify"
+        "Qwant(?:ify|bot)"
       ],
       "forbidden": []
     },
-    "url": "https://www.qwant.com/",
+    "url": "https://help.qwant.com/bot/",
     "verification": [],
     "instances": {
       "accepted": [
         "Mozilla/5.0 (compatible; Qwantify/2.0n; +https://www.qwant.com/)/*",
         "Mozilla/5.0 (compatible; Qwantify/2.4w; +https://www.qwant.com/)/2.4w",
         "Mozilla/5.0 (compatible; Qwantify/Bleriot/1.1; +https://help.qwant.com/bot)",
-        "Mozilla/5.0 (compatible; Qwantify/Bleriot/1.2.1; +https://help.qwant.com/bot)"
+        "Mozilla/5.0 (compatible; Qwantify/Bleriot/1.2.1; +https://help.qwant.com/bot)",
+        "Mozilla/5.0 (compatible; Qwantbot/1.0_800166; +https://help.qwant.com/bot/)",
+        "Mozilla/5.0 (compatible; Qwantbot-news/2.0; +https://help.qwant.com/bot/)"
       ],
       "rejected": []
     },
@@ -4264,6 +4312,16 @@
         "type": "dns",
         "masks": [
           "@.applebot.apple.com"
+        ]
+      },
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://search.developer.apple.com/applebot.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
         ]
       }
     ],
@@ -4759,7 +4817,24 @@
     },
     "addition_date": "2016/01/23",
     "url": "https://www.mojeek.com/bot.html",
-    "verification": [],
+    "verification": [
+      {
+        "type": "dns",
+        "masks": [
+          "@.mojeek.com"
+        ]
+      },
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://www.mojeek.com/mojeekbot.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "MojeekBot/0.2 (archi; http://www.mojeek.com/bot.html)",
@@ -5804,7 +5879,17 @@
       "forbidden": []
     },
     "addition_date": "2017/10/01",
-    "verification": [],
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-text",
+            "url": "https://core.telegram.org/resources/cidr.txt"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "TelegramBot (like TwitterBot)"
@@ -7384,6 +7469,19 @@
         "type": "dns",
         "masks": [
           "ip.uptimerobot.com"
+        ]
+      },
+      {
+        "type": "ip",
+        "sources": [
+          {
+            "type": "http-text",
+            "url": "https://uptimerobot.com/inc/files/ips/IPv4.txt"
+          },
+          {
+            "type": "http-text",
+            "url": "https://uptimerobot.com/inc/files/ips/IPv6.txt"
+          }
         ]
       }
     ],
@@ -11435,7 +11533,7 @@
       "forbidden": []
     },
     "addition_date": "2022/10/17",
-    "url": "https://www.freshworks.com/website-monitoring/",
+    "url": "https://support.freshping.io/support/solutions/articles/237620-why-are-my-checks-always-down-even-when-my-website-is-up-",
     "verification": [],
     "instances": {
       "accepted": [
@@ -11521,7 +11619,18 @@
     },
     "addition_date": "2022/11/13",
     "url": "https://betteruptime.com/",
-    "verification": [],
+    "verification": [
+      {
+        "type": "ip",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://uptime.betterstack.com/ips-by-cluster.json",
+            "selector": "$.*[*]"
+          }
+        ]
+      }
+    ],
     "instances": {
       "accepted": [
         "Better Uptime Bot Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
@@ -13408,7 +13517,7 @@
         "sources": [
           {
             "type": "http-csv",
-            "url": "http://www.facebook.com/peering/geofeed"
+            "url": "https://www.facebook.com/peering/geofeed"
           }
         ]
       }
@@ -13588,7 +13697,7 @@
     ],
     "pattern": {
       "accepted": [
-        "Datadog\\/{0,1}Synthetics"
+        "Datadog(?:\\/{0,1}Synthetics| Synthetic)"
       ],
       "forbidden": []
     },
@@ -13608,7 +13717,8 @@
     "instances": {
       "accepted": [
         "Datadog/Synthetics",
-        "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0 DatadogSynthetics"
+        "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0 DatadogSynthetics",
+        "Datadog Synthetic"
       ],
       "rejected": []
     },
@@ -13949,22 +14059,14 @@
       "forbidden": []
     },
     "addition_date": "2026/02/07",
-    "verification": [
-      {
-        "type": "ip",
-        "ips": [
-          "35.204.201.174",
-          "34.125.202.46"
-        ]
-      }
-    ],
+    "verification": [],
     "instances": {
       "accepted": [
         "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Adagiobot/1.0) Chrome/112.0.5615.137 Safari/537.36"
       ],
       "rejected": []
     },
-    "url": "https://adagio-io.gitbook.io/adagio-documentation/general-configuration/update-your-app-ads.txt-file"
+    "url": "https://adagio.io/"
   },
   {
     "id": "algolia-crawler",
@@ -14065,7 +14167,7 @@
     ],
     "pattern": {
       "accepted": [
-        "AmazonAdBot\\/"
+        "AmazonAdBot"
       ],
       "forbidden": []
     },
@@ -14080,7 +14182,8 @@
     ],
     "instances": {
       "accepted": [
-        "Mozilla/5.0 (compatible; AmazonAdBot/1.0; +https://adbot.amazon.com)"
+        "Mozilla/5.0 (compatible; AmazonAdBot/1.0; +https://adbot.amazon.com)",
+        "AmazonAdBot"
       ],
       "rejected": []
     },
@@ -14103,6 +14206,16 @@
         "type": "dns",
         "masks": [
           "@.crawl.commoncrawl.org"
+        ]
+      },
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://index.commoncrawl.org/ccbot.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
         ]
       }
     ],
@@ -14185,7 +14298,7 @@
     ],
     "pattern": {
       "accepted": [
-        "Perplexity-User\\/"
+        "Perplexity-?User"
       ],
       "forbidden": []
     },
@@ -14204,7 +14317,8 @@
     ],
     "instances": {
       "accepted": [
-        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Perplexity-User/1.0; +https://perplexity.ai/perplexity-user)"
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Perplexity-User/1.0; +https://perplexity.ai/perplexity-user)",
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityUser/1.0; +https://perplexity.ai)"
       ],
       "rejected": []
     },
@@ -14217,7 +14331,7 @@
     ],
     "pattern": {
       "accepted": [
-        "NewRelicbot\\/"
+        "NewRelic(?:bot\\/|Synthetics)"
       ],
       "forbidden": []
     },
@@ -14236,7 +14350,8 @@
     ],
     "instances": {
       "accepted": [
-        "Mozilla/5.0 (compatible; NewRelicbot/2.1; +http://www.newrelic.com)"
+        "Mozilla/5.0 (compatible; NewRelicbot/2.1; +http://www.newrelic.com)",
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36 NewRelicSynthetics/1.0"
       ],
       "rejected": []
     },
@@ -14282,7 +14397,7 @@
     ],
     "pattern": {
       "accepted": [
-        "Checkly\\/"
+        "Checkly"
       ],
       "forbidden": []
     },
@@ -14301,7 +14416,8 @@
     ],
     "instances": {
       "accepted": [
-        "Checkly/1.0"
+        "Checkly/1.0",
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.6998.35 Safari/537.36 (Checkly, https://www.checklyhq.com)"
       ],
       "rejected": []
     },
@@ -14389,7 +14505,7 @@
         "sources": [
           {
             "type": "http-csv",
-            "url": "http://www.facebook.com/peering/geofeed"
+            "url": "https://www.facebook.com/peering/geofeed"
           }
         ]
       }
@@ -14725,6 +14841,12 @@
         "type": "ip",
         "ips": [
           "66.132.159.0/24",
+          "66.132.148.0/24",
+          "66.132.153.0/24",
+          "66.132.224.0/24",
+          "66.132.186.0/24",
+          "66.132.195.0/24",
+          "66.132.172.0/24",
           "162.142.125.0/24",
           "167.94.138.0/24",
           "167.94.145.0/24",
@@ -14791,5 +14913,3731 @@
       "rejected": []
     },
     "url": "https://sitebulb.com/"
+  },
+  {
+    "id": "google-cws",
+    "categories": [
+      "google"
+    ],
+    "pattern": {
+      "accepted": [
+        "Google-CWS"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          },
+          {
+            "type": "http-json",
+            "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "***-***-***-***.gae.googleusercontent.com",
+          "google-proxy-***-***-***-***.google.com"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Google-CWS)"
+      ],
+      "rejected": []
+    },
+    "url": "https://developers.google.com/search/docs/crawling-indexing/google-user-triggered-fetchers",
+    "aliases": [
+      "GoogleCWS"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "google-gemini-notebook",
+    "categories": [
+      "ai",
+      "google"
+    ],
+    "pattern": {
+      "accepted": [
+        "Google-(?:GeminiNotebook|NotebookLM)"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          },
+          {
+            "type": "http-json",
+            "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "***-***-***-***.gae.googleusercontent.com",
+          "google-proxy-***-***-***-***.google.com"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 (compatible; Google-GeminiNotebook; +https://developers.google.com/crawling/docs/crawlers-fetchers/google-gemininotebook)",
+        "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36 (compatible; Google-GeminiNotebook; +https://developers.google.com/crawling/docs/crawlers-fetchers/google-gemininotebook)",
+        "Mozilla/5.0 (compatible; Google-NotebookLM; +https://notebooklm.google.com/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-gemininotebook",
+    "aliases": [
+      "GoogleNotebookLM",
+      "GoogleGeminiNotebook"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "google-agent",
+    "categories": [
+      "ai",
+      "google"
+    ],
+    "pattern": {
+      "accepted": [
+        "Google-Agent"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-agents.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "***-***-***-***.gae.googleusercontent.com",
+          "google-proxy-***-***-***-***.google.com"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko; compatible; Google-Agent; +https://developers.google.com/crawling/docs/crawlers-fetchers/google-agent) Chrome/137.0.0.0 Safari/537.36",
+        "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Mobile Safari/537.36 (compatible; Google-Agent; +https://developers.google.com/crawling/docs/crawlers-fetchers/google-agent)"
+      ],
+      "rejected": []
+    },
+    "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-agent",
+    "aliases": [
+      "GoogleAgent"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "google-messages",
+    "categories": [
+      "google",
+      "preview"
+    ],
+    "pattern": {
+      "accepted": [
+        "GoogleMessages"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          },
+          {
+            "type": "http-json",
+            "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "***-***-***-***.gae.googleusercontent.com",
+          "google-proxy-***-***-***-***.google.com"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "GoogleMessages"
+      ],
+      "rejected": []
+    },
+    "url": "https://developers.google.com/search/docs/crawling-indexing/google-user-triggered-fetchers",
+    "aliases": [
+      "GoogleMessages"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "google-pinpoint",
+    "categories": [
+      "google"
+    ],
+    "pattern": {
+      "accepted": [
+        "Google-Pinpoint"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          },
+          {
+            "type": "http-json",
+            "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "***-***-***-***.gae.googleusercontent.com",
+          "google-proxy-***-***-***-***.google.com"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Google-Pinpoint"
+      ],
+      "rejected": []
+    },
+    "url": "https://developers.google.com/search/docs/crawling-indexing/google-user-triggered-fetchers",
+    "aliases": [
+      "GooglePinpoint"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "google-producer",
+    "categories": [
+      "google",
+      "feedfetcher"
+    ],
+    "pattern": {
+      "accepted": [
+        "GoogleProducer"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          },
+          {
+            "type": "http-json",
+            "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "***-***-***-***.gae.googleusercontent.com",
+          "google-proxy-***-***-***-***.google.com"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "GoogleProducer; (+https://developers.google.com/search/docs/crawling-indexing/google-producer)"
+      ],
+      "rejected": []
+    },
+    "url": "https://developers.google.com/search/docs/crawling-indexing/google-producer",
+    "aliases": [
+      "GoogleProducer"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "google-gemini-deep-research",
+    "categories": [
+      "ai",
+      "google"
+    ],
+    "pattern": {
+      "accepted": [
+        "Gemini-Deep-Research"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Gemini-Deep-Research; +https://gemini.google/overview/deep-research/) Chrome/135.0.0.0 Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "url": "https://gemini.google/overview/deep-research/",
+    "aliases": [
+      "GeminiDeepResearch"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "google-image-proxy",
+    "categories": [
+      "google",
+      "preview"
+    ],
+    "pattern": {
+      "accepted": [
+        "GoogleImageProxy"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)"
+      ],
+      "rejected": []
+    },
+    "url": "https://support.google.com/mail/answer/1311182",
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "google-association-service",
+    "categories": [
+      "google"
+    ],
+    "pattern": {
+      "accepted": [
+        "GoogleAssociationService"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "GoogleAssociationService",
+        "GoogleAssociationService/"
+      ],
+      "rejected": []
+    },
+    "url": "https://developers.google.com/digital-asset-links",
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "google-stackdriver-monitoring",
+    "categories": [
+      "google",
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "GoogleStackdriverMonitoring"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "GoogleStackdriverMonitoring-UptimeChecks(https://cloud.google.com/monitoring)"
+      ],
+      "rejected": []
+    },
+    "url": "https://cloud.google.com/monitoring",
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "meta-webindexer",
+    "categories": [
+      "meta",
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "meta-webindexer"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-csv",
+            "url": "https://www.facebook.com/peering/geofeed"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "meta-webindexer/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)"
+      ],
+      "rejected": []
+    },
+    "url": "https://developers.facebook.com/docs/sharing/webmasters/web-crawlers#meta-webindexer",
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "meta-externalhit",
+    "categories": [
+      "meta",
+      "preview",
+      "social"
+    ],
+    "pattern": {
+      "accepted": [
+        "Meta-ExternalHit"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-csv",
+            "url": "https://www.facebook.com/peering/geofeed"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Meta-ExternalHit/1.1; +http://www.facebook.com/externalhit_uatext.php)"
+      ],
+      "rejected": []
+    },
+    "url": "https://developers.facebook.com/docs/sharing/webmasters/crawler/",
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "anthropic-ai",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "anthropic-ai"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "anthropic-ai"
+      ],
+      "rejected": []
+    },
+    "url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+    "aliases": [
+      "AnthropicAI"
+    ],
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "mistral-ai-user",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "MistralAI-User"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; MistralAI-User/1.0; +https://docs.mistral.ai/robots)"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.mistral.ai/robots",
+    "aliases": [
+      "MistralAIUser"
+    ],
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "mistral-ai-index",
+    "categories": [
+      "ai",
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "MistralAI-Index"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; MistralAI-Index/1.0; +https://docs.mistral.ai/robots)"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.mistral.ai/robots",
+    "aliases": [
+      "MistralAIIndex"
+    ],
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "mistral-ai-training",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "MistralAI-Training"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; MistralAI-Training/1.0; +https://docs.mistral.ai/robots)"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.mistral.ai/robots",
+    "aliases": [
+      "MistralAITraining"
+    ],
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "duckassist-bot",
+    "categories": [
+      "ai",
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "DuckAssistBot"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "DuckAssistBot/1.2; (+http://duckduckgo.com/duckassistbot.html)"
+      ],
+      "rejected": []
+    },
+    "url": "https://duckduckgo.com/duckduckgo-help-pages/results/duckassistbot",
+    "aliases": [
+      "DuckAssistBot"
+    ],
+    "addition_date": "2026/08/18",
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://duckduckgo.com/duckassistbot.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "firecrawl-agent",
+    "categories": [
+      "ai",
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "FirecrawlAgent"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; FirecrawlAgent; +https://firecrawl.dev/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://firecrawl.dev/",
+    "aliases": [
+      "FirecrawlAgent"
+    ],
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "cloudflare-ai-search",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "Cloudflare-(?:AI-Search|AutoRAG)"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Cloudflare-AI-Search",
+        "Cloudflare-AutoRAG (https://developers.cloudflare.com/autorag; autorag@cloudflare.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://developers.cloudflare.com/ai-search/platform/release-note/",
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "tavily-bot",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "TavilyBot"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; TavilyBot; +https://tavily.com/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://tavily.com/",
+    "aliases": [
+      "TavilyBot"
+    ],
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "shapbot",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "ShapBot"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ShapBot/0.1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.parallel.ai/resources/crawler",
+    "aliases": [
+      "ShapBot"
+    ],
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "zanista-bot",
+    "categories": [
+      "ai",
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "ZanistaBot"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ZanistaBot/1.0; +https://zanista.ai/crawler-info) Chrome/W.X.Y.Z Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "url": "https://zanista.ai/crawler-info",
+    "aliases": [
+      "ZanistaBot"
+    ],
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "kagi-fetcher",
+    "categories": [
+      "ai",
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "kagi-fetcher"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "kagi-fetcher"
+      ],
+      "rejected": []
+    },
+    "url": "https://help.kagi.com/kagi/ai/kagi-ai.html",
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "newsai",
+    "categories": [
+      "ai",
+      "feedfetcher"
+    ],
+    "pattern": {
+      "accepted": [
+        "newsai\\/"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 newsai/1.0 Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/newsai",
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "brightbot",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "Brightbot"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Brightbot 1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://brightdata.com/brightbot",
+    "aliases": [
+      "Brightbot"
+    ],
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "atlassian-bot",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "atlassian-bot"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; atlassian-bot; +https://www.atlassian.com/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://support.atlassian.com/organization-administration/docs/connect-custom-website-to-rovo/",
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "azure-ai-searchbot",
+    "categories": [
+      "ai",
+      "microsoft",
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "AzureAI-SearchBot"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; AzureAI-SearchBot/1.0;"
+      ],
+      "rejected": []
+    },
+    "url": "https://azure.microsoft.com/en-us/products/ai-services",
+    "aliases": [
+      "AzureAISearchBot"
+    ],
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "amazon-product-discovery",
+    "categories": [
+      "amazon",
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "AmazonProductDiscovery"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 (compatible; AmazonProductDiscovery/1.0; https://vendorcentral.amazon.com/support/amazonproductbot)",
+        "Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0 (compatible; AmazonProductDiscovery/1.0; https://vendorcentral.amazon.com/support/amazonproductbot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://vendorcentral.amazon.com/support/amazonproductbot",
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "amazon-seller-initiated-listing",
+    "categories": [
+      "amazon",
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "AmazonSellerInitiatedListing"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 (compatible; AmazonSellerInitiatedListing/1.0; https://vendorcentral.amazon.com/support/amazonproductbot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://vendorcentral.amazon.com/support/amazonproductbot",
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "amazon-searchbot",
+    "categories": [
+      "ai",
+      "amazon",
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "Amzn-SearchBot"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Amzn-SearchBot/0.1) Chrome/119.0.6045.214 Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "url": "https://developer.amazon.com/amazonbot",
+    "aliases": [
+      "AmznSearchBot"
+    ],
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "amazon-user",
+    "categories": [
+      "ai",
+      "amazon"
+    ],
+    "pattern": {
+      "accepted": [
+        "Amzn-User"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Amzn-User/0.1) Chrome/W.X.Y.Z Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "url": "https://developer.amazon.com/amazonbot",
+    "aliases": [
+      "AmznUser"
+    ],
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "amazon-bedrock-agentcore-browser",
+    "categories": [
+      "ai",
+      "amazon",
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "Amazon-Bedrock-AgentCore-Browser"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Amazon-Bedrock-AgentCore-Browser; +https://aws.amazon.com/bedrock/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.aws.amazon.com/bedrock-agentcore/",
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "geedo-crawler-shop",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "GeedoShopProductFinder"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "dns",
+        "masks": [
+          "@.geedo.com"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko; GeedoShopProductFinder) Chrome/142.0.0.0 Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "url": "https://geedo.com/product-finder/",
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "naver-bot",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "NaverBot"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; NaverBot/1.0; nhnbot@naver.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.naver.com/",
+    "aliases": [
+      "NaverBot"
+    ],
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "aasa-bot",
+    "categories": [
+      "apple"
+    ],
+    "pattern": {
+      "accepted": [
+        "AASA-Bot"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "AASA-Bot/1.0.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://developer.apple.com/documentation/xcode/allowing-apps-and-websites-to-link-to-your-content",
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "watchfor-bot",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "WatchForBot"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://watchfor.io/ips.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "@.probe.watchfor.io"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; WatchForBot/1.0; +https://watchfor.io/bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://watchfor.io/bot",
+    "aliases": [
+      "WatchForBot"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "observepoint-monitor",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "ObservePoint"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "ObservePoint"
+      ],
+      "rejected": []
+    },
+    "url": "https://help.observepoint.com/en/articles/9101465-allow-exclude-observepoint-traffic",
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "prtg-monitor",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "PRTG(?:CloudBot\\/| Network Monitor)"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; PRTGCloudBot/1.0; +http://www.paessler.com/prtgcloudbot; for_[edf7e62f223b268942b7efa36b6be1e305fcdadb])",
+        "Mozilla/5.0 (compatible; PRTG Network Monitor (www.paessler.com ); Windows)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.paessler.com/manuals/prtg/http_transaction_sensor",
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "alertsite-monitor",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "AlertSite"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; AlertSite; +https://www.alertsite.com/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://smartbear.com/product/alertsite/",
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "listgem-bot",
+    "categories": [
+      "preview",
+      "social"
+    ],
+    "pattern": {
+      "accepted": [
+        "ListGemBot"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "ListGemBot/1.0 (+https://listgem.com/bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://listgem.com/bot",
+    "aliases": [
+      "ListGemBot"
+    ],
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "bluesky-preview",
+    "categories": [
+      "preview",
+      "social"
+    ],
+    "pattern": {
+      "accepted": [
+        "BlueskyPreviewBot"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "BlueskyPreviewBot/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.bsky.app",
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "github-camo",
+    "categories": [
+      "preview"
+    ],
+    "pattern": {
+      "accepted": [
+        "github-camo"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "github-camo (c006e452)"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-anonymized-urls",
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "cypress",
+    "categories": [
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "[Cc]ypress"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.0.0 Chrome/114.0.5735.289 Electron/25.8.0 Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.cypress.io/app/references/launching-browsers#Electron-Browser",
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "httpie",
+    "categories": [
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "^HTTPie\\/"
+      ],
+      "forbidden": []
+    },
+    "instances": {
+      "accepted": [
+        "HTTPie/3.2.2"
+      ],
+      "rejected": []
+    },
+    "url": "https://httpie.io",
+    "addition_date": "2026/08/18",
+    "verification": []
+  },
+  {
+    "id": "anomura-crawler",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "Anomura\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Anomura/1.2 (+https://www.direqt.ai)"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.direqt-search.com/direqt-bots/direqt-crawlers-and-user-agents"
+  },
+  {
+    "id": "apify-bot",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "ApifyBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; ApifyBot/1.0)"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/apifybot"
+  },
+  {
+    "id": "archive-it",
+    "categories": [
+      "archive"
+    ],
+    "pattern": {
+      "accepted": [
+        "Archive-It"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "UM-Bentley-Archive-It",
+        "Mozilla/5.0 (compatible; special_archiver; Archive-It; +http://archive-it.org/files/site-owners-special.html)"
+      ],
+      "rejected": []
+    },
+    "url": "https://archive-it.org/files/site-owners-special.html"
+  },
+  {
+    "id": "artemis-web-reader",
+    "categories": [
+      "feedfetcher"
+    ],
+    "pattern": {
+      "accepted": [
+        "artemis web reader"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "artemis web reader/1.0 - https://artemis.jamesg.blog/bot"
+      ],
+      "rejected": []
+    },
+    "url": "https://artemis.jamesg.blog/bot"
+  },
+  {
+    "id": "audigent-adbot",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "AudigentAdBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; AudigentAdBot; +http://www.audigent.com/bot.html) Chrome/W.X.Y.Z Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "url": "https://audigent.com/bot.html"
+  },
+  {
+    "id": "buffer-link-preview",
+    "categories": [
+      "preview",
+      "social"
+    ],
+    "pattern": {
+      "accepted": [
+        "BufferLinkPreviewBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "BufferLinkPreviewBot/1.0 (+https://scraper.buffer.com/about/bots/link-preview-bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://scraper.buffer.com/about/bots/link-preview-bot"
+  },
+  {
+    "id": "channel3-bot",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "Channel3Bot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Channel3Bot/1.0; +https://trychannel3.com/channel3bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://trychannel3.com/channel3bot"
+  },
+  {
+    "id": "ezoic-bot",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "EzoicBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Mobile Safari/537.36 (compatible; EzoicBot-UptimeOwl; +http://www.ezoic.com/bot)",
+        "Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Mobile Safari/537.36 (compatible; EzoicBot-Nicheiq; +http://www.ezoic.com/bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.ezoic.com/bot"
+  },
+  {
+    "id": "findfiles-crawler",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "FindFiles\\.net"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "FindFiles.net-FaviconFetcher/1.0 (+https://findfiles.net/bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://findfiles.net/en/bot"
+  },
+  {
+    "id": "honeybadger-bot",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "HoneybadgerBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; HoneybadgerBot; +https://www.honeybadger.io/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/honeybadgerbot"
+  },
+  {
+    "id": "ibou-bot",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "IbouBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; IbouBot/1.0; +bot@ibou.io; +https://ibou.io/iboubot.html)"
+      ],
+      "rejected": []
+    },
+    "url": "https://ibou.io/iboubot.html"
+  },
+  {
+    "id": "imagespider",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "imageSpider"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; imageSpider; +https://www.bytedance.com/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/imagespider"
+  },
+  {
+    "id": "laion-huggingface-processor",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "laion-huggingface-processor"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; laion-huggingface-processor; +https://laion.ai/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/laion-huggingface-processor"
+  },
+  {
+    "id": "linkup-bot",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "LinkupBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "LinkupBot/1.0 (LinkupBot for web indexing; https://linkup.so/bot; bot@linkup.so)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.linkup.so/bot"
+  },
+  {
+    "id": "lyonl-crawler",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "lyonl-crawler"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "lyonl-crawler/0.1 (+https://lyonl.com/crawler; crawler@lyonl.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://lyonl.com/bot.html"
+  },
+  {
+    "id": "mcontextual-bot",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "McontextualBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; McontextualBot/0.1; +http://mcontextual.net/mcontextual-bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://mcontextual.net/mcontextual-bot"
+  },
+  {
+    "id": "mixrank-bot",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "MixrankBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; MixrankBot; crawler@mixrank.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/mixrankbot"
+  },
+  {
+    "id": "montastic-monitor",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "MontasticMonitor|montastic-monitor"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; MontasticMonitor; +https://montastic.com/)",
+        "montastic-monitor www.montastic.com"
+      ],
+      "rejected": []
+    },
+    "url": "https://montastic.com/"
+  },
+  {
+    "id": "nanointeractive-crawler",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "NanoInteractive"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 16_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Mobile/15E148 Safari/604.1 (compatible; NanoInteractive/1.0; +https://nanointeractive.com/crawler/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.nanointeractive.com/resources/legal/crawler-policy/"
+  },
+  {
+    "id": "nestdaddy-bot",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "NestDaddybot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "NestDaddybot/1.0.0 (+https://nestdaddy.com/bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://nestdaddy.com/bot"
+  },
+  {
+    "id": "netseer-crawler",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "NetSeer crawler"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; NetSeer crawler/2.0; +http://www.netseer.com/crawler.html; crawler@netseer.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://inuvo.com/"
+  },
+  {
+    "id": "nitro-bot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "NitroBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; NitroBot; +https://www.nitropack.io/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/nitrobot"
+  },
+  {
+    "id": "phind-bot",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "PhindBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; PhindBot; +https://www.phind.com/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/phindbot"
+  },
+  {
+    "id": "productsup-crawler",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "productsup\\.io\\/crawler"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "productsup.io/crawler"
+      ],
+      "rejected": []
+    },
+    "url": "https://help.productsup.com/docs/help-center/import-data-feeds/import-data-from-internal-systems/import-web-data-with-website-crawler"
+  },
+  {
+    "id": "scope3-crawler",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "Scope3"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36 Scope3/2.0 (scope3.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.scope3.com/docs/scope3-crawler"
+  },
+  {
+    "id": "scrunch-bot",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "Scrunchbot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Scrunchbot/1.0; +https://scrunchai.com/bots)"
+      ],
+      "rejected": []
+    },
+    "url": "https://scrunch.com/bots/"
+  },
+  {
+    "id": "statusnest-crawler",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "StatusNestBacklinkSpider"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; StatusNestBacklinkSpider; +https://statusnest.com/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://statusnest.com/bot"
+  },
+  {
+    "id": "stepstone-crawler",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "stepstoneCrawlBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; stepstoneCrawlBot; +https://www.thestepstonegroup.com/crawler/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.thestepstonegroup.com/english/crawler/"
+  },
+  {
+    "id": "uip-bot",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "uipbot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "uipbot/1.0 (uipbot@semasio.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/uipbot"
+  },
+  {
+    "id": "wepch-crawler",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "WepchSearchEngine"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; WepchSearchEngine; +https://www.wepch.com/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.wepch.com/search-engine"
+  },
+  {
+    "id": "cybaa-bot",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "CybaaBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 CybaaBot"
+      ],
+      "rejected": []
+    },
+    "url": "https://cybaa.io/bot-policy"
+  },
+  {
+    "id": "fleebs-bot",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "FleebsBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; FleebsBot/1~w; +https://fleebs.com/bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://fleebs.com/bot"
+  },
+  {
+    "id": "flyriver-bot",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "Flyriverbot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Flyriverbot/1.1 (+https://www.flyriver.com/; AI Content Source Check)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.flyriver.com/crawler"
+  },
+  {
+    "id": "noah-bot",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "NoahBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; NoahBot/1.0; +https://noahwire.com/bot-info)"
+      ],
+      "rejected": []
+    },
+    "url": "https://noahwire.com/bot-info"
+  },
+  {
+    "id": "plagaware-bot",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "PlagAwareBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; PlagAwareBot/3.2; +https://www.plagaware.com/bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.plagaware.com/bot"
+  },
+  {
+    "id": "sirdata-bot",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "SirdataBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "SirdataBot (+https://semantic-api.docs.sirdata.net/contextual-api/contextual-api/introduction)"
+      ],
+      "rejected": []
+    },
+    "url": "https://semantic-api.docs.sirdata.net/contextual-api/contextual-api/introduction"
+  },
+  {
+    "id": "trafilatura",
+    "categories": [
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "trafilatura"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "trafilatura/2.0.0 (+https://github.com/adbar/trafilatura)"
+      ],
+      "rejected": []
+    },
+    "url": "https://github.com/adbar/trafilatura"
+  },
+  {
+    "id": "website-info-robot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "Website-info\\.net-Robot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Website-info.net-Robot; https://website-info.net/robot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://website-info.net/robot"
+  },
+  {
+    "id": "crawl4ai",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "crawl4ai"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "crawl4ai-adapter/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://github.com/unclecode/crawl4ai"
+  },
+  {
+    "id": "abeval-bot",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "ABEvalBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ABEvalBot/0.1) Version/11.1.2 Safari/605.1.15"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/abevalbot"
+  },
+  {
+    "id": "carbon-umbrella-bot",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "carbon-umbrella-bot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "carbon-umbrella-bot/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/carbon-umbrella-bot"
+  },
+  {
+    "id": "dazzle-bluesky-bot",
+    "categories": [
+      "preview",
+      "social"
+    ],
+    "pattern": {
+      "accepted": [
+        "Dazzle BlueSky Bot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Dazzle BlueSky Bot/1.1"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/dazzle-bluesky-bot"
+  },
+  {
+    "id": "fedistats-crawler",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "fedistatsCrawler"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "fedistatsCrawler/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/fedistatscrawler"
+  },
+  {
+    "id": "goparser-bot",
+    "categories": [
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "GoParserBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; GoParserBot/1.0)"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/goparserbot"
+  },
+  {
+    "id": "hanalei-bot",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "HanaleiBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "HanaleiBot runid=beta-stage-integration-test"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/hanaleibot"
+  },
+  {
+    "id": "openthebox-bot",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "OpenTheBoxBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "OpenTheBoxBot/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/opentheboxbot"
+  },
+  {
+    "id": "poduptime",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "Poduptime;\\s*\\+fediverse\\.observer"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Poduptime; +fediverse.observer)"
+      ],
+      "rejected": []
+    },
+    "url": "https://fediverse.observer/"
+  },
+  {
+    "id": "pomothy-bot",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "Pomothy-Bot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Pomothy-Bot/1.0)"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/pomothy-bot"
+  },
+  {
+    "id": "swiftbot",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "Swiftbot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Swiftbot/1.0; UID/649dce5512ab734096a50277; +http://swiftype.com/swiftbot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://swiftype.com/swiftbot"
+  },
+  {
+    "id": "synthesi-bot",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "SynthesiBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; SynthesiBot/1.0)"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/synthesibot"
+  },
+  {
+    "id": "tsm-bot",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "TSMbot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7; TSMbot) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/tsmbot"
+  },
+  {
+    "id": "urlsuma-crawler",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "UrlSuMa\\.de crawler"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; UrlSuMa.de crawler)"
+      ],
+      "rejected": []
+    },
+    "url": "https://urlsuma.de/"
+  },
+  {
+    "id": "yandori-rss-bot",
+    "categories": [
+      "feedfetcher"
+    ],
+    "pattern": {
+      "accepted": [
+        "YandoriRSSBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "YandoriRSSBot/3.0 (Go)"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/yandorirssbot"
+  },
+  {
+    "id": "zeal-bot",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "Zealbot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/4.0 (compatible; Zealbot 1.0)"
+      ],
+      "rejected": []
+    },
+    "url": "https://knownagents.com/agents/zealbot"
+  },
+  {
+    "id": "aranea-crawler",
+    "categories": [
+      "academic"
+    ],
+    "pattern": {
+      "accepted": [
+        "Aranea"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Aranea Web-Crawled Corpora Project (+http://unesco.uniba.sk/guest (Hebrew 2024 Spring Crawl))"
+      ],
+      "rejected": []
+    },
+    "url": "http://unesco.uniba.sk/guest/"
+  },
+  {
+    "id": "archivebox",
+    "categories": [
+      "archive"
+    ],
+    "pattern": {
+      "accepted": [
+        "ArchiveBox"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 ArchiveBox/0.7.2 (+https://github.com/ArchiveBox/ArchiveBox/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://archivebox.io/"
+  },
+  {
+    "id": "classla-web-crawler",
+    "categories": [
+      "academic"
+    ],
+    "pattern": {
+      "accepted": [
+        "CLASSLA-web"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; CLASSLA-web; +https://www.clarin.si/info/classla-web-crawler/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.clarin.si/info/classla-web-crawler/"
+  },
+  {
+    "id": "cotoyogi-crawler",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "Cotoyogi"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Cotoyogi/4.0; +https://ds.rois.ac.jp/center8/crawler/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://ds.rois.ac.jp/center8/crawler/"
+  },
+  {
+    "id": "repo-lookout-bot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "RepoLookoutBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "RepoLookoutBot/v1.1.0-297-gcf436d3 (abuse reports to abuse@repo-lookout.org)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.repo-lookout.org/"
+  },
+  {
+    "id": "domcop-bot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "DomCopBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "DomCopBot (https://www.domcop.com/bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.domcop.com/bot"
+  },
+  {
+    "id": "easycron-monitor",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "EasyCron\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "EasyCron/1.0 (https://www.easycron.com/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.easycron.com/"
+  },
+  {
+    "id": "crusty-crawler",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "crusty\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "crusty/0.12.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://github.com/let4be/crusty"
+  },
+  {
+    "id": "deskyo-bot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "Deskyobot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Deskyobot/1.0 (+https://www.deskyo.com/bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.deskyo.com/bot"
+  },
+  {
+    "id": "discourse-onebox",
+    "categories": [
+      "preview",
+      "social"
+    ],
+    "pattern": {
+      "accepted": [
+        "Discourse Forum Onebox"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Discourse Forum Onebox v3.3.0.beta1-dev"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.discourse.org/"
+  },
+  {
+    "id": "edgewatch-monitor",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "EdgeWatch"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; EdgeWatch/1.1; https://about.edgewatch.com/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://about.edgewatch.com/"
+  },
+  {
+    "id": "erepublik-tools-crawler",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "eRepublik\\.tools"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "eRepublik.tools - Multithreaded Crawler - "
+      ],
+      "rejected": []
+    },
+    "url": "https://erepublik.tools/"
+  },
+  {
+    "id": "exodus-movement-crawler",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "ExodusMovement"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "ExodusMovement/1.0 GlobalCoinHeight/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.exodus.com/"
+  },
+  {
+    "id": "fastmail-preview",
+    "categories": [
+      "preview",
+      "social"
+    ],
+    "pattern": {
+      "accepted": [
+        "FastmailUA"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "FastmailUA/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.fastmail.com/policies/bots/"
+  },
+  {
+    "id": "fedica-bot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "Fedicabot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Fedicabot / FedicaApp"
+      ],
+      "rejected": []
+    },
+    "url": "https://fedica.com/info/fedicabot"
+  },
+  {
+    "id": "fedreporter-bot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "FedReporterDataBot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "FedReporterDataBot/1.0 (+https://fedreporter.net/FedReporterBotDocumentation;)"
+      ],
+      "rejected": []
+    },
+    "url": "https://fedreporter.net/FedReporterBotDocumentation/Readme.txt"
+  },
+  {
+    "id": "feedburner",
+    "categories": [
+      "feedfetcher"
+    ],
+    "pattern": {
+      "accepted": [
+        "FeedBurner"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "FeedBurner/1.0 (http://www.FeedBurner.com)"
+      ],
+      "rejected": []
+    },
+    "url": "http://www.feedburner.com/"
+  },
+  {
+    "id": "feeder-co",
+    "categories": [
+      "feedfetcher"
+    ],
+    "pattern": {
+      "accepted": [
+        "feeder\\.co"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (feeder.co; Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "url": "https://feeder.co/crawler"
+  },
+  {
+    "id": "feedwind",
+    "categories": [
+      "feedfetcher"
+    ],
+    "pattern": {
+      "accepted": [
+        "Feedwind"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Feedwind/3.0; +http://feed.mikle.com/support/description/)"
+      ],
+      "rejected": []
+    },
+    "url": "http://feed.mikle.com/support/description/"
+  },
+  {
+    "id": "freespoke-crawler",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "Freespoke\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Freespoke/2.0; +https://crawler.freespoke.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.freespoke.com/search/bot/"
+  },
+  {
+    "id": "ghost-inspector",
+    "categories": [
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "Ghost Inspector"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0 Safari/537.36 Ghost Inspector (63c85ddbde52d6697f57c623)"
+      ],
+      "rejected": []
+    },
+    "url": "https://ghostinspector.com/"
+  },
+  {
+    "id": "google-apps-script",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "Google-Apps-Script"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Google-Apps-Script; beanserver; +https://script.google.com; id: UAEmdDd_XLoqpGxtGfu5uvUaQlW77VLYz-w)"
+      ],
+      "rejected": []
+    },
+    "url": "https://developers.google.com/apps-script/"
+  },
+  {
+    "id": "gtmetrix-monitor",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "GTmetrix"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 GTmetrix"
+      ],
+      "rejected": []
+    },
+    "url": "https://gtmetrix.com/"
+  },
+  {
+    "id": "hcard-validator",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "hCardValidator"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "hCardValidator/1 PHP/5 (http://hcard.geekhood.net)"
+      ],
+      "rejected": []
+    },
+    "url": "http://hcard.geekhood.net/"
+  },
+  {
+    "id": "hetrixtools-monitor",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "HetrixTools"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "HetrixTools Uptime Monitoring Bot. https://hetrix.tools/uptime-monitoring-bot.html"
+      ],
+      "rejected": []
+    },
+    "url": "https://hetrixtools.com/uptime-monitor-bot/"
+  },
+  {
+    "id": "hlidam-robot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "Hlidam\\.to robot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Hlidam.to robot"
+      ],
+      "rejected": []
+    },
+    "url": "https://hlidam.to/"
+  },
+  {
+    "id": "innguma-fetcher",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "Innguma\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Innguma/1.0 (+https://factory.innguma.com/fetcher/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://factory.innguma.com/fetcher/"
+  },
+  {
+    "id": "instapaper",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "Instapaper\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Instapaper/4.0Instaparser/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.instapaper.com/about-legal/about/publishers"
+  },
+  {
+    "id": "jobswithgpt-bot",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "jobswithgptcom-bot"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "jobswithgptcom-bot"
+      ],
+      "rejected": []
+    },
+    "url": "https://jobswithgpt.com/bot.html"
+  },
+  {
+    "id": "linksindexer-bot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "LinksIndexerBot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; LinksIndexerBot/1.0; +http://linksindexer.com/bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://linksindexer.com/bot"
+  },
+  {
+    "id": "madb-bot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "MADBbot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "MADBbot/0.1 (Gathering webpages for data analytics; https://madb.zapto.org/bot.html; ma-db-crawl@googlegroups.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://madb.zapto.org/bot.html"
+  },
+  {
+    "id": "magnet-me-crawler",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "Magnet\\.me-web\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Magnet.me-web/1.0 (+https://magnet.me/bot.html)"
+      ],
+      "rejected": []
+    },
+    "url": "https://magnet.me/bot.html"
+  },
+  {
+    "id": "media-monitoring-bot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "MediaMonitoringBot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "MediaMonitoringBot/1.1 (+https://mediamonitoringbot.com/crawler; crawler@mediamonitoringbot.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://mediamonitoringbot.com/"
+  },
+  {
+    "id": "motominer-bot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "MotoMinerBot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; MotoMinerBot/1.0; +https://motominer.com/Bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://motominer.com/Bot"
+  },
+  {
+    "id": "paqle-bot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "Paqlebot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Paqlebot/2.0; +http://www.paqle.dk/about/paqlebot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.paqle.dk/about/paqlebot"
+  },
+  {
+    "id": "qualified-bot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "QualifiedBot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "QualifiedBot/1.0",
+        "Mozilla/5.0 (compatible; QualifiedBot/1.0; +https://www.qualified.com/legal/qualified-crawler-user-agent)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.qualified.com/legal/qualified-crawler-user-agent"
+  },
+  {
+    "id": "rakuten-usa-image-bot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "rakutenusabot-image\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; rakutenusabot-image/1.0) Chrome/114.0.0.0 Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "url": "https://product-image.ebates.com/item-gsp/rakutenusabot.html"
+  },
+  {
+    "id": "retroliste-crawler",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "RetroListeCOM\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; RetroListeCOM/1.0)"
+      ],
+      "rejected": []
+    },
+    "url": "https://retroliste.com/"
+  },
+  {
+    "id": "scour-rss-bot",
+    "categories": [
+      "feedfetcher"
+    ],
+    "pattern": {
+      "accepted": [
+        "ScourRSSBot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "ScourRSSBot/1.0 (+https://scour.ing/bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://scour.ing/bot"
+  },
+  {
+    "id": "clarity-bot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "ClarityBot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; ClarityBot/9.0; +https://www.seoclarity.net/bot.html)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.seoclarity.net/bot.html"
+  },
+  {
+    "id": "smartology-bot",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "SmartologyBot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "SmartologyBot/1.0 (+http://www.smartology.net/smartologybot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://smartology.net/smartologybot/"
+  },
+  {
+    "id": "spectate-monitor",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "Spectate\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Spectate/1.0 (+https://docs.spectate.net/faq/uptime-monitor-bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.spectate.net/faq/uptime-monitor-bot"
+  },
+  {
+    "id": "ttd-content",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "TTD-Content"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; TTD-Content; +https://www.thetradedesk.com/general/ttd-content)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.thetradedesk.com/legal/ttd-content"
+  },
+  {
+    "id": "uas-link-checker",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "UASlinkChecker\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; UASlinkChecker/2.1; +https://udger.com/support/UASlinkChecker)"
+      ],
+      "rejected": []
+    },
+    "url": "https://udger.com/support/UASlinkChecker"
+  },
+  {
+    "id": "ward-bot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "WARDBot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; WARDBot/1.0; http://ward.ai/robot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://ward.ai/robot"
+  },
+  {
+    "id": "xy-archive-compliance",
+    "categories": [
+      "archive"
+    ],
+    "pattern": {
+      "accepted": [
+        "XY-Archive-Compliance"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; XY-Archive-Compliance-Crawler; +https://archive.xyplanningnetwork.com/)",
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 (compatible; XY-Archive-Compliance-Archiver; +https://archive.xyplanningnetwork.com/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://xy-archive.helpscoutdocs.com/article/61-does-xy-archive-have-a-dedicated-ip-address"
+  },
+  {
+    "id": "zombie-bot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "Zombiebot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/08/18",
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko (compatible; Zombiebot/2.1; +http://www.zombiedomain.net/robot/)"
+      ],
+      "rejected": []
+    },
+    "url": "http://www.zombiedomain.net/robot/"
+  },
+  {
+    "id": "kagi-crawler",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "Kagibot"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "ip",
+        "ips": [
+          "216.18.205.234",
+          "35.212.27.76",
+          "104.254.65.50",
+          "209.151.156.194"
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "@.kagibot.org"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Kagibot/1.0; +https://kagi.com/bot)"
+      ],
+      "rejected": [
+        "kagi-fetcher"
+      ]
+    },
+    "url": "https://kagi.com/bot",
+    "aliases": [
+      "Kagibot",
+      "KagiBot"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "snapchat-adsbot",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "SnapchatAds"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; SnapchatAds/1.0; +https://businesshelp.snapchat.com/s/article/adsbot-crawler)"
+      ],
+      "rejected": [
+        "Snap URL Preview Service; bot; snapchat; https://developers.snap.com/robots"
+      ]
+    },
+    "url": "https://businesshelp.snapchat.com/s/article/adsbot-crawler",
+    "aliases": [
+      "SnapchatAds",
+      "SnapchatAdsBot"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "yahoo-ad-monitoring",
+    "categories": [
+      "advertising",
+      "yahoo"
+    ],
+    "pattern": {
+      "accepted": [
+        "Yahoo Ad [Mm]onitoring"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Yahoo Ad monitoring; https://help.yahoo.com/kb/yahoo-ad-monitoring-SLN24857.html)",
+        "Mozilla/5.0 (compatible; Yahoo Ad Monitoring https://help.yahoo.com/kb/yahoo-ad-monitoring-SLN24857.html) <YahooInternalTag>"
+      ],
+      "rejected": []
+    },
+    "url": "https://help.yahoo.com/kb/yahoo-ad-monitoring-SLN24857.html",
+    "aliases": [
+      "Yahoo Ad monitoring",
+      "Yahoo Ad Monitoring"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "yahoo-mail-proxy",
+    "categories": [
+      "preview",
+      "yahoo"
+    ],
+    "pattern": {
+      "accepted": [
+        "YahooMailProxy"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "YahooMailProxy; https://help.yahoo.com/kb/yahoo-mail-proxy-SLN28749.html",
+        "YahooMailProxy; https://senders.yahooinc.com/mail-proxy-servers"
+      ],
+      "rejected": []
+    },
+    "url": "https://senders.yahooinc.com/mail-proxy-servers/",
+    "aliases": [
+      "YahooMailProxy"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "grafana-synthetic-monitoring-agent",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "synthetic-monitoring-agent"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "synthetic-monitoring-agent/v0.41.3 (linux amd64; 1522bdcd162c24088daf19d0aa6667773e69825a; 2025-09-02T13:45:18Z; +https://github.com/grafana/synthetic-monitoring-agent)"
+      ],
+      "rejected": []
+    },
+    "url": "https://grafana.com/docs/grafana-cloud/testing/synthetic-monitoring/create-checks/checks/http/",
+    "aliases": [
+      "synthetic-monitoring-agent"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "jetpack-monitor",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "jetmon"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "jetmon/1.0 (Jetpack Site Uptime Monitor by WordPress.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://jetpack.com/support/monitor/",
+    "aliases": [
+      "jetmon"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "linkchecker-pro",
+    "categories": [
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "LinkCheckerBot"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; LinkCheckerBot/2.0; +https://linkchecker.pro/robot/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://linkchecker.pro/robot/",
+    "aliases": [
+      "LinkCheckerBot"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "mozilla-tabstack",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "Mozilla-Tabstack"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla-Tabstack/1.0 (+https://tabstack.ai)"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.tabstack.ai/trust/controlling-access",
+    "aliases": [
+      "Mozilla-Tabstack"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "exa-searchbot",
+    "categories": [
+      "search-engine",
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "ExaSearchBot"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; ExaSearchBot/1.0; +https://crawler.exa.ai/)"
+      ],
+      "rejected": [
+        "Mozilla/5.0 (compatible; Exabot/3.0; +http://www.exabot.com/go/robot)"
+      ]
+    },
+    "url": "https://crawler.exa.ai/",
+    "aliases": [
+      "ExaSearchBot"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "kimi-bot",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "KimiBot"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://www.kimi.ai/policies/kimibot.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; KimiBot/1.0; +https://www.kimi.com/policies/kimi-crawlers"
+      ],
+      "rejected": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Kimi-User/1.0; +https://www.kimi.com/policies/kimi-crawlers",
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Kimi-SearchBot/1.0; +https://www.kimi.com/policies/kimi-crawlers"
+      ]
+    },
+    "url": "https://www.kimi.com/policies/kimi-crawlers",
+    "aliases": [
+      "KimiBot"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "kimi-user",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "Kimi-User"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://www.kimi.ai/policies/kimi-user.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Kimi-User/1.0; +https://www.kimi.com/policies/kimi-crawlers"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.kimi.com/policies/kimi-crawlers",
+    "aliases": [
+      "Kimi-User"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "kimi-searchbot",
+    "categories": [
+      "ai",
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "Kimi-SearchBot"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://www.kimi.ai/policies/kimi-searchbot.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Kimi-SearchBot/1.0; +https://www.kimi.com/policies/kimi-crawlers"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.kimi.com/policies/kimi-crawlers",
+    "aliases": [
+      "Kimi-SearchBot"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "crawlspace",
+    "categories": [
+      "ai",
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "Crawlspace"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Crawlspace"
+      ],
+      "rejected": []
+    },
+    "url": "https://crawlspace.dev",
+    "aliases": [
+      "Crawlspace"
+    ],
+    "addition_date": "2026/08/18"
   }
 ]
