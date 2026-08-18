@@ -11534,24 +11534,7 @@
     },
     "addition_date": "2022/10/17",
     "url": "https://support.freshping.io/support/solutions/articles/237620-why-are-my-checks-always-down-even-when-my-website-is-up-",
-    "verification": [
-      {
-        "type": "ip",
-        "ips": [
-          "35.173.69.86",
-          "50.17.185.102",
-          "18.179.133.14",
-          "34.246.131.0",
-          "13.251.205.206",
-          "52.60.140.174",
-          "13.55.57.184",
-          "52.42.49.200",
-          "13.232.175.73",
-          "18.228.60.182",
-          "18.130.156.195"
-        ]
-      }
-    ],
+    "verification": [],
     "instances": {
       "accepted": [
         "FreshpingBot/1.0 (+https://freshping.io/)"
@@ -15506,30 +15489,6 @@
     ]
   },
   {
-    "id": "deepseek-crawler",
-    "categories": [
-      "ai"
-    ],
-    "pattern": {
-      "accepted": [
-        "DeepSeekBot"
-      ],
-      "forbidden": []
-    },
-    "instances": {
-      "accepted": [
-        "Mozilla/5.0 (compatible; DeepSeekBot/1.0; +https://www.deepseek.com/bot)"
-      ],
-      "rejected": []
-    },
-    "url": "https://www.deepseek.com/bot",
-    "aliases": [
-      "DeepSeekBot"
-    ],
-    "addition_date": "2026/08/18",
-    "verification": []
-  },
-  {
     "id": "firecrawl-agent",
     "categories": [
       "ai",
@@ -15555,23 +15514,24 @@
     "verification": []
   },
   {
-    "id": "cloudflare-autorag",
+    "id": "cloudflare-ai-search",
     "categories": [
       "ai"
     ],
     "pattern": {
       "accepted": [
-        "Cloudflare-AutoRAG"
+        "Cloudflare-(?:AI-Search|AutoRAG)"
       ],
       "forbidden": []
     },
     "instances": {
       "accepted": [
+        "Cloudflare-AI-Search",
         "Cloudflare-AutoRAG (https://developers.cloudflare.com/autorag; autorag@cloudflare.com)"
       ],
       "rejected": []
     },
-    "url": "https://developers.cloudflare.com/autorag",
+    "url": "https://developers.cloudflare.com/ai-search/platform/release-note/",
     "addition_date": "2026/08/18",
     "verification": []
   },
@@ -15848,7 +15808,7 @@
     },
     "instances": {
       "accepted": [
-        "Mozilla/5.0 (compatible; Amzn-User; +https://developer.amazon.com/)"
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Amzn-User/0.1) Chrome/W.X.Y.Z Safari/537.36"
       ],
       "rejected": []
     },
@@ -16040,27 +16000,6 @@
     "verification": []
   },
   {
-    "id": "thousandeyes-monitor",
-    "categories": [
-      "monitor"
-    ],
-    "pattern": {
-      "accepted": [
-        "ThousandEyes"
-      ],
-      "forbidden": []
-    },
-    "instances": {
-      "accepted": [
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36 (ThousandEyes Agent)"
-      ],
-      "rejected": []
-    },
-    "url": "https://docs.thousandeyes.com/product-documentation/global-vantage-points/cloud-and-enterprise-agents",
-    "addition_date": "2026/08/18",
-    "verification": []
-  },
-  {
     "id": "alertsite-monitor",
     "categories": [
       "monitor"
@@ -16150,69 +16089,6 @@
     "verification": []
   },
   {
-    "id": "playwright",
-    "categories": [
-      "tool"
-    ],
-    "pattern": {
-      "accepted": [
-        "[Pp]laywright"
-      ],
-      "forbidden": []
-    },
-    "instances": {
-      "accepted": [
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Playwright/1.40.0"
-      ],
-      "rejected": []
-    },
-    "url": "https://playwright.dev",
-    "addition_date": "2026/08/18",
-    "verification": []
-  },
-  {
-    "id": "puppeteer",
-    "categories": [
-      "tool"
-    ],
-    "pattern": {
-      "accepted": [
-        "[Pp]uppeteer"
-      ],
-      "forbidden": []
-    },
-    "instances": {
-      "accepted": [
-        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/120.0.0.0 Safari/537.36 Puppeteer"
-      ],
-      "rejected": []
-    },
-    "url": "https://pptr.dev",
-    "addition_date": "2026/08/18",
-    "verification": []
-  },
-  {
-    "id": "selenium",
-    "categories": [
-      "tool"
-    ],
-    "pattern": {
-      "accepted": [
-        "[Ss]elenium"
-      ],
-      "forbidden": []
-    },
-    "instances": {
-      "accepted": [
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36; Selenium"
-      ],
-      "rejected": []
-    },
-    "url": "https://www.selenium.dev",
-    "addition_date": "2026/08/18",
-    "verification": []
-  },
-  {
     "id": "cypress",
     "categories": [
       "tool"
@@ -16225,11 +16101,11 @@
     },
     "instances": {
       "accepted": [
-        "Cypress/13.0.0"
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.0.0 Chrome/114.0.5735.289 Electron/25.8.0 Safari/537.36"
       ],
       "rejected": []
     },
-    "url": "https://www.cypress.io",
+    "url": "https://docs.cypress.io/app/references/launching-browsers#Electron-Browser",
     "addition_date": "2026/08/18",
     "verification": []
   },
