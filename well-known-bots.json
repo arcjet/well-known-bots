@@ -67,7 +67,7 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/crawling/ipranges/common-crawlers.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
           }
         ]
       },
@@ -11533,7 +11533,7 @@
       "forbidden": []
     },
     "addition_date": "2022/10/17",
-    "url": "https://www.freshworks.com/website-monitoring/",
+    "url": "https://support.freshping.io/support/solutions/articles/237620-why-are-my-checks-always-down-even-when-my-website-is-up-",
     "verification": [
       {
         "type": "ip",
@@ -14949,12 +14949,12 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
           },
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
           }
         ]
       },
@@ -14997,12 +14997,12 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
           },
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
           }
         ]
       },
@@ -15048,7 +15048,7 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-agents.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
           }
         ]
       },
@@ -15092,12 +15092,12 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
           },
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
           }
         ]
       },
@@ -15139,12 +15139,12 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
           },
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
           }
         ]
       },
@@ -15187,12 +15187,12 @@
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
           },
           {
             "type": "http-json",
             "url": "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
           }
         ]
       },
@@ -15973,7 +15973,7 @@
           {
             "type": "http-json",
             "url": "https://watchfor.io/ips.json",
-            "selector": "$.prefixes[*][\\\"ipv6Prefix\\\",\\\"ipv4Prefix\\\"]"
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
           }
         ]
       },
@@ -16261,7 +16261,7 @@
     ],
     "pattern": {
       "accepted": [
-        "Anomura"
+        "Anomura\\/"
       ],
       "forbidden": []
     },
@@ -17232,7 +17232,7 @@
     ],
     "pattern": {
       "accepted": [
-        "Poduptime"
+        "Poduptime;\\s*\\+fediverse\\.observer"
       ],
       "forbidden": []
     },
