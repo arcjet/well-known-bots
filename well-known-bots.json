@@ -16478,7 +16478,7 @@
     ],
     "pattern": {
       "accepted": [
-        "MontasticMonitor"
+        "MontasticMonitor|montastic-monitor"
       ],
       "forbidden": []
     },
@@ -16486,11 +16486,12 @@
     "verification": [],
     "instances": {
       "accepted": [
-        "Mozilla/5.0 (compatible; MontasticMonitor; +https://montastic.com/)"
+        "Mozilla/5.0 (compatible; MontasticMonitor; +https://montastic.com/)",
+        "montastic-monitor www.montastic.com"
       ],
       "rejected": []
     },
-    "url": "https://knownagents.com/agents/montasticmonitor"
+    "url": "https://montastic.com/"
   },
   {
     "id": "nanointeractive-crawler",
@@ -18239,5 +18240,385 @@
       "rejected": []
     },
     "url": "http://www.zombiedomain.net/robot/"
+  },
+  {
+    "id": "kagi-crawler",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "Kagibot"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "ip",
+        "ips": [
+          "216.18.205.234",
+          "35.212.27.76",
+          "104.254.65.50",
+          "209.151.156.194"
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "@.kagibot.org"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Kagibot/1.0; +https://kagi.com/bot)"
+      ],
+      "rejected": [
+        "kagi-fetcher"
+      ]
+    },
+    "url": "https://kagi.com/bot",
+    "aliases": [
+      "Kagibot",
+      "KagiBot"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "snapchat-adsbot",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "SnapchatAds"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; SnapchatAds/1.0; +https://businesshelp.snapchat.com/s/article/adsbot-crawler)"
+      ],
+      "rejected": [
+        "Snap URL Preview Service; bot; snapchat; https://developers.snap.com/robots"
+      ]
+    },
+    "url": "https://businesshelp.snapchat.com/s/article/adsbot-crawler",
+    "aliases": [
+      "SnapchatAds",
+      "SnapchatAdsBot"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "yahoo-ad-monitoring",
+    "categories": [
+      "advertising",
+      "yahoo"
+    ],
+    "pattern": {
+      "accepted": [
+        "Yahoo Ad [Mm]onitoring"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; Yahoo Ad monitoring; https://help.yahoo.com/kb/yahoo-ad-monitoring-SLN24857.html)",
+        "Mozilla/5.0 (compatible; Yahoo Ad Monitoring https://help.yahoo.com/kb/yahoo-ad-monitoring-SLN24857.html) <YahooInternalTag>"
+      ],
+      "rejected": []
+    },
+    "url": "https://help.yahoo.com/kb/yahoo-ad-monitoring-SLN24857.html",
+    "aliases": [
+      "Yahoo Ad monitoring",
+      "Yahoo Ad Monitoring"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "yahoo-mail-proxy",
+    "categories": [
+      "preview",
+      "yahoo"
+    ],
+    "pattern": {
+      "accepted": [
+        "YahooMailProxy"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "YahooMailProxy; https://help.yahoo.com/kb/yahoo-mail-proxy-SLN28749.html",
+        "YahooMailProxy; https://senders.yahooinc.com/mail-proxy-servers"
+      ],
+      "rejected": []
+    },
+    "url": "https://senders.yahooinc.com/mail-proxy-servers/",
+    "aliases": [
+      "YahooMailProxy"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "grafana-synthetic-monitoring-agent",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "synthetic-monitoring-agent"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "synthetic-monitoring-agent/v0.41.3 (linux amd64; 1522bdcd162c24088daf19d0aa6667773e69825a; 2025-09-02T13:45:18Z; +https://github.com/grafana/synthetic-monitoring-agent)"
+      ],
+      "rejected": []
+    },
+    "url": "https://grafana.com/docs/grafana-cloud/testing/synthetic-monitoring/create-checks/checks/http/",
+    "aliases": [
+      "synthetic-monitoring-agent"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "jetpack-monitor",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "jetmon"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "jetmon/1.0 (Jetpack Site Uptime Monitor by WordPress.com)"
+      ],
+      "rejected": []
+    },
+    "url": "https://jetpack.com/support/monitor/",
+    "aliases": [
+      "jetmon"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "linkchecker-pro",
+    "categories": [
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "LinkCheckerBot"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; LinkCheckerBot/2.0; +https://linkchecker.pro/robot/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://linkchecker.pro/robot/",
+    "aliases": [
+      "LinkCheckerBot"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "mozilla-tabstack",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "Mozilla-Tabstack"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla-Tabstack/1.0 (+https://tabstack.ai)"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.tabstack.ai/trust/controlling-access",
+    "aliases": [
+      "Mozilla-Tabstack"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "exa-searchbot",
+    "categories": [
+      "search-engine",
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "ExaSearchBot"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; ExaSearchBot/1.0; +https://crawler.exa.ai/)"
+      ],
+      "rejected": [
+        "Mozilla/5.0 (compatible; Exabot/3.0; +http://www.exabot.com/go/robot)"
+      ]
+    },
+    "url": "https://crawler.exa.ai/",
+    "aliases": [
+      "ExaSearchBot"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "kimi-bot",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "KimiBot"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://www.kimi.ai/policies/kimibot.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; KimiBot/1.0; +https://www.kimi.com/policies/kimi-crawlers"
+      ],
+      "rejected": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Kimi-User/1.0; +https://www.kimi.com/policies/kimi-crawlers",
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Kimi-SearchBot/1.0; +https://www.kimi.com/policies/kimi-crawlers"
+      ]
+    },
+    "url": "https://www.kimi.com/policies/kimi-crawlers",
+    "aliases": [
+      "KimiBot"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "kimi-user",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "Kimi-User"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://www.kimi.ai/policies/kimi-user.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Kimi-User/1.0; +https://www.kimi.com/policies/kimi-crawlers"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.kimi.com/policies/kimi-crawlers",
+    "aliases": [
+      "Kimi-User"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "kimi-searchbot",
+    "categories": [
+      "ai",
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "Kimi-SearchBot"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://www.kimi.ai/policies/kimi-searchbot.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Kimi-SearchBot/1.0; +https://www.kimi.com/policies/kimi-crawlers"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.kimi.com/policies/kimi-crawlers",
+    "aliases": [
+      "Kimi-SearchBot"
+    ],
+    "addition_date": "2026/08/18"
+  },
+  {
+    "id": "crawlspace",
+    "categories": [
+      "ai",
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "Crawlspace"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Crawlspace"
+      ],
+      "rejected": []
+    },
+    "url": "https://crawlspace.dev",
+    "aliases": [
+      "Crawlspace"
+    ],
+    "addition_date": "2026/08/18"
   }
 ]
