@@ -19,6 +19,13 @@ const original = fs.readFileSync(jsonFilePath, "utf-8");
 
 const updated = JSON.stringify(JSON.parse(original), null, 2) + '\n';
 
+function validateJsonSelector(selector, item, verify, source) {
+    if (selector.includes('\\"')) {
+        console.error("JSON selector contains escaped quotes; use JSON string escaping only:", item, verify, source);
+        process.exit(1);
+    }
+}
+
 if (process.argv[2] === "--generate") {
     fs.writeFileSync(jsonFilePath, updated);
     process.exit(0);
@@ -97,6 +104,7 @@ if (process.argv[2] === "--generate") {
                             console.error("Cidr source `selector` must be a string for http-json type", item, verify, source);
                             process.exit(1);
                         }
+                        validateJsonSelector(source.selector, item, verify, source);
                     }
                 }
             } else if (verify.type === "dns") {
@@ -151,6 +159,7 @@ if (process.argv[2] === "--generate") {
                                 console.error("IP source `selector` must be a string for http-json type", item, verify, source);
                                 process.exit(1);
                             }
+                            validateJsonSelector(source.selector, item, verify, source);
                         }
                         // http-text sources don't need a selector
                     }
