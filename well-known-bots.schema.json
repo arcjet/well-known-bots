@@ -1,0 +1,379 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/arcjet/well-known-bots/main/well-known-bots.schema.json",
+  "title": "Well Known Bots",
+  "description": "Schema for the well-known-bots.json bot definition list.",
+  "type": "array",
+  "items": {
+    "$ref": "#/$defs/bot"
+  },
+  "minItems": 1,
+  "uniqueItems": true,
+  "$defs": {
+    "bot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "categories",
+        "pattern",
+        "verification"
+      ],
+      "properties": {
+        "id": {
+          "description": "Unique kebab-case bot identifier.",
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/category"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "pattern": {
+          "$ref": "#/$defs/userAgentPattern"
+        },
+        "verification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/verification"
+          },
+          "uniqueItems": true
+        },
+        "url": {
+          "description": "Documentation URL for the bot.",
+          "$ref": "#/$defs/httpUrl"
+        },
+        "instances": {
+          "$ref": "#/$defs/instances"
+        },
+        "aliases": {
+          "description": "Alternative identifiers used by other data sources.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "description": {
+          "description": "Free-form human-readable notes about the bot.",
+          "type": "string",
+          "minLength": 1
+        },
+        "addition_date": {
+          "description": "Date the bot was added, in YYYY/MM/DD format.",
+          "$ref": "#/$defs/slashDate"
+        }
+      }
+    },
+    "httpUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://"
+    },
+    "slashDate": {
+      "type": "string",
+      "pattern": "^(?:(?:19|20)\\d{2}/(?:(?:0[13578]|1[02])/(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)/(?:0[1-9]|[12]\\d|30)|02/(?:0[1-9]|1\\d|2[0-8]))|(?:19(?:0[48]|[2468][048]|[13579][26])|2000|20(?:0[48]|[2468][048]|[13579][26]))/02/29)$"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "academic",
+        "advertising",
+        "ai",
+        "amazon",
+        "apple",
+        "archive",
+        "feedfetcher",
+        "google",
+        "meta",
+        "microsoft",
+        "monitor",
+        "optimizer",
+        "preview",
+        "programmatic",
+        "search-engine",
+        "slack",
+        "social",
+        "tool",
+        "unknown",
+        "vercel",
+        "webhook",
+        "yahoo"
+      ]
+    },
+    "userAgentPattern": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "accepted",
+        "forbidden"
+      ],
+      "properties": {
+        "accepted": {
+          "description": "JavaScript regular expressions that must all match the User-Agent.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/regexString"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "forbidden": {
+          "description": "JavaScript regular expressions that disqualify the User-Agent when any match.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/regexString"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "regexString": {
+      "type": "string",
+      "minLength": 1,
+      "format": "regex"
+    },
+    "instances": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "accepted",
+        "rejected"
+      ],
+      "properties": {
+        "accepted": {
+          "description": "User-Agent examples that must match every accepted pattern and no forbidden pattern.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "rejected": {
+          "description": "User-Agent examples that must not be accepted by this definition.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "verification": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/dnsVerification"
+        },
+        {
+          "$ref": "#/$defs/cidrVerification"
+        },
+        {
+          "$ref": "#/$defs/staticIpVerification"
+        },
+        {
+          "$ref": "#/$defs/sourceIpVerification"
+        }
+      ]
+    },
+    "dnsVerification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "masks"
+      ],
+      "properties": {
+        "type": {
+          "const": "dns"
+        },
+        "masks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "cidrVerification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "sources"
+      ],
+      "properties": {
+        "type": {
+          "const": "cidr"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/cidrSource"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "staticIpVerification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "ips"
+      ],
+      "properties": {
+        "type": {
+          "const": "ip"
+        },
+        "ips": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ipAddressOrCidr"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "sourceIpVerification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "sources"
+      ],
+      "properties": {
+        "type": {
+          "const": "ip"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ipSource"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "cidrSource": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/httpJsonSource"
+        },
+        {
+          "$ref": "#/$defs/httpCsvSource"
+        },
+        {
+          "$ref": "#/$defs/httpTextSource"
+        }
+      ]
+    },
+    "ipSource": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/httpJsonSource"
+        },
+        {
+          "$ref": "#/$defs/httpTextSource"
+        }
+      ]
+    },
+    "httpJsonSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "url",
+        "selector"
+      ],
+      "properties": {
+        "type": {
+          "const": "http-json"
+        },
+        "url": {
+          "$ref": "#/$defs/httpUrl"
+        },
+        "selector": {
+          "type": "string",
+          "minLength": 1,
+          "not": {
+            "pattern": "\\\\\""
+          }
+        }
+      }
+    },
+    "httpCsvSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "url"
+      ],
+      "properties": {
+        "type": {
+          "const": "http-csv"
+        },
+        "url": {
+          "$ref": "#/$defs/httpUrl"
+        }
+      }
+    },
+    "httpTextSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "url"
+      ],
+      "properties": {
+        "type": {
+          "const": "http-text"
+        },
+        "url": {
+          "$ref": "#/$defs/httpUrl"
+        }
+      }
+    },
+    "ipAddress": {
+      "type": "string",
+      "anyOf": [
+        {
+          "format": "ipv4"
+        },
+        {
+          "format": "ipv6"
+        }
+      ]
+    },
+    "ipAddressOrCidr": {
+      "type": "string",
+      "anyOf": [
+        {
+          "format": "ipv4"
+        },
+        {
+          "format": "ipv6"
+        },
+        {
+          "pattern": "^(?:(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\.){3}(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)/(?:[0-9]|[12]\\d|3[0-2])$"
+        },
+        {
+          "pattern": "^[0-9A-Fa-f:.]+/(?:[0-9]|[1-9]\\d|1[01]\\d|12[0-8])$"
+        }
+      ]
+    }
+  }
+}

@@ -40,6 +40,20 @@ To add a new bot to the list, you need to edit the `well-known-bots.json` file a
 5. **Run validation** to ensure your entry is correct: `node validate.js --check`
 6. **Submit a pull request** with your changes
 
+### JSON Schema
+
+The [`well-known-bots.schema.json`](well-known-bots.schema.json) file describes
+the intended structure of `well-known-bots.json` for editors and external JSON
+Schema validators. The repository's built-in `validate.js` script is still the
+source of truth for checks that JSON Schema cannot express, such as compiling
+JavaScript regular expressions and testing `instances` against those patterns.
+
+You can validate the JSON file against the schema with Ajv:
+
+```bash
+npx --package ajv-cli --package ajv-formats ajv validate --spec=draft2020 -c ajv-formats -s well-known-bots.schema.json -d well-known-bots.json --all-errors
+```
+
 ### Bot Entry Structure
 
 Each entry in the JSON represents a specific bot or crawler and includes the following fields:
@@ -60,6 +74,7 @@ Each entry in the JSON represents a specific bot or crawler and includes the fol
   - **`accepted`** (array): User-Agent strings that should match the pattern
   - **`rejected`** (array): User-Agent strings that should not match
 - **`aliases`** (array): Alternative identifiers for the bot used in other data sources
+- **`description`** (string): Free-form human-readable notes about the bot
 - **`addition_date`** (string): Date the bot was added in YYYY/MM/DD format
 
 ### Available Categories
