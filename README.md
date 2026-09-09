@@ -40,6 +40,35 @@ To add a new bot to the list, you need to edit the `well-known-bots.json` file a
 5. **Run validation** to ensure your entry is correct: `node validate.js --check`
 6. **Submit a pull request** with your changes
 
+### JSON Schema
+
+The [`well-known-bots.schema.json`](well-known-bots.schema.json) file describes
+the intended structure of `well-known-bots.json` for editors and external JSON
+Schema validators. The repository's built-in `validate.js` script is still the
+source of truth for checks that JSON Schema cannot express, such as compiling
+JavaScript regular expressions and testing `instances` against those patterns.
+
+Install the locked validation dependencies, then validate the JSON file with Ajv:
+
+```bash
+npm ci --prefix tools/schema --ignore-scripts
+node tools/schema/validate.cjs
+```
+
+CI runs both validators and the regression tests:
+
+```bash
+node --test schema.test.js tools/schema/validate.test.cjs
+```
+
+Validation dependencies are isolated in `tools/schema/`. Its lockfile fixes the
+full dependency tree and package integrity hashes; installation disables lifecycle
+scripts. Review dependency and lockfile updates together. To validate a different
+JSON file, pass its path to `node tools/schema/validate.cjs`.
+
+Static IP lists accept IPv4 and IPv6 addresses and CIDR ranges, including IPv6
+ranges with an embedded IPv4 address.
+
 ### Bot Entry Structure
 
 Each entry in the JSON represents a specific bot or crawler and includes the following fields:
@@ -60,6 +89,7 @@ Each entry in the JSON represents a specific bot or crawler and includes the fol
   - **`accepted`** (array): User-Agent strings that should match the pattern
   - **`rejected`** (array): User-Agent strings that should not match
 - **`aliases`** (array): Alternative identifiers for the bot used in other data sources
+- **`description`** (string): Free-form human-readable notes about the bot
 - **`addition_date`** (string): Date the bot was added in YYYY/MM/DD format
 
 ### Available Categories

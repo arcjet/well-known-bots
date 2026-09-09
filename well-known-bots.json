@@ -2278,7 +2278,6 @@
       "forbidden": []
     },
     "addition_date": "2011/06/21",
-    "url": "",
     "verification": [],
     "instances": {
       "accepted": [
@@ -4273,9 +4272,6 @@
       "forbidden": []
     },
     "url": "http://www.archive.org/details/archive.org_bot",
-    "depends_on": [
-      "heritrix"
-    ],
     "verification": [],
     "instances": {
       "accepted": [
@@ -8933,9 +8929,6 @@
       "forbidden": []
     },
     "addition_date": "2018/10/14",
-    "depends_on": [
-      "libwww-perl"
-    ],
     "verification": [],
     "instances": {
       "accepted": [

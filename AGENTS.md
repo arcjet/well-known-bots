@@ -14,13 +14,19 @@ This repository maintains a curated list of well-known bots, crawlers, validator
 
 ## Working with This Repository
 
-### No Package Manager Required
+### Validation Dependencies
 
-This is a **data repository** with NO package.json or dependencies. It uses only Node.js built-in modules.
+This is a **data repository** with no root package.json or project installation.
+The built-in validator and CIDR tests use only Node.js built-in modules. JSON
+Schema validation uses the isolated `tools/schema/` package.
 
-- ❌ **DO NOT** run `npm install`, `npm init`, or any package manager commands
-- ❌ **DO NOT** create a package.json file
-- ✅ **DO** use Node.js directly to run scripts (e.g., `node validate.js --check`)
+- Do not create a root package.json or install dependencies at the repository root.
+- Install validation dependencies with `npm ci --prefix tools/schema --ignore-scripts`.
+- Run schema validation with `node tools/schema/validate.cjs`.
+- Keep validation dependency versions exact and commit the generated lockfile.
+  For an intentional update, run `npm install --prefix tools/schema --ignore-scripts
+  --save-exact <package>@<version>`, review the lockfile, and run
+  `npm audit --prefix tools/schema` plus all validation checks.
 
 ### Validation Script (Critical)
 
@@ -77,8 +83,8 @@ When adding or modifying bot entries, refer to the [README.md](README.md) for:
 
 The repository uses GitHub Actions for validation:
 
-- **Trigger**: Runs on every push and pull request
-- **What it does**: Executes `node validate.js --check`
+- **Trigger**: Runs on every push, pull request, and merge group
+- **What it does**: Installs the locked schema dependencies with scripts disabled, then runs `node validate.js --check`, `node --test schema.test.js tools/schema/validate.test.cjs`, and `node tools/schema/validate.cjs`
 - **Node version**: 20.x
 - **Location**: `.github/workflows/ci-validation.yml`
 
@@ -139,14 +145,13 @@ node validate.js --check
 
 ## Testing Your Changes
 
-Since this is a data repository with no test suite, validation IS the testing:
+Run the built-in validation, regression tests, and JSON Schema validation:
 
 ```bash
-# Run validation - this is your test suite
+npm ci --prefix tools/schema --ignore-scripts
 node validate.js --check
-
-# Expected output: (nothing) with exit code 0
-# If there are errors, they will be printed to stderr
+node --test schema.test.js tools/schema/validate.test.cjs
+node tools/schema/validate.cjs
 ```
 
 ## Tips for Agents

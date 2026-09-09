@@ -1,6 +1,9 @@
 name: CI validation
 
-on: [push, pull_request]
+on: [push, pull_request, merge_group]
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -11,3 +14,8 @@ jobs:
         with:
           node-version: 20
       - run: node validate.js --check
+      - name: Install schema validation dependencies
+        run: npm ci --prefix tools/schema --ignore-scripts
+      - run: node --test schema.test.js tools/schema/validate.test.cjs
+      - name: Validate bot definitions against the JSON Schema
+        run: node tools/schema/validate.cjs
