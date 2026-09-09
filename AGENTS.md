@@ -9,7 +9,7 @@ This repository maintains a curated list of well-known bots, crawlers, validator
 ### Key Files
 
 - **`well-known-bots.json`**: Main data file (~13,653 lines) containing bot definitions
-- **`validate.js`**: Validation and formatting script - THE MOST IMPORTANT TOOL
+- **`validate.ts`**: Validation and formatting script - THE MOST IMPORTANT TOOL
 - **`.github/workflows/ci-validation.yml`**: CI workflow that runs validation on every push/PR
 
 ## Working with This Repository
@@ -18,11 +18,13 @@ This repository maintains a curated list of well-known bots, crawlers, validator
 
 This is a **data repository** with no root package.json or project installation.
 The built-in validator and CIDR tests use only Node.js built-in modules. JSON
-Schema validation uses the isolated `tools/schema/` package.
+Schema validation and strict type checking use the isolated `tools/schema/` package.
+Use Node.js 26 to execute the TypeScript validators directly without a build step.
 
 - Do not create a root package.json or install dependencies at the repository root.
 - Install validation dependencies with `npm ci --prefix tools/schema --ignore-scripts`.
-- Run schema validation with `node tools/schema/validate.cjs`.
+- Type-check both validators with `npm run --prefix tools/schema typecheck`.
+- Run schema validation with `node tools/schema/validate.ts`.
 - Keep validation dependency versions exact and commit the generated lockfile.
   For an intentional update, run `npm install --prefix tools/schema --ignore-scripts
   --save-exact <package>@<version>`, review the lockfile, and run
@@ -30,16 +32,16 @@ Schema validation uses the isolated `tools/schema/` package.
 
 ### Validation Script (Critical)
 
-The `validate.js` script is your primary tool. It has TWO modes:
+The `validate.ts` script is your primary tool. It has TWO modes:
 
-1. **Check mode**: `node validate.js --check`
+1. **Check mode**: `node validate.ts --check`
    - Validates JSON formatting (2 spaces, proper newlines)
    - Validates all required fields exist and have correct types
    - Validates regex patterns compile correctly
    - Validates instances match/don't match their patterns
    - **ALWAYS run this before committing any changes**
 
-2. **Generate mode**: `node validate.js --generate`
+2. **Generate mode**: `node validate.ts --generate`
    - Automatically reformats the JSON file with correct formatting
    - Use this if formatting is incorrect
    - **IMPORTANT**: Only use when you need to fix formatting
@@ -69,23 +71,23 @@ When adding or modifying bot entries, refer to the [README.md](README.md) for:
 #### Adding a New Bot
 
 1. Edit `well-known-bots.json` to add your bot entry (see README.md for structure)
-2. Validate your changes: `node validate.js --check`
-3. If formatting is wrong, auto-fix it: `node validate.js --generate`
-4. Validate again to ensure correctness: `node validate.js --check`
+2. Validate your changes: `node validate.ts --check`
+3. If formatting is wrong, auto-fix it: `node validate.ts --generate`
+4. Validate again to ensure correctness: `node validate.ts --check`
 
 #### Modifying an Existing Bot
 
 1. Find the bot entry in `well-known-bots.json`
 2. Make your changes
-3. Always validate: `node validate.js --check`
+3. Always validate: `node validate.ts --check`
 
 ### CI/CD Pipeline
 
 The repository uses GitHub Actions for validation:
 
 - **Trigger**: Runs on every push, pull request, and merge group
-- **What it does**: Installs the locked schema dependencies with scripts disabled, then runs `node validate.js --check`, `node --test schema.test.js tools/schema/validate.test.cjs`, and `node tools/schema/validate.cjs`
-- **Node version**: 20.x
+- **What it does**: Installs the locked schema dependencies with scripts disabled, then type-checks both validators and runs `node validate.ts --check`, `node --test schema.test.js validate.test.cjs tools/schema/validate.test.cjs`, and `node tools/schema/validate.ts`
+- **Node version**: 26.x
 - **Location**: `.github/workflows/ci-validation.yml`
 
 All PRs must pass validation before merging.
@@ -98,8 +100,8 @@ All PRs must pass validation before merging.
 
 **Solution**:
 ```bash
-node validate.js --generate
-node validate.js --check
+node validate.ts --generate
+node validate.ts --check
 ```
 
 ### Error: "Item is missing required `X` field"
@@ -131,7 +133,7 @@ node validate.js --check
 1. **JSON Editing**:
    - Use 2-space indentation
    - Keep the JSON structure consistent with existing entries
-   - Let `node validate.js --generate` handle formatting if unsure
+   - Let `node validate.ts --generate` handle formatting if unsure
 
 2. **Regex Patterns**:
    - Test patterns before adding them
@@ -149,9 +151,10 @@ Run the built-in validation, regression tests, and JSON Schema validation:
 
 ```bash
 npm ci --prefix tools/schema --ignore-scripts
-node validate.js --check
-node --test schema.test.js tools/schema/validate.test.cjs
-node tools/schema/validate.cjs
+npm run --prefix tools/schema typecheck
+node validate.ts --check
+node --test schema.test.js validate.test.cjs tools/schema/validate.test.cjs
+node tools/schema/validate.ts
 ```
 
 ## Tips for Agents
@@ -160,7 +163,7 @@ node tools/schema/validate.cjs
 2. **Don't create build artifacts** - this is a data-only repo
 3. **Read the README.md** for context on the project's purpose
 4. **Check existing entries** for examples when adding new bots
-5. **Use `node validate.js --generate`** to fix formatting issues automatically
+5. **Use `node validate.ts --generate`** to fix formatting issues automatically
 6. **Focus on data quality** - this file is consumed by other projects
 
 ## Example Bot Entry
@@ -184,5 +187,5 @@ For detailed examples with verification methods, see the [Verification Methods](
 ## Need Help?
 
 - Check existing bot entries in `well-known-bots.json` for examples
-- Review `validate.js` to understand validation rules
+- Review `validate.ts` to understand validation rules
 - See the README.md for project background and usage

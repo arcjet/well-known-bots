@@ -31,20 +31,22 @@ block custom bots.
 
 ## Adding a New Bot
 
+Use Node.js 26 to run the TypeScript validators directly.
+
 To add a new bot to the list, you need to edit the `well-known-bots.json` file and add a new entry. Follow these steps:
 
 1. **Create a new bot entry** with the required fields (see structure below)
 2. **Add User-Agent pattern(s)** that identify the bot
 3. **Add verification method(s)** if the bot provider supports verification
 4. **Add example instances** to validate your patterns work correctly
-5. **Run validation** to ensure your entry is correct: `node validate.js --check`
+5. **Run validation** to ensure your entry is correct: `node validate.ts --check`
 6. **Submit a pull request** with your changes
 
 ### JSON Schema
 
 The [`well-known-bots.schema.json`](well-known-bots.schema.json) file describes
 the intended structure of `well-known-bots.json` for editors and external JSON
-Schema validators. The repository's built-in `validate.js` script is still the
+Schema validators. The repository's built-in `validate.ts` script is still the
 source of truth for checks that JSON Schema cannot express, such as compiling
 JavaScript regular expressions and testing `instances` against those patterns.
 
@@ -52,19 +54,22 @@ Install the locked validation dependencies, then validate the JSON file with Ajv
 
 ```bash
 npm ci --prefix tools/schema --ignore-scripts
-node tools/schema/validate.cjs
+npm run --prefix tools/schema typecheck
+node tools/schema/validate.ts
 ```
 
 CI runs both validators and the regression tests:
 
 ```bash
-node --test schema.test.js tools/schema/validate.test.cjs
+node --test schema.test.js validate.test.cjs tools/schema/validate.test.cjs
 ```
 
-Validation dependencies are isolated in `tools/schema/`. Its lockfile fixes the
+Node runs the validators using built-in type stripping; the separate `typecheck`
+command checks their types without generating JavaScript. Validation and
+type-checking dependencies are isolated in `tools/schema/`. Its lockfile fixes the
 full dependency tree and package integrity hashes; installation disables lifecycle
 scripts. Review dependency and lockfile updates together. To validate a different
-JSON file, pass its path to `node tools/schema/validate.cjs`.
+JSON file, pass its path to `node tools/schema/validate.ts`.
 
 Static IP lists accept IPv4 and IPv6 addresses and CIDR ranges, including IPv6
 ranges with an embedded IPv4 address.

@@ -5,7 +5,7 @@ const { tmpdir } = require("node:os");
 const { join } = require("node:path");
 const { test } = require("node:test");
 
-const script = join(__dirname, "validate.cjs");
+const script = join(__dirname, "validate.ts");
 
 function validateFixture(t, changes) {
   const directory = mkdtempSync(join(tmpdir(), "bot-schema-test-"));
