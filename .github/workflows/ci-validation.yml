@@ -12,10 +12,12 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: 20
-      - run: node validate.js --check
+          node-version: 26
+      - run: node validate.ts --check
       - name: Install schema validation dependencies
         run: npm ci --prefix tools/schema --ignore-scripts
-      - run: node --test schema.test.js tools/schema/validate.test.cjs
+      - name: Type-check validators
+        run: npm run --prefix tools/schema typecheck
+      - run: node --test schema.test.js validate.test.cjs tools/schema/validate.test.cjs
       - name: Validate bot definitions against the JSON Schema
-        run: node tools/schema/validate.cjs
+        run: node tools/schema/validate.ts

@@ -1,8 +1,8 @@
 /**
  * This file is used for checking and updating the format of the JSON file.
  *
- * You can check the format via `node format.js --check` and regenerate the
- * file with the correct formatting using `node format.js --generate`.
+ * You can check the format via `node validate.ts --check` and regenerate the
+ * file with the correct formatting using `node validate.ts --generate`.
  *
  * The formatting logic uses `JSON.stringify` with 2 spaces, which will keep
  * separating commas on the same line as any closing character. This technique
@@ -10,16 +10,34 @@
  * such as VSCode.
  */
 
-const fs = require("fs");
-const path = require("path");
+import * as fs from "node:fs";
+import * as path from "node:path";
 
-const jsonFilePath = path.join(__dirname, "well-known-bots.json");
+const jsonFilePath = path.join(import.meta.dirname, "well-known-bots.json");
 
 const original = fs.readFileSync(jsonFilePath, "utf-8");
 
-const updated = JSON.stringify(JSON.parse(original), null, 2) + '\n';
+const data: unknown = JSON.parse(original);
+const updated = JSON.stringify(data, null, 2) + '\n';
 
-function validateJsonSelector(selector, item, verify, source) {
+function isArray(value: unknown): value is unknown[] {
+    return Array.isArray(value);
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+    return typeof value === "object" && value !== null && !isArray(value);
+}
+
+function validatePatterns(patterns: unknown[], kind: "accepted" | "forbidden", item: unknown): asserts patterns is string[] {
+    for (const pat of patterns) {
+        if (typeof pat !== "string") {
+            console.error(`Pattern (${kind}) entry was not a string:`, item, pat);
+            process.exit(1);
+        }
+    }
+}
+
+function validateJsonSelector(selector: string, item: unknown, verify: unknown, source: unknown): void {
     if (selector.includes('\\"')) {
         console.error("JSON selector contains escaped quotes; use JSON string escaping only:", item, verify, source);
         process.exit(1);
@@ -31,41 +49,39 @@ if (process.argv[2] === "--generate") {
     process.exit(0);
 } else if (process.argv[2] === "--check") {
     if (updated !== original) {
-        console.error("JSON file format is wrong. Run `node format.js --generate` to update.");
+        console.error("JSON file format is wrong. Run `node validate.ts --generate` to update.");
         console.error("Format must be 2 spaces, with newlines for objects and arrays, and separating commas on the line with the previous closing character.");
         process.exit(1);
     }
 
-    for (const item of JSON.parse(original)) {
+    if (!isArray(data)) {
+        console.error("Bot definitions must be an array:", data);
+        process.exit(1);
+    }
+    for (const item of data) {
+        if (!isRecord(item)) {
+            console.error("Bot entry must be an object:", item);
+            process.exit(1);
+        }
         if (typeof item.id !== "string") {
             console.error("Item is missing required `id` string field:", item);
             process.exit(1);
         }
-        if (typeof item.pattern !== "object" || item.pattern === null || Array.isArray(item.pattern)) {
+        if (!isRecord(item.pattern)) {
             console.error("Item is missing required pattern object with accepted and forbidden arrays:", item);
             process.exit(1);
         }
-        if (!Array.isArray(item.pattern.accepted)) {
+        if (!isArray(item.pattern.accepted)) {
             console.error("Item pattern.accepted is missing or is not an array:", item);
             process.exit(1);
         }
-        for (const pat of item.pattern.accepted) {
-            if (typeof pat !== "string") {
-                console.error("Pattern (accepted) entry was not a string:", item, pat);
-                process.exit(1);
-            }
-        }
-        if (!Array.isArray(item.pattern.forbidden)) {
+        validatePatterns(item.pattern.accepted, "accepted", item);
+        if (!isArray(item.pattern.forbidden)) {
             console.error("Item pattern.forbidden is missing or is not an array:", item);
             process.exit(1);
         }
-        for (const pat of item.pattern.forbidden) {
-            if (typeof pat !== "string") {
-                console.error("Pattern (forbidden) entry was not a string:", item, pat);
-                process.exit(1);
-            }
-        }
-        if (!Array.isArray(item.categories)) {
+        validatePatterns(item.pattern.forbidden, "forbidden", item);
+        if (!isArray(item.categories)) {
             console.error("Item is missing required `categories` array field:", item);
             process.exit(1);
         }
@@ -78,17 +94,25 @@ if (process.argv[2] === "--generate") {
             console.error("Item has wrong type specified for `url` string field:", item);
             process.exit(1);
         }
-        if (!Array.isArray(item.verification)) {
+        if (!isArray(item.verification)) {
             console.error("Item is missing required `verification` array field:", item);
             process.exit(1);
         }
         for (const verify of item.verification) {
+            if (!isRecord(verify)) {
+                console.error("Verification entry must be an object:", item, verify);
+                process.exit(1);
+            }
             if (verify.type === "cidr") {
-                if (!Array.isArray(verify.sources)) {
+                if (!isArray(verify.sources)) {
                     console.error("Item cidr validation entry is missing required `sources` array field:", item, verify);
                     process.exit(1);
                 }
                 for (const source of verify.sources) {
+                    if (!isRecord(source)) {
+                        console.error("Verification source must be an object:", item, verify, source);
+                        process.exit(1);
+                    }
                     if (source.type !== "http-json" && source.type !== "http-csv" && source.type !== "http-text") {
                         console.error("Cidr source `type` must be a valid type (currently `http-json`, `http-csv`, and `http-text` are supported)", item, verify, source);
                         process.exit(1);
@@ -108,7 +132,7 @@ if (process.argv[2] === "--generate") {
                     }
                 }
             } else if (verify.type === "dns") {
-                if (!Array.isArray(verify.masks)) {
+                if (!isArray(verify.masks)) {
                     console.error("Item dns validation entry is missing required `masks` array field:", item, verify);
                     process.exit(1);
                 }
@@ -127,7 +151,7 @@ if (process.argv[2] === "--generate") {
                 
                 if (verify.ips) {
                     // Static IP list
-                    if (!Array.isArray(verify.ips)) {
+                    if (!isArray(verify.ips)) {
                         console.error("Item IP validation `ips` field must be an array:", item, verify);
                         process.exit(1);
                     }
@@ -139,11 +163,15 @@ if (process.argv[2] === "--generate") {
                     }
                 } else if (verify.sources) {
                     // Remote IP sources
-                    if (!Array.isArray(verify.sources)) {
+                    if (!isArray(verify.sources)) {
                         console.error("Item IP validation entry is missing required `sources` array field:", item, verify);
                         process.exit(1);
                     }
                     for (const source of verify.sources) {
+                        if (!isRecord(source)) {
+                            console.error("Verification source must be an object:", item, verify, source);
+                            process.exit(1);
+                        }
                         if (source.type !== "http-json" && source.type !== "http-text") {
                             console.error("IP source `type` must be a valid type (`http-json` or `http-text` are supported)", item, verify, source);
                             process.exit(1);
@@ -173,7 +201,7 @@ if (process.argv[2] === "--generate") {
             }
         }
         if (typeof item.aliases !== "undefined") {
-            if (!Array.isArray(item.aliases)) {
+            if (!isArray(item.aliases)) {
                 console.error("Item has wrong type specified for `aliases` array field:", item);
                 process.exit(1);
             }
@@ -187,18 +215,18 @@ if (process.argv[2] === "--generate") {
         // TODO: Check `addition_date` is defined properly
         // TODO: Check or remove `depends_on` field
         if (typeof item.instances !== "undefined") {
-            if (typeof item.instances !== "object" || item.instances === null || Array.isArray(item.instances)) {
+            if (!isRecord(item.instances)) {
                 console.error(
                     "Item has wrong type specified for instances, it must be an object with accepted and rejected arrays:",
                     item
                 );
                 process.exit(1);
             }
-            if (!Array.isArray(item.instances.accepted)) {
+            if (!isArray(item.instances.accepted)) {
                 console.error("Item instances.accepted is missing or is not an array:", item);
                 process.exit(1);
             }
-            if (!Array.isArray(item.instances.rejected)) {
+            if (!isArray(item.instances.rejected)) {
                 console.error("Item instances.rejected is missing or is not an array:", item);
                 process.exit(1);
             }
