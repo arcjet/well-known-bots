@@ -1,6 +1,9 @@
 name: CI validation
 
-on: [push, pull_request]
+on: [push, pull_request, merge_group]
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -11,3 +14,9 @@ jobs:
         with:
           node-version: 20
       - run: node validate.js --check
+      - run: node --test schema.test.js
+      - name: Validate bot definitions against the JSON Schema
+        run: >-
+          npx --yes --package ajv-cli@5.0.0 --package ajv-formats@3.0.1
+          ajv validate --spec=draft2020 -c ajv-formats
+          -s well-known-bots.schema.json -d well-known-bots.json --all-errors

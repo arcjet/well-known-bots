@@ -51,8 +51,13 @@ JavaScript regular expressions and testing `instances` against those patterns.
 You can validate the JSON file against the schema with Ajv:
 
 ```bash
-npx --package ajv-cli --package ajv-formats ajv validate --spec=draft2020 -c ajv-formats -s well-known-bots.schema.json -d well-known-bots.json --all-errors
+npx --yes --package ajv-cli@5.0.0 --package ajv-formats@3.0.1 ajv validate --spec=draft2020 -c ajv-formats -s well-known-bots.schema.json -d well-known-bots.json --all-errors
 ```
+
+CI runs both validators and the CIDR regression tests (`node --test schema.test.js`).
+Ajv is downloaded on demand for schema validation; no project installation or
+`package.json` is needed. Static IP lists accept IPv4 and IPv6 addresses and CIDR
+ranges, including IPv6 ranges with an embedded IPv4 address.
 
 ### Bot Entry Structure
 

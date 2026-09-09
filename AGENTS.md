@@ -16,11 +16,12 @@ This repository maintains a curated list of well-known bots, crawlers, validator
 
 ### No Package Manager Required
 
-This is a **data repository** with NO package.json or dependencies. It uses only Node.js built-in modules.
+This is a **data repository** with no package.json or project installation. The built-in validator and CIDR tests use only Node.js built-in modules; CI also runs the pinned Ajv command documented in README.md.
 
-- ❌ **DO NOT** run `npm install`, `npm init`, or any package manager commands
+- ❌ **DO NOT** run `npm install` or `npm init`
 - ❌ **DO NOT** create a package.json file
 - ✅ **DO** use Node.js directly to run scripts (e.g., `node validate.js --check`)
+- ✅ **DO** run the documented pinned `npx` command for JSON Schema validation
 
 ### Validation Script (Critical)
 
@@ -77,8 +78,8 @@ When adding or modifying bot entries, refer to the [README.md](README.md) for:
 
 The repository uses GitHub Actions for validation:
 
-- **Trigger**: Runs on every push and pull request
-- **What it does**: Executes `node validate.js --check`
+- **Trigger**: Runs on every push, pull request, and merge group
+- **What it does**: Runs `node validate.js --check`, `node --test schema.test.js`, and the pinned Ajv schema validation command from README.md
 - **Node version**: 20.x
 - **Location**: `.github/workflows/ci-validation.yml`
 
@@ -139,14 +140,14 @@ node validate.js --check
 
 ## Testing Your Changes
 
-Since this is a data repository with no test suite, validation IS the testing:
+Run the built-in validation, CIDR regression tests, and the pinned Ajv schema validation command from README.md:
 
 ```bash
 # Run validation - this is your test suite
 node validate.js --check
 
-# Expected output: (nothing) with exit code 0
-# If there are errors, they will be printed to stderr
+# The built-in validator exits with code 0 and no output on success.
+node --test schema.test.js
 ```
 
 ## Tips for Agents
