@@ -48,16 +48,26 @@ Schema validators. The repository's built-in `validate.js` script is still the
 source of truth for checks that JSON Schema cannot express, such as compiling
 JavaScript regular expressions and testing `instances` against those patterns.
 
-You can validate the JSON file against the schema with Ajv:
+Install the locked validation dependencies, then validate the JSON file with Ajv:
 
 ```bash
-npx --yes --package ajv-cli@5.0.0 --package ajv-formats@3.0.1 ajv validate --spec=draft2020 -c ajv-formats -s well-known-bots.schema.json -d well-known-bots.json --all-errors
+npm ci --prefix tools/schema --ignore-scripts
+node tools/schema/validate.cjs
 ```
 
-CI runs both validators and the CIDR regression tests (`node --test schema.test.js`).
-Ajv is downloaded on demand for schema validation; no project installation or
-`package.json` is needed. Static IP lists accept IPv4 and IPv6 addresses and CIDR
-ranges, including IPv6 ranges with an embedded IPv4 address.
+CI runs both validators and the regression tests:
+
+```bash
+node --test schema.test.js tools/schema/validate.test.cjs
+```
+
+Validation dependencies are isolated in `tools/schema/`. Its lockfile fixes the
+full dependency tree and package integrity hashes; installation disables lifecycle
+scripts. Review dependency and lockfile updates together. To validate a different
+JSON file, pass its path to `node tools/schema/validate.cjs`.
+
+Static IP lists accept IPv4 and IPv6 addresses and CIDR ranges, including IPv6
+ranges with an embedded IPv4 address.
 
 ### Bot Entry Structure
 

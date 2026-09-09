@@ -14,9 +14,8 @@ jobs:
         with:
           node-version: 20
       - run: node validate.js --check
-      - run: node --test schema.test.js
+      - name: Install schema validation dependencies
+        run: npm ci --prefix tools/schema --ignore-scripts
+      - run: node --test schema.test.js tools/schema/validate.test.cjs
       - name: Validate bot definitions against the JSON Schema
-        run: >-
-          npx --yes --package ajv-cli@5.0.0 --package ajv-formats@3.0.1
-          ajv validate --spec=draft2020 -c ajv-formats
-          -s well-known-bots.schema.json -d well-known-bots.json --all-errors
+        run: node tools/schema/validate.cjs
