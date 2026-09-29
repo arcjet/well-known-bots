@@ -18634,39 +18634,39 @@
     "addition_date": "2026/08/18"
   },
   {
-      "id": "isonsearch-crawler",
-      "categories": [
-        "search-engine"
+    "id": "isonsearch-crawler",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "IsonSearchBot\\/"
       ],
-      "pattern": {
-        "accepted": [
-          "IsonSearchBot\\/"
-        ],
-        "forbidden": []
-      },
-      "verification": [
-        {
-          "type": "cidr",
-          "sources": [
-            {
-              "type": "http-json",
-              "url": "https://search.isonai.com/bot/ips.json",
-              "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
-            }
-          ]
-        }
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://search.isonai.com/bot/ips.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "IsonSearchBot/1.0 (+https://search.isonai.com/bot)",
+        "IsonSearchBot/2.0 (+https://search.isonai.com/bot)"
       ],
-      "instances": {
-        "accepted": [
-          "IsonSearchBot/1.0 (+https://search.isonai.com/bot)",
-          "IsonSearchBot/2.0 (+https://search.isonai.com/bot)"
-        ],
-        "rejected": []
-      },
-      "url": "https://search.isonai.com/bot",
-      "aliases": [
-        "IsonSearchBot"
-      ],
-      "addition_date": "2026/09/29"
-    }
+      "rejected": []
+    },
+    "url": "https://search.isonai.com/bot",
+    "aliases": [
+      "IsonSearchBot"
+    ],
+    "addition_date": "2026/09/29"
+  }
 ]
