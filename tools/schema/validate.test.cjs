@@ -54,3 +54,44 @@ test("rejects the malformed CIDRs from the review through the full schema", (t) 
     assert.match(result.stderr, /verification/);
   }
 });
+
+test("accepts a signature-only bot with a canonical Web Bot Auth directory", (t) => {
+  const result = validateFixture(t, {
+    pattern: { accepted: [], forbidden: [] },
+    verification: [{
+      type: "web-bot-auth",
+      directory: "https://chatgpt.com/.well-known/http-message-signatures-directory",
+    }],
+  });
+  assert.equal(result.status, 0, result.stderr);
+});
+
+test("requires Web Bot Auth when the User-Agent pattern is empty", (t) => {
+  for (const changes of [
+    { pattern: { accepted: [], forbidden: [] } },
+    {
+      pattern: { accepted: [], forbidden: ["TestBot"] },
+      verification: [{
+        type: "web-bot-auth",
+        directory: "https://chatgpt.com/.well-known/http-message-signatures-directory",
+      }],
+    },
+  ]) {
+    const result = validateFixture(t, changes);
+    assert.equal(result.status, 1, result.stderr);
+  }
+});
+
+test("rejects malformed Web Bot Auth directories", (t) => {
+  for (const directory of [
+    "http://chatgpt.com/.well-known/http-message-signatures-directory",
+    "https://user@chatgpt.com/.well-known/http-message-signatures-directory",
+    "https://chatgpt.com/.well-known/http-message-signatures-directory?key=1",
+    "https://chatgpt.com/other",
+  ]) {
+    const result = validateFixture(t, {
+      verification: [{ type: "web-bot-auth", directory }],
+    });
+    assert.equal(result.status, 1, `${directory}: ${result.stderr}`);
+  }
+});

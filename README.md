@@ -1,9 +1,9 @@
 # Well Known Bots
 
 This repository contains a list of Well Known Bots, including robots, crawlers,
-validators, monitors, and spiders, in a single JSON file. Each bot is identified
-and provided a RegExp `pattern` to match against an HTTP `User-Agent` header.
-Additional metadata is available on each item.
+validators, monitors, and spiders, in a single JSON file. Bot definitions can
+include User-Agent patterns and verification methods, including Web Bot Auth
+signature directories. A signature-only bot has no User-Agent pattern.
 
 ## Install
 
@@ -36,7 +36,8 @@ Use Node.js 26 to run the TypeScript validators directly.
 To add a new bot to the list, you need to edit the `well-known-bots.json` file and add a new entry. Follow these steps:
 
 1. **Create a new bot entry** with the required fields (see structure below)
-2. **Add User-Agent pattern(s)** that identify the bot
+2. **Add User-Agent pattern(s)** when the bot publishes a stable User-Agent, or
+   leave both pattern arrays empty for a signature-only bot
 3. **Add verification method(s)** if the bot provider supports verification
 4. **Add example instances** to validate your patterns work correctly
 5. **Run validation** to ensure your entry is correct: `node validate.ts --check`
@@ -83,7 +84,8 @@ Each entry in the JSON represents a specific bot or crawler and includes the fol
 - **`id`** (string): A unique identifier for the bot in kebab-case (e.g., `"google-crawler"`)
 - **`categories`** (array): One or more categories the bot belongs to (see [available categories](#available-categories))
 - **`pattern`** (object): Regular expression patterns to match the bot's User-Agent
-  - **`accepted`** (array): Regex patterns that must match for bot identification
+  - **`accepted`** (array): Regex patterns that must match for User-Agent identification;
+    may be empty only when `verification` contains Web Bot Auth
   - **`forbidden`** (array): Regex patterns that, if matched, disqualify the User-Agent
 - **`verification`** (array): Methods for verifying the bot's authenticity (can be empty `[]` if not supported)
 
@@ -107,7 +109,36 @@ slack, social, tool, unknown, vercel, webhook, yahoo
 
 ## Verification Methods
 
-Bot verification allows you to confirm that a request claiming to be from a specific bot actually originates from that bot's infrastructure. Three verification methods are supported: DNS, CIDR, and IP.
+Bot verification allows you to confirm that a request claiming to be from a
+specific bot actually originates from that bot's infrastructure. The supported
+methods are DNS, CIDR, IP, and Web Bot Auth.
+
+### Web Bot Auth Verification
+
+Web Bot Auth verifies an HTTP message signature with a public key published by
+the signing operator. The `directory` is the canonical HTTPS URL of that
+operator's public-key directory. A directory location alone does not verify a
+request; the request signature must validate before the bot ID is assigned.
+The signature proves the signing operator, which may host requests for other
+agents. It does not prove a User-Agent or a specific customer agent.
+
+```json
+{
+  "id": "chatgpt-agent",
+  "categories": ["ai"],
+  "pattern": { "accepted": [], "forbidden": [] },
+  "verification": [
+    {
+      "type": "web-bot-auth",
+      "directory": "https://chatgpt.com/.well-known/http-message-signatures-directory"
+    }
+  ]
+}
+```
+
+Entries with an empty `accepted` array are signature-only: User-Agent matching
+must never classify a request as that bot. Existing entries can combine Web Bot
+Auth with IP or DNS verification, as `google-agent` does.
 
 ### DNS Verification
 

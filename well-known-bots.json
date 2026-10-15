@@ -15034,6 +15034,10 @@
           "***-***-***-***.gae.googleusercontent.com",
           "google-proxy-***-***-***-***.google.com"
         ]
+      },
+      {
+        "type": "web-bot-auth",
+        "directory": "https://agent.bot.goog/.well-known/http-message-signatures-directory"
       }
     ],
     "instances": {
@@ -15478,6 +15482,10 @@
             "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
           }
         ]
+      },
+      {
+        "type": "web-bot-auth",
+        "directory": "https://assistbot.duckduckgo.com/.well-known/http-message-signatures-directory"
       }
     ]
   },
@@ -18668,5 +18676,62 @@
       "IsonSearchBot"
     ],
     "addition_date": "2026/09/29"
+  },
+  {
+    "id": "chatgpt-agent",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://chatgpt.com/.well-known/http-message-signatures-directory"
+      }
+    ],
+    "url": "https://help.openai.com/en/articles/11845367-chatgpt-works-cloud-browser-allowlisting",
+    "description": "ChatGPT Cloud browser signing identity, distinct from ChatGPT-User requests.",
+    "addition_date": "2026/10/15"
+  },
+  {
+    "id": "browserbase",
+    "categories": [
+      "ai",
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://www.browserbase.com/.well-known/http-message-signatures-directory"
+      }
+    ],
+    "url": "https://www.browserbase.com/identity",
+    "description": "Browserbase signing identity for browser sessions, not a claim about the customer's agent.",
+    "addition_date": "2026/10/15"
+  },
+  {
+    "id": "manus-bot",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://api.manus.im/.well-known/http-message-signatures-directory"
+      }
+    ],
+    "description": "Manus agent signing identity.",
+    "addition_date": "2026/10/15"
   }
 ]

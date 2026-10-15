@@ -11,6 +11,7 @@
  */
 
 import * as fs from "node:fs";
+import { isIP } from "node:net";
 import * as path from "node:path";
 
 const jsonFilePath = path.join(import.meta.dirname, "well-known-bots.json");
@@ -19,6 +20,7 @@ const original = fs.readFileSync(jsonFilePath, "utf-8");
 
 const data: unknown = JSON.parse(original);
 const updated = JSON.stringify(data, null, 2) + '\n';
+const WEB_BOT_AUTH_DIRECTORY_PATH = "/.well-known/http-message-signatures-directory";
 
 function isArray(value: unknown): value is unknown[] {
     return Array.isArray(value);
@@ -42,6 +44,21 @@ function validateJsonSelector(selector: string, item: unknown, verify: unknown, 
         console.error("JSON selector contains escaped quotes; use JSON string escaping only:", item, verify, source);
         process.exit(1);
     }
+}
+
+function isWebBotAuthDirectory(value: unknown): value is string {
+    if (typeof value !== "string") return false;
+    let url: URL;
+    try {
+        url = new URL(value);
+    } catch {
+        return false;
+    }
+    const host = url.hostname;
+    return url.protocol === "https:" && url.port === "" &&
+        host.includes(".") && !host.startsWith("[") &&
+        host.split(".").every((label) => label.length > 0) && isIP(host) === 0 &&
+        value === `${url.origin}${WEB_BOT_AUTH_DIRECTORY_PATH}`;
 }
 
 if (process.argv[2] === "--generate") {
@@ -98,12 +115,23 @@ if (process.argv[2] === "--generate") {
             console.error("Item is missing required `verification` array field:", item);
             process.exit(1);
         }
+        if (item.pattern.accepted.length === 0 &&
+            (item.pattern.forbidden.length !== 0 ||
+                !item.verification.some((verify) => isRecord(verify) && verify.type === "web-bot-auth"))) {
+            console.error("A bot without a User-Agent pattern needs Web Bot Auth verification and no forbidden patterns:", item);
+            process.exit(1);
+        }
         for (const verify of item.verification) {
             if (!isRecord(verify)) {
                 console.error("Verification entry must be an object:", item, verify);
                 process.exit(1);
             }
-            if (verify.type === "cidr") {
+            if (verify.type === "web-bot-auth") {
+                if (!isWebBotAuthDirectory(verify.directory) || Object.keys(verify).length !== 2) {
+                    console.error("Web Bot Auth directory must be a canonical HTTPS URL at the well-known path:", item, verify);
+                    process.exit(1);
+                }
+            } else if (verify.type === "cidr") {
                 if (!isArray(verify.sources)) {
                     console.error("Item cidr validation entry is missing required `sources` array field:", item, verify);
                     process.exit(1);
@@ -196,7 +224,7 @@ if (process.argv[2] === "--generate") {
                     process.exit(1);
                 }
             } else {
-                console.error("Item validation entry is incorrect, only `ip`, `dns`, and `cidr` are supported:", item, verify);
+                console.error("Item validation entry is incorrect, only `ip`, `dns`, `cidr`, and `web-bot-auth` are supported:", item, verify);
                 process.exit(1);
             }
         }
