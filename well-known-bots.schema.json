@@ -238,7 +238,7 @@
           "description": "Canonical HTTPS public-key directory for the signing origin.",
           "type": "string",
           "format": "uri",
-          "pattern": "^https://[^/?#@]+/\\.well-known/http-message-signatures-directory$"
+          "pattern": "^https://(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z](?:[A-Za-z0-9-]*[A-Za-z0-9])?/\\.well-known/http-message-signatures-directory$"
         }
       }
     },

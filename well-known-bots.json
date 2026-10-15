@@ -18731,6 +18731,7 @@
         "directory": "https://api.manus.im/.well-known/http-message-signatures-directory"
       }
     ],
+    "url": "https://www.manus.im/about",
     "description": "Manus agent signing identity.",
     "addition_date": "2026/10/15"
   }

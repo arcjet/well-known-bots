@@ -86,6 +86,15 @@ test("rejects malformed Web Bot Auth directories", (t) => {
   for (const directory of [
     "http://chatgpt.com/.well-known/http-message-signatures-directory",
     "https://user@chatgpt.com/.well-known/http-message-signatures-directory",
+    "https://chatgpt.com:443/.well-known/http-message-signatures-directory",
+    "https://chatgpt.com:8443/.well-known/http-message-signatures-directory",
+    "https://127.0.0.1/.well-known/http-message-signatures-directory",
+    "https://0177.0.0.1/.well-known/http-message-signatures-directory",
+    "https://2130706433/.well-known/http-message-signatures-directory",
+    "https://[::1]/.well-known/http-message-signatures-directory",
+    "https://localhost/.well-known/http-message-signatures-directory",
+    "https://chatgpt.com./.well-known/http-message-signatures-directory",
+    "https://chatgpt.123/.well-known/http-message-signatures-directory",
     "https://chatgpt.com/.well-known/http-message-signatures-directory?key=1",
     "https://chatgpt.com/other",
   ]) {

@@ -21,6 +21,7 @@ const original = fs.readFileSync(jsonFilePath, "utf-8");
 const data: unknown = JSON.parse(original);
 const updated = JSON.stringify(data, null, 2) + '\n';
 const WEB_BOT_AUTH_DIRECTORY_PATH = "/.well-known/http-message-signatures-directory";
+const WEB_BOT_AUTH_HOST = /^(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z](?:[A-Za-z0-9-]*[A-Za-z0-9])?$/;
 
 function isArray(value: unknown): value is unknown[] {
     return Array.isArray(value);
@@ -56,8 +57,7 @@ function isWebBotAuthDirectory(value: unknown): value is string {
     }
     const host = url.hostname;
     return url.protocol === "https:" && url.port === "" &&
-        host.includes(".") && !host.startsWith("[") &&
-        host.split(".").every((label) => label.length > 0) && isIP(host) === 0 &&
+        WEB_BOT_AUTH_HOST.test(host) && isIP(host) === 0 &&
         value === `${url.origin}${WEB_BOT_AUTH_DIRECTORY_PATH}`;
 }
 
