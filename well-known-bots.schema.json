@@ -69,7 +69,45 @@
           "description": "Date the bot was added, in YYYY/MM/DD format.",
           "$ref": "#/$defs/slashDate"
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "pattern": {
+                "type": "object",
+                "properties": {
+                  "accepted": {
+                    "type": "array",
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "type": "object",
+            "properties": {
+              "pattern": {
+                "type": "object",
+                "properties": {
+                  "forbidden": {
+                    "type": "array",
+                    "maxItems": 0
+                  }
+                }
+              },
+              "verification": {
+                "type": "array",
+                "contains": {
+                  "$ref": "#/$defs/webBotAuthVerification"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "httpUrl": {
       "type": "string",
@@ -121,7 +159,6 @@
           "items": {
             "$ref": "#/$defs/regexString"
           },
-          "minItems": 1,
           "uniqueItems": true
         },
         "forbidden": {
@@ -180,8 +217,30 @@
         },
         {
           "$ref": "#/$defs/sourceIpVerification"
+        },
+        {
+          "$ref": "#/$defs/webBotAuthVerification"
         }
       ]
+    },
+    "webBotAuthVerification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "directory"
+      ],
+      "properties": {
+        "type": {
+          "const": "web-bot-auth"
+        },
+        "directory": {
+          "description": "Canonical HTTPS public-key directory for the signing origin.",
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z](?:[A-Za-z0-9-]*[A-Za-z0-9])?/\\.well-known/http-message-signatures-directory$"
+        }
+      }
     },
     "dnsVerification": {
       "type": "object",
