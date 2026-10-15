@@ -20,9 +20,13 @@ const original = fs.readFileSync(jsonFilePath, "utf-8");
 const data: unknown = JSON.parse(original);
 const updated = JSON.stringify(data, null, 2) + '\n';
 const schema = JSON.parse(fs.readFileSync(path.join(import.meta.dirname, "well-known-bots.schema.json"), "utf-8")) as {
-    $defs: { webBotAuthVerification: { properties: { directory: { pattern: string } } } };
+    $defs?: { webBotAuthVerification?: { properties?: { directory?: { pattern?: unknown } } } };
 };
-const WEB_BOT_AUTH_DIRECTORY = new RegExp(schema.$defs.webBotAuthVerification.properties.directory.pattern);
+const directoryPattern = schema?.$defs?.webBotAuthVerification?.properties?.directory?.pattern;
+if (typeof directoryPattern !== "string" || directoryPattern.length === 0) {
+    throw new Error("Missing Web Bot Auth directory pattern in well-known-bots.schema.json");
+}
+const WEB_BOT_AUTH_DIRECTORY = new RegExp(directoryPattern);
 
 function isArray(value: unknown): value is unknown[] {
     return Array.isArray(value);

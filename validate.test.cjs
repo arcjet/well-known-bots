@@ -10,8 +10,9 @@ function fixture(t, changes = {}) {
   t.after(() => rmSync(directory, { recursive: true, force: true }));
   const script = join(directory, "validate.ts");
   const file = join(directory, "well-known-bots.json");
+  const schemaFile = join(directory, "well-known-bots.schema.json");
   copyFileSync(join(__dirname, "validate.ts"), script);
-  copyFileSync(join(__dirname, "well-known-bots.schema.json"), join(directory, "well-known-bots.schema.json"));
+  copyFileSync(join(__dirname, "well-known-bots.schema.json"), schemaFile);
   const bots = [{
     id: "test-bot",
     categories: ["monitor"],
@@ -23,6 +24,7 @@ function fixture(t, changes = {}) {
   writeFileSync(file, JSON.stringify(bots, null, 2) + "\n");
   return {
     file,
+    schemaFile,
     bots,
     run: (mode) => spawnSync(process.execPath, [script, mode], {
       cwd: tmpdir(),
@@ -50,6 +52,18 @@ test("check mode rejects pattern and verification errors", (t) => {
     const result = fixture(t, changes).run("--check");
     assert.equal(result.status, 1, result.stderr);
     assert.notEqual(result.stderr, "");
+  }
+});
+
+test("check mode reports a missing Web Bot Auth schema pattern", (t) => {
+  for (const pattern of [undefined, null, ""]) {
+    const data = fixture(t);
+    const schema = JSON.parse(readFileSync(data.schemaFile, "utf8"));
+    schema.$defs.webBotAuthVerification.properties.directory.pattern = pattern;
+    writeFileSync(data.schemaFile, JSON.stringify(schema));
+    const result = data.run("--check");
+    assert.equal(result.status, 1, result.stderr);
+    assert.match(result.stderr, /Missing Web Bot Auth directory pattern in well-known-bots\.schema\.json/);
   }
 });
 
