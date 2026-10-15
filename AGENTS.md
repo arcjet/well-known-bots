@@ -65,6 +65,8 @@ When adding or modifying bot entries, refer to the [README.md](README.md) for:
 - All regex patterns in `pattern.forbidden` must be valid
 - If `instances.accepted` is provided, all strings must match ALL accepted patterns and NONE of the forbidden patterns
 - If `instances.rejected` is provided, strings must either not match all accepted patterns OR match at least one forbidden pattern
+- A signature-only bot has empty accepted and forbidden patterns, a Web Bot Auth verification directory, and no `instances` field. Its identity comes from signature verification, never a User-Agent match.
+- Web Bot Auth directories use a canonical HTTPS URL with a lowercase DNS hostname and the exact well-known path. The schema owns this URL grammar; `validate.ts` reuses it and checks URL canonicalization.
 
 ### Common Workflows
 

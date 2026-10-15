@@ -11,6 +11,7 @@ function fixture(t, changes = {}) {
   const script = join(directory, "validate.ts");
   const file = join(directory, "well-known-bots.json");
   copyFileSync(join(__dirname, "validate.ts"), script);
+  copyFileSync(join(__dirname, "well-known-bots.schema.json"), join(directory, "well-known-bots.schema.json"));
   const bots = [{
     id: "test-bot",
     categories: ["monitor"],
@@ -80,6 +81,24 @@ test("check mode rejects empty User-Agent patterns without Web Bot Auth", (t) =>
   }
 });
 
+test("check mode rejects User-Agent instances for signature-only bots", (t) => {
+  for (const instances of [
+    { accepted: ["AnyBot/1"], rejected: [] },
+    { accepted: [], rejected: [] },
+  ]) {
+    const result = fixture(t, {
+      pattern: { accepted: [], forbidden: [] },
+      verification: [{
+        type: "web-bot-auth",
+        directory: "https://chatgpt.com/.well-known/http-message-signatures-directory",
+      }],
+      instances,
+    }).run("--check");
+    assert.equal(result.status, 1, result.stderr);
+    assert.match(result.stderr, /signature-only bot cannot have User-Agent instances/);
+  }
+});
+
 test("check mode rejects unsafe Web Bot Auth directory URLs", (t) => {
   for (const directory of [
     "http://chatgpt.com/.well-known/http-message-signatures-directory",
@@ -92,6 +111,7 @@ test("check mode rejects unsafe Web Bot Auth directory URLs", (t) => {
     "https://[::1]/.well-known/http-message-signatures-directory",
     "https://localhost/.well-known/http-message-signatures-directory",
     "https://chatgpt.com./.well-known/http-message-signatures-directory",
+    "https://ChatGPT.com/.well-known/http-message-signatures-directory",
     "https://chatgpt.123/.well-known/http-message-signatures-directory",
     "https://chatgpt.com/.well-known/http-message-signatures-directory?key=1",
     "https://chatgpt.com/other",

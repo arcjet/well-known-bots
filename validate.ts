@@ -11,7 +11,6 @@
  */
 
 import * as fs from "node:fs";
-import { isIP } from "node:net";
 import * as path from "node:path";
 
 const jsonFilePath = path.join(import.meta.dirname, "well-known-bots.json");
@@ -20,8 +19,10 @@ const original = fs.readFileSync(jsonFilePath, "utf-8");
 
 const data: unknown = JSON.parse(original);
 const updated = JSON.stringify(data, null, 2) + '\n';
-const WEB_BOT_AUTH_DIRECTORY_PATH = "/.well-known/http-message-signatures-directory";
-const WEB_BOT_AUTH_HOST = /^(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z](?:[A-Za-z0-9-]*[A-Za-z0-9])?$/;
+const schema = JSON.parse(fs.readFileSync(path.join(import.meta.dirname, "well-known-bots.schema.json"), "utf-8")) as {
+    $defs: { webBotAuthVerification: { properties: { directory: { pattern: string } } } };
+};
+const WEB_BOT_AUTH_DIRECTORY = new RegExp(schema.$defs.webBotAuthVerification.properties.directory.pattern);
 
 function isArray(value: unknown): value is unknown[] {
     return Array.isArray(value);
@@ -48,17 +49,15 @@ function validateJsonSelector(selector: string, item: unknown, verify: unknown, 
 }
 
 function isWebBotAuthDirectory(value: unknown): value is string {
-    if (typeof value !== "string") return false;
+    if (typeof value !== "string" || !WEB_BOT_AUTH_DIRECTORY.test(value)) return false;
     let url: URL;
     try {
         url = new URL(value);
     } catch {
         return false;
     }
-    const host = url.hostname;
     return url.protocol === "https:" && url.port === "" &&
-        WEB_BOT_AUTH_HOST.test(host) && isIP(host) === 0 &&
-        value === `${url.origin}${WEB_BOT_AUTH_DIRECTORY_PATH}`;
+        url.username === "" && url.password === "" && value === url.href;
 }
 
 if (process.argv[2] === "--generate") {
@@ -119,6 +118,10 @@ if (process.argv[2] === "--generate") {
             (item.pattern.forbidden.length !== 0 ||
                 !item.verification.some((verify) => isRecord(verify) && verify.type === "web-bot-auth"))) {
             console.error("A bot without a User-Agent pattern needs Web Bot Auth verification and no forbidden patterns:", item);
+            process.exit(1);
+        }
+        if (item.pattern.accepted.length === 0 && typeof item.instances !== "undefined") {
+            console.error("A signature-only bot cannot have User-Agent instances:", item);
             process.exit(1);
         }
         for (const verify of item.verification) {
