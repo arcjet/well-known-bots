@@ -43,6 +43,11 @@ To add a new bot to the list, you need to edit the `well-known-bots.json` file a
 5. **Run validation** to ensure your entry is correct: `node validate.ts --check`
 6. **Submit a pull request** with your changes
 
+Include a bot-operator source in the pull request for each proposed User-Agent
+pattern or verification method. Check that any published verification endpoint
+is live and belongs to the claimed operator. Each Web Bot Auth signing origin
+can be assigned to only one bot ID.
+
 ### JSON Schema
 
 The [`well-known-bots.schema.json`](well-known-bots.schema.json) file describes

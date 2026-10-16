@@ -79,6 +79,25 @@ test("check mode accepts a signature-only bot with a canonical directory", (t) =
   assert.equal(result.status, 0, result.stderr);
 });
 
+test("check mode rejects duplicate bot IDs", (t) => {
+  const data = fixture(t);
+  data.bots.push({ ...data.bots[0] });
+  writeFileSync(data.file, JSON.stringify(data.bots, null, 2) + "\n");
+  const result = data.run("--check");
+  assert.equal(result.status, 1, result.stderr);
+  assert.match(result.stderr, /Duplicate bot id: test-bot/);
+});
+
+test("check mode rejects a signing origin assigned to two bots", (t) => {
+  const directory = "https://example.com/.well-known/http-message-signatures-directory";
+  const data = fixture(t, { verification: [{ type: "web-bot-auth", directory }] });
+  data.bots.push({ ...data.bots[0], id: "other-bot" });
+  writeFileSync(data.file, JSON.stringify(data.bots, null, 2) + "\n");
+  const result = data.run("--check");
+  assert.equal(result.status, 1, result.stderr);
+  assert.match(result.stderr, /Web Bot Auth signing origin is already assigned to a bot: https:\/\/example\.com test-bot other-bot/);
+});
+
 test("check mode rejects empty User-Agent patterns without Web Bot Auth", (t) => {
   for (const changes of [
     { pattern: { accepted: [], forbidden: [] } },

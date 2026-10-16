@@ -78,6 +78,8 @@ if (process.argv[2] === "--generate") {
         console.error("Bot definitions must be an array:", data);
         process.exit(1);
     }
+    const ids = new Set<string>();
+    const signingOrigins = new Map<string, string>();
     for (const item of data) {
         if (!isRecord(item)) {
             console.error("Bot entry must be an object:", item);
@@ -87,6 +89,11 @@ if (process.argv[2] === "--generate") {
             console.error("Item is missing required `id` string field:", item);
             process.exit(1);
         }
+        if (ids.has(item.id)) {
+            console.error("Duplicate bot id:", item.id);
+            process.exit(1);
+        }
+        ids.add(item.id);
         if (!isRecord(item.pattern)) {
             console.error("Item is missing required pattern object with accepted and forbidden arrays:", item);
             process.exit(1);
@@ -138,6 +145,13 @@ if (process.argv[2] === "--generate") {
                     console.error("Web Bot Auth directory must be a canonical HTTPS URL at the well-known path:", item, verify);
                     process.exit(1);
                 }
+                const origin = new URL(verify.directory).origin;
+                const existingId = signingOrigins.get(origin);
+                if (existingId !== undefined) {
+                    console.error("Web Bot Auth signing origin is already assigned to a bot:", origin, existingId, item.id);
+                    process.exit(1);
+                }
+                signingOrigins.set(origin, item.id);
             } else if (verify.type === "cidr") {
                 if (!isArray(verify.sources)) {
                     console.error("Item cidr validation entry is missing required `sources` array field:", item, verify);
