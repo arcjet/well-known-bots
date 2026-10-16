@@ -39,7 +39,7 @@ To add a new bot to the list, you need to edit the `well-known-bots.json` file a
 2. **Add User-Agent pattern(s)** when the bot publishes a stable User-Agent, or
    leave both pattern arrays empty for a signature-only bot
 3. **Add verification method(s)** if the bot provider supports verification
-4. **Add example instances** to validate your patterns work correctly
+4. **Add example User-Agent instances** when the bot has an accepted pattern
 5. **Run validation** to ensure your entry is correct: `node validate.ts --check`
 6. **Submit a pull request** with your changes
 
@@ -92,7 +92,7 @@ Each entry in the JSON represents a specific bot or crawler and includes the fol
 #### Optional Fields
 
 - **`url`** (string): Documentation URL for the bot
-- **`instances`** (object): Example User-Agent strings for testing
+- **`instances`** (object): Example User-Agent strings for testing; omit for signature-only bots
   - **`accepted`** (array): User-Agent strings that should match the pattern
   - **`rejected`** (array): User-Agent strings that should not match
 - **`aliases`** (array): Alternative identifiers for the bot used in other data sources
@@ -117,8 +117,10 @@ methods are DNS, CIDR, IP, and Web Bot Auth.
 
 Web Bot Auth verifies an HTTP message signature with a public key published by
 the signing operator. The `directory` is the canonical HTTPS URL of that
-operator's public-key directory. A directory location alone does not verify a
-request; the request signature must validate before the bot ID is assigned.
+operator's public-key directory. Use a lowercase hostname and the exact
+`/.well-known/http-message-signatures-directory` path. A directory location
+alone does not verify a request; the request signature must validate before the
+bot ID is assigned.
 The signature proves the signing operator, which may host requests for other
 agents. It does not prove a User-Agent or a specific customer agent.
 
@@ -137,8 +139,9 @@ agents. It does not prove a User-Agent or a specific customer agent.
 ```
 
 Entries with an empty `accepted` array are signature-only: User-Agent matching
-must never classify a request as that bot. Existing entries can combine Web Bot
-Auth with IP or DNS verification, as `google-agent` does.
+must never classify a request as that bot, and these entries cannot have
+`instances` because they have no User-Agent pattern to test. Existing entries
+can combine Web Bot Auth with IP or DNS verification, as `google-agent` does.
 
 ### DNS Verification
 

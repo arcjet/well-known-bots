@@ -82,6 +82,23 @@ test("requires Web Bot Auth when the User-Agent pattern is empty", (t) => {
   }
 });
 
+test("rejects User-Agent instances for signature-only bots", (t) => {
+  for (const instances of [
+    { accepted: ["AnyBot/1"], rejected: [] },
+    { accepted: [], rejected: [] },
+  ]) {
+    const result = validateFixture(t, {
+      pattern: { accepted: [], forbidden: [] },
+      verification: [{
+        type: "web-bot-auth",
+        directory: "https://chatgpt.com/.well-known/http-message-signatures-directory",
+      }],
+      instances,
+    });
+    assert.equal(result.status, 1, result.stderr);
+  }
+});
+
 test("rejects malformed Web Bot Auth directories", (t) => {
   for (const directory of [
     "http://chatgpt.com/.well-known/http-message-signatures-directory",
@@ -94,6 +111,7 @@ test("rejects malformed Web Bot Auth directories", (t) => {
     "https://[::1]/.well-known/http-message-signatures-directory",
     "https://localhost/.well-known/http-message-signatures-directory",
     "https://chatgpt.com./.well-known/http-message-signatures-directory",
+    "https://ChatGPT.com/.well-known/http-message-signatures-directory",
     "https://chatgpt.123/.well-known/http-message-signatures-directory",
     "https://chatgpt.com/.well-known/http-message-signatures-directory?key=1",
     "https://chatgpt.com/other",
