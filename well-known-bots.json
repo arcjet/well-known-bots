@@ -919,7 +919,7 @@
     ],
     "pattern": {
       "accepted": [
-        "msnbot"
+        "(?:msnbot[-\\/]|librabot\\/)"
       ],
       "forbidden": []
     },
@@ -927,8 +927,6 @@
     "verification": [],
     "instances": {
       "accepted": [
-        "adidxbot/1.1 (+http://search.msn.com/msnbot.htm)",
-        "adidxbot/2.0 (+http://search.msn.com/msnbot.htm)",
         "librabot/1.0 (+http://search.msn.com/msnbot.htm)",
         "librabot/2.0 (+http://search.msn.com/msnbot.htm)",
         "msnbot-NewsBlogs/2.0b (+http://search.msn.com/msnbot.htm)",
@@ -942,7 +940,10 @@
         "msnbot/2.0b (+http://search.msn.com/msnbot.htm).",
         "msnbot/2.0b (+http://search.msn.com/msnbot.htm)._"
       ],
-      "rejected": []
+      "rejected": [
+        "adidxbot/1.1 (+http://search.msn.com/msnbot.htm)",
+        "adidxbot/2.0 (+http://search.msn.com/msnbot.htm)"
+      ]
     },
     "aliases": [
       "MsnBot"
@@ -2111,7 +2112,9 @@
         "Mozilla/5.0 (compatible; adidxbot/2.0;  http://www.bing.com/bingbot.htm)",
         "Mozilla/5.0 (compatible; adidxbot/2.0; +http://www.bing.com/bingbot.htm)",
         "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; adidxbot/2.0;  http://www.bing.com/bingbot.htm)",
-        "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; adidxbot/2.0; +http://www.bing.com/bingbot.htm)"
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; adidxbot/2.0; +http://www.bing.com/bingbot.htm)",
+        "adidxbot/1.1 (+http://search.msn.com/msnbot.htm)",
+        "adidxbot/2.0 (+http://search.msn.com/msnbot.htm)"
       ],
       "rejected": [
         "Mozilla/5.0 (compatible; bingbot/2.0;  http://www.bing.com/bingbot.htm)"
@@ -8311,7 +8314,8 @@
       ],
       "rejected": []
     },
-    "url": "https://help.siteimprove.com/support/solutions/articles/80000448553"
+    "url": "https://help.siteimprove.com/support/solutions/articles/80000448553",
+    "description": "IP list is a snapshot of the crawler addresses on the linked page; Siteimprove publishes no machine-readable list."
   },
   {
     "id": "webmeup-crawler",
@@ -12196,6 +12200,12 @@
       {
         "type": "web-bot-auth",
         "directory": "https://you.com/.well-known/http-message-signatures-directory"
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "@.search.you.com"
+        ]
       }
     ],
     "instances": {
@@ -18817,7 +18827,6 @@
       ],
       "forbidden": []
     },
-    "addition_date": "2026/10/16",
     "verification": [
       {
         "type": "cidr",
@@ -18838,7 +18847,8 @@
         "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot"
       ]
     },
-    "url": "https://developers.openai.com/api/docs/bots"
+    "url": "https://developers.openai.com/api/docs/bots",
+    "addition_date": "2026/10/16"
   },
   {
     "id": "context7-crawler",
@@ -18852,7 +18862,6 @@
       ],
       "forbidden": []
     },
-    "addition_date": "2026/10/16",
     "verification": [
       {
         "type": "web-bot-auth",
@@ -18867,7 +18876,8 @@
         "Mozilla/5.0 (compatible; ExaSearchBot/1.0; +https://crawler.exa.ai/)"
       ]
     },
-    "url": "https://context7.com/crawler"
+    "url": "https://context7.com/crawler",
+    "addition_date": "2026/10/16"
   },
   {
     "id": "shopify-cloudsurf",
@@ -18878,7 +18888,6 @@
       "accepted": [],
       "forbidden": []
     },
-    "addition_date": "2026/10/16",
     "verification": [
       {
         "type": "web-bot-auth",
@@ -18886,7 +18895,8 @@
       }
     ],
     "url": "https://help.shopify.com/en/manual/intro-to-shopify/bots/cloudsurf",
-    "description": "Signed Cloudsurf requests identify Shopify; unsigned requests cannot be verified by this entry."
+    "description": "Signed Cloudsurf requests identify Shopify; unsigned requests cannot be verified by this entry.",
+    "addition_date": "2026/10/16"
   },
   {
     "id": "kernel-agent",
@@ -18904,7 +18914,7 @@
       }
     ],
     "url": "https://www.kernel.sh/docs/bots",
-    "description": "User-directed browser automation signed by Kernel.",
+    "description": "Kernel signing identity for user-directed browser sessions, not a claim about the customer's agent.",
     "addition_date": "2026/10/16"
   },
   {
@@ -18929,7 +18939,7 @@
         "KernelSearchBot"
       ],
       "rejected": [
-        "Kernel Agent"
+        "Mozilla/5.0 (compatible; ExaSearchBot/1.0; +https://crawler.exa.ai/)"
       ]
     },
     "url": "https://www.kernel.sh/docs/bots",
@@ -18957,7 +18967,7 @@
         "OsanoBot"
       ],
       "rejected": [
-        "Mozilla/5.0"
+        "Mozilla/5.0 (compatible; ExaSearchBot/1.0; +https://crawler.exa.ai/)"
       ]
     },
     "url": "https://developers.osano.com/web-bot-auth",
@@ -19132,7 +19142,7 @@
         "Mozilla/5.0 (compatible; Detectify)"
       ],
       "rejected": [
-        "Mozilla/5.0"
+        "Mozilla/5.0 (compatible; OnCrawl/1.0; +http://www.oncrawl.com)"
       ]
     },
     "url": "https://docs.detectify.com/network-setup/scanner-ip-addresses",
@@ -19155,7 +19165,7 @@
       }
     ],
     "url": "https://developers.cloudflare.com/browser-run/reference/automatic-request-headers/",
-    "description": "Signed Browser Run requests; User-Agent values vary by method and can be customized.",
+    "description": "Cloudflare Browser Run signing identity for customer browser sessions, not a claim about the customer's agent. User-Agent values vary by method and can be customized.",
     "addition_date": "2026/10/16"
   },
   {
@@ -19210,34 +19220,6 @@
     ],
     "url": "https://agent.getonlane.com/agent",
     "description": "User-directed Lane agent signing identity.",
-    "addition_date": "2026/10/16"
-  },
-  {
-    "id": "bellezacheckbot",
-    "categories": [
-      "tool"
-    ],
-    "pattern": {
-      "accepted": [
-        "BellezaCheckBot\\/"
-      ],
-      "forbidden": []
-    },
-    "verification": [
-      {
-        "type": "web-bot-auth",
-        "directory": "https://www.bellezacheck.cl/.well-known/http-message-signatures-directory"
-      }
-    ],
-    "instances": {
-      "accepted": [
-        "BellezaCheckBot/1.0 (+https://www.bellezacheck.cl/bellezacheckbot)"
-      ],
-      "rejected": [
-        "YouBot/1.0"
-      ]
-    },
-    "url": "https://www.bellezacheck.cl/bellezacheckbot",
     "addition_date": "2026/10/16"
   }
 ]
