@@ -19367,8 +19367,7 @@
     },
     "url": "https://docs.aws.amazon.com/kendra/latest/dg/stop-web-crawler.html",
     "aliases": [
-      "AmazonKendra",
-      "KendraBot"
+      "amazon-kendra"
     ],
     "addition_date": "2026/10/22"
   },
@@ -19379,7 +19378,7 @@
     ],
     "pattern": {
       "accepted": [
-        "(?:[Dd]eep[Cc]rawl|\\bLumar(?:Bot)?\\b)"
+        "(?:\\b[Ll]umar\\b|\\b[Dd]eep[Cc]rawl\\b)"
       ],
       "forbidden": []
     },
@@ -19397,8 +19396,8 @@
     ],
     "instances": {
       "accepted": [
-        "Mozilla/5.0 (compatible; DeepCrawl/1.0; +https://www.lumar.io/spdr/)",
-        "Mozilla/5.0 (compatible; Lumar/1.0; +https://www.lumar.io/spdr/)"
+        "lumar",
+        "deepcrawl"
       ],
       "rejected": []
     },
@@ -19408,7 +19407,7 @@
       "Lumar"
     ],
     "addition_date": "2026/10/22",
-    "description": "Lumar site crawler; HTTP user agents may still identify as DeepCrawl."
+    "description": "Lumar site crawler (formerly DeepCrawl). Operator documents robots.txt tokens lumar and deepcrawl; HTTP user agents may still reference Deepcrawl."
   },
   {
     "id": "obot-crawler",
@@ -19449,7 +19448,7 @@
     "verification": [],
     "instances": {
       "accepted": [
-        "Mozilla/5.0 (compatible; SplitSignalBot/1.0; +http://www.semrush.com/bot.html)"
+        "SplitSignalBot"
       ],
       "rejected": []
     },
@@ -19718,32 +19717,6 @@
     "addition_date": "2026/10/22"
   },
   {
-    "id": "contentking-monitor",
-    "categories": [
-      "monitor"
-    ],
-    "pattern": {
-      "accepted": [
-        "whatis\\.contentkingapp\\.com"
-      ],
-      "forbidden": []
-    },
-    "verification": [],
-    "instances": {
-      "accepted": [
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36 (+https://whatis.contentkingapp.com)"
-      ],
-      "rejected": []
-    },
-    "url": "https://whatis.contentkingapp.com/",
-    "aliases": [
-      "ContentKing",
-      "ConductorMonitoring"
-    ],
-    "description": "Conductor Monitoring (formerly ContentKing) identifies requests with a whatis.contentkingapp.com link in the User-Agent.",
-    "addition_date": "2026/10/22"
-  },
-  {
     "id": "prorata-crawler",
     "categories": [
       "ai"
@@ -19763,8 +19736,8 @@
     },
     "url": "https://platform.gist.ai/docs/gcn-overview",
     "aliases": [
-      "ProRata",
-      "GistCrawlerBot"
+      "ProRataInc",
+      "ProRata"
     ],
     "addition_date": "2026/10/22"
   }
