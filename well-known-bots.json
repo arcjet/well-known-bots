@@ -19251,5 +19251,494 @@
     "url": "https://agent.getonlane.com/agent",
     "description": "User-directed Lane agent signing identity.",
     "addition_date": "2026/10/16"
+  },
+  {
+    "id": "liner-bot",
+    "categories": [
+      "ai",
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "LinerBot\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://liner-bot.liner.com/.well-known/http-message-signatures-directory"
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; LinerBot/1.0; +https://liner-bot.liner.com/docs/liner-bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://liner-bot.liner.com/docs/liner-bot",
+    "aliases": [
+      "LinerBot"
+    ],
+    "addition_date": "2026/10/22"
+  },
+  {
+    "id": "liner-user",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "Liner-User\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://liner-user.liner.com/.well-known/http-message-signatures-directory"
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Liner-User/1.0; +https://liner-user.liner.com/docs/liner-user)"
+      ],
+      "rejected": []
+    },
+    "url": "https://liner-user.liner.com/docs/liner-user",
+    "aliases": [
+      "Liner-User"
+    ],
+    "addition_date": "2026/10/22"
+  },
+  {
+    "id": "google-duplexweb",
+    "categories": [
+      "google"
+    ],
+    "pattern": {
+      "accepted": [
+        "DuplexWeb-Google"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://developers.google.com/static/crawling/ipranges/special-crawlers.json",
+            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (Linux; Android 11; Pixel 2; DuplexWeb-Google/1.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Mobile Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-special-case-crawlers",
+    "aliases": [
+      "DuplexWeb-Google"
+    ],
+    "addition_date": "2026/10/22"
+  },
+  {
+    "id": "amazon-kendra",
+    "categories": [
+      "amazon",
+      "search-engine",
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "amazon-kendra"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "amazon-kendra"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.aws.amazon.com/kendra/latest/dg/stop-web-crawler.html",
+    "addition_date": "2026/10/22",
+    "description": "Amazon Kendra Web Crawler. AWS documents the robots.txt token amazon-kendra only; no full HTTP User-Agent string is published."
+  },
+  {
+    "id": "lumar-crawler",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "(?:\\b[Ll]umar\\b|\\b[Dd]eep[Cc]rawl\\b)"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://www.lumar.io/wp-content/uploads/2026/02/lumar_ip_list_feb_2026.json",
+            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "lumar",
+        "deepcrawl"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.lumar.io/spdr/",
+    "aliases": [
+      "DeepCrawl",
+      "Lumar"
+    ],
+    "addition_date": "2026/10/22",
+    "description": "Lumar site crawler (formerly DeepCrawl). Operator documents robots.txt tokens lumar and deepcrawl; HTTP user agents may still reference Deepcrawl. CIDR verification uses the dated JSON snapshot currently linked from https://www.lumar.io/spdr/; Lumar does not publish a stable latest URL."
+  },
+  {
+    "id": "obot-crawler",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "oBot\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; oBot/2.3.1; +http://www.xforce-security.com/crawler/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.xforce-security.com/crawler/",
+    "aliases": [
+      "oBot"
+    ],
+    "addition_date": "2026/10/22"
+  },
+  {
+    "id": "splitsignal-bot",
+    "categories": [
+      "optimizer",
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "SplitSignalBot"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "SplitSignalBot"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.semrush.com/bot/",
+    "aliases": [
+      "SplitSignalBot"
+    ],
+    "addition_date": "2026/10/22",
+    "description": "Semrush SplitSignal tool crawler. Operator documents the robots.txt token SplitSignalBot only; no full HTTP User-Agent string is published on the bot page."
+  },
+  {
+    "id": "accessibleweb-bot",
+    "categories": [
+      "monitor",
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "AccessibleWebBot"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; AccessibleWebBot/1.0; +https://accessibleweb.com/bot/)",
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; AccessibleWebBot/1.0; +https://accessibleweb.com/bot/) HeadlessChrome/W.X.Y.Z Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "url": "https://accessibleweb.com/bot/",
+    "aliases": [
+      "AccessibleWebBot"
+    ],
+    "addition_date": "2026/10/22"
+  },
+  {
+    "id": "cl0q-crawler",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "cl0q-(?:crawler|discovery|favicon)"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://cl0q.com/bot/ips.json",
+            "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; cl0q-crawler/1.0; +https://cl0q.com/bot)",
+        "Mozilla/5.0 (compatible; cl0q-discovery/1.0; +https://cl0q.com/bot)",
+        "Mozilla/5.0 (compatible; cl0q-favicon/1.0; +https://cl0q.com/bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://cl0q.com/bot/",
+    "aliases": [
+      "cl0q"
+    ],
+    "addition_date": "2026/10/22"
+  },
+  {
+    "id": "yioop-bot",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "YioopBot"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; YioopBot; +https://www.yioop.com/bot.php)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.yioop.com/bot",
+    "aliases": [
+      "YioopBot"
+    ],
+    "addition_date": "2026/10/22"
+  },
+  {
+    "id": "pigafetta-bot",
+    "categories": [
+      "optimizer"
+    ],
+    "pattern": {
+      "accepted": [
+        "Pigafetta"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla 5.0 (compatible; Pigafetta/0.5; +http://visual-seo.com/Pigafetta-Bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://visual-seo.com/Pigafetta-Bot",
+    "aliases": [
+      "Pigafetta"
+    ],
+    "addition_date": "2026/10/22"
+  },
+  {
+    "id": "goguides-crawler",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "GoGuides(?:Crawler|DiscoveryBot)"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "GoGuidesCrawler/1.0 (+https://www.goguides.com/crawler)",
+        "GoGuidesDiscoveryBot/1.0 (+https://www.goguides.com/crawler)"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.goguides.com/crawler",
+    "aliases": [
+      "GoGuidesCrawler",
+      "GoGuidesDiscoveryBot"
+    ],
+    "addition_date": "2026/10/22"
+  },
+  {
+    "id": "greenweb-checker",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "(?:GreenWebChecker|gwf-carbon-txt-crawler)"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "GreenWebChecker/1.0.0",
+        "gwf-carbon-txt-crawler"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.thegreenwebfoundation.org/green-web-checker-faq/",
+    "aliases": [
+      "GreenWebChecker"
+    ],
+    "addition_date": "2026/10/22"
+  },
+  {
+    "id": "piperic-bot",
+    "categories": [
+      "unknown"
+    ],
+    "pattern": {
+      "accepted": [
+        "PipericBot"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "PipericBot/1.0 (+https://piperic.com/bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://piperic.com/bot",
+    "aliases": [
+      "PipericBot"
+    ],
+    "addition_date": "2026/10/22"
+  },
+  {
+    "id": "ninebot",
+    "categories": [
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "9bot\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "9bot/1.0 (+https://9bot.com.br/en/9bot-docs)"
+      ],
+      "rejected": []
+    },
+    "url": "https://9bot.com.br/en/9bot-docs",
+    "aliases": [
+      "9bot"
+    ],
+    "addition_date": "2026/10/22"
+  },
+  {
+    "id": "peer39-crawler",
+    "categories": [
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "peer39_crawler"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "peer39_crawler/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.peer39.com/crawler-notice",
+    "aliases": [
+      "peer39_crawler"
+    ],
+    "addition_date": "2026/10/22"
+  },
+  {
+    "id": "prerender-bot",
+    "categories": [
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "Prerender \\(\\+https://github\\.com/prerender/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/W.X.Y.Z Safari/537.36 Prerender (+https://github.com/prerender/prerender)"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.prerender.io/docs/33-overview-of-prerender-crawlers",
+    "aliases": [
+      "Prerender"
+    ],
+    "addition_date": "2026/10/22"
+  },
+  {
+    "id": "prorata-crawler",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "ProRataInc"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "ProRataInc (The ProRata Fair Use Crawler; https://prorata.ai ; support@prorata.ai)"
+      ],
+      "rejected": []
+    },
+    "url": "https://platform.gist.ai/docs/gcn-overview",
+    "aliases": [
+      "ProRataInc",
+      "ProRata"
+    ],
+    "addition_date": "2026/10/22"
   }
 ]
