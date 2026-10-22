@@ -18735,6 +18735,10 @@
     },
     "verification": [
       {
+        "type": "web-bot-auth",
+        "directory": "https://search.isonai.com/.well-known/http-message-signatures-directory"
+      },
+      {
         "type": "cidr",
         "sources": [
           {
@@ -18757,6 +18761,32 @@
       "IsonSearchBot"
     ],
     "addition_date": "2026/09/29"
+  },
+  {
+    "id": "isonai-user",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "IsonAI-User\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://www.isonai.com/.well-known/http-message-signatures-directory"
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; IsonAI-User/1.0; +https://www.isonai.com/bot"
+      ],
+      "rejected": []
+    },
+    "url": "https://docs.isonai.com/en/bots/",
+    "addition_date": "2026/10/22"
   },
   {
     "id": "chatgpt-agent",
