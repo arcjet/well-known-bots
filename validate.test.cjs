@@ -105,14 +105,19 @@ test("check mode rejects an accepted instance that matches multiple bots", (t) =
     categories: ["monitor"],
     pattern: { accepted: ["TestBot\\/"], forbidden: [] },
     verification: [],
-    instances: { accepted: ["TestBot/1"], rejected: [] },
+    instances: { accepted: ["TestBot/1", "TestBot/2"], rejected: [] },
   });
+  data.bots[0].instances.accepted.push("TestBot/2");
   writeFileSync(data.file, JSON.stringify(data.bots, null, 2) + "\n");
   const result = data.run("--check");
   assert.equal(result.status, 1, result.stderr);
   assert.match(
     result.stderr,
     /Accepted instance matches multiple bots \(each User-Agent must map to one id\): TestBot\/1/,
+  );
+  assert.match(
+    result.stderr,
+    /Accepted instance matches multiple bots \(each User-Agent must map to one id\): TestBot\/2/,
   );
   assert.match(result.stderr, /overlap-bot/);
   assert.match(result.stderr, /test-bot/);

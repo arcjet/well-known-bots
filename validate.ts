@@ -384,6 +384,7 @@ if (process.argv[2] === "--generate") {
             forbidden: item.pattern.forbidden.map((pat) => new RegExp(pat as string)),
         });
     }
+    let collisionCount = 0;
     for (const item of data) {
         if (!isRecord(item) || typeof item.id !== "string" || !isRecord(item.instances)) {
             continue;
@@ -401,14 +402,17 @@ if (process.argv[2] === "--generate") {
                     !matcher.forbidden.some((re) => re.test(instance)))
                 .map((matcher) => matcher.id);
             if (hits.length > 1) {
+                collisionCount += 1;
                 console.error(
                     "Accepted instance matches multiple bots (each User-Agent must map to one id):",
                     instance,
                     hits,
                 );
-                process.exit(1);
             }
         }
+    }
+    if (collisionCount > 0) {
+        process.exit(1);
     }
 } else {
     console.error("Valid subcommands are `--generate` or `--check`")
