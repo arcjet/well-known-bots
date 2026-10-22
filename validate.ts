@@ -363,6 +363,53 @@ if (process.argv[2] === "--generate") {
             }
         }
     }
+
+    // An accepted instance must identify exactly one bot. Overlapping patterns cause
+    // allow-list DENY when a sibling match is not allowlisted (see issue #70).
+    type BotMatcher = { id: string; accepted: RegExp[]; forbidden: RegExp[] };
+    const matchers: BotMatcher[] = [];
+    for (const item of data) {
+        if (!isRecord(item) || typeof item.id !== "string" || !isRecord(item.pattern)) {
+            continue;
+        }
+        if (!isArray(item.pattern.accepted) || !isArray(item.pattern.forbidden)) {
+            continue;
+        }
+        if (item.pattern.accepted.length === 0) {
+            continue;
+        }
+        matchers.push({
+            id: item.id,
+            accepted: item.pattern.accepted.map((pat) => new RegExp(pat as string)),
+            forbidden: item.pattern.forbidden.map((pat) => new RegExp(pat as string)),
+        });
+    }
+    for (const item of data) {
+        if (!isRecord(item) || typeof item.id !== "string" || !isRecord(item.instances)) {
+            continue;
+        }
+        if (!isArray(item.instances.accepted)) {
+            continue;
+        }
+        for (const instance of item.instances.accepted) {
+            if (typeof instance !== "string") {
+                continue;
+            }
+            const hits = matchers
+                .filter((matcher) =>
+                    matcher.accepted.every((re) => re.test(instance)) &&
+                    !matcher.forbidden.some((re) => re.test(instance)))
+                .map((matcher) => matcher.id);
+            if (hits.length > 1) {
+                console.error(
+                    "Accepted instance matches multiple bots (each User-Agent must map to one id):",
+                    instance,
+                    hits,
+                );
+                process.exit(1);
+            }
+        }
+    }
 } else {
     console.error("Valid subcommands are `--generate` or `--check`")
     process.exit(1);
