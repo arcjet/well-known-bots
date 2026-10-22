@@ -19350,6 +19350,7 @@
     "id": "amazon-kendra",
     "categories": [
       "amazon",
+      "search-engine",
       "tool"
     ],
     "pattern": {
@@ -19366,10 +19367,8 @@
       "rejected": []
     },
     "url": "https://docs.aws.amazon.com/kendra/latest/dg/stop-web-crawler.html",
-    "aliases": [
-      "amazon-kendra"
-    ],
-    "addition_date": "2026/10/22"
+    "addition_date": "2026/10/22",
+    "description": "Amazon Kendra Web Crawler. AWS documents the robots.txt token amazon-kendra only; no full HTTP User-Agent string is published."
   },
   {
     "id": "lumar-crawler",
@@ -19407,7 +19406,7 @@
       "Lumar"
     ],
     "addition_date": "2026/10/22",
-    "description": "Lumar site crawler (formerly DeepCrawl). Operator documents robots.txt tokens lumar and deepcrawl; HTTP user agents may still reference Deepcrawl."
+    "description": "Lumar site crawler (formerly DeepCrawl). Operator documents robots.txt tokens lumar and deepcrawl; HTTP user agents may still reference Deepcrawl. CIDR verification uses the dated JSON snapshot currently linked from https://www.lumar.io/spdr/; Lumar does not publish a stable latest URL."
   },
   {
     "id": "obot-crawler",
@@ -19456,7 +19455,8 @@
     "aliases": [
       "SplitSignalBot"
     ],
-    "addition_date": "2026/10/22"
+    "addition_date": "2026/10/22",
+    "description": "Semrush SplitSignal tool crawler. Operator documents the robots.txt token SplitSignalBot only; no full HTTP User-Agent string is published on the bot page."
   },
   {
     "id": "accessibleweb-bot",
@@ -19699,7 +19699,7 @@
     ],
     "pattern": {
       "accepted": [
-        "Prerender"
+        "Prerender \\(\\+https://github\\.com/prerender/"
       ],
       "forbidden": []
     },
