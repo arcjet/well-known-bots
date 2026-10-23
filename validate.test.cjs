@@ -98,6 +98,31 @@ test("check mode rejects a signing origin assigned to two bots", (t) => {
   assert.match(result.stderr, /Web Bot Auth signing origin is already assigned to a bot: https:\/\/example\.com test-bot other-bot/);
 });
 
+test("check mode rejects an accepted instance that matches multiple bots", (t) => {
+  const data = fixture(t);
+  data.bots.push({
+    id: "overlap-bot",
+    categories: ["monitor"],
+    pattern: { accepted: ["TestBot\\/"], forbidden: [] },
+    verification: [],
+    instances: { accepted: ["TestBot/1", "TestBot/2"], rejected: [] },
+  });
+  data.bots[0].instances.accepted.push("TestBot/2");
+  writeFileSync(data.file, JSON.stringify(data.bots, null, 2) + "\n");
+  const result = data.run("--check");
+  assert.equal(result.status, 1, result.stderr);
+  assert.match(
+    result.stderr,
+    /Accepted instance matches multiple bots \(each User-Agent must map to one id\): TestBot\/1/,
+  );
+  assert.match(
+    result.stderr,
+    /Accepted instance matches multiple bots \(each User-Agent must map to one id\): TestBot\/2/,
+  );
+  assert.match(result.stderr, /overlap-bot/);
+  assert.match(result.stderr, /test-bot/);
+});
+
 test("check mode rejects empty User-Agent patterns without Web Bot Auth", (t) => {
   for (const changes of [
     { pattern: { accepted: [], forbidden: [] } },

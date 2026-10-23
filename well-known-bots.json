@@ -816,7 +816,9 @@
       "accepted": [
         "libwww-perl"
       ],
-      "forbidden": []
+      "forbidden": [
+        "W3C-checklink"
+      ]
     },
     "verification": [],
     "instances": {
@@ -856,7 +858,9 @@
       "accepted": [
         "Nutch"
       ],
-      "forbidden": []
+      "forbidden": [
+        "linkdex"
+      ]
     },
     "verification": [],
     "instances": {
@@ -877,7 +881,9 @@
       "accepted": [
         "Go-http-client"
       ],
-      "forbidden": []
+      "forbidden": [
+        "centurybot"
+      ]
     },
     "addition_date": "2016/03/26",
     "url": "https://golang.org/pkg/net/http/",
@@ -1672,7 +1678,9 @@
       "accepted": [
         "yandex\\.com\\/bots"
       ],
-      "forbidden": []
+      "forbidden": [
+        "YandexRenderResourcesBot"
+      ]
     },
     "url": "https://yandex.ru/support/webmaster/robot-workings/check-yandex-robots.html#robot-in-logs",
     "verification": [
@@ -2222,7 +2230,9 @@
       "accepted": [
         "heritrix"
       ],
-      "forbidden": []
+      "forbidden": [
+        "archive\\.org_bot"
+      ]
     },
     "addition_date": "2011/06/21",
     "url": "https://github.com/internetarchive/heritrix3/wiki",
@@ -2726,12 +2736,12 @@
     ],
     "pattern": {
       "accepted": [
-        "CCBot"
+        "CCBot\\/"
       ],
       "forbidden": []
     },
     "addition_date": "2012/02/05",
-    "url": "http://www.commoncrawl.org/bot.html",
+    "url": "https://commoncrawl.org/faq/",
     "verification": [
       {
         "type": "cidr",
@@ -2758,8 +2768,11 @@
       "rejected": []
     },
     "aliases": [
-      "CommonCrawlBot"
-    ]
+      "CommonCrawlBot",
+      "CCBot",
+      "ccbot-crawler"
+    ],
+    "description": "Common Crawl CCBot. Canonical entry for Common Crawl; formerly also listed as ccbot-crawler."
   },
   {
     "id": "edister-crawler",
@@ -5345,31 +5358,6 @@
     }
   },
   {
-    "id": "pintrest-crawler",
-    "categories": [
-      "social"
-    ],
-    "pattern": {
-      "accepted": [
-        "pinterest\\.com\\/bot"
-      ],
-      "forbidden": []
-    },
-    "addition_date": "2017/03/03",
-    "verification": [],
-    "instances": {
-      "accepted": [
-        "Mozilla/5.0 (compatible; Pinterestbot/1.0; +http://www.pinterest.com/bot.html)",
-        "Pinterest/0.2 (+http://www.pinterest.com/bot.html)"
-      ],
-      "rejected": []
-    },
-    "url": "http://www.pinterest.com/bot.html",
-    "aliases": [
-      "PinterestBot"
-    ]
-  },
-  {
     "id": "duedil-crawler",
     "categories": [
       "unknown"
@@ -6768,7 +6756,9 @@
       "accepted": [
         "AppEngine-Google"
       ],
-      "forbidden": []
+      "forbidden": [
+        "virustotal"
+      ]
     },
     "addition_date": "2017/11/02",
     "verification": [],
@@ -7181,27 +7171,6 @@
       "rejected": []
     },
     "url": "http://corpora.informatik.uni-leipzig.de/crawler_faq.html"
-  },
-  {
-    "id": "iss-crawler",
-    "categories": [
-      "unknown"
-    ],
-    "pattern": {
-      "accepted": [
-        "filterdb\\.iss\\.net\\/crawler"
-      ],
-      "forbidden": []
-    },
-    "addition_date": "2018/03/16",
-    "verification": [],
-    "instances": {
-      "accepted": [
-        "Mozilla/5.0 (compatible; oBot/2.3.1; +http://filterdb.iss.net/crawler/)"
-      ],
-      "rejected": []
-    },
-    "url": "http://filterdb.iss.net/crawler/"
   },
   {
     "id": "blp-bbot",
@@ -9633,7 +9602,11 @@
       "accepted": [
         "HeadlessChrome"
       ],
-      "forbidden": []
+      "forbidden": [
+        "YextBot",
+        "AccessibleWebBot",
+        "Prerender \\("
+      ]
     },
     "url": "https://developers.google.com/web/updates/2017/04/headless-chrome",
     "addition_date": "2019/06/17",
@@ -11662,45 +11635,13 @@
     }
   },
   {
-    "id": "betteruptime-monitor",
-    "categories": [
-      "monitor"
-    ],
-    "pattern": {
-      "accepted": [
-        "Better Uptime Bot"
-      ],
-      "forbidden": []
-    },
-    "addition_date": "2022/11/13",
-    "url": "https://betteruptime.com/",
-    "verification": [
-      {
-        "type": "ip",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://uptime.betterstack.com/ips-by-cluster.json",
-            "selector": "$.*[*]"
-          }
-        ]
-      }
-    ],
-    "instances": {
-      "accepted": [
-        "Better Uptime Bot Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
-      ],
-      "rejected": []
-    }
-  },
-  {
     "id": "betterstack-monitor",
     "categories": [
       "monitor"
     ],
     "pattern": {
       "accepted": [
-        "Better Stack"
+        "Better (?:Stack|Uptime Bot)"
       ],
       "forbidden": []
     },
@@ -11720,10 +11661,15 @@
     ],
     "instances": {
       "accepted": [
-        "Better Stack Better Uptime Bot Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+        "Better Stack Better Uptime Bot Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "Better Uptime Bot Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
       ],
       "rejected": []
-    }
+    },
+    "aliases": [
+      "betteruptime-monitor"
+    ],
+    "description": "Better Stack uptime monitor (formerly Better Uptime). Canonical entry; formerly also listed as betteruptime-monitor."
   },
   {
     "id": "dynatrace-monitor",
@@ -14258,44 +14204,6 @@
     "url": "https://adbot.amazon.com/"
   },
   {
-    "id": "ccbot-crawler",
-    "categories": [
-      "archive"
-    ],
-    "pattern": {
-      "accepted": [
-        "CCBot\\/"
-      ],
-      "forbidden": []
-    },
-    "addition_date": "2026/02/07",
-    "verification": [
-      {
-        "type": "dns",
-        "masks": [
-          "@.crawl.commoncrawl.org"
-        ]
-      },
-      {
-        "type": "cidr",
-        "sources": [
-          {
-            "type": "http-json",
-            "url": "https://index.commoncrawl.org/ccbot.json",
-            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
-          }
-        ]
-      }
-    ],
-    "instances": {
-      "accepted": [
-        "CCBot/2.0 (https://commoncrawl.org/faq/)"
-      ],
-      "rejected": []
-    },
-    "url": "https://commoncrawl.org/faq/"
-  },
-  {
     "id": "pinterest-crawler",
     "categories": [
       "social"
@@ -14320,11 +14228,18 @@
       "accepted": [
         "Pinterest/0.2 (+https://www.pinterest.com/bot.html)",
         "Mozilla/5.0 (compatible; Pinterestbot/1.0; +https://www.pinterest.com/bot.html)",
-        "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible; Pinterestbot/1.0; +https://www.pinterest.com/bot.html)"
+        "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible; Pinterestbot/1.0; +https://www.pinterest.com/bot.html)",
+        "Mozilla/5.0 (compatible; Pinterestbot/1.0; +http://www.pinterest.com/bot.html)",
+        "Pinterest/0.2 (+http://www.pinterest.com/bot.html)"
       ],
       "rejected": []
     },
-    "url": "https://help.pinterest.com/en/business/article/pinterestbot"
+    "url": "https://help.pinterest.com/en/business/article/pinterestbot",
+    "aliases": [
+      "pintrest-crawler",
+      "PinterestBot"
+    ],
+    "description": "Pinterestbot. Canonical entry; formerly also listed as pintrest-crawler."
   },
   {
     "id": "ahrefs-site-audit",
@@ -19415,22 +19330,25 @@
     ],
     "pattern": {
       "accepted": [
-        "oBot\\/"
+        "\\boBot\\/"
       ],
       "forbidden": []
     },
     "verification": [],
     "instances": {
       "accepted": [
-        "Mozilla/5.0 (compatible; oBot/2.3.1; +http://www.xforce-security.com/crawler/)"
+        "Mozilla/5.0 (compatible; oBot/2.3.1; +http://www.xforce-security.com/crawler/)",
+        "Mozilla/5.0 (compatible; oBot/2.3.1; +http://filterdb.iss.net/crawler/)"
       ],
       "rejected": []
     },
     "url": "https://www.xforce-security.com/crawler/",
     "aliases": [
-      "oBot"
+      "oBot",
+      "iss-crawler"
     ],
-    "addition_date": "2026/10/22"
+    "addition_date": "2026/10/22",
+    "description": "IBM X-Force / ISS oBot crawler. Canonical entry; formerly also listed as iss-crawler (filterdb.iss.net)."
   },
   {
     "id": "splitsignal-bot",
