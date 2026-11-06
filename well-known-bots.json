@@ -19658,5 +19658,52 @@
       "ProRata"
     ],
     "addition_date": "2026/10/22"
+  },
+  {
+    "id": "river-crawler",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "^RiverBot\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://river.ai/.well-known/http-message-signatures-directory"
+      },
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-json",
+            "url": "https://river.ai/riverbot.json",
+            "selector": "$.prefixes[*][\"ipv4Prefix\",\"ipv6Prefix\"]"
+          }
+        ]
+      },
+      {
+        "type": "dns",
+        "masks": [
+          "crawl-***-***-***-***.bot.river.ai"
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "RiverBot/1.0 (+https://river.ai/bot)"
+      ],
+      "rejected": [
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Flyriverbot/1.1 (+https://www.flyriver.com/; AI Content Source Check)"
+      ]
+    },
+    "url": "https://river.ai/bot",
+    "aliases": [
+      "RiverBot"
+    ],
+    "addition_date": "2026/11/05"
   }
 ]
