@@ -16368,7 +16368,7 @@
     ],
     "pattern": {
       "accepted": [
-        "IbouBot|ibou-search\\/"
+        "IbouBot"
       ],
       "forbidden": []
     },
@@ -16376,8 +16376,7 @@
     "verification": [],
     "instances": {
       "accepted": [
-        "Mozilla/5.0 (compatible; IbouBot/1.0; +bot@ibou.io; +https://ibou.io/iboubot.html)",
-        "Mozilla/5.0 (compatible; ibou-search/2.0; +https://ibou.com/crawlers.html)"
+        "Mozilla/5.0 (compatible; IbouBot/1.0; +bot@ibou.io; +https://ibou.io/iboubot.html)"
       ],
       "rejected": []
     },
@@ -19748,7 +19747,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^(?:Claude-User \\()?claude-code\\/"
+        "claude-code\\/"
       ],
       "forbidden": []
     },
@@ -19794,7 +19793,7 @@
     ],
     "pattern": {
       "accepted": [
-        "OpenCode-User\\/|^opencode[\\/-]"
+        "(?:OpenCode-User|opencode-smartfetch)\\/"
       ],
       "forbidden": []
     },
@@ -19864,7 +19863,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^deepseek-harness\\/"
+        "deepseek-harness\\/"
       ],
       "forbidden": []
     },
@@ -19933,7 +19932,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^amazon-Quick-on-behalf-of-"
+        "amazon-Quick-on-behalf-of-"
       ],
       "forbidden": []
     },
@@ -19955,7 +19954,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^MiniMaxAgent\\b"
+        "MiniMaxAgent"
       ],
       "forbidden": []
     },
@@ -19976,7 +19975,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^Cursor\\/[\\d.]+ \\("
+        "^Cursor\\/"
       ],
       "forbidden": []
     },
@@ -20000,7 +19999,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^qodercli(?:cn)?\\/"
+        "qodercli"
       ],
       "forbidden": []
     },
@@ -20024,7 +20023,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^KiroServer\\/"
+        "KiroServer\\/"
       ],
       "forbidden": []
     },
@@ -20047,7 +20046,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^QwenCode\\/"
+        "QwenCode\\/"
       ],
       "forbidden": []
     },
@@ -20114,7 +20113,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^Augment-WebFetch\\/"
+        "Augment-WebFetch\\/"
       ],
       "forbidden": []
     },
@@ -20158,7 +20157,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^amazon-bedrock-knowledgebase-on-behalf-of-"
+        "amazon-bedrock-knowledgebase-on-behalf-of-"
       ],
       "forbidden": []
     },
@@ -20180,7 +20179,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^amazon-QBusiness\\b"
+        "amazon-QBusiness"
       ],
       "forbidden": []
     },
@@ -20202,7 +20201,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^ClueWeb-Crawler\\/"
+        "ClueWeb-Crawler\\/"
       ],
       "forbidden": []
     },
@@ -20246,7 +20245,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^Google-Display-Ads-Bot\\b"
+        "Google-Display-Ads-Bot"
       ],
       "forbidden": []
     },
@@ -20287,7 +20286,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^lychee\\/"
+        "lychee\\/"
       ],
       "forbidden": []
     },
@@ -20309,7 +20308,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^Consul Health Check$"
+        "Consul Health Check"
       ],
       "forbidden": []
     },
@@ -20381,6 +20380,27 @@
       "rejected": []
     },
     "description": "Acunetix web vulnerability scanner.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "ibou-search",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "ibou-search\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; ibou-search/2.0; +https://ibou.com/crawlers.html)"
+      ],
+      "rejected": []
+    },
+    "url": "https://ibou.com/crawlers.html",
     "addition_date": "2026/11/11"
   }
 ]
