@@ -321,7 +321,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^Feed[Ff]etcher-Google"
+        "Feedfetcher-Google"
       ],
       "forbidden": []
     },
@@ -353,12 +353,9 @@
     ],
     "instances": {
       "accepted": [
-        "Feedfetcher-Google; (+http://www.google.com/feedfetcher.html; 1 subscribers; feed-id=728742641706423)",
-        "FeedFetcher-Google; (+http://www.google.com/feedfetcher.html)"
+        "Feedfetcher-Google; (+http://www.google.com/feedfetcher.html; 1 subscribers; feed-id=728742641706423)"
       ],
-      "rejected": [
-        "Feedly/1.0 (+http://www.feedly.com/fetcher.html; like FeedFetcher-Google)"
-      ]
+      "rejected": []
     }
   },
   {
@@ -19793,20 +19790,42 @@
     ],
     "pattern": {
       "accepted": [
-        "(?:OpenCode-User|opencode-smartfetch)\\/"
+        "OpenCode-User\\/"
       ],
       "forbidden": []
     },
     "verification": [],
     "instances": {
       "accepted": [
-        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; OpenCode-User/1.0; +https://opencode.ai",
-        "opencode-smartfetch/1.0"
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; OpenCode-User/1.0; +https://opencode.ai"
       ],
       "rejected": []
     },
     "url": "https://opencode.ai",
     "description": "OpenCode coding agent. Sent from the developer's machine.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "opencode-smartfetch",
+    "categories": [
+      "ai",
+      "ai-agent"
+    ],
+    "pattern": {
+      "accepted": [
+        "opencode-smartfetch\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "opencode-smartfetch/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://opencode.ai",
+    "description": "OpenCode fetch tool. Sent from the developer's machine.",
     "addition_date": "2026/11/11"
   },
   {
