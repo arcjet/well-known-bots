@@ -107,10 +107,20 @@ Each entry in the JSON represents a specific bot or crawler and includes the fol
 ### Available Categories
 
 ```
-academic, advertising, ai, amazon, apple, archive, feedfetcher, google,
-meta, microsoft, monitor, optimizer, preview, programmatic, search-engine,
-slack, social, tool, unknown, vercel, webhook, yahoo
+academic, advertising, ai, ai-agent, amazon, apple, archive, feedfetcher,
+google, meta, microsoft, monitor, optimizer, preview, programmatic,
+search-engine, slack, social, tool, unknown, vercel, webhook, yahoo
 ```
+
+`ai-agent` marks an AI product fetching a page on demand for a person who is
+waiting on the answer, such as ChatGPT-User, Claude-User or a coding agent. It
+always appears together with `ai`, so the `ai` category is unchanged and
+`ai-agent` is the subset of it that is not scheduled crawling for training or
+an index.
+
+A coding agent that fetches from the developer's own machine, such as Claude
+Code, has no verification, because its IP address is never in the vendor's
+published ranges.
 
 ## Verification Methods
 

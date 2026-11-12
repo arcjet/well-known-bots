@@ -7959,7 +7959,7 @@
     ],
     "pattern": {
       "accepted": [
-        "Fetch\\/"
+        "^Fetch\\/"
       ],
       "forbidden": []
     },
@@ -7969,7 +7969,10 @@
       "accepted": [
         "Fetch/2.0a (CMS Detection/Web/SEO analysis tool, see http://guess.scritch.org)"
       ],
-      "rejected": []
+      "rejected": [
+        "ZCode-WebFetch/0.1 (+https://zcode.ai; coding-agent-cli)",
+        "Augment-WebFetch/1.0"
+      ]
     }
   },
   {
@@ -11795,7 +11798,8 @@
   {
     "id": "openai-crawler-user",
     "categories": [
-      "ai"
+      "ai",
+      "ai-agent"
     ],
     "pattern": {
       "accepted": [
@@ -13193,13 +13197,16 @@
   {
     "id": "anthropic-crawler-user",
     "categories": [
-      "ai"
+      "ai",
+      "ai-agent"
     ],
     "pattern": {
       "accepted": [
         "Claude-User"
       ],
-      "forbidden": []
+      "forbidden": [
+        "claude-code\\/"
+      ]
     },
     "addition_date": "2026/04/20",
     "verification": [
@@ -13218,7 +13225,9 @@
       "accepted": [
         "Mozilla/5.0 (compatible; Claude-User/1.0; +Claude-User@anthropic.com)"
       ],
-      "rejected": []
+      "rejected": [
+        "Claude-User (claude-code/2.1.308; +https://support.anthropic.com/)"
+      ]
     },
     "url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
     "aliases": [
@@ -13515,12 +13524,13 @@
     "id": "meta-crawler-user",
     "categories": [
       "ai",
+      "ai-agent",
       "meta",
       "preview"
     ],
     "pattern": {
       "accepted": [
-        "meta-externalfetcher"
+        "[Mm]eta-[Ee]xternal[Ff]etcher"
       ],
       "forbidden": []
     },
@@ -13539,7 +13549,8 @@
     "instances": {
       "accepted": [
         "meta-externalfetcher/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)",
-        "meta-externalfetcher/1.1"
+        "meta-externalfetcher/1.1",
+        "Mozilla/5.0 (compatible; Meta-ExternalFetcher/1.0; +https://developers.facebook.com/docs/sharing/webmasters/crawler)"
       ],
       "rejected": []
     },
@@ -14210,7 +14221,7 @@
     ],
     "pattern": {
       "accepted": [
-        "Pinterest(bot)?\\/"
+        "Pinterest(bot)?\\/\\d"
       ],
       "forbidden": []
     },
@@ -14232,7 +14243,10 @@
         "Mozilla/5.0 (compatible; Pinterestbot/1.0; +http://www.pinterest.com/bot.html)",
         "Pinterest/0.2 (+http://www.pinterest.com/bot.html)"
       ],
-      "rejected": []
+      "rejected": [
+        "Mozilla/5.0 (iPad; CPU OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Pinterest/iOS",
+        "Mozilla/5.0 (Linux; Android 13; SM-A127F Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/156.0.8078.47 Mobile Safari/537.36 [Pinterest/Android]"
+      ]
     },
     "url": "https://help.pinterest.com/en/business/article/pinterestbot",
     "aliases": [
@@ -14277,7 +14291,8 @@
   {
     "id": "perplexity-user",
     "categories": [
-      "ai"
+      "ai",
+      "ai-agent"
     ],
     "pattern": {
       "accepted": [
@@ -14949,6 +14964,7 @@
     "id": "google-gemini-notebook",
     "categories": [
       "ai",
+      "ai-agent",
       "google"
     ],
     "pattern": {
@@ -15000,6 +15016,7 @@
     "id": "google-agent",
     "categories": [
       "ai",
+      "ai-agent",
       "google"
     ],
     "pattern": {
@@ -15191,6 +15208,7 @@
     "id": "google-gemini-deep-research",
     "categories": [
       "ai",
+      "ai-agent",
       "google"
     ],
     "pattern": {
@@ -15370,7 +15388,8 @@
   {
     "id": "mistral-ai-user",
     "categories": [
-      "ai"
+      "ai",
+      "ai-agent"
     ],
     "pattern": {
       "accepted": [
@@ -15444,6 +15463,7 @@
     "id": "duckassist-bot",
     "categories": [
       "ai",
+      "ai-agent",
       "search-engine"
     ],
     "pattern": {
@@ -15604,6 +15624,7 @@
     "id": "kagi-fetcher",
     "categories": [
       "ai",
+      "ai-agent",
       "search-engine"
     ],
     "pattern": {
@@ -15790,6 +15811,7 @@
     "id": "amazon-user",
     "categories": [
       "ai",
+      "ai-agent",
       "amazon"
     ],
     "pattern": {
@@ -15815,6 +15837,7 @@
     "id": "amazon-bedrock-agentcore-browser",
     "categories": [
       "ai",
+      "ai-agent",
       "amazon",
       "tool"
     ],
@@ -18450,7 +18473,8 @@
   {
     "id": "mozilla-tabstack",
     "categories": [
-      "ai"
+      "ai",
+      "ai-agent"
     ],
     "pattern": {
       "accepted": [
@@ -18544,7 +18568,8 @@
   {
     "id": "kimi-user",
     "categories": [
-      "ai"
+      "ai",
+      "ai-agent"
     ],
     "pattern": {
       "accepted": [
@@ -18680,7 +18705,8 @@
   {
     "id": "isonai-user",
     "categories": [
-      "ai"
+      "ai",
+      "ai-agent"
     ],
     "pattern": {
       "accepted": [
@@ -18706,7 +18732,8 @@
   {
     "id": "chatgpt-agent",
     "categories": [
-      "ai"
+      "ai",
+      "ai-agent"
     ],
     "pattern": {
       "accepted": [],
@@ -18726,6 +18753,7 @@
     "id": "browserbase",
     "categories": [
       "ai",
+      "ai-agent",
       "tool"
     ],
     "pattern": {
@@ -18745,7 +18773,8 @@
   {
     "id": "manus-bot",
     "categories": [
-      "ai"
+      "ai",
+      "ai-agent"
     ],
     "pattern": {
       "accepted": [],
@@ -19200,7 +19229,8 @@
   {
     "id": "liner-user",
     "categories": [
-      "ai"
+      "ai",
+      "ai-agent"
     ],
     "pattern": {
       "accepted": [
@@ -19705,5 +19735,691 @@
       "RiverBot"
     ],
     "addition_date": "2026/11/05"
+  },
+  {
+    "id": "anthropic-claude-code",
+    "categories": [
+      "ai",
+      "ai-agent"
+    ],
+    "pattern": {
+      "accepted": [
+        "claude-code\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Claude-User (claude-code/2.1.308; +https://support.anthropic.com/)",
+        "claude-code/2.1.107 (cli)"
+      ],
+      "rejected": []
+    },
+    "url": "https://code.claude.com/docs/en/tools-reference",
+    "description": "Claude Code web fetches. Sent from the developer's machine, so Anthropic's published IP ranges do not apply.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "github-copilot",
+    "categories": [
+      "ai",
+      "ai-agent"
+    ],
+    "pattern": {
+      "accepted": [
+        "GitHubCopilot"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "GitHubCopilotRuntime-WebFetch"
+      ],
+      "rejected": []
+    },
+    "description": "GitHub Copilot web fetch tool.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "opencode",
+    "categories": [
+      "ai",
+      "ai-agent"
+    ],
+    "pattern": {
+      "accepted": [
+        "OpenCode-User\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; OpenCode-User/1.0; +https://opencode.ai"
+      ],
+      "rejected": []
+    },
+    "url": "https://opencode.ai",
+    "description": "OpenCode coding agent. Sent from the developer's machine.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "opencode-smartfetch",
+    "categories": [
+      "ai",
+      "ai-agent"
+    ],
+    "pattern": {
+      "accepted": [
+        "opencode-smartfetch\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "opencode-smartfetch/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://opencode.ai",
+    "description": "OpenCode fetch tool. Sent from the developer's machine.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "google-gemini-url-context",
+    "categories": [
+      "ai",
+      "ai-agent",
+      "google"
+    ],
+    "pattern": {
+      "accepted": [
+        "GoogleAgent-URLContext"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "GoogleAgent-URLContext"
+      ],
+      "rejected": []
+    },
+    "description": "Gemini URL context fetches, used by Gemini CLI.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "google-antigravity",
+    "categories": [
+      "ai",
+      "ai-agent",
+      "google"
+    ],
+    "pattern": {
+      "accepted": [
+        "Google-Jetski-Antigravity"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Google-Jetski-Antigravity"
+      ],
+      "rejected": []
+    },
+    "description": "Google Antigravity coding agent.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "deepseek-harness",
+    "categories": [
+      "ai",
+      "ai-agent"
+    ],
+    "pattern": {
+      "accepted": [
+        "deepseek-harness\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "deepseek-harness/0.0.1 (+https://github.com/deepseek-ai)"
+      ],
+      "rejected": []
+    },
+    "description": "Observed in traffic. DeepSeek has not documented which product sends it.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "exa-user",
+    "categories": [
+      "ai",
+      "ai-agent"
+    ],
+    "pattern": {
+      "accepted": [
+        "ExaUser\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; ExaUser/1.0; +https://crawler.exa.ai/exauser)"
+      ],
+      "rejected": [
+        "Mozilla/5.0 (compatible; ExaSearchBot/1.0; +https://crawler.exa.ai/)"
+      ]
+    },
+    "url": "https://crawler.exa.ai/exauser",
+    "description": "Exa on-demand fetches for other AI products. The product behind a request is not identified. Exa signs with the same Web Bot Auth key as exa-searchbot, so a signature identifies Exa, not this fetcher.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "xai-grok-agent",
+    "categories": [
+      "ai",
+      "ai-agent"
+    ],
+    "pattern": {
+      "accepted": [
+        "grok-agent\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; grok-agent/1.0; +https://x.ai)"
+      ],
+      "rejected": []
+    },
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "amazon-quick",
+    "categories": [
+      "ai",
+      "ai-agent",
+      "amazon"
+    ],
+    "pattern": {
+      "accepted": [
+        "amazon-Quick-on-behalf-of-"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "amazon-Quick-on-behalf-of-0a1b2c3d"
+      ],
+      "rejected": []
+    },
+    "description": "Amazon Quick. Renders JavaScript, so it also fires client-side analytics.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "minimax-agent",
+    "categories": [
+      "ai",
+      "ai-agent"
+    ],
+    "pattern": {
+      "accepted": [
+        "MiniMaxAgent"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "MiniMaxAgent"
+      ],
+      "rejected": []
+    },
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "cursor",
+    "categories": [
+      "ai",
+      "ai-agent"
+    ],
+    "pattern": {
+      "accepted": [
+        "^Cursor\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Cursor/3.0.16 (darwin arm64)"
+      ],
+      "rejected": [
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cursor/3.0.16 Chrome/142.0.7444.265 Electron/39.8.1 Safari/537.36"
+      ]
+    },
+    "description": "Requests made by the Cursor app itself. The Electron user agent is excluded because it is also the editor's own browser. Cursor's web fetch tool has been reported to go through Exa as ExaUser.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "qoder",
+    "categories": [
+      "ai",
+      "ai-agent"
+    ],
+    "pattern": {
+      "accepted": [
+        "qodercli"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "qodercli/1.1.69 (+https://qoder.com)",
+        "qoderclicn/1.1.69 (+https://qoder.cn)"
+      ],
+      "rejected": []
+    },
+    "url": "https://qoder.com",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "amazon-kiro",
+    "categories": [
+      "ai",
+      "ai-agent",
+      "amazon"
+    ],
+    "pattern": {
+      "accepted": [
+        "KiroServer\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "KiroServer/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://kiro.dev",
+    "description": "Observed in traffic from the Kiro coding agent.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "qwen-code",
+    "categories": [
+      "ai",
+      "ai-agent"
+    ],
+    "pattern": {
+      "accepted": [
+        "QwenCode\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "QwenCode/0.27.0 (linux; x64)",
+        "QwenCode/0.26.9 (darwin; arm64)",
+        "QwenCode/0.26.9 (win32; x64)"
+      ],
+      "rejected": []
+    },
+    "url": "https://github.com/QwenLM/qwen-code",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "shap-user",
+    "categories": [
+      "ai",
+      "ai-agent"
+    ],
+    "pattern": {
+      "accepted": [
+        "Shap-User\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Shap-User/0.1.0"
+      ],
+      "rejected": []
+    },
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "zcode",
+    "categories": [
+      "ai",
+      "ai-agent"
+    ],
+    "pattern": {
+      "accepted": [
+        "ZCode-WebFetch\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "ZCode-WebFetch/0.1 (+https://zcode.ai; coding-agent-cli)"
+      ],
+      "rejected": []
+    },
+    "url": "https://zcode.ai",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "augment-code",
+    "categories": [
+      "ai",
+      "ai-agent"
+    ],
+    "pattern": {
+      "accepted": [
+        "Augment-WebFetch\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Augment-WebFetch/1.0"
+      ],
+      "rejected": []
+    },
+    "url": "https://www.augmentcode.com",
+    "description": "Augment Code web fetch tool.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "elevenlabs-crawler",
+    "categories": [
+      "ai"
+    ],
+    "pattern": {
+      "accepted": [
+        "ElevenlabsCrawler\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; ElevenlabsCrawler/1.0; +https://elevenlabs.io/docs/bots)"
+      ],
+      "rejected": []
+    },
+    "url": "https://elevenlabs.io/docs/bots",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "amazon-bedrock-knowledgebase",
+    "categories": [
+      "ai",
+      "amazon"
+    ],
+    "pattern": {
+      "accepted": [
+        "amazon-bedrock-knowledgebase-on-behalf-of-"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "amazon-bedrock-knowledgebase-on-behalf-of-0a1b2c3d"
+      ],
+      "rejected": []
+    },
+    "description": "Amazon Bedrock Knowledge Bases web ingestion.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "amazon-qbusiness",
+    "categories": [
+      "ai",
+      "amazon"
+    ],
+    "pattern": {
+      "accepted": [
+        "amazon-QBusiness"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "amazon-QBusiness"
+      ],
+      "rejected": []
+    },
+    "description": "Amazon Q Business web ingestion.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "clueweb-crawler",
+    "categories": [
+      "ai",
+      "academic"
+    ],
+    "pattern": {
+      "accepted": [
+        "ClueWeb-Crawler\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "ClueWeb-Crawler/1.0 (+https://boston.lti.cs.cmu.edu/CMU-ClueWeb-Crawler/; mailto:cmu-clueweb-crawler@andrew.cmu.edu)"
+      ],
+      "rejected": []
+    },
+    "url": "https://boston.lti.cs.cmu.edu/CMU-ClueWeb-Crawler/",
+    "description": "Carnegie Mellon research corpus used for language model research.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "coveo-bot",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "Coveobot\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko) (compatible; Coveobot/2.0;+http://www.coveo.com/bot.html)"
+      ],
+      "rejected": []
+    },
+    "url": "http://www.coveo.com/bot.html",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "google-display-ads-bot",
+    "categories": [
+      "google",
+      "advertising"
+    ],
+    "pattern": {
+      "accepted": [
+        "Google-Display-Ads-Bot"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Google-Display-Ads-Bot"
+      ],
+      "rejected": []
+    },
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "google-search-console",
+    "categories": [
+      "google",
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "Google Search Console"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko; Google Search Console) Chrome/41.0.2272.118 Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "lychee",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "lychee\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "lychee/0.24.2"
+      ],
+      "rejected": []
+    },
+    "url": "https://github.com/lycheeverse/lychee",
+    "description": "Link checker.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "consul-health-check",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "Consul Health Check"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Consul Health Check"
+      ],
+      "rejected": []
+    },
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "cloudflare-observatory",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "CloudflareObservatory\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 CloudflareObservatory/1.0"
+      ],
+      "rejected": []
+    },
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "catchpoint",
+    "categories": [
+      "monitor"
+    ],
+    "pattern": {
+      "accepted": [
+        "Catchpoint"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64; Catchpoint) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.90 Safari/537.36"
+      ],
+      "rejected": []
+    },
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "acunetix",
+    "categories": [
+      "tool"
+    ],
+    "pattern": {
+      "accepted": [
+        "Acunetix"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; LG-L160L Build/IML74K) AppleWebkit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 Acunetix-Deepscan/31"
+      ],
+      "rejected": []
+    },
+    "description": "Acunetix web vulnerability scanner.",
+    "addition_date": "2026/11/11"
+  },
+  {
+    "id": "ibou-search",
+    "categories": [
+      "search-engine"
+    ],
+    "pattern": {
+      "accepted": [
+        "ibou-search\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (compatible; ibou-search/2.0; +https://ibou.com/crawlers.html)"
+      ],
+      "rejected": []
+    },
+    "url": "https://ibou.com/crawlers.html",
+    "addition_date": "2026/11/11"
   }
 ]
