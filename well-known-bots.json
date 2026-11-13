@@ -20421,5 +20421,37 @@
     },
     "url": "https://ibou.com/crawlers.html",
     "addition_date": "2026/11/11"
+  },
+  {
+    "id": "enfilade-crawler",
+    "categories": [
+      "unknown"
+    ],
+    "pattern": {
+      "accepted": [
+        "^EnfiladeBot\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://enfilade.guide/.well-known/http-message-signatures-directory"
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "EnfiladeBot/1.0 (+https://enfilade.guide/en/about-our-crawler)",
+        "EnfiladeBot/1.0 (+https://enfilade.guide/fr/a-propos-du-robot)",
+        "EnfiladeBot/1.0 (+https://enfilade.guide/nl/over-onze-crawler)",
+        "EnfiladeBot/1.0 (+https://enfilade.guide/ru/o-sbore)"
+      ],
+      "rejected": []
+    },
+    "url": "https://enfilade.guide/en/about-our-crawler",
+    "aliases": [
+      "EnfiladeBot"
+    ],
+    "addition_date": "2026/11/14"
   }
 ]
