@@ -33,6 +33,10 @@
           "minItems": 1,
           "uniqueItems": true
         },
+        "operator": {
+          "description": "Registrable domain of the company or project that operates the bot, such as openai.com. For a platform that runs requests for its customers, this is the platform, not the customer. Omitted when the operator is unknown.",
+          "$ref": "#/$defs/registrableDomain"
+        },
         "pattern": {
           "$ref": "#/$defs/userAgentPattern"
         },
@@ -109,6 +113,12 @@
           }
         }
       ]
+    },
+    "registrableDomain": {
+      "$comment": "A lowercase DNS name with at least two labels and an alphabetic or punycode top-level label. It has no scheme, path, port, trailing dot or www. prefix. JSON Schema cannot check the public suffix list, so reviewers check that the value is the registrable domain and not a subdomain.",
+      "type": "string",
+      "maxLength": 253,
+      "pattern": "^(?!www\\.)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\\.)+[a-z](?:[a-z0-9-]{0,61}[a-z0-9])?(?![\\s\\S])"
     },
     "httpUrl": {
       "type": "string",

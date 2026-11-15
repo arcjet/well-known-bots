@@ -70,3 +70,22 @@ test("CIDRs reject malformed addresses and prefixes", () => {
     checkCidr(value, false);
   }
 });
+
+test("Operators are canonical lowercase hostnames without a www. prefix", () => {
+  const operator = new RegExp(schema.$defs.registrableDomain.pattern, "u");
+  for (const value of [
+    "openai.com", "perplexity.ai", "sbintuitions.co.jp", "9bot.com.br",
+    "x.ai", "xn--p1ai.xn--p1ai", "wwwexample.com",
+  ]) {
+    assert.ok(operator.test(value), `Schema: ${JSON.stringify(value)}`);
+    assert.equal(new URL(`https://${value}`).hostname, value, `URL: ${value}`);
+  }
+  for (const value of [
+    "", "openai", "OpenAI.com", "https://openai.com", "openai.com/",
+    "openai.com:443", "openai.com.", ".openai.com", "www.openai.com",
+    "open_ai.com", "-openai.com", "openai-.com", "openai.123", "127.0.0.1",
+    " openai.com", "openai.com\n", "user@openai.com",
+  ]) {
+    assert.equal(operator.test(value), false, `Schema: ${JSON.stringify(value)}`);
+  }
+});
