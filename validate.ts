@@ -158,6 +158,14 @@ if (process.argv[2] === "--generate") {
         // A botnet has no User-Agent: IP reputation data names it, and nothing
         // verifies it. Every other bot without a pattern is signature-only.
         const isBotnet = item.categories.includes("botnet");
+        if (isBotnet &&
+            (item.pattern.accepted.length !== 0 ||
+                item.pattern.forbidden.length !== 0 ||
+                item.verification.length !== 0 ||
+                typeof item.instances !== "undefined")) {
+            console.error("A botnet has no User-Agent patterns, no instances and no verification:", item);
+            process.exit(1);
+        }
         if (item.pattern.accepted.length === 0 &&
             (item.pattern.forbidden.length !== 0 ||
                 !(isBotnet

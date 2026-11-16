@@ -200,9 +200,12 @@ string, and assign each `client_id` to only one bot ID. Add an agent only when
 its operator publishes the `client_id`. Don't add a self-hosted agent that mints
 its own `client_id` per install, or a demo or test agent.
 
-Entries with an empty `accepted` array are signature-only: User-Agent matching
-must never classify a request as that bot, and these entries cannot have
-`instances` because they have no User-Agent pattern to test. Existing entries
+Entries with an empty `accepted` array never take part in User-Agent matching:
+User-Agent matching must never classify a request as that bot, and these
+entries cannot have `instances` because they have no User-Agent pattern to
+test. Most are signature-only, identified by Web Bot Auth or Poppy. A `botnet`
+entry is reputation-only instead: IP reputation data names it, and it has no
+verification at all. Existing entries
 can combine Web Bot Auth with IP or DNS verification, as `google-agent` does.
 
 ### DNS Verification

@@ -183,6 +183,12 @@ test("check mode accepts a botnet with no User-Agent pattern and no verification
 
 test("check mode rejects a botnet that claims verification or a forbidden pattern", (t) => {
   for (const changes of [
+    // A User-Agent pattern does not exempt a botnet from its shape.
+    { pattern: { accepted: ["TestBot"], forbidden: [] } },
+    {
+      pattern: { accepted: ["TestBot"], forbidden: [] },
+      instances: { accepted: ["TestBot/1"], rejected: [] },
+    },
     {
       // IP reputation names a botnet; nothing verifies it.
       verification: [{
