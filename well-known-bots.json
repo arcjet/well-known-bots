@@ -21175,5 +21175,34 @@
       "EnfiladeBot"
     ],
     "addition_date": "2026/11/14"
+  },
+  {
+    "id": "ai-managed-agents-agent",
+    "categories": [
+      "monitor"
+    ],
+    "operator": "needmomentum.com",
+    "pattern": {
+      "accepted": [
+        "AIManagedAgents-Agent\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://agents.needmomentum.com/.well-known/http-message-signatures-directory"
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 AIManagedAgents-Agent/1.0 (+https://agents.needmomentum.com/)",
+        "AIManagedAgents-Agent/1.0 (+https://agents.needmomentum.com/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://agents.needmomentum.com/",
+    "description": "Website monitoring and operations agent operated by AI Managed Agents. Read-only requests to public pages, follows robots.txt, signs requests with Web Bot Auth.",
+    "addition_date": "2026/11/15"
   }
 ]
