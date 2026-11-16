@@ -106,8 +106,11 @@ Each entry in the JSON represents a specific bot or crawler and includes the fol
   platform, not the customer. A company's bots share its main domain even when
   they publish documentation, IP ranges or signing keys on other hosts, so
   Googlebot is `"google.com"` and Claude Code is `"anthropic.com"`. Omit the
-  field when the operator is unknown, and for a library or self-hosted tool
-  that anyone can run.
+  field when the operator is unknown, and for software its users run and
+  direct themselves, such as a library, a self-hosted server or a desktop
+  crawler like Screaming Frog. An AI agent that runs on a user's machine, such
+  as Claude Code, keeps its vendor, because the vendor's model decides what it
+  fetches.
 - **`url`** (string): Documentation URL for the bot
 - **`instances`** (object): Example User-Agent strings for testing; omit for signature-only bots
   - **`accepted`** (array): User-Agent strings that should match the pattern

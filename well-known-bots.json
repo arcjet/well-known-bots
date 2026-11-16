@@ -4324,7 +4324,6 @@
       "academic",
       "tool"
     ],
-    "operator": "unimi.it",
     "pattern": {
       "accepted": [
         "BUbiNG"
@@ -4689,7 +4688,6 @@
     "categories": [
       "optimizer"
     ],
-    "operator": "screamingfrog.co.uk",
     "pattern": {
       "accepted": [
         "Screaming Frog SEO Spider"
@@ -8048,7 +8046,6 @@
     "categories": [
       "unknown"
     ],
-    "operator": "utorrent.com",
     "pattern": {
       "accepted": [
         "BTWebClient"
@@ -9569,7 +9566,6 @@
     "categories": [
       "unknown"
     ],
-    "operator": "schmorp.de",
     "pattern": {
       "accepted": [
         "AnyEvent"
@@ -10113,7 +10109,6 @@
     "categories": [
       "unknown"
     ],
-    "operator": "hoyer.xyz",
     "pattern": {
       "accepted": [
         "Friendica"
@@ -15337,7 +15332,6 @@
       "optimizer",
       "tool"
     ],
-    "operator": "sitebulb.com",
     "pattern": {
       "accepted": [
         "sitebulb"

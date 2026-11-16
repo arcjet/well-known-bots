@@ -89,3 +89,23 @@ test("Operators are canonical lowercase hostnames without a www. prefix", () => 
     assert.equal(operator.test(value), false, `Schema: ${JSON.stringify(value)}`);
   }
 });
+
+// Software its users run and direct themselves has no operator: the vendor
+// doesn't run that traffic (README, `operator`).
+test("Self-run software has no operator", () => {
+  const bots = new Map(require("./well-known-bots.json").map((bot) => [bot.id, bot]));
+  for (const id of [
+    "schmorp-crawler", // AnyEvent, a Perl library
+    "hoyer-crawler", // Friendica, self-hosted
+    "law-unimi-crawler", // BUbiNG, open-source crawler software
+    "screamingfrog-crawler", // desktop SEO crawler
+    "sitebulb", // desktop SEO crawler
+    "utorrent-crawler", // desktop client
+  ]) {
+    const bot = bots.get(id);
+    assert.ok(bot, id);
+    assert.equal(bot.operator, undefined, id);
+  }
+  // An AI agent on the user's machine keeps its vendor.
+  assert.equal(bots.get("anthropic-claude-code")?.operator, "anthropic.com");
+});
