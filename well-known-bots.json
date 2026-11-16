@@ -5,6 +5,7 @@
       "google",
       "search-engine"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Googlebot\\/"
@@ -54,6 +55,7 @@
       "google",
       "search-engine"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Googlebot-Mobile"
@@ -96,6 +98,7 @@
       "google",
       "search-engine"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Googlebot-Image"
@@ -137,6 +140,7 @@
       "google",
       "search-engine"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Googlebot-News"
@@ -175,6 +179,7 @@
       "google",
       "search-engine"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Googlebot-Video"
@@ -213,6 +218,7 @@
       "google",
       "advertising"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "AdsBot-Google([^-]|$)"
@@ -254,6 +260,7 @@
       "google",
       "advertising"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "AdsBot-Google-Mobile"
@@ -298,6 +305,7 @@
       "google",
       "advertising"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google-Ads-Conversions"
@@ -319,6 +327,7 @@
       "google",
       "feedfetcher"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Feedfetcher-Google"
@@ -364,6 +373,7 @@
       "google",
       "advertising"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Mediapartners-Google"
@@ -408,6 +418,7 @@
       "google",
       "advertising"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Mediapartners \\(Googlebot\\)"
@@ -427,6 +438,7 @@
     "categories": [
       "google"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "APIs-Google"
@@ -469,6 +481,7 @@
       "google",
       "search-engine"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google-InspectionTool"
@@ -509,6 +522,7 @@
       "google",
       "search-engine"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Storebot-Google"
@@ -552,6 +566,7 @@
       "google",
       "search-engine"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "GoogleOther"
@@ -591,6 +606,7 @@
       "microsoft",
       "search-engine"
     ],
+    "operator": "microsoft.com",
     "pattern": {
       "accepted": [
         "bingbot\\/"
@@ -642,6 +658,7 @@
       "yahoo",
       "search-engine"
     ],
+    "operator": "yahoo.com",
     "pattern": {
       "accepted": [
         "Slurp"
@@ -923,6 +940,7 @@
       "microsoft",
       "advertising"
     ],
+    "operator": "microsoft.com",
     "pattern": {
       "accepted": [
         "(?:msnbot[-\\/]|librabot\\/)"
@@ -1038,6 +1056,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "ask.com",
     "pattern": {
       "accepted": [
         "Teoma"
@@ -1059,6 +1078,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "converasearch.com",
     "pattern": {
       "accepted": [
         "convera"
@@ -1079,6 +1099,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "seekbot.net",
     "pattern": {
       "accepted": [
         "seekbot"
@@ -1099,6 +1120,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "gigablast.com",
     "pattern": {
       "accepted": [
         "Gigabot"
@@ -1141,6 +1163,7 @@
     "categories": [
       "amazon"
     ],
+    "operator": "amazon.com",
     "pattern": {
       "accepted": [
         "exabot"
@@ -1401,6 +1424,7 @@
     "categories": [
       "microsoft"
     ],
+    "operator": "microsoft.com",
     "pattern": {
       "accepted": [
         "msrbot"
@@ -1674,6 +1698,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "yandex.com",
     "pattern": {
       "accepted": [
         "yandex\\.com\\/bots"
@@ -1767,6 +1792,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "linguee.com",
     "pattern": {
       "accepted": [
         "Linguee Bot"
@@ -1789,6 +1815,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "cyberpatrol.com",
     "pattern": {
       "accepted": [
         "CyberPatrol"
@@ -1831,6 +1858,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "baidu.com",
     "pattern": {
       "accepted": [
         "Baiduspider"
@@ -1882,6 +1910,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "seoprofiler.com",
     "pattern": {
       "accepted": [
         "spbot"
@@ -1936,6 +1965,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "twenga.com",
     "pattern": {
       "accepted": [
         "twengabot"
@@ -1955,6 +1985,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "postrank.com",
     "pattern": {
       "accepted": [
         "postrank"
@@ -1978,6 +2009,7 @@
       "academic",
       "ai"
     ],
+    "operator": "turnitin.com",
     "pattern": {
       "accepted": [
         "Turnitin"
@@ -2000,6 +2032,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "scribd.com",
     "pattern": {
       "accepted": [
         "scribdbot"
@@ -2019,6 +2052,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "page2rss.com",
     "pattern": {
       "accepted": [
         "page2rss"
@@ -2061,6 +2095,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "linkdex.com",
     "pattern": {
       "accepted": [
         "linkdex"
@@ -2089,6 +2124,7 @@
       "microsoft",
       "advertising"
     ],
+    "operator": "microsoft.com",
     "pattern": {
       "accepted": [
         "[Aa]d[Ii]dx[Bb]ot\\/"
@@ -2202,6 +2238,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "discoveryengine.com",
     "pattern": {
       "accepted": [
         "discobot"
@@ -2270,6 +2307,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "findthatfile.com",
     "pattern": {
       "accepted": [
         "findthatfile"
@@ -2309,6 +2347,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "nerdbynature.net",
     "pattern": {
       "accepted": [
         "NerdByNature\\.Bot"
@@ -2330,6 +2369,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "sistrix.com",
     "pattern": {
       "accepted": [
         "(sistrix|SISTRIX) [cC]rawler"
@@ -2351,6 +2391,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "ahrefs.com",
     "pattern": {
       "accepted": [
         "AhrefsBot\\/"
@@ -2409,6 +2450,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "leadcrunch.com",
     "pattern": {
       "accepted": [
         "CrunchBot"
@@ -2650,6 +2692,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "aboundex.com",
     "pattern": {
       "accepted": [
         "Aboundex"
@@ -2692,6 +2735,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "warebay.com",
     "pattern": {
       "accepted": [
         "wbsearchbot"
@@ -2711,6 +2755,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "summify.com",
     "pattern": {
       "accepted": [
         "summify"
@@ -2734,6 +2779,7 @@
       "ai",
       "archive"
     ],
+    "operator": "commoncrawl.org",
     "pattern": {
       "accepted": [
         "CCBot\\/"
@@ -2860,6 +2906,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "aihitdata.com",
     "pattern": {
       "accepted": [
         "aiHitBot"
@@ -2901,6 +2948,7 @@
       "preview",
       "social"
     ],
+    "operator": "meta.com",
     "pattern": {
       "accepted": [
         "facebookexternalhit"
@@ -2942,6 +2990,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "naver.com",
     "pattern": {
       "accepted": [
         "Yeti"
@@ -3001,6 +3050,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "sogou.com",
     "pattern": {
       "accepted": [
         "Sogou"
@@ -3024,6 +3074,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "lssbot.com",
     "pattern": {
       "accepted": [
         "lssbot"
@@ -3043,6 +3094,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "career-x.de",
     "pattern": {
       "accepted": [
         "careerbot"
@@ -3062,6 +3114,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "wotbox.com",
     "pattern": {
       "accepted": [
         "wotbox"
@@ -3084,6 +3137,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "wocodi.com",
     "pattern": {
       "accepted": [
         "wocbot"
@@ -3103,6 +3157,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "goo.ne.jp",
     "pattern": {
       "accepted": [
         "ichiro"
@@ -3138,6 +3193,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "duckduckgo.com",
     "pattern": {
       "accepted": [
         "DuckDuckBot"
@@ -3194,6 +3250,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "arocom.de",
     "pattern": {
       "accepted": [
         "drupact"
@@ -3233,6 +3290,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "acoon.de",
     "pattern": {
       "accepted": [
         "acoonbot"
@@ -3252,6 +3310,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "openindex.io",
     "pattern": {
       "accepted": [
         "openindexspider"
@@ -3306,6 +3365,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "backlinktest.com",
     "pattern": {
       "accepted": [
         "backlinkcrawler"
@@ -3325,6 +3385,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "coccoc.com",
     "pattern": {
       "accepted": [
         "coccoc"
@@ -3356,6 +3417,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "integromedb.org",
     "pattern": {
       "accepted": [
         "integromedb"
@@ -3491,6 +3553,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "proximic.com",
     "pattern": {
       "accepted": [
         "proximic"
@@ -3591,6 +3654,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "crystalsemantics.com",
     "pattern": {
       "accepted": [
         "CrystalSemanticsBot"
@@ -3610,6 +3674,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "moz.com",
     "pattern": {
       "accepted": [
         "rogerbot"
@@ -3676,6 +3741,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "picsearch.com",
     "pattern": {
       "accepted": [
         "psbot"
@@ -3699,6 +3765,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "scan-interfax.ru",
     "pattern": {
       "accepted": [
         "InterfaxScanBot"
@@ -3718,6 +3785,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "creativecommons.org",
     "pattern": {
       "accepted": [
         "CC Metadata Scaper"
@@ -3739,6 +3807,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "g00g1e.net",
     "pattern": {
       "accepted": [
         "g00g1e\\.net"
@@ -3758,6 +3827,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "grapeshot.co.uk",
     "pattern": {
       "accepted": [
         "GrapeshotCrawler"
@@ -3779,6 +3849,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "profound.net",
     "pattern": {
       "accepted": [
         "urlappendbot"
@@ -3883,6 +3954,7 @@
       "preview",
       "social"
     ],
+    "operator": "x.com",
     "pattern": {
       "accepted": [
         "Twitterbot"
@@ -3913,6 +3985,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "cxense.com",
     "pattern": {
       "accepted": [
         "cXensebot"
@@ -3934,6 +4007,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "similartech.com",
     "pattern": {
       "accepted": [
         "smtbot"
@@ -3959,6 +4033,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "bnf.fr",
     "pattern": {
       "accepted": [
         "bnf\\.fr_bot"
@@ -3981,6 +4056,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "a6corp.com",
     "pattern": {
       "accepted": [
         "A6-Indexer"
@@ -4002,6 +4078,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "admantx.com",
     "pattern": {
       "accepted": [
         "ADmantX"
@@ -4025,6 +4102,7 @@
       "meta",
       "social"
     ],
+    "operator": "meta.com",
     "pattern": {
       "accepted": [
         "Face(book){0,1}[Bb]ot"
@@ -4085,6 +4163,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "mignify.com",
     "pattern": {
       "accepted": [
         "memorybot"
@@ -4106,6 +4185,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "advbot.net",
     "pattern": {
       "accepted": [
         "AdvBot"
@@ -4127,6 +4207,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "megaindex.ru",
     "pattern": {
       "accepted": [
         "MegaIndex"
@@ -4150,6 +4231,7 @@
       "ai",
       "academic"
     ],
+    "operator": "allenai.org",
     "pattern": {
       "accepted": [
         "SemanticScholarBot"
@@ -4175,6 +4257,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "ltx71.com",
     "pattern": {
       "accepted": [
         "ltx71"
@@ -4196,6 +4279,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "nerdybot.com",
     "pattern": {
       "accepted": [
         "nerdybot"
@@ -4217,6 +4301,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "xovibot.net",
     "pattern": {
       "accepted": [
         "xovibot"
@@ -4260,6 +4345,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "qwant.com",
     "pattern": {
       "accepted": [
         "Qwant(?:ify|bot)"
@@ -4286,6 +4372,7 @@
     "categories": [
       "archive"
     ],
+    "operator": "archive.org",
     "pattern": {
       "accepted": [
         "archive\\.org_bot"
@@ -4316,6 +4403,7 @@
       "apple",
       "search-engine"
     ],
+    "operator": "apple.com",
     "pattern": {
       "accepted": [
         "Applebot"
@@ -4361,6 +4449,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "apple.com",
     "pattern": {
       "accepted": [
         "i[Tt][Mm][Ss]"
@@ -4383,6 +4472,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "datasift.com",
     "pattern": {
       "accepted": [
         "TweetmemeBot"
@@ -4426,6 +4516,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "findxbot.com",
     "pattern": {
       "accepted": [
         "findxbot"
@@ -4447,6 +4538,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "semrush.com",
     "pattern": {
       "accepted": [
         "S[eE][mM]rushBot"
@@ -4478,6 +4570,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "yooz.ir",
     "pattern": {
       "accepted": [
         "yoozBot"
@@ -4499,6 +4592,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "lipperhey.com",
     "pattern": {
       "accepted": [
         "lipperhey"
@@ -4523,6 +4617,7 @@
     "categories": [
       "yahoo"
     ],
+    "operator": "yahoo.co.jp",
     "pattern": {
       "accepted": [
         "Y!J"
@@ -4549,6 +4644,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "domainreanimator.com",
     "pattern": {
       "accepted": [
         "Domain Re-Animator Bot"
@@ -4570,6 +4666,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "addthis.com",
     "pattern": {
       "accepted": [
         "AddThis"
@@ -4655,6 +4752,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "livelap.com",
     "pattern": {
       "accepted": [
         "Livelap[bB]ot"
@@ -4677,6 +4775,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "openhose.org",
     "pattern": {
       "accepted": [
         "OpenHoseBot"
@@ -4698,6 +4797,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "capsulink.com",
     "pattern": {
       "accepted": [
         "CapsuleChecker"
@@ -4719,6 +4819,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "infegy.com",
     "pattern": {
       "accepted": [
         "collection@infegy\\.com"
@@ -4740,6 +4841,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "tiscali.it",
     "pattern": {
       "accepted": [
         "IstellaBot"
@@ -4761,6 +4863,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "deusu.de",
     "pattern": {
       "accepted": [
         "DeuSu\\/"
@@ -4801,6 +4904,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "cliqz.com",
     "pattern": {
       "accepted": [
         "Cliqzbot\\/"
@@ -4826,6 +4930,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "mojeek.com",
     "pattern": {
       "accepted": [
         "MojeekBot\\/"
@@ -4869,6 +4974,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "website-datenbank.de",
     "pattern": {
       "accepted": [
         "netEstate NE Crawler"
@@ -4891,6 +4997,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "avira.com",
     "pattern": {
       "accepted": [
         "SafeSearch microdata crawler"
@@ -4912,6 +5019,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "glutenfreepleasure.com",
     "pattern": {
       "accepted": [
         "Gluten Free Crawler\\/"
@@ -4933,6 +5041,7 @@
     "categories": [
       "academic"
     ],
+    "operator": "waseda.ac.jp",
     "pattern": {
       "accepted": [
         "Sonic"
@@ -4956,6 +5065,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "sysomos.com",
     "pattern": {
       "accepted": [
         "Sysomos"
@@ -4977,6 +5087,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "trove.com",
     "pattern": {
       "accepted": [
         "Trove"
@@ -4996,6 +5107,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "deadlinkchecker.com",
     "pattern": {
       "accepted": [
         "deadlinkchecker"
@@ -5020,6 +5132,7 @@
       "slack",
       "preview"
     ],
+    "operator": "slack.com",
     "pattern": {
       "accepted": [
         "Slack-ImgProxy"
@@ -5046,6 +5159,7 @@
     "categories": [
       "preview"
     ],
+    "operator": "embed.ly",
     "pattern": {
       "accepted": [
         "Embedly"
@@ -5072,6 +5186,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "rankactive.com",
     "pattern": {
       "accepted": [
         "RankActiveLinkBot"
@@ -5093,6 +5208,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "iskanie.com",
     "pattern": {
       "accepted": [
         "iskanie"
@@ -5115,6 +5231,7 @@
       "ai",
       "monitor"
     ],
+    "operator": "safedns.com",
     "pattern": {
       "accepted": [
         "SafeDNSBot"
@@ -5137,6 +5254,7 @@
       "microsoft",
       "preview"
     ],
+    "operator": "microsoft.com",
     "pattern": {
       "accepted": [
         "SkypeUriPreview"
@@ -5157,6 +5275,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "veooz.com",
     "pattern": {
       "accepted": [
         "Veoozbot"
@@ -5178,6 +5297,7 @@
     "categories": [
       "slack"
     ],
+    "operator": "slack.com",
     "pattern": {
       "accepted": [
         "Slackbot"
@@ -5204,6 +5324,7 @@
     "categories": [
       "social"
     ],
+    "operator": "reddit.com",
     "pattern": {
       "accepted": [
         "redditbot"
@@ -5228,6 +5349,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "datagnion.com",
     "pattern": {
       "accepted": [
         "datagnionbot"
@@ -5250,6 +5372,7 @@
       "advertising",
       "google"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google-Adwords-Instant"
@@ -5294,6 +5417,7 @@
       "preview",
       "social"
     ],
+    "operator": "meta.com",
     "pattern": {
       "accepted": [
         "WhatsApp"
@@ -5362,6 +5486,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "duedil.com",
     "pattern": {
       "accepted": [
         "electricmonk"
@@ -5383,6 +5508,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "garlik.com",
     "pattern": {
       "accepted": [
         "GarlikCrawler"
@@ -5405,6 +5531,7 @@
       "microsoft",
       "preview"
     ],
+    "operator": "microsoft.com",
     "pattern": {
       "accepted": [
         "BingPreview\\/"
@@ -5450,6 +5577,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "vebidoo.de",
     "pattern": {
       "accepted": [
         "vebidoobot"
@@ -5471,6 +5599,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "femtosearch.com",
     "pattern": {
       "accepted": [
         "FemtosearchBot"
@@ -5493,6 +5622,7 @@
       "yahoo",
       "preview"
     ],
+    "operator": "yahoo.com",
     "pattern": {
       "accepted": [
         "Yahoo Link Preview"
@@ -5514,6 +5644,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "metajob.de",
     "pattern": {
       "accepted": [
         "MetaJobBot"
@@ -5535,6 +5666,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "domainstats.io",
     "pattern": {
       "accepted": [
         "DomainStatsBot"
@@ -5556,6 +5688,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "datenbutler.de",
     "pattern": {
       "accepted": [
         "mindUpBot"
@@ -5577,6 +5710,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "daum.net",
     "pattern": {
       "accepted": [
         "Daum\\/"
@@ -5598,6 +5732,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "jugendschutzprogramm.de",
     "pattern": {
       "accepted": [
         "Jugendschutzprogramm-Crawler"
@@ -5663,6 +5798,7 @@
     "categories": [
       "advertising"
     ],
+    "operator": "moat.com",
     "pattern": {
       "accepted": [
         "moatbot"
@@ -5685,6 +5821,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "kosm.io",
     "pattern": {
       "accepted": [
         "KosmioBot"
@@ -5706,6 +5843,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "pingdom.com",
     "pattern": {
       "accepted": [
         "[pP]ingdom"
@@ -5753,6 +5891,7 @@
       "microsoft",
       "monitor"
     ],
+    "operator": "microsoft.com",
     "pattern": {
       "accepted": [
         "AppInsights"
@@ -5795,6 +5934,7 @@
     "categories": [
       "programmatic"
     ],
+    "operator": "gowikibot.com",
     "pattern": {
       "accepted": [
         "Gowikibot"
@@ -5816,6 +5956,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "pipl.com",
     "pattern": {
       "accepted": [
         "PiplBot"
@@ -5839,6 +5980,7 @@
       "preview",
       "social"
     ],
+    "operator": "discord.com",
     "pattern": {
       "accepted": [
         "Discordbot"
@@ -5864,6 +6006,7 @@
       "preview",
       "social"
     ],
+    "operator": "telegram.org",
     "pattern": {
       "accepted": [
         "TelegramBot"
@@ -5897,6 +6040,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "jetsli.de",
     "pattern": {
       "accepted": [
         "Jetslide"
@@ -5918,6 +6062,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "newsharecounts.com",
     "pattern": {
       "accepted": [
         "newsharecounts"
@@ -5939,6 +6084,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "cognitiveseo.com",
     "pattern": {
       "accepted": [
         "James BOT"
@@ -5960,6 +6106,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "exensa.com",
     "pattern": {
       "accepted": [
         "Bark[rR]owler"
@@ -5984,6 +6131,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "tineye.com",
     "pattern": {
       "accepted": [
         "TinEye"
@@ -6006,6 +6154,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "socialrank.io",
     "pattern": {
       "accepted": [
         "SocialRankIOBot"
@@ -6027,6 +6176,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "trendiction.de",
     "pattern": {
       "accepted": [
         "trendictionbot"
@@ -6069,6 +6219,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "epictions.com",
     "pattern": {
       "accepted": [
         "epicbot"
@@ -6090,6 +6241,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "primal.com",
     "pattern": {
       "accepted": [
         "Primalbot"
@@ -6112,6 +6264,7 @@
       "preview",
       "search-engine"
     ],
+    "operator": "duckduckgo.com",
     "pattern": {
       "accepted": [
         "DuckDuckGo-Favicons-Bot"
@@ -6133,6 +6286,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "gnowit.com",
     "pattern": {
       "accepted": [
         "GnowitNewsbot"
@@ -6154,6 +6308,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "leiki.com",
     "pattern": {
       "accepted": [
         "Leikibot"
@@ -6197,6 +6352,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "linkfluence.com",
     "pattern": {
       "accepted": [
         "YaK\\/"
@@ -6218,6 +6374,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "paper.li",
     "pattern": {
       "accepted": [
         "PaperLiBot"
@@ -6240,6 +6397,7 @@
     "categories": [
       "social"
     ],
+    "operator": "digg.com",
     "pattern": {
       "accepted": [
         "Digg Deeper"
@@ -6303,6 +6461,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "anderspink.com",
     "pattern": {
       "accepted": [
         "AndersPinkBot"
@@ -6344,6 +6503,7 @@
     "categories": [
       "social"
     ],
+    "operator": "everyonesocial.com",
     "pattern": {
       "accepted": [
         "EveryoneSocialBot"
@@ -6365,6 +6525,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "mediatoolkit.com",
     "pattern": {
       "accepted": [
         "Mediatoolkitbot"
@@ -6406,6 +6567,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "extlinks.com",
     "pattern": {
       "accepted": [
         "ExtLinksBot"
@@ -6511,6 +6673,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "webz.io",
     "pattern": {
       "accepted": [
         "omgili"
@@ -6532,6 +6695,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "getpocket.com",
     "pattern": {
       "accepted": [
         "PocketParser"
@@ -6594,6 +6758,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "toutiao.com",
     "pattern": {
       "accepted": [
         "ToutiaoSpider"
@@ -6615,6 +6780,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "muckrack.com",
     "pattern": {
       "accepted": [
         "MuckRack"
@@ -6636,6 +6802,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "jamiembrown.com",
     "pattern": {
       "accepted": [
         "Jamie's Spider"
@@ -6752,6 +6919,7 @@
       "google",
       "programmatic"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "AppEngine-Google"
@@ -6815,6 +6983,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "thinklab.com",
     "pattern": {
       "accepted": [
         "Thinklab"
@@ -6836,6 +7005,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "traackr.com",
     "pattern": {
       "accepted": [
         "Traackr\\.com"
@@ -6857,6 +7027,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "twurly.org",
     "pattern": {
       "accepted": [
         "Twurly"
@@ -6942,6 +7113,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "botify.com",
     "pattern": {
       "accepted": [
         "botify"
@@ -7002,6 +7174,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "brandverity.com",
     "pattern": {
       "accepted": [
         "BrandVerity"
@@ -7110,6 +7283,7 @@
       "academic",
       "ai"
     ],
+    "operator": "nict.go.jp",
     "pattern": {
       "accepted": [
         "ICC-Crawler"
@@ -7156,6 +7330,7 @@
     "categories": [
       "academic"
     ],
+    "operator": "uni-leipzig.de",
     "pattern": {
       "accepted": [
         "^LCC "
@@ -7197,6 +7372,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "bombora.com",
     "pattern": {
       "accepted": [
         "BomboraBot"
@@ -7218,6 +7394,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "hypefactors.com",
     "pattern": {
       "accepted": [
         "Buck\\/"
@@ -7239,6 +7416,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "companybooknetworking.com",
     "pattern": {
       "accepted": [
         "Companybook-Crawler"
@@ -7260,6 +7438,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "genieo.com",
     "pattern": {
       "accepted": [
         "Genieo"
@@ -7281,6 +7460,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "brandwatch.net",
     "pattern": {
       "accepted": [
         "magpie-crawler"
@@ -7302,6 +7482,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "meltwater.com",
     "pattern": {
       "accepted": [
         "MeltwaterNews"
@@ -7323,6 +7504,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "moreover.com",
     "pattern": {
       "accepted": [
         "Moreover"
@@ -7367,6 +7549,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "scoutjet.com",
     "pattern": {
       "accepted": [
         "ScoutJet"
@@ -7388,6 +7571,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "sentry.io",
     "pattern": {
       "accepted": [
         "(^| )sentry\\/"
@@ -7409,6 +7593,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "storygize.com",
     "pattern": {
       "accepted": [
         "StorygizeBot"
@@ -7430,6 +7615,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "uptimerobot.com",
     "pattern": {
       "accepted": [
         "UptimeRobot"
@@ -7474,6 +7660,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "outclicks.net",
     "pattern": {
       "accepted": [
         "OutclicksBot"
@@ -7498,6 +7685,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "seoscanners.net",
     "pattern": {
       "accepted": [
         "seoscanners"
@@ -7546,6 +7734,7 @@
       "preview",
       "social"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google Web Preview"
@@ -7587,6 +7776,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "alphaseobot.com",
     "pattern": {
       "accepted": [
         "AlphaBot"
@@ -7608,6 +7798,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "sbl.net",
     "pattern": {
       "accepted": [
         "SBL-BOT"
@@ -7630,6 +7821,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "integralads.com",
     "pattern": {
       "accepted": [
         "IAS crawler"
@@ -7672,6 +7864,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "netvibes.com",
     "pattern": {
       "accepted": [
         "Netvibes"
@@ -7715,6 +7908,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "baidu.com",
     "pattern": {
       "accepted": [
         "Baidu-YunGuanCe"
@@ -7741,6 +7935,7 @@
     "categories": [
       "preview"
     ],
+    "operator": "bitly.com",
     "pattern": {
       "accepted": [
         "bitlybot"
@@ -7764,6 +7959,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "blogmura.com",
     "pattern": {
       "accepted": [
         "blogmuraBot"
@@ -7786,6 +7982,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "araturka.com",
     "pattern": {
       "accepted": [
         "Bot\\.AraTurka\\.com"
@@ -7827,6 +8024,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "boxcar.io",
     "pattern": {
       "accepted": [
         "BoxcarBot"
@@ -7891,6 +8089,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "digincore.com",
     "pattern": {
       "accepted": [
         "Digincore bot"
@@ -7912,6 +8111,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "disqus.com",
     "pattern": {
       "accepted": [
         "Disqus"
@@ -7934,6 +8134,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "feedly.com",
     "pattern": {
       "accepted": [
         "Feedly"
@@ -7980,6 +8181,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "feedafever.com",
     "pattern": {
       "accepted": [
         "Fever"
@@ -8022,6 +8224,7 @@
       "monitor",
       "preview"
     ],
+    "operator": "flipboard.com",
     "pattern": {
       "accepted": [
         "FlipboardProxy"
@@ -8048,6 +8251,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "g2reader.com",
     "pattern": {
       "accepted": [
         "g2reader-bot"
@@ -8069,6 +8273,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "g2webservices.com",
     "pattern": {
       "accepted": [
         "G2 Web Services"
@@ -8090,6 +8295,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "mignify.com",
     "pattern": {
       "accepted": [
         "imrbot"
@@ -8111,6 +8317,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "k7computing.com",
     "pattern": {
       "accepted": [
         "K7MLWCBot"
@@ -8133,6 +8340,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "kemvi.com",
     "pattern": {
       "accepted": [
         "Kemvibot"
@@ -8154,6 +8362,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "landaumedia.de",
     "pattern": {
       "accepted": [
         "Landau-Media-Spider"
@@ -8175,6 +8384,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "linkapedia.com",
     "pattern": {
       "accepted": [
         "linkapediabot"
@@ -8196,6 +8406,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "vk.com",
     "pattern": {
       "accepted": [
         "vkShare"
@@ -8218,6 +8429,7 @@
       "optimizer",
       "tool"
     ],
+    "operator": "siteimprove.com",
     "pattern": {
       "accepted": [
         "Siteimprove\\.com"
@@ -8294,6 +8506,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "webmeup-crawler.com",
     "pattern": {
       "accepted": [
         "BLEXBot\\/"
@@ -8315,6 +8528,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "dareboost.com",
     "pattern": {
       "accepted": [
         "DareBoost"
@@ -8387,6 +8601,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "feedspot.com",
     "pattern": {
       "accepted": [
         "Feedspot"
@@ -8409,6 +8624,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "diffbot.com",
     "pattern": {
       "accepted": [
         "Diffbot\\/"
@@ -8430,6 +8646,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "seokicks.de",
     "pattern": {
       "accepted": [
         "SEOkicks"
@@ -8512,6 +8729,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "pr-cy.ru",
     "pattern": {
       "accepted": [
         "PR-CY\\.RU"
@@ -8553,6 +8771,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "datafeedwatch.com",
     "pattern": {
       "accepted": [
         "Datafeedwatch"
@@ -8595,6 +8814,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "tangiblee.com",
     "pattern": {
       "accepted": [
         "TangibleeBot"
@@ -8616,6 +8836,7 @@
     "categories": [
       "google"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "google-xrawler"
@@ -8659,6 +8880,7 @@
     "categories": [
       "amazon"
     ],
+    "operator": "amazon.com",
     "pattern": {
       "accepted": [
         "Amazon CloudFront"
@@ -8700,6 +8922,7 @@
     "categories": [
       "archive"
     ],
+    "operator": "cloudflare.com",
     "pattern": {
       "accepted": [
         "CloudFlare-AlwaysOnline"
@@ -8724,6 +8947,7 @@
       "monitor",
       "optimizer"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google-Structured-Data-Testing-Tool"
@@ -8766,6 +8990,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "webdatastats.com",
     "pattern": {
       "accepted": [
         "WebDataStats"
@@ -8807,6 +9032,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "seozoom.it",
     "pattern": {
       "accepted": [
         "ZoomBot"
@@ -8831,6 +9057,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "velen.io",
     "pattern": {
       "accepted": [
         "VelenPublicWebCrawler"
@@ -8872,6 +9099,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "vipnytt.no",
     "pattern": {
       "accepted": [
         "jpg-newsbot"
@@ -8893,6 +9121,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "outbrain.com",
     "pattern": {
       "accepted": [
         "outbrain"
@@ -8914,6 +9143,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "w3.org",
     "pattern": {
       "accepted": [
         "W3C_Validator"
@@ -8935,6 +9165,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "w3.org",
     "pattern": {
       "accepted": [
         "Validator\\.nu"
@@ -8956,6 +9187,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "w3.org",
     "pattern": {
       "accepted": [
         "W3C-checklink"
@@ -8985,6 +9217,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "w3.org",
     "pattern": {
       "accepted": [
         "W3C-mobileOK"
@@ -9006,6 +9239,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "w3.org",
     "pattern": {
       "accepted": [
         "W3C_I18n-Checker"
@@ -9027,6 +9261,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "w3.org",
     "pattern": {
       "accepted": [
         "FeedValidator"
@@ -9048,6 +9283,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "w3.org",
     "pattern": {
       "accepted": [
         "W3C_CSS_Validator"
@@ -9069,6 +9305,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "w3.org",
     "pattern": {
       "accepted": [
         "W3C_Unicorn"
@@ -9090,6 +9327,7 @@
     "categories": [
       "google"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google-PhysicalWeb"
@@ -9110,6 +9348,7 @@
     "categories": [
       "academic"
     ],
+    "operator": "blackboard.com",
     "pattern": {
       "accepted": [
         "Blackboard"
@@ -9131,6 +9370,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "ideasandcode.xyz",
     "pattern": {
       "accepted": [
         "ICBot\\/"
@@ -9152,6 +9392,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "bazqux.com",
     "pattern": {
       "accepted": [
         "BazQux"
@@ -9173,6 +9414,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "twingly.com",
     "pattern": {
       "accepted": [
         "Twingly"
@@ -9194,6 +9436,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "rivva.de",
     "pattern": {
       "accepted": [
         "Rivva"
@@ -9257,6 +9500,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "dataprovider.com",
     "pattern": {
       "accepted": [
         "Dataprovider\\.com"
@@ -9278,6 +9522,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "grouphigh.com",
     "pattern": {
       "accepted": [
         "GroupHigh\\/"
@@ -9299,6 +9544,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "theoldreader.com",
     "pattern": {
       "accepted": [
         "theoldreader\\.com"
@@ -9341,6 +9587,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "uptimebot.org",
     "pattern": {
       "accepted": [
         "Uptimebot\\.org"
@@ -9383,6 +9630,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "2ip.ru",
     "pattern": {
       "accepted": [
         "2ip\\.ru"
@@ -9404,6 +9652,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "clickagy.com",
     "pattern": {
       "accepted": [
         "Clickagy"
@@ -9425,6 +9674,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "conductor.com",
     "pattern": {
       "accepted": [
         "Caliperbot"
@@ -9446,6 +9696,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "monitorbacklinks.com",
     "pattern": {
       "accepted": [
         "MBCrawler"
@@ -9467,6 +9718,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "webceo.com",
     "pattern": {
       "accepted": [
         "online-webceo-bot"
@@ -9508,6 +9760,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "addsearch.com",
     "pattern": {
       "accepted": [
         "AddSearchBot"
@@ -9530,6 +9783,7 @@
       "google",
       "preview"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google Favicon"
@@ -9628,6 +9882,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "checkmarknetwork.com",
     "pattern": {
       "accepted": [
         "CheckMarkNetwork\\/"
@@ -9649,6 +9904,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "uptime.com",
     "pattern": {
       "accepted": [
         "www\\.uptime\\.com"
@@ -9670,6 +9926,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "ubtsupport.com",
     "pattern": {
       "accepted": [
         "Streamline3Bot\\/"
@@ -9692,6 +9949,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "serpstatbot.com",
     "pattern": {
       "accepted": [
         "serpstatbot\\/"
@@ -9714,6 +9972,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "mixnode.com",
     "pattern": {
       "accepted": [
         "MixnodeCache\\/"
@@ -9784,6 +10043,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "rssing.com",
     "pattern": {
       "accepted": [
         "RSSingBot"
@@ -9805,6 +10065,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "jooble.org",
     "pattern": {
       "accepted": [
         "Jooblebot"
@@ -9826,6 +10087,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "fedoraplanet.org",
     "pattern": {
       "accepted": [
         "fedoraplanet"
@@ -9916,6 +10178,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "region-stuttgart.de",
     "pattern": {
       "accepted": [
         "RegionStuttgartBot"
@@ -9937,6 +10200,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "bytedance.com",
     "pattern": {
       "accepted": [
         "Bytespider"
@@ -9979,6 +10243,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "datanyze.com",
     "pattern": {
       "accepted": [
         "Datanyze"
@@ -10001,6 +10266,7 @@
       "google",
       "monitor"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google-Site-Verification"
@@ -10046,6 +10312,7 @@
       "archive",
       "social"
     ],
+    "operator": "trendsmap.com",
     "pattern": {
       "accepted": [
         "TrendsmapResolver"
@@ -10067,6 +10334,7 @@
     "categories": [
       "social"
     ],
+    "operator": "tweetedtimes.com",
     "pattern": {
       "accepted": [
         "tweetedtimes"
@@ -10109,6 +10377,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "gwene.org",
     "pattern": {
       "accepted": [
         "Gwene"
@@ -10151,6 +10420,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "searchatlas.com",
     "pattern": {
       "accepted": [
         "SearchAtlas"
@@ -10172,6 +10442,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "superfeedr.com",
     "pattern": {
       "accepted": [
         "Superfeedr"
@@ -10214,6 +10485,7 @@
     "categories": [
       "academic"
     ],
+    "operator": "utexas.edu",
     "pattern": {
       "accepted": [
         "UT-Dorkbot"
@@ -10235,6 +10507,7 @@
     "categories": [
       "amazon"
     ],
+    "operator": "amazon.com",
     "pattern": {
       "accepted": [
         "Amazonbot"
@@ -10259,6 +10532,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "serendeputy.com",
     "pattern": {
       "accepted": [
         "SerendeputyBot"
@@ -10280,6 +10554,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "eyeota.com",
     "pattern": {
       "accepted": [
         "Eyeotabot"
@@ -10302,6 +10577,7 @@
       "microsoft",
       "search-engine"
     ],
+    "operator": "microsoft.com",
     "pattern": {
       "accepted": [
         "officestorebot"
@@ -10323,6 +10599,7 @@
     "categories": [
       "social"
     ],
+    "operator": "neticle.com",
     "pattern": {
       "accepted": [
         "Neticle Crawler"
@@ -10344,6 +10621,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "sur.ly",
     "pattern": {
       "accepted": [
         "SurdotlyBot"
@@ -10385,6 +10663,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "awario.com",
     "pattern": {
       "accepted": [
         "AwarioSmartBot"
@@ -10406,6 +10685,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "awario.com",
     "pattern": {
       "accepted": [
         "AwarioRssBot"
@@ -10427,6 +10707,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "ryte.com",
     "pattern": {
       "accepted": [
         "RyteBot"
@@ -10448,6 +10729,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "freewebmonitoring.com",
     "pattern": {
       "accepted": [
         "FreeWebMonitoring SiteChecker"
@@ -10469,6 +10751,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "huawei.com",
     "pattern": {
       "accepted": [
         "AspiegelBot"
@@ -10490,6 +10773,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "naver.com",
     "pattern": {
       "accepted": [
         "NAVER Blog Rssbot"
@@ -10511,6 +10795,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "logly.co.jp",
     "pattern": {
       "accepted": [
         "zenback bot"
@@ -10575,6 +10860,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "domainsbot.com",
     "pattern": {
       "accepted": [
         "Pandalytics"
@@ -10616,6 +10902,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "bidswitch.com",
     "pattern": {
       "accepted": [
         "bidswitchbot"
@@ -10657,6 +10944,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "nixstats.com",
     "pattern": {
       "accepted": [
         "NIXStatsbot"
@@ -10678,6 +10966,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "rssmicro.com",
     "pattern": {
       "accepted": [
         "Atom Feed Robot"
@@ -10721,6 +11010,7 @@
       "monitor",
       "preview"
     ],
+    "operator": "pagepeeker.com",
     "pattern": {
       "accepted": [
         "PagePeeker\\/"
@@ -10742,6 +11032,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "vigil-app.com",
     "pattern": {
       "accepted": [
         "Vigil\\/"
@@ -10784,6 +11075,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "start.me",
     "pattern": {
       "accepted": [
         "startmebot\\/"
@@ -10805,6 +11097,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "jobboerse.com",
     "pattern": {
       "accepted": [
         "JobboerseBot"
@@ -10826,6 +11119,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "seewithkids.com",
     "pattern": {
       "accepted": [
         "seewithkids"
@@ -10867,6 +11161,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "cutbot.net",
     "pattern": {
       "accepted": [
         "Cutbot"
@@ -10888,6 +11183,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "bublup.com",
     "pattern": {
       "accepted": [
         "BublupBot"
@@ -10909,6 +11205,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "brandonmedia.net",
     "pattern": {
       "accepted": [
         "BrandONbot"
@@ -10930,6 +11227,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "ridder.co",
     "pattern": {
       "accepted": [
         "RidderBot"
@@ -10952,6 +11250,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "taboola.com",
     "pattern": {
       "accepted": [
         "Taboolabot"
@@ -10974,6 +11273,7 @@
       "monitor",
       "optimizer"
     ],
+    "operator": "dubbot.com",
     "pattern": {
       "accepted": [
         "Dubbotbot"
@@ -10995,6 +11295,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "it-influentials.com",
     "pattern": {
       "accepted": [
         "FindITAnswersbot"
@@ -11016,6 +11317,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "infoo.nl",
     "pattern": {
       "accepted": [
         "infoobot"
@@ -11037,6 +11339,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "refind.com",
     "pattern": {
       "accepted": [
         "Refindbot"
@@ -11058,6 +11361,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "blogtraffic.de",
     "pattern": {
       "accepted": [
         "BlogTraffic\\/\\d\\.\\d+ Feed-Fetcher"
@@ -11079,6 +11383,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "seobility.net",
     "pattern": {
       "accepted": [
         "SeobilityBot"
@@ -11100,6 +11405,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "cincrawdata.net",
     "pattern": {
       "accepted": [
         "Cincraw"
@@ -11121,6 +11427,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "dragonmetrics.com",
     "pattern": {
       "accepted": [
         "Dragonbot"
@@ -11142,6 +11449,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "codewise.com",
     "pattern": {
       "accepted": [
         "VoluumDSP-content-bot"
@@ -11233,6 +11541,7 @@
       "google",
       "monitor"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google-Certificates-Bridge"
@@ -11274,6 +11583,7 @@
       "preview",
       "social"
     ],
+    "operator": "viber.com",
     "pattern": {
       "accepted": [
         "Viber"
@@ -11298,6 +11608,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "eventures.vc",
     "pattern": {
       "accepted": [
         "e\\.ventures Investment Crawler"
@@ -11319,6 +11630,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "eventures.vc",
     "pattern": {
       "accepted": [
         "evc-batch"
@@ -11341,6 +11653,7 @@
       "ai",
       "search-engine"
     ],
+    "operator": "huawei.com",
     "pattern": {
       "accepted": [
         "PetalBot"
@@ -11363,6 +11676,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "virustotal.com",
     "pattern": {
       "accepted": [
         "virustotal"
@@ -11409,6 +11723,7 @@
       "monitor",
       "optimizer"
     ],
+    "operator": "testomato.com",
     "pattern": {
       "accepted": [
         "minicrawler"
@@ -11430,6 +11745,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "cookiebot.com",
     "pattern": {
       "accepted": [
         "Cookiebot"
@@ -11451,6 +11767,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "trovit.com",
     "pattern": {
       "accepted": [
         "trovitBot"
@@ -11472,6 +11789,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "seostar.co",
     "pattern": {
       "accepted": [
         "seostar\\.co"
@@ -11493,6 +11811,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "ionos.de",
     "pattern": {
       "accepted": [
         "IonCrawl"
@@ -11535,6 +11854,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "seekport.com",
     "pattern": {
       "accepted": [
         "Seekport"
@@ -11557,6 +11877,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "freshping.io",
     "pattern": {
       "accepted": [
         "FreshpingBot"
@@ -11578,6 +11899,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "feedbin.com",
     "pattern": {
       "accepted": [
         "Feedbin"
@@ -11599,6 +11921,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "criteo.com",
     "pattern": {
       "accepted": [
         "CriteoBot"
@@ -11621,6 +11944,7 @@
       "preview",
       "social"
     ],
+    "operator": "snap.com",
     "pattern": {
       "accepted": [
         "Snap URL Preview Service"
@@ -11642,6 +11966,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "betterstack.com",
     "pattern": {
       "accepted": [
         "Better (?:Stack|Uptime Bot)"
@@ -11679,6 +12004,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "dynatrace.com",
     "pattern": {
       "accepted": [
         "RuxitSynthetic"
@@ -11700,6 +12026,7 @@
     "categories": [
       "google"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google-Read-Aloud"
@@ -11746,6 +12073,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "ok.ru",
     "pattern": {
       "accepted": [
         "OdklBot\\/"
@@ -11768,6 +12096,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "openai.com",
     "pattern": {
       "accepted": [
         "GPTBot"
@@ -11801,6 +12130,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "openai.com",
     "pattern": {
       "accepted": [
         "ChatGPT-User"
@@ -11836,6 +12166,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "yandex.com",
     "pattern": {
       "accepted": [
         "YandexRenderResourcesBot\\/"
@@ -11886,6 +12217,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "headline.com",
     "pattern": {
       "accepted": [
         "ev-crawler\\/"
@@ -11907,6 +12239,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "bitsight.com",
     "pattern": {
       "accepted": [
         "BitSightBot\\/"
@@ -11928,6 +12261,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "woorank.com",
     "pattern": {
       "accepted": [
         "woorankreview\\/"
@@ -11950,6 +12284,7 @@
     "categories": [
       "google"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google-Safety"
@@ -11990,6 +12325,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "awario.com",
     "pattern": {
       "accepted": [
         "AwarioBot"
@@ -12011,6 +12347,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "dataforseo.com",
     "pattern": {
       "accepted": [
         "DataForSeoBot"
@@ -12032,6 +12369,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "line.me",
     "pattern": {
       "accepted": [
         "Linespider"
@@ -12054,6 +12392,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "well-known.dev",
     "pattern": {
       "accepted": [
         "WellKnownBot"
@@ -12075,6 +12414,7 @@
     "categories": [
       "academic"
     ],
+    "operator": "epfl.ch",
     "pattern": {
       "accepted": [
         "A Patent Crawler"
@@ -12096,6 +12436,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "trystract.com",
     "pattern": {
       "accepted": [
         "StractBot"
@@ -12117,6 +12458,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "marginalia.nu",
     "pattern": {
       "accepted": [
         "search\\.marginalia\\.nu"
@@ -12139,6 +12481,7 @@
       "ai",
       "search-engine"
     ],
+    "operator": "you.com",
     "pattern": {
       "accepted": [
         "YouBot"
@@ -12172,6 +12515,7 @@
     "categories": [
       "archive"
     ],
+    "operator": "nicecrawler.com",
     "pattern": {
       "accepted": [
         "Nicecrawler"
@@ -12193,6 +12537,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "neeva.com",
     "pattern": {
       "accepted": [
         "Neevabot"
@@ -12214,6 +12559,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "brightedge.com",
     "pattern": {
       "accepted": [
         "BrightEdge Crawler"
@@ -12235,6 +12581,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "sitechecker.pro",
     "pattern": {
       "accepted": [
         "SiteCheckerBotCrawler"
@@ -12256,6 +12603,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "tombascraper.com",
     "pattern": {
       "accepted": [
         "TombaPublicWebCrawler"
@@ -12277,6 +12625,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "digitaldragon.dev",
     "pattern": {
       "accepted": [
         "CrawlyProjectCrawler"
@@ -12298,6 +12647,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "komodia.com",
     "pattern": {
       "accepted": [
         "KomodiaBot"
@@ -12319,6 +12669,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "url-classification.io",
     "pattern": {
       "accepted": [
         "KStandBot"
@@ -12340,6 +12691,7 @@
     "categories": [
       "academic"
     ],
+    "operator": "cispa.saarland",
     "pattern": {
       "accepted": [
         "CISPA Webcrawler"
@@ -12361,6 +12713,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "metrics-tools.de",
     "pattern": {
       "accepted": [
         "MTRobot"
@@ -12382,6 +12735,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "hyscore.io",
     "pattern": {
       "accepted": [
         "hyscore\\.io"
@@ -12403,6 +12757,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "alexandria.org",
     "pattern": {
       "accepted": [
         "AlexandriaOrgBot"
@@ -12424,6 +12779,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "2ip.io",
     "pattern": {
       "accepted": [
         "2ip bot"
@@ -12445,6 +12801,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "yellowbp.com",
     "pattern": {
       "accepted": [
         "Yellowbrandprotectionbot"
@@ -12466,6 +12823,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "seolizer.de",
     "pattern": {
       "accepted": [
         "SEOlizer"
@@ -12487,6 +12845,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "vuhuv.com",
     "pattern": {
       "accepted": [
         "vuhuvBot"
@@ -12508,6 +12867,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "inetdex.com",
     "pattern": {
       "accepted": [
         "INETDEX-BOT"
@@ -12551,6 +12911,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "t3versions.com",
     "pattern": {
       "accepted": [
         "t3versionsBot"
@@ -12572,6 +12933,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "deepnoc.com",
     "pattern": {
       "accepted": [
         "deepnoc"
@@ -12593,6 +12955,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "cocolyze.com",
     "pattern": {
       "accepted": [
         "Cocolyzebot"
@@ -12614,6 +12977,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "hypestat.com",
     "pattern": {
       "accepted": [
         "hypestat"
@@ -12635,6 +12999,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "torus.company",
     "pattern": {
       "accepted": [
         "ReverseEngineeringBot"
@@ -12656,6 +13021,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "sempi.tech",
     "pattern": {
       "accepted": [
         "sempi\\.tech"
@@ -12678,6 +13044,7 @@
       "preview",
       "social"
     ],
+    "operator": "iframely.com",
     "pattern": {
       "accepted": [
         "Iframely"
@@ -12784,6 +13151,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "opengraphcheck.com",
     "pattern": {
       "accepted": [
         "OpenGraphCheck"
@@ -12807,6 +13175,7 @@
       "preview",
       "social"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "developers\\.google\\.com\\/\\+\\/web\\/snippet"
@@ -12829,6 +13198,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "senuto.com",
     "pattern": {
       "accepted": [
         "SenutoBot"
@@ -12871,6 +13241,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "newsblur.com",
     "pattern": {
       "accepted": [
         "NewsBlur"
@@ -12892,6 +13263,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "inoreader.com",
     "pattern": {
       "accepted": [
         "inoreader"
@@ -12913,6 +13285,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "netsystemsresearch.com",
     "pattern": {
       "accepted": [
         "NetSystemsResearch"
@@ -12934,6 +13307,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "pagething.com",
     "pattern": {
       "accepted": [
         "PageThing"
@@ -12999,6 +13373,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "imagesift.com",
     "pattern": {
       "accepted": [
         "ImagesiftBot"
@@ -13020,6 +13395,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "paloaltonetworks.com",
     "pattern": {
       "accepted": [
         "Expanse"
@@ -13041,6 +13417,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "internet-measurement.com",
     "pattern": {
       "accepted": [
         "InternetMeasurement"
@@ -13062,6 +13439,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "builtwith.com",
     "pattern": {
       "accepted": [
         "^BW\\/"
@@ -13084,6 +13462,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "geedo.com",
     "pattern": {
       "accepted": [
         "GeedoBot"
@@ -13105,6 +13484,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "audisto.com",
     "pattern": {
       "accepted": [
         "Audisto Crawler"
@@ -13129,6 +13509,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "perplexity.ai",
     "pattern": {
       "accepted": [
         "PerplexityBot\\/"
@@ -13161,6 +13542,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "anthropic.com",
     "pattern": {
       "accepted": [
         "[cC]laude(?:[bB]ot|-[Ww]eb)"
@@ -13200,6 +13582,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "anthropic.com",
     "pattern": {
       "accepted": [
         "Claude-User"
@@ -13239,6 +13622,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "anthropic.com",
     "pattern": {
       "accepted": [
         "Claude-SearchBot"
@@ -13274,6 +13658,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "monsido.com",
     "pattern": {
       "accepted": [
         "Monsidobot"
@@ -13295,6 +13680,7 @@
     "categories": [
       "social"
     ],
+    "operator": "groupme.com",
     "pattern": {
       "accepted": [
         "GroupMeBot"
@@ -13316,6 +13702,7 @@
     "categories": [
       "vercel"
     ],
+    "operator": "vercel.com",
     "pattern": {
       "accepted": [
         "Vercelbot"
@@ -13339,6 +13726,7 @@
       "preview",
       "vercel"
     ],
+    "operator": "vercel.com",
     "pattern": {
       "accepted": [
         "vercel-screenshot"
@@ -13357,6 +13745,7 @@
     "categories": [
       "programmatic"
     ],
+    "operator": "coda.io",
     "pattern": {
       "accepted": [
         "Coda-Server-Fetcher"
@@ -13376,6 +13765,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "allenai.org",
     "pattern": {
       "accepted": [
         "AI2Bot\\s"
@@ -13397,6 +13787,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "allenai.org",
     "pattern": {
       "accepted": [
         "Ai2Bot-Dolma"
@@ -13440,6 +13831,7 @@
       "ai",
       "google"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google-CloudVertexBot"
@@ -13480,6 +13872,7 @@
       "ai",
       "meta"
     ],
+    "operator": "meta.com",
     "pattern": {
       "accepted": [
         "[Mm]eta-[Ee]xternal[Aa]gent"
@@ -13503,6 +13896,7 @@
       "advertising",
       "meta"
     ],
+    "operator": "meta.com",
     "pattern": {
       "accepted": [
         "meta-externalads\\/"
@@ -13528,6 +13922,7 @@
       "meta",
       "preview"
     ],
+    "operator": "meta.com",
     "pattern": {
       "accepted": [
         "[Mm]eta-[Ee]xternal[Ff]etcher"
@@ -13562,6 +13957,7 @@
       "ai",
       "search-engine"
     ],
+    "operator": "openai.com",
     "pattern": {
       "accepted": [
         "OAI-SearchBot"
@@ -13597,6 +13993,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "timpi.io",
     "pattern": {
       "accepted": [
         "Timpibot"
@@ -13618,6 +14015,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "webz.io",
     "pattern": {
       "accepted": [
         "webzio\\s"
@@ -13639,6 +14037,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "webz.io",
     "pattern": {
       "accepted": [
         "webzio-extended"
@@ -13660,6 +14059,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "cohere.com",
     "pattern": {
       "accepted": [
         "cohere-ai"
@@ -13720,6 +14120,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "datadoghq.com",
     "pattern": {
       "accepted": [
         "Datadog(?:\\/{0,1}Synthetics| Synthetic)"
@@ -13754,6 +14155,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "hydrozen.io",
     "pattern": {
       "accepted": [
         "Hydrozen\\.io\\/"
@@ -13788,6 +14190,7 @@
       "preview",
       "social"
     ],
+    "operator": "apple.com",
     "pattern": {
       "accepted": [
         "facebookexternalhit",
@@ -13811,6 +14214,7 @@
     "categories": [
       "webhook"
     ],
+    "operator": "stripe.com",
     "pattern": {
       "accepted": [
         "Stripe\\/"
@@ -13843,6 +14247,7 @@
     "categories": [
       "programmatic"
     ],
+    "operator": "stripe.com",
     "pattern": {
       "accepted": [
         "Stripebot\\/"
@@ -13893,6 +14298,7 @@
       "social",
       "ai"
     ],
+    "operator": "tiktok.com",
     "pattern": {
       "accepted": [
         "TikTokSpider"
@@ -13914,6 +14320,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "geedo.com",
     "pattern": {
       "accepted": [
         "GeedoProductSearch"
@@ -13953,6 +14360,7 @@
       "microsoft",
       "preview"
     ],
+    "operator": "microsoft.com",
     "pattern": {
       "accepted": [
         "MicrosoftPreview\\/"
@@ -14034,6 +14442,7 @@
     "categories": [
       "tool"
     ],
+    "operator": "ipip.net",
     "pattern": {
       "accepted": [
         "HTTP Banner Detection"
@@ -14055,6 +14464,7 @@
     "categories": [
       "tool"
     ],
+    "operator": "yext.com",
     "pattern": {
       "accepted": [
         "YextBot"
@@ -14077,6 +14487,7 @@
     "categories": [
       "advertising"
     ],
+    "operator": "adagio.io",
     "pattern": {
       "accepted": [
         "Adagiobot\\/"
@@ -14098,6 +14509,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "algolia.com",
     "pattern": {
       "accepted": [
         "Algolia Crawler\\/"
@@ -14126,6 +14538,7 @@
     "categories": [
       "advertising"
     ],
+    "operator": "quantcast.com",
     "pattern": {
       "accepted": [
         "Quantcastbot\\/"
@@ -14161,6 +14574,7 @@
     "categories": [
       "webhook"
     ],
+    "operator": "adyen.com",
     "pattern": {
       "accepted": [
         "Adyen HttpClient"
@@ -14190,6 +14604,7 @@
       "amazon",
       "advertising"
     ],
+    "operator": "amazon.com",
     "pattern": {
       "accepted": [
         "AmazonAdBot"
@@ -14219,6 +14634,7 @@
     "categories": [
       "social"
     ],
+    "operator": "pinterest.com",
     "pattern": {
       "accepted": [
         "Pinterest(bot)?\\/\\d"
@@ -14260,6 +14676,7 @@
     "categories": [
       "advertising"
     ],
+    "operator": "ahrefs.com",
     "pattern": {
       "accepted": [
         "AhrefsSiteAudit\\/"
@@ -14294,6 +14711,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "perplexity.ai",
     "pattern": {
       "accepted": [
         "Perplexity-?User"
@@ -14327,6 +14745,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "newrelic.com",
     "pattern": {
       "accepted": [
         "NewRelic(?:bot\\/|Synthetics)"
@@ -14361,6 +14780,7 @@
       "amazon",
       "monitor"
     ],
+    "operator": "amazon.com",
     "pattern": {
       "accepted": [
         "Amazon Route 53 Health Check Service"
@@ -14393,6 +14813,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "checklyhq.com",
     "pattern": {
       "accepted": [
         "Checkly"
@@ -14426,6 +14847,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "statuscake.com",
     "pattern": {
       "accepted": [
         "StatusCake"
@@ -14458,6 +14880,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "sentry.io",
     "pattern": {
       "accepted": [
         "SentryUptimeBot\\/1\\.0"
@@ -14490,6 +14913,7 @@
       "meta",
       "social"
     ],
+    "operator": "meta.com",
     "pattern": {
       "accepted": [
         "facebookcatalog\\/"
@@ -14522,6 +14946,7 @@
       "preview",
       "social"
     ],
+    "operator": "keybase.io",
     "pattern": {
       "accepted": [
         "KeybaseBot"
@@ -14543,6 +14968,7 @@
     "categories": [
       "academic"
     ],
+    "operator": "rtu.lv",
     "pattern": {
       "accepted": [
         "AcademicBotRTU"
@@ -14564,6 +14990,7 @@
     "categories": [
       "tool"
     ],
+    "operator": "cookiehub.com",
     "pattern": {
       "accepted": [
         "CookieHubScan"
@@ -14596,6 +15023,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "cloudflare.com",
     "pattern": {
       "accepted": [
         "Cloudflare-Healthchecks"
@@ -14631,6 +15059,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "cloudflare.com",
     "pattern": {
       "accepted": [
         "Cloudflare-Traffic-Manager"
@@ -14666,6 +15095,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "cloudflare.com",
     "pattern": {
       "accepted": [
         "CloudFlare-Prefetch"
@@ -14701,6 +15131,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "cloudflare.com",
     "pattern": {
       "accepted": [
         "Cloudflare-SSLDetector"
@@ -14736,6 +15167,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "cloudflare.com",
     "pattern": {
       "accepted": [
         "https:\\/\\/developers\\.cloudflare\\.com\\/security-center\\/"
@@ -14772,6 +15204,7 @@
       "optimizer",
       "tool"
     ],
+    "operator": "oncrawl.com",
     "pattern": {
       "accepted": [
         "On[Cc]rawl\\/"
@@ -14828,6 +15261,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "censys.com",
     "pattern": {
       "accepted": [
         "CensysInspect\\/"
@@ -14875,6 +15309,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "sbintuitions.co.jp",
     "pattern": {
       "accepted": [
         "SBIntuitionsBot\\/"
@@ -14918,6 +15353,7 @@
     "categories": [
       "google"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google-CWS"
@@ -14967,6 +15403,7 @@
       "ai-agent",
       "google"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google-(?:GeminiNotebook|NotebookLM)"
@@ -15019,6 +15456,7 @@
       "ai-agent",
       "google"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google-Agent"
@@ -15067,6 +15505,7 @@
       "google",
       "preview"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "GoogleMessages"
@@ -15114,6 +15553,7 @@
     "categories": [
       "google"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google-Pinpoint"
@@ -15162,6 +15602,7 @@
       "google",
       "feedfetcher"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "GoogleProducer"
@@ -15211,6 +15652,7 @@
       "ai-agent",
       "google"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Gemini-Deep-Research"
@@ -15236,6 +15678,7 @@
       "google",
       "preview"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "GoogleImageProxy"
@@ -15257,6 +15700,7 @@
     "categories": [
       "google"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "GoogleAssociationService"
@@ -15280,6 +15724,7 @@
       "google",
       "monitor"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "GoogleStackdriverMonitoring"
@@ -15302,6 +15747,7 @@
       "meta",
       "search-engine"
     ],
+    "operator": "meta.com",
     "pattern": {
       "accepted": [
         "meta-webindexer"
@@ -15335,6 +15781,7 @@
       "preview",
       "social"
     ],
+    "operator": "meta.com",
     "pattern": {
       "accepted": [
         "Meta-ExternalHit"
@@ -15366,6 +15813,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "anthropic.com",
     "pattern": {
       "accepted": [
         "anthropic-ai"
@@ -15391,6 +15839,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "mistral.ai",
     "pattern": {
       "accepted": [
         "MistralAI-User"
@@ -15416,6 +15865,7 @@
       "ai",
       "search-engine"
     ],
+    "operator": "mistral.ai",
     "pattern": {
       "accepted": [
         "MistralAI-Index"
@@ -15440,6 +15890,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "mistral.ai",
     "pattern": {
       "accepted": [
         "MistralAI-Training"
@@ -15466,6 +15917,7 @@
       "ai-agent",
       "search-engine"
     ],
+    "operator": "duckduckgo.com",
     "pattern": {
       "accepted": [
         "DuckAssistBot"
@@ -15506,6 +15958,7 @@
       "ai",
       "tool"
     ],
+    "operator": "firecrawl.dev",
     "pattern": {
       "accepted": [
         "FirecrawlAgent"
@@ -15530,6 +15983,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "cloudflare.com",
     "pattern": {
       "accepted": [
         "Cloudflare-(?:AI-Search|AutoRAG)"
@@ -15552,6 +16006,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "tavily.com",
     "pattern": {
       "accepted": [
         "TavilyBot"
@@ -15576,6 +16031,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "parallel.ai",
     "pattern": {
       "accepted": [
         "ShapBot"
@@ -15601,6 +16057,7 @@
       "ai",
       "search-engine"
     ],
+    "operator": "zanista.ai",
     "pattern": {
       "accepted": [
         "ZanistaBot"
@@ -15627,6 +16084,7 @@
       "ai-agent",
       "search-engine"
     ],
+    "operator": "kagi.com",
     "pattern": {
       "accepted": [
         "kagi-fetcher"
@@ -15670,6 +16128,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "brightdata.com",
     "pattern": {
       "accepted": [
         "Brightbot"
@@ -15694,6 +16153,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "atlassian.com",
     "pattern": {
       "accepted": [
         "atlassian-bot"
@@ -15717,6 +16177,7 @@
       "microsoft",
       "search-engine"
     ],
+    "operator": "microsoft.com",
     "pattern": {
       "accepted": [
         "AzureAI-SearchBot"
@@ -15742,6 +16203,7 @@
       "amazon",
       "search-engine"
     ],
+    "operator": "amazon.com",
     "pattern": {
       "accepted": [
         "AmazonProductDiscovery"
@@ -15765,6 +16227,7 @@
       "amazon",
       "search-engine"
     ],
+    "operator": "amazon.com",
     "pattern": {
       "accepted": [
         "AmazonSellerInitiatedListing"
@@ -15788,6 +16251,7 @@
       "amazon",
       "search-engine"
     ],
+    "operator": "amazon.com",
     "pattern": {
       "accepted": [
         "Amzn-SearchBot"
@@ -15814,6 +16278,7 @@
       "ai-agent",
       "amazon"
     ],
+    "operator": "amazon.com",
     "pattern": {
       "accepted": [
         "Amzn-User"
@@ -15841,6 +16306,7 @@
       "amazon",
       "tool"
     ],
+    "operator": "amazon.com",
     "pattern": {
       "accepted": [
         "Amazon-Bedrock-AgentCore-Browser"
@@ -15862,6 +16328,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "geedo.com",
     "pattern": {
       "accepted": [
         "GeedoShopProductFinder"
@@ -15890,6 +16357,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "naver.com",
     "pattern": {
       "accepted": [
         "NaverBot"
@@ -15914,6 +16382,7 @@
     "categories": [
       "apple"
     ],
+    "operator": "apple.com",
     "pattern": {
       "accepted": [
         "AASA-Bot"
@@ -15935,6 +16404,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "watchfor.io",
     "pattern": {
       "accepted": [
         "WatchForBot"
@@ -15976,6 +16446,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "observepoint.com",
     "pattern": {
       "accepted": [
         "ObservePoint"
@@ -16019,6 +16490,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "smartbear.com",
     "pattern": {
       "accepted": [
         "AlertSite"
@@ -16041,6 +16513,7 @@
       "preview",
       "social"
     ],
+    "operator": "listgem.com",
     "pattern": {
       "accepted": [
         "ListGemBot"
@@ -16066,6 +16539,7 @@
       "preview",
       "social"
     ],
+    "operator": "bsky.app",
     "pattern": {
       "accepted": [
         "BlueskyPreviewBot"
@@ -16087,6 +16561,7 @@
     "categories": [
       "preview"
     ],
+    "operator": "github.com",
     "pattern": {
       "accepted": [
         "github-camo"
@@ -16150,6 +16625,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "direqt.ai",
     "pattern": {
       "accepted": [
         "Anomura\\/"
@@ -16192,6 +16668,7 @@
     "categories": [
       "archive"
     ],
+    "operator": "archive-it.org",
     "pattern": {
       "accepted": [
         "Archive-It"
@@ -16235,6 +16712,7 @@
     "categories": [
       "advertising"
     ],
+    "operator": "audigent.com",
     "pattern": {
       "accepted": [
         "AudigentAdBot"
@@ -16257,6 +16735,7 @@
       "preview",
       "social"
     ],
+    "operator": "buffer.com",
     "pattern": {
       "accepted": [
         "BufferLinkPreviewBot"
@@ -16278,6 +16757,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "trychannel3.com",
     "pattern": {
       "accepted": [
         "Channel3Bot"
@@ -16299,6 +16779,7 @@
     "categories": [
       "advertising"
     ],
+    "operator": "ezoic.com",
     "pattern": {
       "accepted": [
         "EzoicBot"
@@ -16321,6 +16802,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "findfiles.net",
     "pattern": {
       "accepted": [
         "FindFiles\\.net"
@@ -16363,6 +16845,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "ibou.io",
     "pattern": {
       "accepted": [
         "IbouBot"
@@ -16384,6 +16867,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "bytedance.com",
     "pattern": {
       "accepted": [
         "imageSpider"
@@ -16405,6 +16889,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "laion.ai",
     "pattern": {
       "accepted": [
         "laion-huggingface-processor"
@@ -16426,6 +16911,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "linkup.so",
     "pattern": {
       "accepted": [
         "LinkupBot"
@@ -16447,6 +16933,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "lyonl.com",
     "pattern": {
       "accepted": [
         "lyonl-crawler"
@@ -16468,6 +16955,7 @@
     "categories": [
       "advertising"
     ],
+    "operator": "mcontextual.net",
     "pattern": {
       "accepted": [
         "McontextualBot"
@@ -16510,6 +16998,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "montastic.com",
     "pattern": {
       "accepted": [
         "MontasticMonitor|montastic-monitor"
@@ -16532,6 +17021,7 @@
     "categories": [
       "advertising"
     ],
+    "operator": "nanointeractive.com",
     "pattern": {
       "accepted": [
         "NanoInteractive"
@@ -16553,6 +17043,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "nestdaddy.com",
     "pattern": {
       "accepted": [
         "NestDaddybot"
@@ -16616,6 +17107,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "phind.com",
     "pattern": {
       "accepted": [
         "PhindBot"
@@ -16637,6 +17129,7 @@
     "categories": [
       "advertising"
     ],
+    "operator": "productsup.com",
     "pattern": {
       "accepted": [
         "productsup\\.io\\/crawler"
@@ -16658,6 +17151,7 @@
     "categories": [
       "advertising"
     ],
+    "operator": "scope3.com",
     "pattern": {
       "accepted": [
         "Scope3"
@@ -16679,6 +17173,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "scrunch.com",
     "pattern": {
       "accepted": [
         "Scrunchbot"
@@ -16700,6 +17195,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "statusnest.com",
     "pattern": {
       "accepted": [
         "StatusNestBacklinkSpider"
@@ -16721,6 +17217,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "thestepstonegroup.com",
     "pattern": {
       "accepted": [
         "stepstoneCrawlBot"
@@ -16763,6 +17260,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "wepch.com",
     "pattern": {
       "accepted": [
         "WepchSearchEngine"
@@ -16784,6 +17282,7 @@
     "categories": [
       "advertising"
     ],
+    "operator": "cybaa.io",
     "pattern": {
       "accepted": [
         "CybaaBot"
@@ -16805,6 +17304,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "fleebs.com",
     "pattern": {
       "accepted": [
         "FleebsBot"
@@ -16826,6 +17326,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "flyriver.com",
     "pattern": {
       "accepted": [
         "Flyriverbot"
@@ -16847,6 +17348,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "noahwire.com",
     "pattern": {
       "accepted": [
         "NoahBot"
@@ -16868,6 +17370,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "plagaware.com",
     "pattern": {
       "accepted": [
         "PlagAwareBot"
@@ -16889,6 +17392,7 @@
     "categories": [
       "advertising"
     ],
+    "operator": "sirdata.net",
     "pattern": {
       "accepted": [
         "SirdataBot"
@@ -16931,6 +17435,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "website-info.net",
     "pattern": {
       "accepted": [
         "Website-info\\.net-Robot"
@@ -17163,6 +17668,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "swiftype.com",
     "pattern": {
       "accepted": [
         "Swiftbot"
@@ -17226,6 +17732,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "urlsuma.de",
     "pattern": {
       "accepted": [
         "UrlSuMa\\.de crawler"
@@ -17289,6 +17796,7 @@
     "categories": [
       "academic"
     ],
+    "operator": "uniba.sk",
     "pattern": {
       "accepted": [
         "Aranea"
@@ -17352,6 +17860,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "rois.ac.jp",
     "pattern": {
       "accepted": [
         "Cotoyogi"
@@ -17373,6 +17882,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "repo-lookout.org",
     "pattern": {
       "accepted": [
         "RepoLookoutBot"
@@ -17394,6 +17904,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "domcop.com",
     "pattern": {
       "accepted": [
         "DomCopBot"
@@ -17415,6 +17926,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "easycron.com",
     "pattern": {
       "accepted": [
         "EasyCron\\/"
@@ -17457,6 +17969,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "deskyo.com",
     "pattern": {
       "accepted": [
         "Deskyobot"
@@ -17500,6 +18013,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "edgewatch.com",
     "pattern": {
       "accepted": [
         "EdgeWatch"
@@ -17521,6 +18035,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "erepublik.tools",
     "pattern": {
       "accepted": [
         "eRepublik\\.tools"
@@ -17542,6 +18057,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "exodus.com",
     "pattern": {
       "accepted": [
         "ExodusMovement"
@@ -17564,6 +18080,7 @@
       "preview",
       "social"
     ],
+    "operator": "fastmail.com",
     "pattern": {
       "accepted": [
         "FastmailUA"
@@ -17585,6 +18102,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "fedica.com",
     "pattern": {
       "accepted": [
         "Fedicabot"
@@ -17606,6 +18124,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "fedreporter.net",
     "pattern": {
       "accepted": [
         "FedReporterDataBot"
@@ -17627,6 +18146,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "feedburner.com",
     "pattern": {
       "accepted": [
         "FeedBurner"
@@ -17648,6 +18168,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "feeder.co",
     "pattern": {
       "accepted": [
         "feeder\\.co"
@@ -17690,6 +18211,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "freespoke.com",
     "pattern": {
       "accepted": [
         "Freespoke\\/"
@@ -17711,6 +18233,7 @@
     "categories": [
       "tool"
     ],
+    "operator": "ghostinspector.com",
     "pattern": {
       "accepted": [
         "Ghost Inspector"
@@ -17732,6 +18255,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google-Apps-Script"
@@ -17753,6 +18277,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "gtmetrix.com",
     "pattern": {
       "accepted": [
         "GTmetrix"
@@ -17795,6 +18320,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "hetrixtools.com",
     "pattern": {
       "accepted": [
         "HetrixTools"
@@ -17816,6 +18342,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "hlidam.to",
     "pattern": {
       "accepted": [
         "Hlidam\\.to robot"
@@ -17837,6 +18364,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "innguma.com",
     "pattern": {
       "accepted": [
         "Innguma\\/"
@@ -17858,6 +18386,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "instapaper.com",
     "pattern": {
       "accepted": [
         "Instapaper\\/"
@@ -17879,6 +18408,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "jobswithgpt.com",
     "pattern": {
       "accepted": [
         "jobswithgptcom-bot"
@@ -17900,6 +18430,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "linksindexer.com",
     "pattern": {
       "accepted": [
         "LinksIndexerBot\\/"
@@ -17942,6 +18473,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "magnet.me",
     "pattern": {
       "accepted": [
         "Magnet\\.me-web\\/"
@@ -17963,6 +18495,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "mediamonitoringbot.com",
     "pattern": {
       "accepted": [
         "MediaMonitoringBot\\/"
@@ -17984,6 +18517,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "motominer.com",
     "pattern": {
       "accepted": [
         "MotoMinerBot\\/"
@@ -18005,6 +18539,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "paqle.dk",
     "pattern": {
       "accepted": [
         "Paqlebot\\/"
@@ -18026,6 +18561,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "qualified.com",
     "pattern": {
       "accepted": [
         "QualifiedBot\\/"
@@ -18069,6 +18605,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "retroliste.com",
     "pattern": {
       "accepted": [
         "RetroListeCOM\\/"
@@ -18090,6 +18627,7 @@
     "categories": [
       "feedfetcher"
     ],
+    "operator": "scour.ing",
     "pattern": {
       "accepted": [
         "ScourRSSBot\\/"
@@ -18111,6 +18649,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "seoclarity.net",
     "pattern": {
       "accepted": [
         "ClarityBot\\/"
@@ -18132,6 +18671,7 @@
     "categories": [
       "advertising"
     ],
+    "operator": "smartology.net",
     "pattern": {
       "accepted": [
         "SmartologyBot\\/"
@@ -18153,6 +18693,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "spectate.net",
     "pattern": {
       "accepted": [
         "Spectate\\/"
@@ -18174,6 +18715,7 @@
     "categories": [
       "advertising"
     ],
+    "operator": "thetradedesk.com",
     "pattern": {
       "accepted": [
         "TTD-Content"
@@ -18195,6 +18737,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "udger.com",
     "pattern": {
       "accepted": [
         "UASlinkChecker\\/"
@@ -18216,6 +18759,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "ward.ai",
     "pattern": {
       "accepted": [
         "WARDBot\\/"
@@ -18259,6 +18803,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "zombiedomain.net",
     "pattern": {
       "accepted": [
         "Zombiebot\\/"
@@ -18280,6 +18825,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "kagi.com",
     "pattern": {
       "accepted": [
         "Kagibot"
@@ -18323,6 +18869,7 @@
     "categories": [
       "advertising"
     ],
+    "operator": "snap.com",
     "pattern": {
       "accepted": [
         "SnapchatAds"
@@ -18351,6 +18898,7 @@
       "advertising",
       "yahoo"
     ],
+    "operator": "yahoo.com",
     "pattern": {
       "accepted": [
         "Yahoo Ad [Mm]onitoring"
@@ -18378,6 +18926,7 @@
       "preview",
       "yahoo"
     ],
+    "operator": "yahoo.com",
     "pattern": {
       "accepted": [
         "YahooMailProxy"
@@ -18427,6 +18976,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "jetpack.com",
     "pattern": {
       "accepted": [
         "jetmon"
@@ -18451,6 +19001,7 @@
     "categories": [
       "tool"
     ],
+    "operator": "linkchecker.pro",
     "pattern": {
       "accepted": [
         "LinkCheckerBot"
@@ -18476,6 +19027,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "tabstack.ai",
     "pattern": {
       "accepted": [
         "Mozilla-Tabstack"
@@ -18501,6 +19053,7 @@
       "search-engine",
       "ai"
     ],
+    "operator": "exa.ai",
     "pattern": {
       "accepted": [
         "ExaSearchBot"
@@ -18532,6 +19085,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "moonshot.ai",
     "pattern": {
       "accepted": [
         "KimiBot"
@@ -18571,6 +19125,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "moonshot.ai",
     "pattern": {
       "accepted": [
         "Kimi-User"
@@ -18607,6 +19162,7 @@
       "ai",
       "search-engine"
     ],
+    "operator": "moonshot.ai",
     "pattern": {
       "accepted": [
         "Kimi-SearchBot"
@@ -18643,6 +19199,7 @@
       "ai",
       "tool"
     ],
+    "operator": "crawlspace.dev",
     "pattern": {
       "accepted": [
         "Crawlspace"
@@ -18667,6 +19224,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "isonai.com",
     "pattern": {
       "accepted": [
         "IsonSearchBot\\/"
@@ -18708,6 +19266,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "isonai.com",
     "pattern": {
       "accepted": [
         "IsonAI-User\\/"
@@ -18735,6 +19294,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "openai.com",
     "pattern": {
       "accepted": [],
       "forbidden": []
@@ -18756,6 +19316,7 @@
       "ai-agent",
       "tool"
     ],
+    "operator": "browserbase.com",
     "pattern": {
       "accepted": [],
       "forbidden": []
@@ -18776,6 +19337,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "manus.im",
     "pattern": {
       "accepted": [],
       "forbidden": []
@@ -18795,6 +19357,7 @@
     "categories": [
       "advertising"
     ],
+    "operator": "openai.com",
     "pattern": {
       "accepted": [
         "OAI-AdsBot\\/"
@@ -18830,6 +19393,7 @@
       "ai",
       "search-engine"
     ],
+    "operator": "context7.com",
     "pattern": {
       "accepted": [
         "Context7-Crawler\\/"
@@ -18858,6 +19422,7 @@
     "categories": [
       "tool"
     ],
+    "operator": "shopify.com",
     "pattern": {
       "accepted": [],
       "forbidden": []
@@ -18877,6 +19442,7 @@
     "categories": [
       "tool"
     ],
+    "operator": "kernel.sh",
     "pattern": {
       "accepted": [],
       "forbidden": []
@@ -18896,6 +19462,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "kernel.sh",
     "pattern": {
       "accepted": [
         "KernelSearchBot"
@@ -18924,6 +19491,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "osano.com",
     "pattern": {
       "accepted": [
         "OsanoBot"
@@ -18952,6 +19520,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "reflection.ai",
     "pattern": {
       "accepted": [
         "Reflectionbot"
@@ -18992,6 +19561,7 @@
     "categories": [
       "webhook"
     ],
+    "operator": "github.com",
     "pattern": {
       "accepted": [
         "GitHub-Hookshot\\/"
@@ -19028,6 +19598,7 @@
       "optimizer",
       "tool"
     ],
+    "operator": "seranking.com",
     "pattern": {
       "accepted": [
         "SEBot-WA"
@@ -19059,6 +19630,7 @@
       "optimizer",
       "tool"
     ],
+    "operator": "semrush.com",
     "pattern": {
       "accepted": [
         "SiteAuditBot"
@@ -19089,6 +19661,7 @@
     "categories": [
       "tool"
     ],
+    "operator": "detectify.com",
     "pattern": {
       "accepted": [
         "Detectify"
@@ -19128,6 +19701,7 @@
     "categories": [
       "tool"
     ],
+    "operator": "cloudflare.com",
     "pattern": {
       "accepted": [],
       "forbidden": []
@@ -19147,6 +19721,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "ohdear.app",
     "pattern": {
       "accepted": [
         "^OhDear\\.app"
@@ -19182,6 +19757,7 @@
     "categories": [
       "tool"
     ],
+    "operator": "getonlane.com",
     "pattern": {
       "accepted": [],
       "forbidden": []
@@ -19202,6 +19778,7 @@
       "ai",
       "search-engine"
     ],
+    "operator": "liner.com",
     "pattern": {
       "accepted": [
         "LinerBot\\/"
@@ -19232,6 +19809,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "liner.com",
     "pattern": {
       "accepted": [
         "Liner-User\\/"
@@ -19261,6 +19839,7 @@
     "categories": [
       "google"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "DuplexWeb-Google"
@@ -19298,6 +19877,7 @@
       "search-engine",
       "tool"
     ],
+    "operator": "amazon.com",
     "pattern": {
       "accepted": [
         "amazon-kendra"
@@ -19320,6 +19900,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "lumar.io",
     "pattern": {
       "accepted": [
         "(?:\\b[Ll]umar\\b|\\b[Dd]eep[Cc]rawl\\b)"
@@ -19386,6 +19967,7 @@
       "optimizer",
       "tool"
     ],
+    "operator": "semrush.com",
     "pattern": {
       "accepted": [
         "SplitSignalBot"
@@ -19412,6 +19994,7 @@
       "monitor",
       "tool"
     ],
+    "operator": "accessibleweb.com",
     "pattern": {
       "accepted": [
         "AccessibleWebBot"
@@ -19437,6 +20020,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "cl0q.com",
     "pattern": {
       "accepted": [
         "cl0q-(?:crawler|discovery|favicon)"
@@ -19474,6 +20058,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "yioop.com",
     "pattern": {
       "accepted": [
         "YioopBot"
@@ -19498,6 +20083,7 @@
     "categories": [
       "optimizer"
     ],
+    "operator": "visual-seo.com",
     "pattern": {
       "accepted": [
         "Pigafetta"
@@ -19522,6 +20108,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "goguides.com",
     "pattern": {
       "accepted": [
         "GoGuides(?:Crawler|DiscoveryBot)"
@@ -19548,6 +20135,7 @@
     "categories": [
       "monitor"
     ],
+    "operator": "thegreenwebfoundation.org",
     "pattern": {
       "accepted": [
         "(?:GreenWebChecker|gwf-carbon-txt-crawler)"
@@ -19573,6 +20161,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "piperic.com",
     "pattern": {
       "accepted": [
         "PipericBot"
@@ -19597,6 +20186,7 @@
     "categories": [
       "tool"
     ],
+    "operator": "9bot.com.br",
     "pattern": {
       "accepted": [
         "9bot\\/"
@@ -19621,6 +20211,7 @@
     "categories": [
       "advertising"
     ],
+    "operator": "peer39.com",
     "pattern": {
       "accepted": [
         "peer39_crawler"
@@ -19669,6 +20260,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "prorata.ai",
     "pattern": {
       "accepted": [
         "ProRataInc"
@@ -19694,6 +20286,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "river.ai",
     "pattern": {
       "accepted": [
         "^RiverBot\\/"
@@ -19742,6 +20335,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "anthropic.com",
     "pattern": {
       "accepted": [
         "claude-code\\/"
@@ -19766,6 +20360,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "github.com",
     "pattern": {
       "accepted": [
         "GitHubCopilot"
@@ -19788,6 +20383,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "opencode.ai",
     "pattern": {
       "accepted": [
         "OpenCode-User\\/"
@@ -19811,6 +20407,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "opencode.ai",
     "pattern": {
       "accepted": [
         "opencode-smartfetch\\/"
@@ -19835,6 +20432,7 @@
       "ai-agent",
       "google"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "GoogleAgent-URLContext"
@@ -19858,6 +20456,7 @@
       "ai-agent",
       "google"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google-Jetski-Antigravity"
@@ -19880,6 +20479,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "deepseek.com",
     "pattern": {
       "accepted": [
         "deepseek-harness\\/"
@@ -19902,6 +20502,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "exa.ai",
     "pattern": {
       "accepted": [
         "ExaUser\\/"
@@ -19927,6 +20528,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "x.ai",
     "pattern": {
       "accepted": [
         "grok-agent\\/"
@@ -19949,6 +20551,7 @@
       "ai-agent",
       "amazon"
     ],
+    "operator": "amazon.com",
     "pattern": {
       "accepted": [
         "amazon-Quick-on-behalf-of-"
@@ -19992,6 +20595,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "cursor.com",
     "pattern": {
       "accepted": [
         "^Cursor\\/"
@@ -20016,6 +20620,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "qoder.com",
     "pattern": {
       "accepted": [
         "qodercli"
@@ -20040,6 +20645,7 @@
       "ai-agent",
       "amazon"
     ],
+    "operator": "amazon.com",
     "pattern": {
       "accepted": [
         "KiroServer\\/"
@@ -20108,6 +20714,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "zcode.ai",
     "pattern": {
       "accepted": [
         "ZCode-WebFetch\\/"
@@ -20130,6 +20737,7 @@
       "ai",
       "ai-agent"
     ],
+    "operator": "augmentcode.com",
     "pattern": {
       "accepted": [
         "Augment-WebFetch\\/"
@@ -20152,6 +20760,7 @@
     "categories": [
       "ai"
     ],
+    "operator": "elevenlabs.io",
     "pattern": {
       "accepted": [
         "ElevenlabsCrawler\\/"
@@ -20174,6 +20783,7 @@
       "ai",
       "amazon"
     ],
+    "operator": "amazon.com",
     "pattern": {
       "accepted": [
         "amazon-bedrock-knowledgebase-on-behalf-of-"
@@ -20196,6 +20806,7 @@
       "ai",
       "amazon"
     ],
+    "operator": "amazon.com",
     "pattern": {
       "accepted": [
         "amazon-QBusiness"
@@ -20218,6 +20829,7 @@
       "ai",
       "academic"
     ],
+    "operator": "cmu.edu",
     "pattern": {
       "accepted": [
         "ClueWeb-Crawler\\/"
@@ -20240,6 +20852,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "coveo.com",
     "pattern": {
       "accepted": [
         "Coveobot\\/"
@@ -20262,6 +20875,7 @@
       "google",
       "advertising"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google-Display-Ads-Bot"
@@ -20283,6 +20897,7 @@
       "google",
       "tool"
     ],
+    "operator": "google.com",
     "pattern": {
       "accepted": [
         "Google Search Console"
@@ -20406,6 +21021,7 @@
     "categories": [
       "search-engine"
     ],
+    "operator": "ibou.com",
     "pattern": {
       "accepted": [
         "ibou-search\\/"

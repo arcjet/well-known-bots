@@ -55,6 +55,26 @@ test("rejects the malformed CIDRs from the review through the full schema", (t) 
   }
 });
 
+test("accepts a registrable domain operator", (t) => {
+  for (const operator of ["openai.com", "perplexity.ai", "sbintuitions.co.jp", "9bot.com.br", "xn--p1ai.xn--p1ai"]) {
+    const result = validateFixture(t, { operator });
+    assert.equal(result.status, 0, `${operator}: ${result.stderr}`);
+  }
+});
+
+test("rejects malformed operators", (t) => {
+  for (const operator of [
+    "", "openai", "OpenAI.com", "https://openai.com", "openai.com/", "openai.com/bot",
+    "openai.com:443", "openai.com.", ".openai.com", "www.openai.com", "open_ai.com",
+    "-openai.com", "openai-.com", "openai.123", " openai.com", "openai.com\n",
+    "user@openai.com", `${"a".repeat(64)}.com`, `${"a.".repeat(126)}com`, 1, null, ["openai.com"],
+  ]) {
+    const result = validateFixture(t, { operator });
+    assert.equal(result.status, 1, `${JSON.stringify(operator)}: ${result.stderr}`);
+    assert.match(result.stderr, /operator/);
+  }
+});
+
 test("accepts a signature-only bot with a canonical Web Bot Auth directory", (t) => {
   const result = validateFixture(t, {
     pattern: { accepted: [], forbidden: [] },

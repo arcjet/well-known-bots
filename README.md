@@ -96,6 +96,21 @@ Each entry in the JSON represents a specific bot or crawler and includes the fol
 
 #### Optional Fields
 
+- **`operator`** (string): The registrable domain of the company or project
+  that operates the bot, such as `"openai.com"`, `"anthropic.com"` or
+  `"perplexity.ai"`. Use it to group bots by operator; `url` can point at a
+  documentation host or a third-party page instead. The value is lowercase and
+  has no scheme, path, port, trailing dot or `www.` prefix. It names the
+  operator of the bot's own infrastructure: for a platform that runs browser
+  sessions or fetches for its customers, such as Browserbase, it is the
+  platform, not the customer. A company's bots share its main domain even when
+  they publish documentation, IP ranges or signing keys on other hosts, so
+  Googlebot is `"google.com"` and Claude Code is `"anthropic.com"`. Omit the
+  field when the operator is unknown, and for software its users run and
+  direct themselves, such as a library, a self-hosted server or a desktop
+  crawler like Screaming Frog. An AI agent that runs on a user's machine, such
+  as Claude Code, keeps its vendor, because the vendor's model decides what it
+  fetches.
 - **`url`** (string): Documentation URL for the bot
 - **`instances`** (object): Example User-Agent strings for testing; omit for signature-only bots
   - **`accepted`** (array): User-Agent strings that should match the pattern

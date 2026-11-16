@@ -20,13 +20,22 @@ const original = fs.readFileSync(jsonFilePath, "utf-8");
 const data: unknown = JSON.parse(original);
 const updated = JSON.stringify(data, null, 2) + '\n';
 const schema = JSON.parse(fs.readFileSync(path.join(import.meta.dirname, "well-known-bots.schema.json"), "utf-8")) as {
-    $defs?: { webBotAuthVerification?: { properties?: { directory?: { pattern?: unknown } } } };
+    $defs?: {
+        webBotAuthVerification?: { properties?: { directory?: { pattern?: unknown } } };
+        registrableDomain?: { pattern?: unknown; maxLength?: unknown };
+    };
 };
 const directoryPattern = schema?.$defs?.webBotAuthVerification?.properties?.directory?.pattern;
 if (typeof directoryPattern !== "string" || directoryPattern.length === 0) {
     throw new Error("Missing Web Bot Auth directory pattern in well-known-bots.schema.json");
 }
 const WEB_BOT_AUTH_DIRECTORY = new RegExp(directoryPattern);
+const operatorPattern = schema?.$defs?.registrableDomain?.pattern;
+const operatorMaxLength = schema?.$defs?.registrableDomain?.maxLength;
+if (typeof operatorPattern !== "string" || operatorPattern.length === 0 || typeof operatorMaxLength !== "number") {
+    throw new Error("Missing registrable domain pattern or maxLength in well-known-bots.schema.json");
+}
+const REGISTRABLE_DOMAIN = new RegExp(operatorPattern);
 
 function isArray(value: unknown): value is unknown[] {
     return Array.isArray(value);
@@ -119,6 +128,12 @@ if (process.argv[2] === "--generate") {
         // TODO: Validate urls are still accessible
         if (typeof item.url !== "undefined" && typeof item.url !== "string") {
             console.error("Item has wrong type specified for `url` string field:", item);
+            process.exit(1);
+        }
+        if (typeof item.operator !== "undefined" &&
+            (typeof item.operator !== "string" || item.operator.length > operatorMaxLength ||
+                !REGISTRABLE_DOMAIN.test(item.operator))) {
+            console.error("Item `operator` must be a lowercase registrable domain such as `example.com`:", item);
             process.exit(1);
         }
         if (!isArray(item.verification)) {

@@ -67,6 +67,38 @@ test("check mode reports a missing Web Bot Auth schema pattern", (t) => {
   }
 });
 
+test("check mode accepts a registrable domain operator", (t) => {
+  for (const operator of ["openai.com", "perplexity.ai", "sbintuitions.co.jp", "9bot.com.br", "xn--p1ai.xn--p1ai"]) {
+    const result = fixture(t, { operator }).run("--check");
+    assert.equal(result.status, 0, `${operator}: ${result.stderr}`);
+  }
+});
+
+test("check mode rejects malformed operators", (t) => {
+  for (const operator of [
+    "", "openai", "OpenAI.com", "https://openai.com", "openai.com/", "openai.com/bot",
+    "openai.com:443", "openai.com.", ".openai.com", "www.openai.com", "open_ai.com",
+    "-openai.com", "openai-.com", "openai.123", " openai.com", "openai.com\n",
+    "user@openai.com", `${"a".repeat(64)}.com`, `${"a.".repeat(126)}com`, 1, null, ["openai.com"],
+  ]) {
+    const result = fixture(t, { operator }).run("--check");
+    assert.equal(result.status, 1, `${JSON.stringify(operator)}: ${result.stderr}`);
+    if (typeof operator === "string") {
+      assert.match(result.stderr, /`operator` must be a lowercase registrable domain/);
+    }
+  }
+});
+
+test("check mode reports a missing registrable domain schema pattern", (t) => {
+  const data = fixture(t);
+  const schema = JSON.parse(readFileSync(data.schemaFile, "utf8"));
+  delete schema.$defs.registrableDomain.pattern;
+  writeFileSync(data.schemaFile, JSON.stringify(schema));
+  const result = data.run("--check");
+  assert.equal(result.status, 1, result.stderr);
+  assert.match(result.stderr, /Missing registrable domain pattern or maxLength in well-known-bots\.schema\.json/);
+});
+
 test("check mode accepts a signature-only bot with a canonical directory", (t) => {
   const result = fixture(t, {
     pattern: { accepted: [], forbidden: [] },
