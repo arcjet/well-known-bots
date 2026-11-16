@@ -2409,6 +2409,10 @@
             "selector": "$.prefixes[*].ipv4Prefix"
           }
         ]
+      },
+      {
+        "type": "web-bot-auth",
+        "directory": "https://ahrefs.com/.well-known/http-message-signatures-directory"
       }
     ],
     "instances": {
@@ -16075,7 +16079,12 @@
       "ShapBot"
     ],
     "addition_date": "2026/08/18",
-    "verification": []
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://shapbot.parallel.ai/.well-known/http-message-signatures-directory"
+      }
+    ]
   },
   {
     "id": "zanista-bot",
@@ -20535,7 +20544,12 @@
       ],
       "forbidden": []
     },
-    "verification": [],
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://exauser.crawler.exa.ai/.well-known/http-message-signatures-directory"
+      }
+    ],
     "instances": {
       "accepted": [
         "Mozilla/5.0 (compatible; ExaUser/1.0; +https://crawler.exa.ai/exauser)"
@@ -20545,7 +20559,7 @@
       ]
     },
     "url": "https://crawler.exa.ai/exauser",
-    "description": "Exa on-demand fetches for other AI products. The product behind a request is not identified. Exa signs with the same Web Bot Auth key as exa-searchbot, so a signature identifies Exa, not this fetcher.",
+    "description": "Exa on-demand fetches for other AI products. The product behind a request is not identified. Signed with Web Bot Auth from a key directory separate from exa-searchbot's.",
     "addition_date": "2026/11/11"
   },
   {
@@ -20725,7 +20739,12 @@
       ],
       "forbidden": []
     },
-    "verification": [],
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://shap-user.parallel.ai/.well-known/http-message-signatures-directory"
+      }
+    ],
     "instances": {
       "accepted": [
         "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Shap-User/0.1.0"
