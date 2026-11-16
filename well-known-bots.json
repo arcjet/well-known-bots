@@ -21099,6 +21099,7 @@
     "categories": [
       "unknown"
     ],
+    "operator": "enfilade.guide",
     "pattern": {
       "accepted": [
         "^EnfiladeBot\\/"
