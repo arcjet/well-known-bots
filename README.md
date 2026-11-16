@@ -90,7 +90,8 @@ Each entry in the JSON represents a specific bot or crawler and includes the fol
 - **`categories`** (array): One or more categories the bot belongs to (see [available categories](#available-categories))
 - **`pattern`** (object): Regular expression patterns to match the bot's User-Agent
   - **`accepted`** (array): Regex patterns that must match for User-Agent identification;
-    may be empty only when `verification` contains Web Bot Auth or Poppy
+    may be empty only when `verification` contains Web Bot Auth or Poppy, or
+    for a `botnet` entry, which has no `verification`
   - **`forbidden`** (array): Regex patterns that, if matched, disqualify the User-Agent
 - **`verification`** (array): Methods for verifying the bot's authenticity (can be empty `[]` if not supported)
 
@@ -122,10 +123,16 @@ Each entry in the JSON represents a specific bot or crawler and includes the fol
 ### Available Categories
 
 ```
-academic, advertising, ai, ai-agent, amazon, apple, archive, feedfetcher,
-google, meta, microsoft, monitor, optimizer, preview, programmatic,
-search-engine, slack, social, tool, unknown, vercel, webhook, yahoo
+academic, advertising, ai, ai-agent, amazon, apple, archive, botnet,
+feedfetcher, google, meta, microsoft, monitor, optimizer, preview,
+programmatic, search-engine, slack, social, tool, unknown, vercel, webhook,
+yahoo
 ```
+
+`botnet` marks a malware family's bot network. A botnet sends no identifying
+User-Agent, so its entry has empty `pattern` arrays, no `instances` and no
+`verification`. IP reputation data names the botnet for an address. That is
+reputation, not verification, so a botnet is never reported as verified.
 
 `ai-agent` marks an AI product fetching a page on demand for a person who is
 waiting on the answer, such as ChatGPT-User, Claude-User or a coding agent. It

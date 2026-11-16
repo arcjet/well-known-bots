@@ -171,6 +171,39 @@ test("check mode rejects empty User-Agent patterns without Web Bot Auth", (t) =>
   }
 });
 
+test("check mode accepts a botnet with no User-Agent pattern and no verification", (t) => {
+  const result = fixture(t, {
+    categories: ["botnet"],
+    pattern: { accepted: [], forbidden: [] },
+    verification: [],
+    instances: undefined,
+  }).run("--check");
+  assert.equal(result.status, 0, result.stderr);
+});
+
+test("check mode rejects a botnet that claims verification or a forbidden pattern", (t) => {
+  for (const changes of [
+    {
+      // IP reputation names a botnet; nothing verifies it.
+      verification: [{
+        type: "web-bot-auth",
+        directory: "https://chatgpt.com/.well-known/http-message-signatures-directory",
+      }],
+    },
+    { pattern: { accepted: [], forbidden: ["TestBot"] } },
+    { instances: { accepted: [], rejected: [] } },
+  ]) {
+    const result = fixture(t, {
+      categories: ["botnet"],
+      pattern: { accepted: [], forbidden: [] },
+      verification: [],
+      instances: undefined,
+      ...changes,
+    }).run("--check");
+    assert.equal(result.status, 1, result.stderr);
+  }
+});
+
 test("check mode rejects User-Agent instances for signature-only bots", (t) => {
   for (const instances of [
     { accepted: ["AnyBot/1"], rejected: [] },

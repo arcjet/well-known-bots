@@ -102,21 +102,42 @@
                   }
                 }
               },
-              "verification": {
-                "type": "array",
-                "contains": {
-                  "anyOf": [
-                    {
-                      "$ref": "#/$defs/webBotAuthVerification"
-                    },
-                    {
-                      "$ref": "#/$defs/poppyVerification"
+              "instances": false
+            },
+            "anyOf": [
+              {
+                "properties": {
+                  "verification": {
+                    "type": "array",
+                    "contains": {
+                      "anyOf": [
+                        {
+                          "$ref": "#/$defs/webBotAuthVerification"
+                        },
+                        {
+                          "$ref": "#/$defs/poppyVerification"
+                        }
+                      ]
                     }
-                  ]
+                  }
                 }
               },
-              "instances": false
-            }
+              {
+                "description": "A botnet has no User-Agent: IP reputation data names it, and nothing verifies it.",
+                "properties": {
+                  "categories": {
+                    "type": "array",
+                    "contains": {
+                      "const": "botnet"
+                    }
+                  },
+                  "verification": {
+                    "type": "array",
+                    "maxItems": 0
+                  }
+                }
+              }
+            ]
           }
         }
       ]
@@ -146,6 +167,7 @@
         "amazon",
         "apple",
         "archive",
+        "botnet",
         "feedfetcher",
         "google",
         "meta",
