@@ -142,3 +142,25 @@ test("rejects malformed Web Bot Auth directories", (t) => {
     assert.equal(result.status, 1, `${directory}: ${result.stderr}`);
   }
 });
+
+test("accepts a signature-only bot with a Poppy client_id", (t) => {
+  const result = validateFixture(t, {
+    pattern: { accepted: [], forbidden: [] },
+    verification: [{ type: "poppy", client_id: "https://muse.ai/poppy/agent.json" }],
+  });
+  assert.equal(result.status, 0, result.stderr);
+});
+
+test("rejects malformed Poppy client_ids", (t) => {
+  for (const verify of [
+    { type: "poppy", client_id: "http://muse.ai/poppy/agent.json" },
+    { type: "poppy", client_id: "https://muse.ai/" },
+    { type: "poppy", client_id: "https://muse.ai:8443/poppy/agent.json" },
+    { type: "poppy", client_id: "https://muse.ai/poppy/agent.json?v=1" },
+    { type: "poppy", client_id: "https://muse.ai/poppy/agent.json", extra: true },
+    { type: "poppy" },
+  ]) {
+    const result = validateFixture(t, { verification: [verify] });
+    assert.equal(result.status, 1, `${JSON.stringify(verify)}: ${result.stderr}`);
+  }
+});
