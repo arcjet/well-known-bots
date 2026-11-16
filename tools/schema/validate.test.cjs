@@ -55,6 +55,33 @@ test("rejects the malformed CIDRs from the review through the full schema", (t) 
   }
 });
 
+test("accepts a SAIL source that names a service", (t) => {
+  const result = validateFixture(t, {
+    verification: [{
+      type: "cidr",
+      sources: [{
+        type: "http-sail",
+        url: "https://claude.com/.well-known/sail",
+        service: "Claude-Agent",
+      }],
+    }],
+  });
+  assert.equal(result.status, 0, result.stderr);
+});
+
+test("rejects a SAIL source without a service", (t) => {
+  for (const source of [
+    { type: "http-sail", url: "https://claude.com/.well-known/sail" },
+    { type: "http-sail", url: "https://claude.com/.well-known/sail", service: "" },
+    { type: "http-sail", url: "https://claude.com/.well-known/sail", selector: "Claude-Agent" },
+  ]) {
+    const result = validateFixture(t, {
+      verification: [{ type: "cidr", sources: [source] }],
+    });
+    assert.equal(result.status, 1, `${JSON.stringify(source)}: ${result.stderr}`);
+  }
+});
+
 test("accepts a registrable domain operator", (t) => {
   for (const operator of ["openai.com", "perplexity.ai", "sbintuitions.co.jp", "9bot.com.br", "xn--p1ai.xn--p1ai"]) {
     const result = validateFixture(t, { operator });

@@ -21431,5 +21431,41 @@
     "verification": [],
     "description": "zgRAT botnet. Named only from IP reputation data: it sends no identifying User-Agent and is never verified.",
     "addition_date": "2026/11/16"
+  },
+  {
+    "id": "anthropic-claude-agent",
+    "categories": [
+      "ai",
+      "ai-agent"
+    ],
+    "operator": "anthropic.com",
+    "pattern": {
+      "accepted": [
+        "Claude-Agent\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/11/16",
+    "url": "https://support.claude.com/en/articles/18234133-how-do-anthropic-hosted-browsers-identify-themselves-when-they-browse-the-web-on-a-user-s-behalf",
+    "verification": [
+      {
+        "type": "cidr",
+        "sources": [
+          {
+            "type": "http-sail",
+            "url": "https://claude.com/.well-known/sail",
+            "service": "Claude-Agent"
+          }
+        ]
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko; compatible; Claude-Agent/1.0) Chrome/154.0.0.0 Safari/537.36"
+      ],
+      "rejected": [
+        "Claude-User/1.0"
+      ]
+    }
   }
 ]

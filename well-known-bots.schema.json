@@ -440,6 +440,9 @@
         },
         {
           "$ref": "#/$defs/httpTextSource"
+        },
+        {
+          "$ref": "#/$defs/httpSailSource"
         }
       ]
     },
@@ -506,6 +509,28 @@
         },
         "url": {
           "$ref": "#/$defs/httpUrl"
+        }
+      }
+    },
+    "httpSailSource": {
+      "description": "A Source Address Identity List (SAIL, draft-kelley-webbotauth-sail): a TOML file that names services and the IP prefixes each one egresses from. `service` selects one service; its prefix sets' IPv4 and IPv6 prefixes are the source's ranges.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "url",
+        "service"
+      ],
+      "properties": {
+        "type": {
+          "const": "http-sail"
+        },
+        "url": {
+          "$ref": "#/$defs/httpUrl"
+        },
+        "service": {
+          "type": "string",
+          "minLength": 1
         }
       }
     },
