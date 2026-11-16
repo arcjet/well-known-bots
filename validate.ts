@@ -217,8 +217,8 @@ if (process.argv[2] === "--generate") {
                         console.error("Verification source must be an object:", item, verify, source);
                         process.exit(1);
                     }
-                    if (source.type !== "http-json" && source.type !== "http-csv" && source.type !== "http-text") {
-                        console.error("Cidr source `type` must be a valid type (currently `http-json`, `http-csv`, and `http-text` are supported)", item, verify, source);
+                    if (source.type !== "http-json" && source.type !== "http-csv" && source.type !== "http-text" && source.type !== "http-sail") {
+                        console.error("Cidr source `type` must be a valid type (currently `http-json`, `http-csv`, `http-text`, and `http-sail` are supported)", item, verify, source);
                         process.exit(1);
                     }
 
@@ -233,6 +233,11 @@ if (process.argv[2] === "--generate") {
                             process.exit(1);
                         }
                         validateJsonSelector(source.selector, item, verify, source);
+                    }
+
+                    if (source.type === "http-sail" && (typeof source.service !== "string" || source.service.length === 0)) {
+                        console.error("Cidr source `service` must be a non-empty string for http-sail type", item, verify, source);
+                        process.exit(1);
                     }
                 }
             } else if (verify.type === "dns") {

@@ -262,6 +262,7 @@ CIDR verification checks if the request originates from IP address ranges (CIDR 
 - `http-json` - JSON file with CIDR ranges (or a mix of individual IPs and CIDR ranges)
 - `http-csv` - CSV file with CIDR ranges in the first column (or a mix of individual IPs and CIDR ranges)
 - `http-text` - Plain text file with one CIDR range per line (or a mix of individual IPs and CIDR ranges)
+- `http-sail` - A [Source Address Identity List](https://www.ietf.org/archive/id/draft-kelley-webbotauth-sail-00.html) (SAIL) file. `service` names the service in the file whose prefix sets list the bot's IPv4 and IPv6 prefixes
 
 **Example with JSON source:**
 
@@ -287,6 +288,21 @@ CIDR verification checks if the request originates from IP address ranges (CIDR 
     {
       "type": "http-csv",
       "url": "https://example.com/ip-ranges.csv"
+    }
+  ]
+}
+```
+
+**Example with SAIL source:**
+
+```json
+{
+  "type": "cidr",
+  "sources": [
+    {
+      "type": "http-sail",
+      "url": "https://claude.com/.well-known/sail",
+      "service": "Claude-Agent"
     }
   ]
 }
