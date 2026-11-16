@@ -157,6 +157,10 @@ test("rejects malformed Poppy client_ids", (t) => {
     { type: "poppy", client_id: "https://muse.ai/" },
     { type: "poppy", client_id: "https://muse.ai:8443/poppy/agent.json" },
     { type: "poppy", client_id: "https://muse.ai/poppy/agent.json?v=1" },
+    { type: "poppy", client_id: "https://muse.ai/poppy/../agent.json" },
+    { type: "poppy", client_id: "https://muse.ai/poppy/./agent.json" },
+    { type: "poppy", client_id: "https://muse.ai/.." },
+    { type: "poppy", client_id: "https://muse.ai/." },
     { type: "poppy", client_id: "https://muse.ai/poppy/agent.json", extra: true },
     { type: "poppy" },
   ]) {

@@ -256,6 +256,7 @@ test("check mode rejects non-canonical Poppy client_ids", (t) => {
     { type: "poppy", client_id: "https://muse.ai/poppy/agent.json?v=1" },
     { type: "poppy", client_id: "https://muse.ai/poppy/agent.json#x" },
     { type: "poppy", client_id: "https://muse.ai/poppy/../agent.json" },
+    { type: "poppy", client_id: "https://muse.ai/poppy/./agent.json" },
     { type: "poppy", client_id: clientId, jwks_uri: "https://muse.ai/poppy/jwks.json" },
     { type: "poppy" },
   ]) {
