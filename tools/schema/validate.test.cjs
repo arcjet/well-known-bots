@@ -102,6 +102,38 @@ test("requires Web Bot Auth when the User-Agent pattern is empty", (t) => {
   }
 });
 
+test("accepts a botnet with no patterns, instances or verification", (t) => {
+  const result = validateFixture(t, {
+    categories: ["botnet"],
+    pattern: { accepted: [], forbidden: [] },
+    verification: [],
+  });
+  assert.equal(result.status, 0, result.stderr);
+});
+
+test("rejects every other botnet shape", (t) => {
+  for (const changes of [
+    // Signer verification does not make a botnet a signature-only bot.
+    {
+      verification: [{
+        type: "web-bot-auth",
+        directory: "https://chatgpt.com/.well-known/http-message-signatures-directory",
+      }],
+    },
+    { pattern: { accepted: ["TestBot"], forbidden: [] } },
+    { pattern: { accepted: [], forbidden: ["TestBot"] } },
+    { instances: { accepted: [], rejected: [] } },
+  ]) {
+    const result = validateFixture(t, {
+      categories: ["botnet"],
+      pattern: { accepted: [], forbidden: [] },
+      verification: [],
+      ...changes,
+    });
+    assert.equal(result.status, 1, `${JSON.stringify(changes)}: ${result.stderr}`);
+  }
+});
+
 test("rejects User-Agent instances for signature-only bots", (t) => {
   for (const instances of [
     { accepted: ["AnyBot/1"], rejected: [] },

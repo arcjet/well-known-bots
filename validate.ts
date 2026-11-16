@@ -155,11 +155,24 @@ if (process.argv[2] === "--generate") {
             console.error("Item is missing required `verification` array field:", item);
             process.exit(1);
         }
+        // A botnet has no User-Agent: IP reputation data names it, and nothing
+        // verifies it. Every other bot without a pattern is signature-only.
+        const isBotnet = item.categories.includes("botnet");
+        if (isBotnet &&
+            (item.pattern.accepted.length !== 0 ||
+                item.pattern.forbidden.length !== 0 ||
+                item.verification.length !== 0 ||
+                typeof item.instances !== "undefined")) {
+            console.error("A botnet has no User-Agent patterns, no instances and no verification:", item);
+            process.exit(1);
+        }
         if (item.pattern.accepted.length === 0 &&
             (item.pattern.forbidden.length !== 0 ||
-                !item.verification.some((verify) => isRecord(verify) &&
-                    (verify.type === "web-bot-auth" || verify.type === "poppy")))) {
-            console.error("A bot without a User-Agent pattern needs Web Bot Auth or Poppy verification and no forbidden patterns:", item);
+                !(isBotnet
+                    ? item.verification.length === 0
+                    : item.verification.some((verify) => isRecord(verify) &&
+                        (verify.type === "web-bot-auth" || verify.type === "poppy"))))) {
+            console.error("A bot without a User-Agent pattern needs Web Bot Auth or Poppy verification (or, for a botnet, no verification) and no forbidden patterns:", item);
             process.exit(1);
         }
         if (item.pattern.accepted.length === 0 && typeof item.instances !== "undefined") {

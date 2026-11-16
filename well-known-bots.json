@@ -21202,5 +21202,213 @@
     "url": "https://agents.needmomentum.com/",
     "description": "Website monitoring and operations agent operated by AI Managed Agents. Read-only requests to public pages, follows robots.txt, signs requests with Web Bot Auth.",
     "addition_date": "2026/11/15"
+  },
+  {
+    "id": "agenttesla-botnet",
+    "categories": [
+      "botnet"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [],
+    "description": "Agent Tesla botnet. Named only from IP reputation data: it sends no identifying User-Agent and is never verified.",
+    "addition_date": "2026/11/16"
+  },
+  {
+    "id": "amadey-botnet",
+    "categories": [
+      "botnet"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [],
+    "description": "Amadey botnet. Named only from IP reputation data: it sends no identifying User-Agent and is never verified.",
+    "addition_date": "2026/11/16"
+  },
+  {
+    "id": "banker-botnet",
+    "categories": [
+      "botnet"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [],
+    "description": "Banker botnet. Named only from IP reputation data: it sends no identifying User-Agent and is never verified.",
+    "addition_date": "2026/11/16"
+  },
+  {
+    "id": "black-botnet",
+    "categories": [
+      "botnet"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [],
+    "description": "Black botnet. Named only from IP reputation data: it sends no identifying User-Agent and is never verified.",
+    "addition_date": "2026/11/16"
+  },
+  {
+    "id": "byob-botnet",
+    "categories": [
+      "botnet"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [],
+    "description": "BYOB (Build Your Own Botnet) botnet. Named only from IP reputation data: it sends no identifying User-Agent and is never verified.",
+    "addition_date": "2026/11/16"
+  },
+  {
+    "id": "donutmate-botnet",
+    "categories": [
+      "botnet"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [],
+    "description": "DonutMate botnet. Named only from IP reputation data: it sends no identifying User-Agent and is never verified.",
+    "addition_date": "2026/11/16"
+  },
+  {
+    "id": "gafgyt-botnet",
+    "categories": [
+      "botnet"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [],
+    "description": "Gafgyt botnet. Named only from IP reputation data: it sends no identifying User-Agent and is never verified.",
+    "addition_date": "2026/11/16"
+  },
+  {
+    "id": "guloader-botnet",
+    "categories": [
+      "botnet"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [],
+    "description": "GuLoader botnet. Named only from IP reputation data: it sends no identifying User-Agent and is never verified.",
+    "addition_date": "2026/11/16"
+  },
+  {
+    "id": "hajime-botnet",
+    "categories": [
+      "botnet"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [],
+    "description": "Hajime botnet. Named only from IP reputation data: it sends no identifying User-Agent and is never verified.",
+    "addition_date": "2026/11/16"
+  },
+  {
+    "id": "kinsing-botnet",
+    "categories": [
+      "botnet"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [],
+    "description": "Kinsing botnet. Named only from IP reputation data: it sends no identifying User-Agent and is never verified.",
+    "addition_date": "2026/11/16"
+  },
+  {
+    "id": "mirai-botnet",
+    "categories": [
+      "botnet"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [],
+    "description": "Mirai botnet. Named only from IP reputation data: it sends no identifying User-Agent and is never verified.",
+    "addition_date": "2026/11/16"
+  },
+  {
+    "id": "moobot-botnet",
+    "categories": [
+      "botnet"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [],
+    "description": "Moobot botnet. Named only from IP reputation data: it sends no identifying User-Agent and is never verified.",
+    "addition_date": "2026/11/16"
+  },
+  {
+    "id": "mozi-botnet",
+    "categories": [
+      "botnet"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [],
+    "description": "Mozi botnet. Named only from IP reputation data: it sends no identifying User-Agent and is never verified.",
+    "addition_date": "2026/11/16"
+  },
+  {
+    "id": "remcosrat-botnet",
+    "categories": [
+      "botnet"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [],
+    "description": "Remcos RAT botnet. Named only from IP reputation data: it sends no identifying User-Agent and is never verified.",
+    "addition_date": "2026/11/16"
+  },
+  {
+    "id": "stealc-botnet",
+    "categories": [
+      "botnet"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [],
+    "description": "StealC botnet. Named only from IP reputation data: it sends no identifying User-Agent and is never verified.",
+    "addition_date": "2026/11/16"
+  },
+  {
+    "id": "zgrat-botnet",
+    "categories": [
+      "botnet"
+    ],
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [],
+    "description": "zgRAT botnet. Named only from IP reputation data: it sends no identifying User-Agent and is never verified.",
+    "addition_date": "2026/11/16"
   }
 ]

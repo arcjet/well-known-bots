@@ -102,18 +102,79 @@
                   }
                 }
               },
-              "verification": {
+              "instances": false
+            },
+            "anyOf": [
+              {
+                "properties": {
+                  "verification": {
+                    "type": "array",
+                    "contains": {
+                      "anyOf": [
+                        {
+                          "$ref": "#/$defs/webBotAuthVerification"
+                        },
+                        {
+                          "$ref": "#/$defs/poppyVerification"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "description": "A botnet has no User-Agent: IP reputation data names it, and nothing verifies it.",
+                "properties": {
+                  "categories": {
+                    "type": "array",
+                    "contains": {
+                      "const": "botnet"
+                    }
+                  },
+                  "verification": {
+                    "type": "array",
+                    "maxItems": 0
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "description": "A botnet has no User-Agent patterns, no instances and no verification: IP reputation data names it, and nothing verifies it.",
+          "if": {
+            "type": "object",
+            "required": [
+              "categories"
+            ],
+            "properties": {
+              "categories": {
                 "type": "array",
                 "contains": {
-                  "anyOf": [
-                    {
-                      "$ref": "#/$defs/webBotAuthVerification"
-                    },
-                    {
-                      "$ref": "#/$defs/poppyVerification"
-                    }
-                  ]
+                  "const": "botnet"
                 }
+              }
+            }
+          },
+          "then": {
+            "type": "object",
+            "properties": {
+              "pattern": {
+                "type": "object",
+                "properties": {
+                  "accepted": {
+                    "type": "array",
+                    "maxItems": 0
+                  },
+                  "forbidden": {
+                    "type": "array",
+                    "maxItems": 0
+                  }
+                }
+              },
+              "verification": {
+                "type": "array",
+                "maxItems": 0
               },
               "instances": false
             }
@@ -146,6 +207,7 @@
         "amazon",
         "apple",
         "archive",
+        "botnet",
         "feedfetcher",
         "google",
         "meta",
