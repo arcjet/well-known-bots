@@ -13952,6 +13952,32 @@
     "url": "https://developers.facebook.com/docs/sharing/webmasters/web-crawlers/#identify-3"
   },
   {
+    "id": "meta-muse",
+    "categories": [
+      "ai",
+      "ai-agent",
+      "meta"
+    ],
+    "operator": "meta.com",
+    "pattern": {
+      "accepted": [],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://muse.ai/.well-known/http-message-signatures-directory"
+      },
+      {
+        "type": "poppy",
+        "client_id": "https://muse.ai/poppy/agent.json"
+      }
+    ],
+    "url": "https://muse.ai/blog/poppy-personal-agent-protocol",
+    "description": "Muse, Meta's personal AI agent, acting for one of its users. The Poppy client_id identifies the agent; the user is never identified.",
+    "addition_date": "2026/11/16"
+  },
+  {
     "id": "openai-crawler-search",
     "categories": [
       "ai",

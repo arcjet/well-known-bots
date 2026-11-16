@@ -90,7 +90,7 @@ Each entry in the JSON represents a specific bot or crawler and includes the fol
 - **`categories`** (array): One or more categories the bot belongs to (see [available categories](#available-categories))
 - **`pattern`** (object): Regular expression patterns to match the bot's User-Agent
   - **`accepted`** (array): Regex patterns that must match for User-Agent identification;
-    may be empty only when `verification` contains Web Bot Auth
+    may be empty only when `verification` contains Web Bot Auth or Poppy
   - **`forbidden`** (array): Regex patterns that, if matched, disqualify the User-Agent
 - **`verification`** (array): Methods for verifying the bot's authenticity (can be empty `[]` if not supported)
 
@@ -141,7 +141,7 @@ published ranges.
 
 Bot verification allows you to confirm that a request claiming to be from a
 specific bot actually originates from that bot's infrastructure. The supported
-methods are DNS, CIDR, IP, and Web Bot Auth.
+methods are DNS, CIDR, IP, Web Bot Auth, and Poppy.
 
 ### Web Bot Auth Verification
 
@@ -167,6 +167,31 @@ agents. It does not prove a User-Agent or a specific customer agent.
   ]
 }
 ```
+
+### Poppy Verification
+
+[Poppy](https://personalagentprotocol.org), the Personal Agent Protocol, lets a
+person's AI agent act for them at a company. Each request carries a
+`Poppy-Session` JWT signed with a key the agent delegated from the keys listed
+in its client metadata. The `client_id` is the HTTPS URL of that metadata
+document, exactly as the agent publishes it. A verifier fetches the document,
+checks that its `client_id` equals the URL and its `jwks_uri` is on the same
+domain, and verifies the session against those keys. A verified session proves
+which agent sent the request, for this method and URL. It never identifies the
+person.
+
+```json
+{
+  "type": "poppy",
+  "client_id": "https://muse.ai/poppy/agent.json"
+}
+```
+
+The URL has a path and no port, credentials, query or fragment. A shared origin
+does not make two client metadata URLs the same agent, so match the exact
+string, and assign each `client_id` to only one bot ID. Add an agent only when
+its operator publishes the `client_id`. Don't add a self-hosted agent that mints
+its own `client_id` per install, or a demo or test agent.
 
 Entries with an empty `accepted` array are signature-only: User-Agent matching
 must never classify a request as that bot, and these entries cannot have
