@@ -20421,5 +20421,34 @@
     },
     "url": "https://ibou.com/crawlers.html",
     "addition_date": "2026/11/11"
+  },
+  {
+    "id": "ai-managed-agents-agent",
+    "categories": [
+      "monitor",
+      "ai-agent"
+    ],
+    "pattern": {
+      "accepted": [
+        "AIManagedAgents-Agent\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://signed-agent-keys.netlify.app/.well-known/http-message-signatures-directory"
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 AIManagedAgents-Agent/1.0 (+https://signed-agent-keys.netlify.app/)",
+        "AIManagedAgents-Agent/1.0 (+https://signed-agent-keys.netlify.app/)"
+      ],
+      "rejected": []
+    },
+    "url": "https://signed-agent-keys.netlify.app/",
+    "description": "Website monitoring and operations agent operated by AI Managed Agents. Read-only requests to public pages, follows robots.txt, signs requests with Web Bot Auth.",
+    "addition_date": "2026/11/15"
   }
 ]
