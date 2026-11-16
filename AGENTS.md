@@ -65,6 +65,7 @@ When adding or modifying bot entries, refer to the [README.md](README.md) for:
 - All regex patterns in `pattern.forbidden` must be valid
 - If `instances.accepted` is provided, all strings must match ALL accepted patterns and NONE of the forbidden patterns
 - If `instances.rejected` is provided, strings must either not match all accepted patterns OR match at least one forbidden pattern
+- Prefer a plain literal pattern, such as `ExampleBot\\/`, over one with anchors (`^`, `$`), classes (`[0-9]`) or groups. Arcjet matches literals with Aho-Corasick and compiles everything else into a regex set that is snapshotted into its WebAssembly. Each new regex pattern grows that snapshot, which ships in the JavaScript SDK under an edge bundle size limit. Three anchored patterns once added 283 KB to it. Use a regex only when a literal would match the wrong bots.
 - Each `instances.accepted` string must match exactly one bot in the catalog (no overlapping patterns across entries)
 - A signature-only bot has empty accepted and forbidden patterns, a Web Bot Auth verification directory, and no `instances` field. Its identity comes from signature verification, never a User-Agent match.
 - Web Bot Auth directories use a canonical HTTPS URL with a lowercase DNS hostname and the exact well-known path. The schema owns this URL grammar; `validate.ts` reuses it and checks URL canonicalization.

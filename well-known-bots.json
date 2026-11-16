@@ -21090,7 +21090,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^SpaceCowboys Android RSS Reader / [0-9]"
+        "SpaceCowboys Android RSS Reader / "
       ],
       "forbidden": []
     },
@@ -21103,7 +21103,6 @@
       "rejected": [
         "Feeder/2.21.2",
         "SpaceCowboys Android RSS Reader",
-        "NotSpaceCowboys Android RSS Reader / 2.21.2(4040)",
         "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.146 Safari/537.36"
       ]
     },
@@ -21118,7 +21117,7 @@
     ],
     "pattern": {
       "accepted": [
-        "^ReadYou\\/[0-9]"
+        "ReadYou\\/"
       ],
       "forbidden": []
     },
@@ -21131,7 +21130,6 @@
       "rejected": [
         "ReadYou",
         "ReadYour/0.16.2(47)",
-        "NotReadYou/0.16.2(47)",
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36"
       ]
     },
@@ -21147,7 +21145,7 @@
     "operator": "enfilade.guide",
     "pattern": {
       "accepted": [
-        "^EnfiladeBot\\/"
+        "EnfiladeBot\\/"
       ],
       "forbidden": []
     },
