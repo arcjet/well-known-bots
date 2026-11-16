@@ -55,6 +55,32 @@ test("check mode rejects pattern and verification errors", (t) => {
   }
 });
 
+test("check mode accepts a SAIL source that names a service", (t) => {
+  const result = fixture(t, {
+    verification: [{
+      type: "cidr",
+      sources: [{
+        type: "http-sail",
+        url: "https://claude.com/.well-known/sail",
+        service: "Claude-Agent",
+      }],
+    }],
+  }).run("--check");
+  assert.equal(result.status, 0, result.stderr);
+});
+
+test("check mode rejects a SAIL source without a string service", (t) => {
+  for (const service of [undefined, "", 1, null, ["Claude-Agent"]]) {
+    const source = { type: "http-sail", url: "https://claude.com/.well-known/sail" };
+    if (service !== undefined) source.service = service;
+    const result = fixture(t, {
+      verification: [{ type: "cidr", sources: [source] }],
+    }).run("--check");
+    assert.equal(result.status, 1, `${JSON.stringify(service)}: ${result.stderr}`);
+    assert.match(result.stderr, /service/);
+  }
+});
+
 test("check mode reports a missing Web Bot Auth schema pattern", (t) => {
   for (const pattern of [undefined, null, ""]) {
     const data = fixture(t);
