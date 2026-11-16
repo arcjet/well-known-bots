@@ -21037,5 +21037,61 @@
     },
     "url": "https://ibou.com/crawlers.html",
     "addition_date": "2026/11/11"
+  },
+  {
+    "id": "feeder-android-feedfetcher",
+    "categories": [
+      "feedfetcher"
+    ],
+    "pattern": {
+      "accepted": [
+        "^SpaceCowboys Android RSS Reader / [0-9]"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "SpaceCowboys Android RSS Reader / 2.21.2(4040)",
+        "SpaceCowboys Android RSS Reader / 3.0.0(5000)"
+      ],
+      "rejected": [
+        "Feeder/2.21.2",
+        "SpaceCowboys Android RSS Reader",
+        "NotSpaceCowboys Android RSS Reader / 2.21.2(4040)",
+        "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.146 Safari/537.36"
+      ]
+    },
+    "url": "https://github.com/spacecowboy/Feeder",
+    "description": "Feed and article fetching by the Feeder Android RSS reader using its published custom HTTP User-Agent. Runs on the reader's device; this identity does not imply malicious activity or verify a particular client.",
+    "addition_date": "2026/11/15"
+  },
+  {
+    "id": "read-you-feedfetcher",
+    "categories": [
+      "feedfetcher"
+    ],
+    "pattern": {
+      "accepted": [
+        "^ReadYou\\/[0-9]"
+      ],
+      "forbidden": []
+    },
+    "verification": [],
+    "instances": {
+      "accepted": [
+        "ReadYou/0.16.2(47)",
+        "ReadYou/1.0.0(100)"
+      ],
+      "rejected": [
+        "ReadYou",
+        "ReadYour/0.16.2(47)",
+        "NotReadYou/0.16.2(47)",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36"
+      ]
+    },
+    "url": "https://github.com/ReadYouApp/ReadYou",
+    "description": "Feed and article fetching by the Read You Android RSS reader using its published custom HTTP User-Agent. Runs on the reader's device; this identity does not imply malicious activity or verify a particular client.",
+    "addition_date": "2026/11/15"
   }
 ]
