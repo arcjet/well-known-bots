@@ -3003,7 +3003,12 @@
     },
     "addition_date": "2012/05/07",
     "url": "http://naver.me/bot",
-    "verification": [],
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://bot.naver.com/.well-known/http-message-signatures-directory"
+      }
+    ],
     "instances": {
       "accepted": [
         "Mozilla/5.0 (compatible; Yeti/1.1; +http://naver.me/bot)"
@@ -16405,6 +16410,10 @@
         "masks": [
           "@.geedo.com"
         ]
+      },
+      {
+        "type": "web-bot-auth",
+        "directory": "https://geedo.com/.well-known/http-message-signatures-directory"
       }
     ],
     "instances": {
@@ -21102,7 +21111,12 @@
       ],
       "forbidden": []
     },
-    "verification": [],
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://ibou.io/.well-known/http-message-signatures-directory"
+      }
+    ],
     "instances": {
       "accepted": [
         "Mozilla/5.0 (compatible; ibou-search/2.0; +https://ibou.com/crawlers.html)"
