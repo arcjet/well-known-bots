@@ -15818,6 +15818,10 @@
             "url": "https://www.facebook.com/peering/geofeed"
           }
         ]
+      },
+      {
+        "type": "web-bot-auth",
+        "directory": "https://www.meta.com/.well-known/http-message-signatures-directory"
       }
     ],
     "instances": {
