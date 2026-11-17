@@ -21471,5 +21471,34 @@
         "Claude-User/1.0"
       ]
     }
+  },
+  {
+    "id": "agentdrives-agent",
+    "categories": [
+      "ai"
+    ],
+    "operator": "agentdrives.com",
+    "pattern": {
+      "accepted": [
+        "AgentDrivesAgent\\/"
+      ],
+      "forbidden": []
+    },
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://agent.agentdrives.com/.well-known/http-message-signatures-directory"
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 AgentDrivesAgent/1.0 (+https://agent.agentdrives.com/bot)",
+        "AgentDrivesAgent/1.0 (+https://agent.agentdrives.com/bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://agent.agentdrives.com/bot",
+    "description": "AgentDrives test agent. It tries software products the way an AI agent would (docs, sign-up, API key, use, payment challenge, cancel) and publishes how far it gets. Follows robots.txt, signs requests with Web Bot Auth.",
+    "addition_date": "2026/11/17"
   }
 ]
