@@ -13615,6 +13615,13 @@
             "selector": "$.prefixes[*][\"ipv6Prefix\",\"ipv4Prefix\"]"
           }
         ]
+      },
+      {
+        "type": "ip",
+        "ips": [
+          "160.79.104.0/21",
+          "153.61.208.0/20"
+        ]
       }
     ],
     "instances": {
@@ -13628,7 +13635,8 @@
     "url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
     "aliases": [
       "ClaudeUser"
-    ]
+    ],
+    "description": "Claude-User fetches on a person's request. Requests from Claude's own products come from the ranges in claude.com/crawling/bots.json; web fetches made through the Claude API come from Anthropic's published outbound API addresses (platform.claude.com/docs/en/api/ip-addresses), listed here as static ranges because that page has no machine-readable form."
   },
   {
     "id": "anthropic-crawler-search",
@@ -19663,7 +19671,10 @@
     },
     "url": "https://docs.github.com/en/webhooks/webhook-events-and-payloads",
     "description": "IP verification identifies GitHub webhook delivery infrastructure; receivers must validate the webhook secret for payload authenticity.",
-    "addition_date": "2026/10/16"
+    "addition_date": "2026/10/16",
+    "aliases": [
+      "GitHubWebhook"
+    ]
   },
   {
     "id": "se-ranking-crawler",
