@@ -109,3 +109,45 @@ test("Self-run software has no operator", () => {
   // An AI agent on the user's machine keeps its vendor.
   assert.equal(bots.get("anthropic-claude-code")?.operator, "anthropic.com");
 });
+
+// APIs-Google is a Google-operated user-triggered fetcher. Google's other
+// user-triggered list, and the App Engine hosts it resolves to, also carry
+// fetchers Google Cloud customers run, so neither may verify it.
+test("APIs-Google verifies only against Google-operated fetchers", () => {
+  const bot = require("./well-known-bots.json").find(
+    (entry) => entry.id === "google-push-notifications",
+  );
+  assert.ok(bot);
+  const urls = bot.verification
+    .filter((method) => method.type === "cidr")
+    .flatMap((method) => method.sources.map((source) => source.url));
+  const masks = bot.verification
+    .filter((method) => method.type === "dns")
+    .flatMap((method) => method.masks);
+  assert.deepEqual(urls, [
+    "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
+  ]);
+  assert.deepEqual(masks, ["google-proxy-***-***-***-***.google.com"]);
+  for (const url of urls) {
+    assert.ok(!url.endsWith("/user-triggered-fetchers.json"), url);
+    assert.ok(!url.endsWith("/special-crawlers.json"), url);
+  }
+  for (const mask of masks) {
+    assert.ok(!mask.endsWith(".gae.googleusercontent.com"), mask);
+  }
+});
+
+// Google's App Engine hosts reverse-resolve to a reversed, dot-separated name
+// (1.202.178.107.gae.googleusercontent.com), so the dash-separated mask Google
+// documents never matched. The dot form would verify any App Engine host,
+// customer apps included, so no entry may verify by an App Engine name.
+test("No entry verifies by an App Engine host name", () => {
+  for (const bot of require("./well-known-bots.json")) {
+    for (const method of bot.verification) {
+      if (method.type !== "dns") continue;
+      for (const mask of method.masks) {
+        assert.ok(!mask.endsWith(".gae.googleusercontent.com"), `${bot.id}: ${mask}`);
+      }
+    }
+  }
+});
