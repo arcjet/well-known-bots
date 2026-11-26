@@ -136,3 +136,18 @@ test("APIs-Google verifies only against Google-operated fetchers", () => {
     assert.ok(!mask.endsWith(".gae.googleusercontent.com"), mask);
   }
 });
+
+// Google's App Engine hosts reverse-resolve to a reversed, dot-separated name
+// (1.202.178.107.gae.googleusercontent.com), so the dash-separated mask Google
+// documents never matched. The dot form would verify any App Engine host,
+// customer apps included, so no entry may verify by an App Engine name.
+test("No entry verifies by an App Engine host name", () => {
+  for (const bot of require("./well-known-bots.json")) {
+    for (const method of bot.verification) {
+      if (method.type !== "dns") continue;
+      for (const mask of method.masks) {
+        assert.ok(!mask.endsWith(".gae.googleusercontent.com"), `${bot.id}: ${mask}`);
+      }
+    }
+  }
+});
