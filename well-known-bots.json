@@ -22018,5 +22018,33 @@
       ],
       "rejected": []
     }
+  },
+  {
+    "id": "echelongraph-radar",
+    "categories": [
+      "monitor"
+    ],
+    "operator": "echelongraph.io",
+    "pattern": {
+      "accepted": [
+        "EchelonGraphBot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/11/27",
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://echelongraph.io/.well-known/http-message-signatures-directory"
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "EchelonGraphBot/1.0 (+https://echelongraph.io/bot)"
+      ],
+      "rejected": []
+    },
+    "url": "https://echelongraph.io/bot",
+    "description": "EchelonGraph Radar. Checks the reachability, HTTP status, TLS configuration and response time of public websites and publishes the results. Requests are signed with Web Bot Auth."
   }
 ]
