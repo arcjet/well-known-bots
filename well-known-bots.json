@@ -22046,5 +22046,35 @@
     },
     "url": "https://echelongraph.io/bot",
     "description": "EchelonGraph Radar. Checks the reachability, HTTP status, TLS configuration and response time of public websites and publishes the results. Requests are signed with Web Bot Auth."
+  },
+  {
+    "id": "cookierocks-crawler",
+    "categories": [
+      "monitor"
+    ],
+    "operator": "cookierocks.com",
+    "pattern": {
+      "accepted": [
+        "CookieRocksBot\\/"
+      ],
+      "forbidden": []
+    },
+    "addition_date": "2026/11/27",
+    "url": "https://cookierocks.com/bot/",
+    "verification": [
+      {
+        "type": "web-bot-auth",
+        "directory": "https://cookierocks.com/.well-known/http-message-signatures-directory"
+      }
+    ],
+    "instances": {
+      "accepted": [
+        "CookieRocksBot/1.0 (+https://cookierocks.com/bot/)"
+      ],
+      "rejected": []
+    },
+    "aliases": [
+      "CookieRocksBot"
+    ]
   }
 ]
